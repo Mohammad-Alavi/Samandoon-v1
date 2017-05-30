@@ -119,24 +119,30 @@ $this->call(\MyAction::class, [$paramerter1, $paramerter2]);
 <a name="Chat"></a>
 ## Get in touch
 
-Join our [Slack](https://apiato.slack.com/shared_invite/MTYyMzk3MzIzNjIxLTE0OTA5MDE0NTMtOTljOGU1NmFlZQ) chatting room, by click on the Slack icon below.
+Join our [Slack](https://now-examples-slackin-bvfqosqozk.now.sh) chatting room, by click on the Slack icon below.
 
 [![](https://s19.postimg.org/h7pvzy9ar/Slack-i_OS-icon.png)](https://now-examples-slackin-bvfqosqozk.now.sh)
 
 
 
-<a name="Contribution"></a>
-## Contribution
+<a name="Contributors"></a>
+## Contributors
 
-[Contributors Giude](http://apiato.io/B.general/contribution)
+[Contribution Guide](http://apiato.io/B.general/contribution)
 
 
 <a name="Credits"></a>
 ## Credits
 
-| Contributors                                | Twitter                                           | Contact         | Site                                |
-|---------------------------------------------|---------------------------------------------------|-----------------|-------------------------------------|
-| [Mahmoud Zalt](https://github.com/Mahmoudz) | @[Mahmoud_Zalt](https://twitter.com/Mahmoud_Zalt) | mahmoud@zalt.me | [https://zalt.me](https://zalt.me/) |
+Created by [Mahmoud Zalt](https://zalt.me/) (Twitter [@Mahmoud_Zalt](https://twitter.com/Mahmoud_Zalt)).
+
+And a list of awesome contributors:
+
+- [Johan Alvarez](https://github.com/llstarscreamll)
+- [Þorgrímur Jónasarson](https://github.com/toggi737)
+- [Johannes Schobel](https://github.com/johannesschobel)
+- [... See full list](https://github.com/apiato/apiato/graphs/contributors)
+- [Join Us?](http://apiato.io/B.general/contribution/)
 
 
 <a name="Donations"></a>

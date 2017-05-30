@@ -22,25 +22,44 @@ trait ResponseTrait
 
     /**
      * @param            $data
-     * @param null       $transformerName
+     * @param null $transformerName
      * @param array|null $includes
+     * @param array $meta
      *
-     * @return  mixed
+     * @return mixed
      */
-    public function transform($data, $transformerName = null, array $includes = null)
+    public function transform($data, $transformerName = null, array $includes = null, array $meta = [])
     {
         $transformer = new $transformerName;
 
+        // override default includes by the request includes
+        if ($requestIncludes = Request::get('include')) {
+            $includes = explode(',', $requestIncludes);
+        }
+
         if($includes){
+            $includes = array_unique(array_merge($transformer->getDefaultIncludes(), $includes));
             $transformer->setDefaultIncludes($includes);
         }
 
-        if (!empty($requestIncludes = Request::get('include', null))) {
-            $transformer->setDefaultIncludes(explode(',', $requestIncludes));
+        // add specific meta information to the response message
+        $this->metaData = [
+            'include' => $transformer->getAvailableIncludes(),
+            'custom' => $meta,
+        ];
+
+        $fractal = Fractal::create($data, $transformer)->addMeta($this->metaData);
+
+        // apply request filters if available in the request
+        if($requestFilters = Request::get('filter')){
+            $result = $this->filterResponse($fractal->toArray(), explode(';', $requestFilters));
+        }else{
+            $result = $fractal->toJson();
         }
 
-        return Fractal::create($data, $transformer)->addMeta($this->metaData)->toJson();
+        return $result;
     }
+
 
     /**
      * @param $data
@@ -81,21 +100,21 @@ trait ResponseTrait
     }
 
     /**
-     * @param $object
+     * @param $responseArrayect
      *
      * @return  \Illuminate\Http\JsonResponse
      */
-    public function deleted($object = null)
+    public function deleted($responseArrayect = null)
     {
-        if(!$object){
+        if(!$responseArrayect){
             return $this->accepted();
         }
 
-        $id = $object->getHashedKey();
-        $objectType = (new ReflectionClass($object))->getShortName();
+        $id = $responseArrayect->getHashedKey();
+        $responseArrayectType = (new ReflectionClass($responseArrayect))->getShortName();
 
         return $this->accepted([
-            'message' => "$objectType ($id) Deleted Successfully.",
+            'message' => "$responseArrayectType ($id) Deleted Successfully.",
         ]);
     }
 
@@ -107,6 +126,49 @@ trait ResponseTrait
     public function noContent($status = 204)
     {
         return new JsonResponse(null, $status);
+    }
+
+
+    /**
+     * @param $responseArray
+     * @param $filters
+     *
+     * @return  mixed
+     */
+    private function filterResponse($responseArray, $filters)
+    {
+        foreach ($responseArray as $k => $v)
+        {
+            if(in_array($k, $filters, true)) {
+                // we have found our element - so continue with the next one
+                continue;
+            }
+
+            if (is_array($v))
+            {
+                // it is an array - so go one step deeper
+                $v = $this->filterResponse($v, $filters);
+                if(empty($v))
+                {
+                    // it is an empty array - delete the key as well
+                    unset($responseArray[$k]);
+                }
+                else
+                {
+                    $responseArray[$k] = $v;
+                }
+                continue;
+            }
+            else
+            {
+                // check if the array is not in our filter-list
+                if(! in_array($k, $filters)) {
+                    unset($responseArray[$k]);
+                    continue;
+                }
+            }
+        }
+        return $responseArray;
     }
 
 }
