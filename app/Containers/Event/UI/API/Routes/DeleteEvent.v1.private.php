@@ -2,25 +2,23 @@
 
 /**
  * @apiGroup           Event
- * @apiName            
+ * @apiName            DeleteEvent
  *
- * @api                {}  Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {delete} /v1/event/:id Delete Event
+ * @apiDescription     Delete an Event by ID
  *
  * @apiVersion         1.0.0
- * @apiPermission      none
- *
- * @apiParam           {String}  parameters here..
+ * @apiPermission      Authenticated User
  *
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK
 {
-  // Response here...
+    "message": "Event (oj64bp5zjl8ywzn0) Deleted Successfully."
 }
  */
 
-$router->post('', [
-    'uses'  => 'Controller@',
+$router->delete('/event/{id}', [
+    'uses'  => 'Controller@deleteEvent',
     'middleware' => [
       'auth:api',
     ],

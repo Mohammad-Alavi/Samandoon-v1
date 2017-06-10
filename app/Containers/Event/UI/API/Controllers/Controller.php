@@ -2,139 +2,77 @@
 
 namespace App\Containers\Event\UI\API\Controllers;
 
-use App\Containers\User\Actions\CreateAdminAction;
-use App\Containers\User\Actions\DeleteUserAction;
-use App\Containers\User\Actions\GetAuthenticatedUserAction;
-use App\Containers\User\Actions\GetUserAction;
-use App\Containers\User\Actions\ListAdminsAction;
-use App\Containers\User\Actions\ListAndSearchUsersAction;
-use App\Containers\User\Actions\ListClientsAction;
-use App\Containers\User\Actions\RegisterUserAction;
-use App\Containers\User\Actions\UpdateUserAction;
-use App\Containers\User\UI\API\Requests\CreateAdminRequest;
-use App\Containers\User\UI\API\Requests\DeleteUserRequest;
-use App\Containers\User\UI\API\Requests\GetAuthenticatedUserRequest;
-use App\Containers\User\UI\API\Requests\GetUserByIdRequest;
-use App\Containers\User\UI\API\Requests\ListAllUsersRequest;
-use App\Containers\User\UI\API\Requests\RegisterUserRequest;
-use App\Containers\User\UI\API\Requests\UpdateUserRequest;
-use App\Containers\User\UI\API\Transformers\UserTransformer;
+use App\Containers\Event\Actions\CreateEventAction;
+use App\Containers\Event\Actions\DeleteEventAction;
+use App\Containers\Event\Actions\GetEventAction;
+use App\Containers\Event\Actions\ListEventsAction;
+use App\Containers\Event\Actions\UpdateEventAction;
+use App\Containers\Event\UI\API\Requests\CreateEventRequest;
+use App\Containers\Event\UI\API\Requests\DeleteEventRequest;
+use App\Containers\Event\UI\API\Requests\GetEventRequest;
+use App\Containers\Event\UI\API\Requests\ListAllEventsRequest;
+use App\Containers\Event\UI\API\Requests\UpdateEventRequest;
+use App\Containers\Event\UI\API\Transformers\CreateEventTransformer;
+use App\Containers\Event\UI\API\Transformers\EventTransformer;
+use App\Containers\Event\UI\API\Transformers\UpdateEventTransformer;
 use App\Ship\Parents\Controllers\ApiController;
+use App\Ship\Parents\Requests\Request;
 
-/**
- * Class Controller.
- *
- * @author Mahmoud Zalt <mahmoud@zalt.me>
- */
 class Controller extends ApiController
 {
-
     /**
-     * @param \App\Containers\User\UI\API\Requests\RegisterUserRequest $request
-     *
-     * @return  mixed
+     * Show all events
+     * @param ListAllEventsRequest|Request $request
+     * @return mixed
      */
-    public function registerUser(RegisterUserRequest $request)
-    {
-        $user = $this->call(RegisterUserAction::class, [$request]);
+    public function listAllEvents(ListAllEventsRequest $request) {
 
-        return $this->transform($user, UserTransformer::class);
+        $events = $this->call(ListEventsAction::class, [$request]);
+
+        return $this->transform($events, EventTransformer::class);
     }
 
     /**
-     * @param \App\Containers\User\UI\API\Requests\CreateAdminRequest $request
-     *
-     * @return  mixed
+     * Show one event
+     * @param GetEventRequest|Request $request
+     * @return mixed
      */
-    public function createAdmin(CreateAdminRequest $request)
-    {
-        $admin = $this->call(CreateAdminAction::class, [$request]);
+    public function getEvent(GetEventRequest $request) {
 
-        return $this->transform($admin, UserTransformer::class);
+        $event = $this->call(GetEventAction::class, [$request]);
+        return $this->transform($event, EventTransformer::class);
     }
 
     /**
-     * @param \App\Containers\User\UI\API\Requests\UpdateUserRequest $request
-     *
-     * @return  mixed
+     * Add a new event
+     * @param CreateEventRequest|Request $request
+     * @return mixed
      */
-    public function updateUser(UpdateUserRequest $request)
-    {
-        $user = $this->call(UpdateUserAction::class, [$request]);
+    public function createEvent(CreateEventRequest $request) {
 
-        return $this->transform($user, UserTransformer::class);
+        $event = $this->call(CreateEventAction::class, [$request]);
+        return $this->transform($event, CreateEventTransformer::class);
     }
 
     /**
-     * @param \App\Containers\User\UI\API\Requests\DeleteUserRequest $request
-     *
-     * @return  \Illuminate\Http\JsonResponse
+     * Update a given event
+     * @param UpdateEventRequest|Request $request
+     * @return mixed
      */
-    public function deleteUser(DeleteUserRequest $request)
-    {
-        $user = $this->call(DeleteUserAction::class, [$request]);
+    public function updateEvent(UpdateEventRequest $request) {
 
-        return $this->deleted($user);
+        $event = $this->call(UpdateEventAction::class, [$request]);
+        return $this->transform($event, UpdateEventTransformer::class);
     }
 
     /**
-     * @param \App\Containers\User\UI\API\Requests\ListAllUsersRequest $request
-     *
-     * @return  mixed
+     * Delete a given event
+     * @param DeleteEventRequest|Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function listAllUsers(ListAllUsersRequest $request)
-    {
-        $users = $this->call(ListAndSearchUsersAction::class);
+    public function deleteEvent(DeleteEventRequest $request) {
 
-        return $this->transform($users, UserTransformer::class);
+        $event = $this->call(DeleteEventAction::class, [$request]);
+        return $this->deleted($event);
     }
-
-    /**
-     * @param \App\Containers\User\UI\API\Requests\ListAllUsersRequest $request
-     *
-     * @return  mixed
-     */
-    public function listAllClients(ListAllUsersRequest $request)
-    {
-        $users = $this->call(ListClientsAction::class);
-
-        return $this->transform($users, UserTransformer::class);
-    }
-
-    /**
-     * @param \App\Containers\User\UI\API\Requests\ListAllUsersRequest $request
-     *
-     * @return  mixed
-     */
-    public function listAllAdmins(ListAllUsersRequest $request)
-    {
-        $users = $this->call(ListAdminsAction::class);
-
-        return $this->transform($users, UserTransformer::class);
-    }
-
-    /**
-     * @param \App\Containers\User\UI\API\Requests\GetUserByIdRequest $request
-     *
-     * @return  mixed
-     */
-    public function getUser(GetUserByIdRequest $request)
-    {
-        $user = $this->call(GetUserAction::class, [$request]);
-
-        return $this->transform($user, UserTransformer::class);
-    }
-
-    /**
-     * @param \App\Containers\User\UI\API\Requests\GetAuthenticatedUserRequest $request
-     *
-     * @return  mixed
-     */
-    public function getAuthenticatedUserData(GetAuthenticatedUserRequest $request)
-    {
-        $user = $this->call(GetAuthenticatedUserAction::class);
-
-        return $this->transform($user, UserTransformer::class);
-    }
-
 }
