@@ -88,13 +88,28 @@ sites:
   	  to: /{full-path-to}/apiato/public
 ```
 
-1.3) You can also map other domains like `apiato.dev` and `admin.apiato.dev` to the user web apps:
+1.3) You can also map other domains like `apiato.dev` and `admin.apiato.dev` to other web apps:
 
 ```text
 	- map: apiato.dev
-  	  to: /{full-path-to}/apiato/clients/web/user
+  	  to: /{full-path-to}/clients/web/user
 	- map: admin.apiato.dev
-  	  to: /{full-path-to}/apiato/clients/web/admin
+  	  to: /{full-path-to}/clients/web/admin
+```
+
+Note: in the example above the `/{full-path-to}/clients/web/***` are separate apps, who live on their own 
+repositories and in different folder then the apiato one. 
+If your Admins, Users or other type of Apps are within apiato, then 
+you must point them all to the apiato project folder `/{full-path-to}/apiato/public`. 
+So in that case you would have something like this:
+ 
+```text
+    - map: api.apiato.dev
+      to: /{full-path-to}/apiato/public
+    - map: apiato.dev
+      to: /{full-path-to}/apiato/public
+    - map: admin.apiato.dev
+      to: /{full-path-to}/apiato/public
 ```
 
 2) Add the domain to the Hosts file:
@@ -117,7 +132,8 @@ sites:
 homestead up --provision
 ```
 
-*If you see `No input file specified` on the subdomains! try running this command `homestead halt && homestead up --provision`.*
+*If you see `No input file specified` on the sub-domains!  
+try running this command `homestead halt && homestead up --provision`.*
 
 
 
@@ -225,12 +241,20 @@ php artisan passport:install
 
 If you are planning to use ApiDoc JS then proceed with this setup, else skip this and use whatever you prefer:
 
-1) Install [ApiDocJs](http://apidocjs.com/) using NPM or any other way:
+1) Install [ApiDocJs](http://apidocjs.com/) using NPM or your favorite dependencies manager:
+
+Install it Globally with `-g` or locally in the project without `-g` 
+
 ```shell
-npm install
+npm install apidoc -g
 ```
 
+Or install it by just running `npm install` on the root of the project, after checking the `package.json` file on thr root. 
+
+
 2) run `php artisan apiato:docs`
+
+Behind the scene `apiato:docs` is executing a command like this `apidoc -c app/Containers/Documentation/ApiDocJs/public -f public.php -i app -o public/api/documentation`.
 
 ##### Visit [API Docs Generator](http://apiato.io/C.features/api-docs-generator/) for more details.
 
@@ -256,11 +280,19 @@ phpunit
 
 Now let's see it in action
 
-1. Open your web browser and visit: 
+1.a. Open your web browser and visit: 
 
 - `http://apiato.dev` You should see an HTML page, with `apiato` in the middle.
-- `http://api.apiato.dev/` You should see a JSON response with message: `Welcome to apiato.`, you can also to go `http://api.apiato.dev/v1` and see a welcome response to your API version 1 landing page
 - `http://admin.apiato.dev` You should see an HTML Login page.
+
+1.b. Open your HTTP client and call: 
+
+- `http://api.apiato.dev/` You should see a JSON response with message: `"Welcome to apiato."`, 
+- `http://api.apiato.dev/v1` You should see a JSON response with message: `"Welcome to apiato (API V1)."`,
+
+Note: Your request MUST contain `Accept` => `application/json` in the HTTP header.
+
+If you try to open `api.apiato.dev` in browser you will get a **Missing JSON Header Exception**.   
 
 
 2) Make some HTTP calls to the API:
