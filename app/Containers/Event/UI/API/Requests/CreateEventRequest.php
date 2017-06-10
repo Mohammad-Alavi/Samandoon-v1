@@ -58,7 +58,5 @@ class CreateEventRequest extends Request
         return $this->check([
             'hasAccess',
         ]);
-
-        return true;
     }
 }
