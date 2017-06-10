@@ -1,9 +1,9 @@
 {
-  "name": "apiato",
-  "description": "apiato (Private API) Documentation",
-  "title": "Welcome to apiato",
+  "name": "Samandoon",
+  "description": "Samandoon (Private API) Documentation",
+  "title": "Welcome to Samandoon",
   "version": "1.0.0",
-  "url" : "http://api.apiato.dev",
+  "url" : "http://api.denora.ir",
   "template": {
   	"withCompare": true,
   	"withGenerator": true
