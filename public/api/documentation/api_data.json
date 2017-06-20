@@ -123,7 +123,7 @@
     "name": "Logout",
     "type": "post",
     "url": "/v1/logout",
-    "title": "",
+    "title": "Logout",
     "description": "<p>User Logout. (Revoking Access Token)</p>",
     "version": "1.0.0",
     "permission": [
@@ -135,7 +135,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\n}",
+          "content": "HTTP/1.1 202 Accepted\n{\n  \"message\": \"Token revoked successfully.\"\n}",
           "type": "json"
         }
       ]

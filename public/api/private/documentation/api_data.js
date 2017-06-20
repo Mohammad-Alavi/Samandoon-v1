@@ -24,7 +24,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "text",
             "optional": false,
             "field": "description",
             "description": ""
@@ -158,7 +158,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "text",
             "optional": false,
             "field": "description",
             "description": ""
@@ -389,7 +389,7 @@ define({ "api": [
     "name": "Logout",
     "type": "post",
     "url": "/v1/logout",
-    "title": "",
+    "title": "Logout",
     "description": "<p>User Logout. (Revoking Access Token)</p>",
     "version": "1.0.0",
     "permission": [
@@ -401,7 +401,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\n}",
+          "content": "HTTP/1.1 202 Accepted\n{\n  \"message\": \"Token revoked successfully.\"\n}",
           "type": "json"
         }
       ]
@@ -442,17 +442,17 @@ define({ "api": [
         ]
       }
     },
+    "filename": "app/Containers/Authorization/UI/API/Routes/AssignUserToRole.v1.private.php",
+    "groupTitle": "RolePermission",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"id\":abcderf,\n      \"name\":\"Mrs. Genoveva Prosacco\",\n      \"email\":\"abbigail.rolfson@hotmail.com\",\n      \"confirmed\":\"0\",\n      \"total_credits\":0,\n      \"created_at\":{\n         \"date\":\"2016-12-30 20:18:33.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"token\":null,\n      \"updated_at\":{\n         \"date\":\"2016-12-30 20:18:33.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"deleted_at\":null,\n      \"roles\":{\n         \"data\":[\n            {\n               \"object\": \"Role\",\n               \"id\": abcderf,\n               \"name\":\"admin\",\n               \"description\":\"Super Administrator\",\n               \"display_name\":\"\"\n            },\n            {\n               \"object\": \"Role\",\n               \"id\": ascderf,\n               \"name\":\"client\",\n               \"description\":\"Normal Client\",\n               \"display_name\":\"\"\n            }\n         ]\n      }\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"User\",\n      \"id\": \"eqwja3vw94kzmxr0\",\n      \"name\": \"Mahmoud Zalt\",\n      \"email\": \"x.rolllln@hotmail.com\",\n      \"confirmed\": \"0\",\n      \"gender\": \"male\",\n      \"birth\": null,\n      \"social_provider\": null,\n      \"social_nickname\": null,\n      \"social_id\": null,\n      \"social_avatar\": {\n         \"avatar\": null,\n         \"original\": null\n      },\n      \"device\": \"galaxy note 10.1 n8000\",\n      \"platform\": \"android\",\n      \"created_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"updated_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"readable_created_at\":\"1 second ago\",\n      \"readable_updated_at\":\"1 second ago\",\n      \"real_id\": 3,\n      \"deleted_at\": null\n   },\n   \"meta\":{\n      \"include\":[\n         \"stores\",\n         \"invoices\",\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/Authorization/UI/API/Routes/AssignUserToRole.v1.private.php",
-    "groupTitle": "RolePermission"
+    }
   },
   {
     "group": "RolePermission",
@@ -487,17 +487,17 @@ define({ "api": [
         ]
       }
     },
+    "filename": "app/Containers/Authorization/UI/API/Routes/AttachPermissionToRole.v1.private.php",
+    "groupTitle": "RolePermission",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"data\": {\n    \"object\": \"Role\",\n    \"name\": \"player\",\n    \"description\": null,\n    \"display_name\": null,\n    \"permissions\": {\n      \"data\": [\n        {\n          \"object\": \"Permission\",\n          \"id\": abcderf,\n          \"name\": \"play football\",\n          \"description\": null,\n          \"display_name\": null\n        },\n        {\n          \"object\": \"Permission\",\n          \"id\": abcderf,\n          \"name\": \"access secret info\",\n          \"description\": null,\n          \"display_name\": null\n        }\n      ]\n    }\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\":\"Role\",\n      \"id\":\"eqwja3vw94kzmxr0\",\n      \"name\":\"praesentium-aut\",\n      \"description\":null,\n      \"display_name\":null,\n      \"permissions\":{\n         \"data\":[\n            {\n               \"object\":\"Permission\",\n               \"id\":\"n9kq6345javb05je\",\n               \"name\":\"est-sit-voluptatem\",\n               \"description\":null,\n               \"display_name\":null\n            },\n            {\n               \"object\":\"Permission\",\n               \"id\":\"999q6345javb05je\",\n               \"name\":\"something-else\",\n               \"description\":null,\n               \"display_name\":null\n            }\n         ]\n      }\n   },\n   \"meta\":{\n      \"include\":[\n\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/Authorization/UI/API/Routes/AttachPermissionToRole.v1.private.php",
-    "groupTitle": "RolePermission"
+    }
   },
   {
     "group": "RolePermission",
@@ -538,17 +538,17 @@ define({ "api": [
         ]
       }
     },
+    "filename": "app/Containers/Authorization/UI/API/Routes/CreateRole.v1.private.php",
+    "groupTitle": "RolePermission",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\":\"Role\",\n      \"id\": abcderf,\n      \"name\":\"Manager\",\n      \"description\":\"he manages things\",\n      \"display_name\":\"something else\"\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\":\"Role\",\n      \"id\":\"eqwja3vw94kzmxr0\",\n      \"name\":\"praesentium-aut\",\n      \"description\":null,\n      \"display_name\":null,\n      \"permissions\":{\n         \"data\":[\n            {\n               \"object\":\"Permission\",\n               \"id\":\"n9kq6345javb05je\",\n               \"name\":\"est-sit-voluptatem\",\n               \"description\":null,\n               \"display_name\":null\n            },\n            {\n               \"object\":\"Permission\",\n               \"id\":\"999q6345javb05je\",\n               \"name\":\"something-else\",\n               \"description\":null,\n               \"display_name\":null\n            }\n         ]\n      }\n   },\n   \"meta\":{\n      \"include\":[\n\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/Authorization/UI/API/Routes/CreateRole.v1.private.php",
-    "groupTitle": "RolePermission"
+    }
   },
   {
     "group": "RolePermission",
@@ -608,17 +608,17 @@ define({ "api": [
         ]
       }
     },
+    "filename": "app/Containers/Authorization/UI/API/Routes/DetachPermissionsFromRole.v1.private.php",
+    "groupTitle": "RolePermission",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"data\": {\n    \"object\": \"Role\",\n    \"name\": \"player\",\n    \"description\": null,\n    \"display_name\": null,\n    \"permissions\": {\n      \"data\": [\n        {\n          \"object\": \"Permission\",\n          \"id\": abcderf,\n          \"name\": \"play football\",\n          \"description\": null,\n          \"display_name\": null\n        },\n        {\n          \"object\": \"Permission\",\n          \"id\": abcderf,\n          \"name\": \"access secret info\",\n          \"description\": null,\n          \"display_name\": null\n        }\n      ]\n    }\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\":\"Role\",\n      \"id\":\"eqwja3vw94kzmxr0\",\n      \"name\":\"praesentium-aut\",\n      \"description\":null,\n      \"display_name\":null,\n      \"permissions\":{\n         \"data\":[\n            {\n               \"object\":\"Permission\",\n               \"id\":\"n9kq6345javb05je\",\n               \"name\":\"est-sit-voluptatem\",\n               \"description\":null,\n               \"display_name\":null\n            },\n            {\n               \"object\":\"Permission\",\n               \"id\":\"999q6345javb05je\",\n               \"name\":\"something-else\",\n               \"description\":null,\n               \"display_name\":null\n            }\n         ]\n      }\n   },\n   \"meta\":{\n      \"include\":[\n\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/Authorization/UI/API/Routes/DetachPermissionsFromRole.v1.private.php",
-    "groupTitle": "RolePermission"
+    }
   },
   {
     "group": "RolePermission",
@@ -632,17 +632,17 @@ define({ "api": [
         "name": "Authenticated User"
       }
     ],
+    "filename": "app/Containers/Authorization/UI/API/Routes/FindPermission.v1.private.php",
+    "groupTitle": "RolePermission",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"Permission\",\n      \"id\": abcderf,\n      \"name\":\"anything\",\n      \"description\":\"\",\n      \"display_name\":\"bla bla bla\"\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\":\"Permission\",\n      \"id\":\"n9kq6345javb05je\",\n      \"name\":\"amet-ducimus\",\n      \"description\":null,\n      \"display_name\":null\n   },\n   \"meta\":{\n      \"include\":[\n\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/Authorization/UI/API/Routes/FindPermission.v1.private.php",
-    "groupTitle": "RolePermission"
+    }
   },
   {
     "group": "RolePermission",
@@ -656,17 +656,17 @@ define({ "api": [
         "name": "Authenticated User"
       }
     ],
+    "filename": "app/Containers/Authorization/UI/API/Routes/FindRole.v1.private.php",
+    "groupTitle": "RolePermission",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"Role\",\n      \"id\":\"sdffsf\",\n      \"name\":\"admin\",\n      \"description\":\"Super Administrator\",\n      \"display_name\":\"\"\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\":\"Role\",\n      \"id\":\"eqwja3vw94kzmxr0\",\n      \"name\":\"praesentium-aut\",\n      \"description\":null,\n      \"display_name\":null,\n      \"permissions\":{\n         \"data\":[\n            {\n               \"object\":\"Permission\",\n               \"id\":\"n9kq6345javb05je\",\n               \"name\":\"est-sit-voluptatem\",\n               \"description\":null,\n               \"display_name\":null\n            },\n            {\n               \"object\":\"Permission\",\n               \"id\":\"999q6345javb05je\",\n               \"name\":\"something-else\",\n               \"description\":null,\n               \"display_name\":null\n            }\n         ]\n      }\n   },\n   \"meta\":{\n      \"include\":[\n\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/Authorization/UI/API/Routes/FindRole.v1.private.php",
-    "groupTitle": "RolePermission"
+    }
   },
   {
     "group": "RolePermission",
@@ -680,17 +680,17 @@ define({ "api": [
         "name": "Authenticated User"
       }
     ],
+    "filename": "app/Containers/Authorization/UI/API/Routes/ListAllPermissions.v1.private.php",
+    "groupTitle": "RolePermission",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      \"object\": \"Permission\",\n      \"id\": \"sdffsdfs\",\n      \"name\": \"manage-roles-permissions\",\n      \"description\": \"Manage Roles and Permissions for Users\",\n      \"display_name\": null\n    },\n    {\n      \"object\": \"Permission\",\n      \"id\": \"sdffsdfs\",\n      \"name\": \"delete-user\",\n      \"description\": null,\n      \"display_name\": null\n    },\n    {\n      \"object\": \"Permission\",\n      \"id\": \"sdffsdfs\",\n      \"name\": \"update-user\",\n      \"description\": null,\n      \"display_name\": null\n    },\n    {\n      \"object\": \"Permission\",\n      \"id\": \"sdffsdfs\",\n      \"name\": \"create-applications\",\n      \"description\": \"Create Application to gain third party access using special token\",\n      \"display_name\": null\n    }\n  ]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      // same object structure of the single response\n    },\n    {\n      // ...\n    },\n    // ...\n  ],\n  \"include\": [\n    \"xxx\",\n    \"yyy\",\n  ],\n  \"custom\": [],\n  \"meta\": {\n    \"pagination\": {\n      \"total\": x,\n      \"count\": x,\n      \"per_page\": x,\n      \"current_page\": x,\n      \"total_pages\": x,\n      \"links\": []\n    }\n  }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/Authorization/UI/API/Routes/ListAllPermissions.v1.private.php",
-    "groupTitle": "RolePermission"
+    }
   },
   {
     "group": "RolePermission",
@@ -704,17 +704,17 @@ define({ "api": [
         "name": "Authenticated User"
       }
     ],
+    "filename": "app/Containers/Authorization/UI/API/Routes/ListAllRoles.v1.private.php",
+    "groupTitle": "RolePermission",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      \"object\": \"Role\",\n      \"id\": \"sdadsdasd\",\n      \"name\": \"admin\",\n      \"description\": \"Super Administrator\",\n      \"display_name\": null,\n      \"permissions\": {\n        \"data\": [\n          {\n            \"object\": \"Permission\",\n            \"name\": \"update-user\",\n            \"description\": null,\n            \"display_name\": null\n          },\n          {\n            \"object\": \"Permission\",\n            \"name\": \"delete-item\",\n            \"description\": null,\n            \"display_name\": null\n          }\n        ]\n      }\n    },\n    {\n      \"object\": \"Role\",\n      \"id\": \"adfghew\",\n      \"name\": \"client\",\n      \"description\": \"Normal Client\",\n      \"display_name\": null,\n      \"permissions\": {\n        \"data\": [\n          {\n            \"object\": \"Permission\",\n            \"name\": \"update-user\",\n            \"description\": null,\n            \"display_name\": null\n          }\n        ]\n      }\n    },\n    {\n      \"object\": \"Role\",\n      \"id\": \"sdfafs\",\n      \"name\": \"developer\",\n      \"description\": \"A developer account, has access to the API\",\n      \"display_name\": null,\n      \"permissions\": {\n        \"data\": [\n          {\n            \"object\": \"Permission\",\n            \"name\": \"create-applications\",\n            \"description\": \"Create Application to gain third party access using special token\",\n            \"display_name\": null\n          }\n        ]\n      }\n    },\n    {\n      \"object\": \"Role\",\n      \"name\": \"player\",\n      \"description\": null,\n      \"display_name\": null,\n      \"permissions\": {\n        \"data\": [\n          {\n            \"object\": \"Permission\",\n            \"name\": \"access secret info\",\n            \"description\": null,\n            \"display_name\": null\n          }\n        ]\n      }\n    }\n  ]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      // same object structure of the single response\n    },\n    {\n      // ...\n    },\n    // ...\n  ],\n  \"include\": [\n    \"xxx\",\n    \"yyy\",\n  ],\n  \"custom\": [],\n  \"meta\": {\n    \"pagination\": {\n      \"total\": x,\n      \"count\": x,\n      \"per_page\": x,\n      \"current_page\": x,\n      \"total_pages\": x,\n      \"links\": []\n    }\n  }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/Authorization/UI/API/Routes/ListAllRoles.v1.private.php",
-    "groupTitle": "RolePermission"
+    }
   },
   {
     "group": "RolePermission",
@@ -749,17 +749,17 @@ define({ "api": [
         ]
       }
     },
+    "filename": "app/Containers/Authorization/UI/API/Routes/RevokeUserFromRole.v1.private.php",
+    "groupTitle": "RolePermission",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"id\":abcderf,\n      \"name\":\"Mrs. Genoveva Prosacco\",\n      \"email\":\"abbigail.rolfson@hotmail.com\",\n      \"confirmed\":\"0\",\n      \"total_credits\":0,\n      \"created_at\":{\n         \"date\":\"2016-12-30 20:18:33.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"token\":null,\n      \"updated_at\":{\n         \"date\":\"2016-12-30 20:18:33.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"deleted_at\":null,\n      \"roles\":{\n         \"data\":[\n            {\n               \"object\":\"Role\",\n               \"id\":\"insa\",\n               \"name\":\"admin\",\n               \"description\":\"Super Administrator\",\n               \"display_name\":\"\"\n            },\n            {\n               \"object\":\"Role\",\n               \"id\":\"insa\",\n               \"name\":\"client\",\n               \"description\":\"Normal Client\",\n               \"display_name\":\"\"\n            }\n         ]\n      }\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"User\",\n      \"id\": \"eqwja3vw94kzmxr0\",\n      \"name\": \"Mahmoud Zalt\",\n      \"email\": \"x.rolllln@hotmail.com\",\n      \"confirmed\": \"0\",\n      \"gender\": \"male\",\n      \"birth\": null,\n      \"social_provider\": null,\n      \"social_nickname\": null,\n      \"social_id\": null,\n      \"social_avatar\": {\n         \"avatar\": null,\n         \"original\": null\n      },\n      \"device\": \"galaxy note 10.1 n8000\",\n      \"platform\": \"android\",\n      \"created_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"updated_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"readable_created_at\":\"1 second ago\",\n      \"readable_updated_at\":\"1 second ago\",\n      \"real_id\": 3,\n      \"deleted_at\": null\n   },\n   \"meta\":{\n      \"include\":[\n         \"stores\",\n         \"invoices\",\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/Authorization/UI/API/Routes/RevokeUserFromRole.v1.private.php",
-    "groupTitle": "RolePermission"
+    }
   },
   {
     "group": "RolePermission",
@@ -794,17 +794,17 @@ define({ "api": [
         ]
       }
     },
+    "filename": "app/Containers/Authorization/UI/API/Routes/SyncPermissionOnRole.v1.private.php",
+    "groupTitle": "RolePermission",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n  \"data\": {\n    \"object\": \"Role\",\n    \"name\": \"player\",\n    \"description\": null,\n    \"display_name\": null,\n    \"permissions\": {\n      \"data\": [\n        {\n          \"object\": \"Permission\",\n          \"id\": abcderf,\n          \"name\": \"play football\",\n          \"description\": null,\n          \"display_name\": null\n        },\n        {\n          \"object\": \"Permission\",\n          \"id\": abcderf,\n          \"name\": \"access secret info\",\n          \"description\": null,\n          \"display_name\": null\n        }\n      ]\n    }\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\":\"Role\",\n      \"id\":\"eqwja3vw94kzmxr0\",\n      \"name\":\"praesentium-aut\",\n      \"description\":null,\n      \"display_name\":null,\n      \"permissions\":{\n         \"data\":[\n            {\n               \"object\":\"Permission\",\n               \"id\":\"n9kq6345javb05je\",\n               \"name\":\"est-sit-voluptatem\",\n               \"description\":null,\n               \"display_name\":null\n            },\n            {\n               \"object\":\"Permission\",\n               \"id\":\"999q6345javb05je\",\n               \"name\":\"something-else\",\n               \"description\":null,\n               \"display_name\":null\n            }\n         ]\n      }\n   },\n   \"meta\":{\n      \"include\":[\n\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/Authorization/UI/API/Routes/SyncPermissionOnRole.v1.private.php",
-    "groupTitle": "RolePermission"
+    }
   },
   {
     "group": "RolePermission",
@@ -839,17 +839,17 @@ define({ "api": [
         ]
       }
     },
+    "filename": "app/Containers/Authorization/UI/API/Routes/SyncUserRoles.v1.private.php",
+    "groupTitle": "RolePermission",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"id\":abcderf,\n      \"name\":\"Mrs. Genoveva Prosacco\",\n      \"email\":\"abbigail.rolfson@hotmail.com\",\n      \"confirmed\":\"0\",\n      \"total_credits\":0,\n      \"created_at\":{\n         \"date\":\"2016-12-30 20:18:33.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"token\":null,\n      \"updated_at\":{\n         \"date\":\"2016-12-30 20:18:33.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"deleted_at\":null,\n      \"roles\":{\n         \"data\":[\n            {\n               \"object\": \"Role\",\n               \"id\": abcderf,\n               \"name\":\"admin\",\n               \"description\":\"Super Administrator\",\n               \"display_name\":\"\"\n            },\n            {\n               \"object\": \"Role\",\n               \"id\": ascderf,\n               \"name\":\"client\",\n               \"description\":\"Normal Client\",\n               \"display_name\":\"\"\n            }\n         ]\n      }\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"User\",\n      \"id\": \"eqwja3vw94kzmxr0\",\n      \"name\": \"Mahmoud Zalt\",\n      \"email\": \"x.rolllln@hotmail.com\",\n      \"confirmed\": \"0\",\n      \"gender\": \"male\",\n      \"birth\": null,\n      \"social_provider\": null,\n      \"social_nickname\": null,\n      \"social_id\": null,\n      \"social_avatar\": {\n         \"avatar\": null,\n         \"original\": null\n      },\n      \"device\": \"galaxy note 10.1 n8000\",\n      \"platform\": \"android\",\n      \"created_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"updated_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"readable_created_at\":\"1 second ago\",\n      \"readable_updated_at\":\"1 second ago\",\n      \"real_id\": 3,\n      \"deleted_at\": null\n   },\n   \"meta\":{\n      \"include\":[\n         \"stores\",\n         \"invoices\",\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/Authorization/UI/API/Routes/SyncUserRoles.v1.private.php",
-    "groupTitle": "RolePermission"
+    }
   },
   {
     "group": "SocialAuth",
@@ -984,7 +984,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"message\":\"Stripe account created successfully.\",\n   \"stripe_account_id\":1\n}",
+          "content": "HTTP/1.1 202 OK\n{\n   \"message\":\"Stripe account created successfully.\",\n   \"stripe_account_id\":1\n}",
           "type": "json"
         }
       ]
@@ -1032,17 +1032,17 @@ define({ "api": [
         ]
       }
     },
+    "filename": "app/Containers/User/UI/API/Routes/CreateAdmin.v1.private.php",
+    "groupTitle": "Users",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"id\":sdfgdhf,\n      \"name\":\"Mahmoud Zalt\",\n      \"email\":\"testing@whatever.dev\",\n      \"confirmed\":\"0\",\n      \"total_credits\":0,\n      \"created_at\":{\n         \"date\":\"2016-12-23 19:51:11.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"token\":null,\n      \"roles\":{\n         \"data\":[\n            {\n               \"name\":\"Admin\",\n               \"description\":null\n            }\n         ]\n      }\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"User\",\n      \"id\": \"eqwja3vw94kzmxr0\",\n      \"name\": \"Mahmoud Zalt\",\n      \"email\": \"x.rolllln@hotmail.com\",\n      \"confirmed\": \"0\",\n      \"gender\": \"male\",\n      \"birth\": null,\n      \"social_provider\": null,\n      \"social_nickname\": null,\n      \"social_id\": null,\n      \"social_avatar\": {\n         \"avatar\": null,\n         \"original\": null\n      },\n      \"device\": \"galaxy note 10.1 n8000\",\n      \"platform\": \"android\",\n      \"created_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"updated_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"readable_created_at\":\"1 second ago\",\n      \"readable_updated_at\":\"1 second ago\",\n      \"real_id\": 3,\n      \"deleted_at\": null\n   },\n   \"meta\":{\n      \"include\":[\n         \"stores\",\n         \"invoices\",\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/User/UI/API/Routes/CreateAdmin.v1.private.php",
-    "groupTitle": "Users"
+    }
   },
   {
     "group": "Users",
@@ -1082,17 +1082,17 @@ define({ "api": [
         "name": "Authenticated User"
       }
     ],
+    "filename": "app/Containers/User/UI/API/Routes/GetAuthenticatedUser.v1.private.php",
+    "groupTitle": "Users",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\": {\n      \"id\": 0,\n      \"name\": \"Mahmoud Zalt\",\n      \"email\": \"apiato@mail.dev\",\n      \"confirmed\": null,\n      \"nickname\": null,\n      \"gender\": null,\n      \"birth\": null,\n      \"social_auth_provider\": null,\n      \"social_id\": null,\n      \"social_avatar\": {\n         \"avatar\": null,\n         \"original\": null\n      },\n      \"created_at\": {\n         \"date\": \"2016-12-23 20: 01: 34.000000\",\n         \"timezone_type\": 3,\n         \"timezone\": \"UTC\"\n      },\n      \"token\": null,\n      \"roles\": {\n         \"data\": [\n            {\n               \"name\": \"Developer\",\n               \"description\": null\n            },\n            {\n               \"name\": \"Client User\",\n               \"description\": null\n            }\n         ]\n      }\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"User\",\n      \"id\": \"eqwja3vw94kzmxr0\",\n      \"name\": \"Mahmoud Zalt\",\n      \"email\": \"x.rolllln@hotmail.com\",\n      \"confirmed\": \"0\",\n      \"gender\": \"male\",\n      \"birth\": null,\n      \"social_provider\": null,\n      \"social_nickname\": null,\n      \"social_id\": null,\n      \"social_avatar\": {\n         \"avatar\": null,\n         \"original\": null\n      },\n      \"device\": \"galaxy note 10.1 n8000\",\n      \"platform\": \"android\",\n      \"created_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"updated_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"readable_created_at\":\"1 second ago\",\n      \"readable_updated_at\":\"1 second ago\",\n      \"real_id\": 3,\n      \"deleted_at\": null\n   },\n   \"meta\":{\n      \"include\":[\n         \"stores\",\n         \"invoices\",\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/User/UI/API/Routes/GetAuthenticatedUser.v1.private.php",
-    "groupTitle": "Users"
+    }
   },
   {
     "group": "Users",
@@ -1107,17 +1107,17 @@ define({ "api": [
         "name": "Authenticated Admin"
       }
     ],
+    "filename": "app/Containers/User/UI/API/Routes/ListAllAdmins.v1.private.php",
+    "groupTitle": "Users",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":[\n      {\n         \"id\":0,\n         \"name\":\"Nola Mayer\",\n         \"email\":\"candice86@hotmail.com\",\n         \"confirmed\":\"0\",\n         \"total_credits\":0,\n         \"created_at\":{\n            \"date\":\"2016-12-23 19:48:53.000000\",\n            \"timezone_type\":3,\n            \"timezone\":\"UTC\"\n         },\n         \"token\":null,\n         \"updated_at\":{\n            \"date\":\"2016-12-23 19:48:53.000000\",\n            \"timezone_type\":3,\n            \"timezone\":\"UTC\"\n         },\n         \"deleted_at\":null,\n         \"roles\":{\n            \"data\":[\n\n            ]\n         }\n      },\n      {\n         \"id\":0,\n         \"name\":\"Aditya Nitzsche\",\n         \"email\":\"sauer.sammy@hotmail.com\",\n         \"confirmed\":\"0\",\n         \"total_credits\":0,\n         \"created_at\":{\n            \"date\":\"2016-12-23 19:48:53.000000\",\n            \"timezone_type\":3,\n            \"timezone\":\"UTC\"\n         },\n         \"token\":null,\n         \"updated_at\":{\n            \"date\":\"2016-12-23 19:48:53.000000\",\n            \"timezone_type\":3,\n            \"timezone\":\"UTC\"\n         },\n         \"deleted_at\":null,\n         \"roles\":{\n            \"data\":[\n\n            ]\n         }\n      },\n      {\n         \"id\":0,\n         \"name\":\"Margot Donnelly\",\n         \"email\":\"antonio20@yahoo.com\",\n         \"confirmed\":\"0\",\n         \"total_credits\":0,\n         \"created_at\":{\n            \"date\":\"2016-12-23 19:48:53.000000\",\n            \"timezone_type\":3,\n            \"timezone\":\"UTC\"\n         },\n         \"token\":null,\n         \"updated_at\":{\n            \"date\":\"2016-12-23 19:48:53.000000\",\n            \"timezone_type\":3,\n            \"timezone\":\"UTC\"\n         },\n         \"deleted_at\":null,\n         \"roles\":{\n            \"data\":[\n\n            ]\n         }\n      },\n      ...\n   ],\n   \"meta\":{\n      \"pagination\":{\n         \"total\":16,\n         \"count\":16,\n         \"per_page\":30,\n         \"current_page\":1,\n         \"total_pages\":1,\n         \"links\":[\n\n         ]\n      }\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      // same object structure of the single response\n    },\n    {\n      // ...\n    },\n    // ...\n  ],\n  \"include\": [\n    \"xxx\",\n    \"yyy\",\n  ],\n  \"custom\": [],\n  \"meta\": {\n    \"pagination\": {\n      \"total\": x,\n      \"count\": x,\n      \"per_page\": x,\n      \"current_page\": x,\n      \"total_pages\": x,\n      \"links\": []\n    }\n  }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/User/UI/API/Routes/ListAllAdmins.v1.private.php",
-    "groupTitle": "Users"
+    }
   },
   {
     "group": "Users",
@@ -1132,17 +1132,17 @@ define({ "api": [
         "name": "Authenticated User"
       }
     ],
+    "filename": "app/Containers/User/UI/API/Routes/ListAllClients.v1.private.php",
+    "groupTitle": "Users",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":[\n      {\n         \"id\":0,\n         \"name\":\"Nola Mayer\",\n         \"email\":\"candice86@hotmail.com\",\n         \"confirmed\":\"0\",\n         \"total_credits\":0,\n         \"created_at\":{\n            \"date\":\"2016-12-23 19:48:53.000000\",\n            \"timezone_type\":3,\n            \"timezone\":\"UTC\"\n         },\n         \"token\":null,\n         \"updated_at\":{\n            \"date\":\"2016-12-23 19:48:53.000000\",\n            \"timezone_type\":3,\n            \"timezone\":\"UTC\"\n         },\n         \"deleted_at\":null,\n         \"roles\":{\n            \"data\":[\n\n            ]\n         }\n      },\n      {\n         \"id\":0,\n         \"name\":\"Aditya Nitzsche\",\n         \"email\":\"sauer.sammy@hotmail.com\",\n         \"confirmed\":\"0\",\n         \"total_credits\":0,\n         \"created_at\":{\n            \"date\":\"2016-12-23 19:48:53.000000\",\n            \"timezone_type\":3,\n            \"timezone\":\"UTC\"\n         },\n         \"token\":null,\n         \"updated_at\":{\n            \"date\":\"2016-12-23 19:48:53.000000\",\n            \"timezone_type\":3,\n            \"timezone\":\"UTC\"\n         },\n         \"deleted_at\":null,\n         \"roles\":{\n            \"data\":[\n\n            ]\n         }\n      },\n      {\n         \"id\":0,\n         \"name\":\"Margot Donnelly\",\n         \"email\":\"antonio20@yahoo.com\",\n         \"confirmed\":\"0\",\n         \"total_credits\":0,\n         \"created_at\":{\n            \"date\":\"2016-12-23 19:48:53.000000\",\n            \"timezone_type\":3,\n            \"timezone\":\"UTC\"\n         },\n         \"token\":null,\n         \"updated_at\":{\n            \"date\":\"2016-12-23 19:48:53.000000\",\n            \"timezone_type\":3,\n            \"timezone\":\"UTC\"\n         },\n         \"deleted_at\":null,\n         \"roles\":{\n            \"data\":[\n\n            ]\n         }\n      },\n      ...\n   ],\n   \"meta\":{\n      \"pagination\":{\n         \"total\":16,\n         \"count\":16,\n         \"per_page\":30,\n         \"current_page\":1,\n         \"total_pages\":1,\n         \"links\":[\n\n         ]\n      }\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      // same object structure of the single response\n    },\n    {\n      // ...\n    },\n    // ...\n  ],\n  \"include\": [\n    \"xxx\",\n    \"yyy\",\n  ],\n  \"custom\": [],\n  \"meta\": {\n    \"pagination\": {\n      \"total\": x,\n      \"count\": x,\n      \"per_page\": x,\n      \"current_page\": x,\n      \"total_pages\": x,\n      \"links\": []\n    }\n  }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/User/UI/API/Routes/ListAllClients.v1.private.php",
-    "groupTitle": "Users"
+    }
   },
   {
     "group": "Users",
@@ -1157,17 +1157,17 @@ define({ "api": [
         "name": "Authenticated User"
       }
     ],
+    "filename": "app/Containers/User/UI/API/Routes/ListAllUsers.v1.private.php",
+    "groupTitle": "Users",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":[\n      {\n         \"id\":0,\n         \"name\":\"Reyes Anderson\",\n         \"email\":\"jaden.runolfsdottir@hermann.com\",\n         \"confirmed\":\"0\",\n         \"nickname\":null,\n         \"gender\":null,\n         \"birth\":null,\n         \"social_auth_provider\":null,\n         \"social_id\":null,\n         \"social_avatar\":{\n            \"avatar\":null,\n            \"original\":null\n         },\n         \"created_at\":{\n            \"date\":\"2016-12-23 20:05:13.000000\",\n            \"timezone_type\":3,\n            \"timezone\":\"UTC\"\n         },\n         \"token\":null,\n         \"roles\":{\n            \"data\":[\n\n            ]\n         }\n      },\n      {\n         \"id\":0,\n         \"name\":\"Prudence Murazik\",\n         \"email\":\"maxie.rempel@yahoo.com\",\n         \"confirmed\":\"0\",\n         \"nickname\":null,\n         \"gender\":null,\n         \"birth\":null,\n         \"social_auth_provider\":null,\n         \"social_id\":null,\n         \"social_avatar\":{\n            \"avatar\":null,\n            \"original\":null\n         },\n         \"created_at\":{\n            \"date\":\"2016-12-23 20:05:13.000000\",\n            \"timezone_type\":3,\n            \"timezone\":\"UTC\"\n         },\n         \"token\":null,\n         \"roles\":{\n            \"data\":[\n\n            ]\n         }\n      },\n      {\n         \"id\":0,\n         \"name\":\"Lisa Roob\",\n         \"email\":\"ladarius02@runte.info\",\n         \"confirmed\":\"0\",\n         \"nickname\":null,\n         \"gender\":null,\n         \"birth\":null,\n         \"social_auth_provider\":null,\n         \"social_id\":null,\n         \"social_avatar\":{\n            \"avatar\":null,\n            \"original\":null\n         },\n         \"created_at\":{\n            \"date\":\"2016-12-23 20:05:13.000000\",\n            \"timezone_type\":3,\n            \"timezone\":\"UTC\"\n         },\n         \"token\":null,\n         \"roles\":{\n            \"data\":[\n\n            ]\n         }\n      },\n      ...\n   ],\n   \"meta\":{\n      \"pagination\":{\n         \"total\":16,\n         \"count\":16,\n         \"per_page\":30,\n         \"current_page\":1,\n         \"total_pages\":1,\n         \"links\":[\n\n         ]\n      }\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      // same object structure of the single response\n    },\n    {\n      // ...\n    },\n    // ...\n  ],\n  \"include\": [\n    \"xxx\",\n    \"yyy\",\n  ],\n  \"custom\": [],\n  \"meta\": {\n    \"pagination\": {\n      \"total\": x,\n      \"count\": x,\n      \"per_page\": x,\n      \"current_page\": x,\n      \"total_pages\": x,\n      \"links\": []\n    }\n  }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/User/UI/API/Routes/ListAllUsers.v1.private.php",
-    "groupTitle": "Users"
+    }
   },
   {
     "group": "Users",
@@ -1188,6 +1188,13 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
+            "field": "email",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
             "field": "password",
             "description": "<p>(optional)</p>"
           },
@@ -1197,21 +1204,49 @@ define({ "api": [
             "optional": false,
             "field": "name",
             "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "birth",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "device",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "platform",
+            "description": "<p>(optional) in:android,ios,web,desktop</p>"
           }
         ]
       }
     },
+    "filename": "app/Containers/User/UI/API/Routes/UpdateUser.v1.private.php",
+    "groupTitle": "Users",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"id\":0,\n      \"name\":\"Mahmoud Zalt\",\n      \"email\":\"apiato@mail.dev\",\n      \"confirmed\":null,\n      \"nickname\":null,\n      \"gender\":null,\n      \"birth\":null,\n      \"social_auth_provider\":null,\n      \"social_id\":null,\n      \"social_avatar\":{\n         \"avatar\":null,\n         \"original\":null\n      },\n      \"created_at\":{\n         \"date\":\"2016-12-23 20:01:34.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"token\":null,\n      \"roles\":{\n         \"data\":[\n            {\n               \"name\":\"Client User\",\n               \"description\":null\n            }\n         ]\n      }\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"User\",\n      \"id\": \"eqwja3vw94kzmxr0\",\n      \"name\": \"Mahmoud Zalt\",\n      \"email\": \"x.rolllln@hotmail.com\",\n      \"confirmed\": \"0\",\n      \"gender\": \"male\",\n      \"birth\": null,\n      \"social_provider\": null,\n      \"social_nickname\": null,\n      \"social_id\": null,\n      \"social_avatar\": {\n         \"avatar\": null,\n         \"original\": null\n      },\n      \"device\": \"galaxy note 10.1 n8000\",\n      \"platform\": \"android\",\n      \"created_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"updated_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"readable_created_at\":\"1 second ago\",\n      \"readable_updated_at\":\"1 second ago\",\n      \"real_id\": 3,\n      \"deleted_at\": null\n   },\n   \"meta\":{\n      \"include\":[\n         \"stores\",\n         \"invoices\",\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/User/UI/API/Routes/UpdateUser.v1.private.php",
-    "groupTitle": "Users"
+    }
   },
   {
     "group": "Users",
@@ -1226,17 +1261,17 @@ define({ "api": [
         "name": "Authenticated User"
       }
     ],
+    "filename": "app/Containers/User/UI/API/Routes/GetUser.v1.private.php",
+    "groupTitle": "Users",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"id\":0,\n      \"name\":\"Mahmoud Zalt\",\n      \"email\":\"testing@whatever.dev\",\n      \"confirmed\":\"0\",\n      \"total_credits\":0,\n      \"created_at\":{\n         \"date\":\"2016-12-23 19:51:11.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"token\": null,\n      \"roles\":{\n         \"data\":[\n            {\n               \"name\":\"Client User\",\n               \"description\":null\n            }\n         ]\n      }\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"User\",\n      \"id\": \"eqwja3vw94kzmxr0\",\n      \"name\": \"Mahmoud Zalt\",\n      \"email\": \"x.rolllln@hotmail.com\",\n      \"confirmed\": \"0\",\n      \"gender\": \"male\",\n      \"birth\": null,\n      \"social_provider\": null,\n      \"social_nickname\": null,\n      \"social_id\": null,\n      \"social_avatar\": {\n         \"avatar\": null,\n         \"original\": null\n      },\n      \"device\": \"galaxy note 10.1 n8000\",\n      \"platform\": \"android\",\n      \"created_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"updated_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"readable_created_at\":\"1 second ago\",\n      \"readable_updated_at\":\"1 second ago\",\n      \"real_id\": 3,\n      \"deleted_at\": null\n   },\n   \"meta\":{\n      \"include\":[\n         \"stores\",\n         \"invoices\",\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/User/UI/API/Routes/GetUser.v1.private.php",
-    "groupTitle": "Users"
+    }
   },
   {
     "group": "Users",
@@ -1259,21 +1294,21 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "email",
-            "description": "<p>(required)</p>"
+            "description": "<p>(required) required|email|max:40|unique:users</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "password",
-            "description": "<p>(required)</p>"
+            "description": "<p>(required) required|min:6|max:30</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "name",
-            "description": "<p>(optional)</p>"
+            "description": "<p>(required) required|min:2|max:50</p>"
           },
           {
             "group": "Parameter",
@@ -1288,20 +1323,34 @@ define({ "api": [
             "optional": false,
             "field": "birth",
             "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "device",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "platform",
+            "description": "<p>(optional)</p>"
           }
         ]
       }
     },
+    "filename": "app/Containers/User/UI/API/Routes/RegisterUser.v1.private.php",
+    "groupTitle": "Users",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"data\": {\n    \"object\": \"User\",\n    \"id\": 3,\n    \"name\": \"Mahmoud Zalt\",\n    \"email\": \"apiato@mail.com\",\n    \"confirmed\": null,\n    \"nickname\": \"Mega\",\n    \"gender\": \"male\",\n    \"birth\": null,\n    \"social_auth_provider\": null,\n    \"social_id\": null,\n    \"social_avatar\": {\n      \"avatar\": null,\n      \"original\": null\n    },\n    \"created_at\": {\n      \"date\": \"2017-04-05 16:17:26.000000\",\n      \"timezone_type\": 3,\n      \"timezone\": \"UTC\"\n    },\n    \"updated_at\": {\n      \"date\": \"2017-04-05 16:17:26.000000\",\n      \"timezone_type\": 3,\n      \"timezone\": \"UTC\"\n    },\n    \"roles\": {\n      \"data\": []\n    }\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"User\",\n      \"id\": \"eqwja3vw94kzmxr0\",\n      \"name\": \"Mahmoud Zalt\",\n      \"email\": \"x.rolllln@hotmail.com\",\n      \"confirmed\": \"0\",\n      \"gender\": \"male\",\n      \"birth\": null,\n      \"social_provider\": null,\n      \"social_nickname\": null,\n      \"social_id\": null,\n      \"social_avatar\": {\n         \"avatar\": null,\n         \"original\": null\n      },\n      \"device\": \"galaxy note 10.1 n8000\",\n      \"platform\": \"android\",\n      \"created_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"updated_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"readable_created_at\":\"1 second ago\",\n      \"readable_updated_at\":\"1 second ago\",\n      \"real_id\": 3,\n      \"deleted_at\": null\n   },\n   \"meta\":{\n      \"include\":[\n         \"stores\",\n         \"invoices\",\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/User/UI/API/Routes/RegisterUser.v1.private.php",
-    "groupTitle": "Users"
+    }
   }
 ] });
