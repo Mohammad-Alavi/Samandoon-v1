@@ -11,7 +11,7 @@
  * @apiPermission      Authenticated User
  *
  * @apiParam           {string}  title required
- * @apiParam           {string}  description
+ * @apiParam           {text}  description
  * @apiParam           {dateTime}  event_date required | date_format:YmdHiT
  * @apiParam           {image}  event_photo
  *
