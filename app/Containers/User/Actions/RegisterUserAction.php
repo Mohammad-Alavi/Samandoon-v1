@@ -28,7 +28,9 @@ class RegisterUserAction extends Action
             $request->password,
             $request->name,
             $request->gender,
-            $request->birth
+            $request->birth,
+            $request->device,
+            $request->platform,
         ]);
     }
 }

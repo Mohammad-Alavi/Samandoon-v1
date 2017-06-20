@@ -26,7 +26,7 @@ class CreateUserByCredentialsTask extends Task
      *
      * @return  mixed
      */
-    public function run($email, $password, $name = null, $gender = null, $birth = null)
+    public function run($email, $password, $name = null, $gender = null, $birth = null, $device = null, $platform = null)
     {
         try {
             // create new user
@@ -36,6 +36,8 @@ class CreateUserByCredentialsTask extends Task
                 'name'     => $name,
                 'gender'   => $gender,
                 'birth'    => $birth,
+                'device'   => $device,
+                'platform' => $platform,
             ]);
 
         } catch (Exception $e) {

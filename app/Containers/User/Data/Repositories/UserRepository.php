@@ -19,6 +19,8 @@ class UserRepository extends Repository
         'name'  => 'like',
         'id'    => '=',
         'email' => '=',
+        'device'=> '=',
+        'platform' => '='
     ];
 
 }

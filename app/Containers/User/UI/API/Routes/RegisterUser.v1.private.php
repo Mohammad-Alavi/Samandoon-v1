@@ -9,11 +9,13 @@
  * @apiVersion         1.0.0
  * @apiPermission      none
  *
- * @apiParam           {String}  email (required)
- * @apiParam           {String}  password (required)
- * @apiParam           {String}  name (optional)
+ * @apiParam           {String}  email (required) required|email|max:40|unique:users
+ * @apiParam           {String}  password (required) required|min:6|max:30
+ * @apiParam           {String}  name (required) required|min:2|max:50
  * @apiParam           {String}  gender (optional)
  * @apiParam           {String}  birth (optional)
+ * @apiParam           {String}  device (optional)
+ * @apiParam           {String}  platform (optional)
  *
  * @apiUse             UserSuccessSingleResponse
  */
