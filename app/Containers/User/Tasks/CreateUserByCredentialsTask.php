@@ -26,14 +26,15 @@ class CreateUserByCredentialsTask extends Task
      *
      * @return  mixed
      */
-    public function run($email, $password, $name = null, $gender = null, $birth = null, $device = null, $platform = null)
+    public function run($email, $password, $first_name = null, $last_name = null, $gender = null, $birth = null, $device = null, $platform = null)
     {
         try {
             // create new user
             $user = App::make(UserRepository::class)->create([
                 'password' => Hash::make($password),
                 'email'    => $email,
-                'name'     => $name,
+                 'first_name'   => $first_name,
+                'last_name'     => $last_name,
                 'gender'   => $gender,
                 'birth'    => $birth,
                 'device'   => $device,

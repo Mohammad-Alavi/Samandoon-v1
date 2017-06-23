@@ -26,7 +26,8 @@ class RegisterUserAction extends Action
         return $this->call(CreateUserByCredentialsTask::class, [
             $request->email,
             $request->password,
-            $request->name,
+            $request->first_name,
+            $request->last_name,
             $request->gender,
             $request->birth,
             $request->device,

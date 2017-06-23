@@ -19,8 +19,9 @@ class RegisterUserTest extends TestCase
     public function testCreateUser_()
     {
         $data = [
-            'email'    => 'Mahmoud@test.test',
-            'name'     => 'Mahmoud',
+            'email'    => 'Mohammad@test.test',
+            'first_name'     => 'Mohammad',
+            'last_name'     => 'Alavi',
             'password' => 'so-secret',
         ];
 
@@ -33,6 +34,7 @@ class RegisterUserTest extends TestCase
         // asset the returned object is an instance of the User
         $this->assertInstanceOf(User::class, $user);
 
-        $this->assertEquals($user->name, $data['name']);
+        $this->assertEquals($user->first_name, $data['first_name']);
+        $this->assertEquals($user->last_name, $data['last_name']);
     }
 }
