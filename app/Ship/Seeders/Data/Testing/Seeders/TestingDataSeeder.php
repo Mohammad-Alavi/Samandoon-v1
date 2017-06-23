@@ -2,6 +2,8 @@
 
 namespace App\Ship\Seeders\Data\Testing\Seeders;
 
+use App\Containers\Event\Models\Event;
+use App\Containers\User\Models\User;
 use App\Ship\Parents\Seeders\Seeder;
 
 /**
@@ -19,7 +21,8 @@ class TestingDataSeeder extends Seeder
      */
     public function run()
     {
-        // Create Testing data here ..
+        factory(Event::class, 500)->create();
+        factory(User::class, 500)->create();
     }
 
 }
