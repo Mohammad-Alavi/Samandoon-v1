@@ -997,8 +997,8 @@
     "name": "CreateAdmin",
     "type": "post",
     "url": "/v1/admins",
-    "title": "Create Admin User",
-    "description": "<p>Creating User with Role Admin, form the Dashboard.</p>",
+    "title": "Create Admin type Users",
+    "description": "<p>Creating non client Users, form the Dashboard.</p>",
     "version": "1.0.0",
     "permission": [
       {
@@ -1150,7 +1150,7 @@
     "type": "get",
     "url": "/v1/users",
     "title": "List All Users",
-    "description": "<p>List all Application Users of any roles. For listing all registered users &quot;Clients&quot; only you can use <code>/clients</code>. And for listing all Admins (users of role Admin) only you can use <code>/admins</code>.</p>",
+    "description": "<p>List all Application Users (clients and admins). For all registered users &quot;Clients&quot; only you can use <code>/clients</code>. And for all &quot;Admins&quot; only you can use <code>/admins</code>.</p>",
     "version": "1.0.0",
     "permission": [
       {
@@ -1223,6 +1223,20 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
+            "field": "province",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "city",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
             "field": "device",
             "description": "<p>(optional)</p>"
           },
@@ -1279,7 +1293,7 @@
     "type": "post",
     "url": "/v1/register",
     "title": "Register User (create client)",
-    "description": "<p>Register new user as client.</p>",
+    "description": "<p>Register users as (client).</p>",
     "version": "1.0.0",
     "permission": [
       {
@@ -1322,6 +1336,20 @@
             "type": "String",
             "optional": false,
             "field": "birth",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "province",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "city",
             "description": "<p>(optional)</p>"
           },
           {
