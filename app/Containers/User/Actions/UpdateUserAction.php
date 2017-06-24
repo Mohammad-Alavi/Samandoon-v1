@@ -29,6 +29,8 @@ class UpdateUserAction extends Action
             'email'                => $request->email,
             'gender'               => $request->gender,
             'birth'                => $request->birth,
+            'province'             => $request->province,
+            'city'                 => $request->city,
             'device'               => $request->device,
             'platform'             => $request->platform,
             'social_token'         => $request->token,

@@ -44,6 +44,8 @@ class UserTransformer extends Transformer
             'confirmed'            => $user->confirmed,
             'gender'               => $user->gender,
             'birth'                => $user->birth,
+            'province'             => $user->province,
+            'city'                 => $user->city,
             'social_provider'      => $user->social_provider,
             'social_nickname'      => $user->social_nickname,
             'social_id'            => $user->social_id,

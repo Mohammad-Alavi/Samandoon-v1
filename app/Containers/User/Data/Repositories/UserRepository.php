@@ -20,6 +20,8 @@ class UserRepository extends Repository
         'last_name'  => 'like',
         'id'    => '=',
         'email' => '=',
+        'province' => '=',
+        'city' => '=',
         'device'=> '=',
         'platform' => '=',
         'confirmed'  => '=',

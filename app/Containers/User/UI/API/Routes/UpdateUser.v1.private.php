@@ -13,6 +13,8 @@
  * @apiParam           {String}  name (optional)
  * @apiParam           {String}  gender (optional)
  * @apiParam           {String}  birth (optional)
+ * @apiParam           {String}  province (optional)
+ * @apiParam           {String}  city (optional)
  * @apiParam           {String}  device (optional)
  * @apiParam           {String}  platform (optional) in:android,ios,web,desktop
  *

@@ -34,6 +34,8 @@ class User extends UserModel
         'platform',
         'gender',
         'birth',
+        'province',
+        'city',
         'social_provider',
         'social_token',
         'social_refresh_token',

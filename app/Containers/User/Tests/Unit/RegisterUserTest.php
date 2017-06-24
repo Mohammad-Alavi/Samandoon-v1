@@ -23,6 +23,8 @@ class RegisterUserTest extends TestCase
             'first_name'     => 'Mohammad',
             'last_name'     => 'Alavi',
             'password' => 'so-secret',
+            'province' => 'Khouzestan',
+            'city' => 'Abadan',
         ];
 
         // create request object and inject this data in it
@@ -36,5 +38,7 @@ class RegisterUserTest extends TestCase
 
         $this->assertEquals($user->first_name, $data['first_name']);
         $this->assertEquals($user->last_name, $data['last_name']);
+        $this->assertEquals($user->province, $data['province']);
+        $this->assertEquals($user->city, $data['city']);
     }
 }

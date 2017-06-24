@@ -31,6 +31,8 @@ class RegisterUserAction extends Action
             $request->last_name,
             $request->gender,
             $request->birth,
+            $request->province,
+            $request->city,
             $request->device,
             $request->platform,
         ]);

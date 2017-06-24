@@ -14,6 +14,8 @@
  * @apiParam           {String}  name (required) required|min:2|max:50
  * @apiParam           {String}  gender (optional)
  * @apiParam           {String}  birth (optional)
+ * @apiParam           {String}  province (optional)
+ * @apiParam           {String}  city (optional)
  * @apiParam           {String}  device (optional)
  * @apiParam           {String}  platform (optional)
  *

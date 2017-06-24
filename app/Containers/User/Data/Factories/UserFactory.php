@@ -15,6 +15,8 @@ $factory->define(App\Containers\User\Models\User::class, function (Faker\Generat
         'gender'     => $faker->randomElement(['male', 'female']),
         'birth'     => $faker->date($format = 'Y-m-d', $max = 'now'),
         'is_client' => false,
+        'province' => $faker->city,
+        'city' => $faker->city,
     ];
 });
 

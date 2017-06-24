@@ -25,12 +25,14 @@ class CreateUserByCredentialsTask extends Task
      * @param null $gender
      * @param null $birth
      *
+     * @param null $province
+     * @param null $city
      * @param null $device
      * @param null $platform
      * @return mixed
      * @internal param null $name
      */
-    public function run($isClient = true, $email, $password, $first_name = null, $last_name = null, $gender = null, $birth = null, $device = null, $platform = null)
+    public function run($isClient = true, $email, $password, $first_name = null, $last_name = null, $gender = null, $birth = null, $province = null, $city = null, $device = null, $platform = null)
     {
         try {
             // create new user
@@ -41,6 +43,8 @@ class CreateUserByCredentialsTask extends Task
                 'last_name'     => $last_name,
                 'gender'   => $gender,
                 'birth'    => $birth,
+                'province'    => $province,
+                'city'    => $city,
                 'device'   => $device,
                 'platform' => $platform,
                 'is_client' => $isClient,
