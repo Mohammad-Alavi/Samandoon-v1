@@ -14,5 +14,12 @@ $factory->define(App\Containers\User\Models\User::class, function (Faker\Generat
         'platform'     => $faker->randomElement(['android', 'ios', 'web', 'desktop']),
         'gender'     => $faker->randomElement(['male', 'female']),
         'birth'     => $faker->date($format = 'Y-m-d', $max = 'now'),
+        'is_client' => false,
+    ];
+});
+
+$factory->state(App\Containers\User\Models\User::class, 'client', function ($faker) {
+    return [
+        'is_client' => true,
     ];
 });
