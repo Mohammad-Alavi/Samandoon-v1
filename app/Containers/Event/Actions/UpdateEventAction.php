@@ -20,6 +20,7 @@ class UpdateEventAction extends Action
             'description' => $request->description,
             'event_date' => Carbon::createFromFormat('YmdHiT', $request->event_date),
             'photo_path' => $request->hasFile('event_photo') ? $photo_path = $request->file('event_photo')->store('event_photo') : $photo_path = null,
+            'location' => $request->location,
         ];
 
         // remove null values and their keys

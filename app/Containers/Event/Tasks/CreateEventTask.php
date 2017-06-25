@@ -22,6 +22,7 @@ class CreateEventTask extends Task
         $description = $request->input('description');
         $event_date = $request->input('event_date');
         $request->hasFile('event_photo') ? $photo_path = $request->file('event_photo')->store('event_photo') : $photo_path = null;
+        $location = $request->input('location');
 
         try {
             // create a new event
@@ -29,7 +30,8 @@ class CreateEventTask extends Task
                 'title'         =>  $title,
                 'description'   =>  $description,
                 'event_date'    =>  Carbon::createFromFormat('YmdHiT', $event_date),
-                'photo_path'    =>  $photo_path
+                'photo_path'    =>  $photo_path,
+                'location'      =>  $location,
             ]);
         } catch (Exception $e) {
             throw (new EventCreationFailedException);

@@ -10,10 +10,12 @@
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated User
  *
- * @apiParam           {string}  title required
- * @apiParam           {text}  description
- * @apiParam           {dateTime}  event_date required | date_format:YmdHiT
- * @apiParam           {image}  event_photo
+ * @apiParam           {string}  title (optional)
+ * @apiParam           {text}  description (optional)
+ * @apiParam           {dateTime}  event_date (optional) date_format:YmdHiT
+ * @apiParam           {image}  event_photo (optional)
+ * @apiParam           {text} location (optional)
+
  *
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK
@@ -31,6 +33,7 @@
         "timezone": "EST"
       },
       "photo_path": null,
+      "location": null,
       "created_at": {
             "date": "2017-06-10 03:50:39.000000",
         "timezone_type": 3,

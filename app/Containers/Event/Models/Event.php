@@ -2,11 +2,12 @@
 
 namespace App\Containers\Event\Models;
 
+use App\Containers\NGO\Models\NGO;
 use App\Ship\Parents\Models\Model;
 
 class Event extends Model
 {
-    protected $fillable = ['title', 'description', 'event_date', 'photo_path'];
+    protected $fillable = ['title', 'description', 'event_date', 'photo_path', 'location'];
 
     //protected $hidden = ['created_at', 'updated_at'];
 
@@ -16,4 +17,8 @@ class Event extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function ngo(){
+        return $this->belongsTo(NGO::class);
+    }
 }

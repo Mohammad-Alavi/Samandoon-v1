@@ -31,6 +31,7 @@ class EventTransformer extends Transformer
             'title' => $event->title,
             'description' => $event->description,
             'event_date' => $event->event_date,
+            'location' => $event->location,
             'photo_path' => $event->photo_path,
             'created_at'           => $event->created_at,
             'updated_at'           => $event->updated_at,

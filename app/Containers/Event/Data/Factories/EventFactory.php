@@ -6,5 +6,6 @@ $factory->define(App\Containers\Event\Models\Event::class, function (Faker\Gener
         'title'     => $faker->title,
         'description'    => $faker->realText(),
         'event_date' => $faker->dateTime($format = 'Y-m-d-H-i-T'),
+        'location' => $faker->address,
     ];
 });

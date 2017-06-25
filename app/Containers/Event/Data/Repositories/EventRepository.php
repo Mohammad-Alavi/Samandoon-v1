@@ -13,7 +13,7 @@ class EventRepository extends Repository
      */
     protected $fieldSearchable = [
         'id'    => '=',
-        'name'  => 'like',
+        'title'  => 'like',
     ];
 
     public function boot()
