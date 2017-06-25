@@ -10,7 +10,7 @@ $factory->define(App\Containers\User\Models\User::class, function (Faker\Generat
         'email'    => $faker->email,
         'password' => Hash::make('testing-password'),
         'confirmed'     => $faker->boolean(),
-        'device'     => str_random(7),
+        'device'     => str_random(7, 13),
         'platform'     => $faker->randomElement(['android', 'ios', 'web', 'desktop']),
         'gender'     => $faker->randomElement(['male', 'female']),
         'birth'     => $faker->date($format = 'Y-m-d', $max = 'now'),

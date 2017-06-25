@@ -2,6 +2,7 @@
 
 namespace App\Containers\User\Models;
 
+use App\Containers\NGO\Models\NGO;
 use App\Containers\Stripe\Models\StripeAccount;
 use App\Ship\Parents\Models\UserModel;
 
@@ -80,4 +81,7 @@ class User extends UserModel
         return $this->hasOne(StripeAccount::class);
     }
 
+    public function ngos(){
+        return $this->hasMany(NGO::class);
+    }
 }
