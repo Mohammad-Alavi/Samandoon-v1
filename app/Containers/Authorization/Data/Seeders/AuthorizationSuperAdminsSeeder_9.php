@@ -26,7 +26,8 @@ class AuthorizationSuperAdminsSeeder_9 extends Seeder
         // Default Users ----------------------------------------------------------------
 
         $admin = new User();
-        $admin->name = 'Super Admin';
+        $admin->first_name = 'Super';
+        $admin->last_name = 'Admin';
         $admin->email = 'admin@admin.com';
         $admin->password = Hash::make('admin');
         $admin->save();
