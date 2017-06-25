@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNGOsTable extends Migration
+class CreateNgosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -27,6 +27,7 @@ class CreateNGOsTable extends Migration
             $table->integer('license_number')->unique()->nullable();
             $table->date('license_date')->nullable();
             $table->string('photo_path')->nullable();
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
