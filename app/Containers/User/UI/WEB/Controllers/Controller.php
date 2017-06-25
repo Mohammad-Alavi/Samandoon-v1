@@ -17,6 +17,9 @@ class Controller extends WebController
      */
     public function sayWelcome()
     {   // user say welcome
-        return view('user::user-welcome');
+//        $ngo = \App\Containers\NGO\Models\NGO::find(1);
+//        return view('user::user-welcome', ['ngo' => $ngo]);
+        $ngos = \App\Containers\User\Models\User::find(3)->ngos;
+        return view('user::user-welcome', ['ngos' => $ngos]);
     }
 }

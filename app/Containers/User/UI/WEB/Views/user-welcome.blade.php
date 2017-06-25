@@ -38,7 +38,27 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Welcome Anonymous User :)</div>
+                {{--<div class="title">Welcome Anonymous User :)</div>--}}
+
+                @foreach($ngos as $ngo)
+                    <h1>NGO Name: {{ $ngo->name }}</h1>
+                    <h2>NGO Owner: {{ $ngo->user->first_name }} {{ $ngo->user->last_name }}</h2>
+                    <ul>
+                        <li>
+                            <ol>
+                                @foreach($ngo->events as $event)
+                                    <h3>Event</h3>
+                                        <li>
+                                            Location:
+                                            {{ $event->location }}
+                                        </li>
+                                @endforeach
+                            </ol>
+                        {{--{{ $ngo->user->last_name }}--}}
+                        </li>
+                    </ul>
+                @endforeach
+
             </div>
         </div>
     </body>
