@@ -20,28 +20,35 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "title",
-            "description": "<p>required</p>"
+            "description": "<p>(required)</p>"
           },
           {
             "group": "Parameter",
             "type": "text",
             "optional": false,
             "field": "description",
-            "description": ""
+            "description": "<p>(optional)</p>"
           },
           {
             "group": "Parameter",
             "type": "dateTime",
             "optional": false,
             "field": "event_date",
-            "description": "<p>required | date_format:YmdHiT</p>"
+            "description": "<p>(required) required|date_format:YmdHiT</p>"
           },
           {
             "group": "Parameter",
             "type": "image",
             "optional": false,
             "field": "event_photo",
-            "description": ""
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "text",
+            "optional": false,
+            "field": "location",
+            "description": "<p>(optional)</p>"
           }
         ]
       }
@@ -50,7 +57,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Event created\",\n    \"event\": {\n        \"object\": \"Event\",\n      \"id\": \"3a8wvzlg3r7n0e4m\",\n      \"title\": \"edrarEvent\",\n      \"description\": \"lilcription\",\n      \"event_date\": {\n            \"date\": \"2015-10-13 15:04:00.000000\",\n        \"timezone_type\": 2,\n        \"timezone\": \"EST\"\n      },\n      \"photo_path\": null,\n      \"created_at\": {\n            \"date\": \"2017-06-10 03:50:39.000000\",\n        \"timezone_type\": 3,\n        \"timezone\": \"UTC\"\n      },\n      \"updated_at\": {\n            \"date\": \"2017-06-10 03:50:39.000000\",\n        \"timezone_type\": 3,\n        \"timezone\": \"UTC\"\n      },\n      \"readable_created_at\": \"1 second ago\",\n      \"readable_updated_at\": \"1 second ago\",\n      \"real_id\": 7\n    },\n    \"view_event\": {\n        \"href\": \"v1/event/7\",\n      \"method\": \"GET\"\n    }\n  },\n  \"meta\": {\n    \"include\": [],\n    \"custom\": []\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Event updated\",\n    \"event\": {\n        \"object\": \"Event\",\n      \"id\": \"3a8wvzlg3r7n0e4m\",\n      \"title\": \"Seventh Event\",\n      \"description\": \"Event number 7\",\n      \"event_date\": {\n            \"date\": \"2016-10-13 15:04:00.000000\",\n        \"timezone_type\": 2,\n        \"timezone\": \"EST\"\n      },\n      \"photo_path\": null,\n      \"location\": null,\n      \"created_at\": {\n            \"date\": \"2017-06-10 03:50:39.000000\",\n        \"timezone_type\": 3,\n        \"timezone\": \"UTC\"\n      },\n      \"updated_at\": {\n            \"date\": \"2017-06-10 04:13:05.000000\",\n        \"timezone_type\": 3,\n        \"timezone\": \"UTC\"\n      },\n      \"readable_created_at\": \"22 minutes ago\",\n      \"readable_updated_at\": \"1 second ago\",\n      \"real_id\": 7\n    },\n    \"view_event\": {\n        \"href\": \"v1/event/7\",\n      \"method\": \"GET\"\n    }\n  },\n  \"meta\": {\n    \"include\": [],\n    \"custom\": []\n  }\n}",
           "type": "json"
         }
       ]
@@ -154,28 +161,35 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "title",
-            "description": "<p>required</p>"
+            "description": "<p>(optional)</p>"
           },
           {
             "group": "Parameter",
             "type": "text",
             "optional": false,
             "field": "description",
-            "description": ""
+            "description": "<p>(optional)</p>"
           },
           {
             "group": "Parameter",
             "type": "dateTime",
             "optional": false,
             "field": "event_date",
-            "description": "<p>required | date_format:YmdHiT</p>"
+            "description": "<p>(optional) date_format:YmdHiT</p>"
           },
           {
             "group": "Parameter",
             "type": "image",
             "optional": false,
             "field": "event_photo",
-            "description": ""
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "text",
+            "optional": false,
+            "field": "location",
+            "description": "<p>(optional)</p>"
           }
         ]
       }
@@ -184,7 +198,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Event updated\",\n    \"event\": {\n        \"object\": \"Event\",\n      \"id\": \"3a8wvzlg3r7n0e4m\",\n      \"title\": \"Seventh Event\",\n      \"description\": \"Event number 7\",\n      \"event_date\": {\n            \"date\": \"2016-10-13 15:04:00.000000\",\n        \"timezone_type\": 2,\n        \"timezone\": \"EST\"\n      },\n      \"photo_path\": null,\n      \"created_at\": {\n            \"date\": \"2017-06-10 03:50:39.000000\",\n        \"timezone_type\": 3,\n        \"timezone\": \"UTC\"\n      },\n      \"updated_at\": {\n            \"date\": \"2017-06-10 04:13:05.000000\",\n        \"timezone_type\": 3,\n        \"timezone\": \"UTC\"\n      },\n      \"readable_created_at\": \"22 minutes ago\",\n      \"readable_updated_at\": \"1 second ago\",\n      \"real_id\": 7\n    },\n    \"view_event\": {\n        \"href\": \"v1/event/7\",\n      \"method\": \"GET\"\n    }\n  },\n  \"meta\": {\n    \"include\": [],\n    \"custom\": []\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Event updated\",\n    \"event\": {\n        \"object\": \"Event\",\n      \"id\": \"3a8wvzlg3r7n0e4m\",\n      \"title\": \"Seventh Event\",\n      \"description\": \"Event number 7\",\n      \"event_date\": {\n            \"date\": \"2016-10-13 15:04:00.000000\",\n        \"timezone_type\": 2,\n        \"timezone\": \"EST\"\n      },\n      \"photo_path\": null,\n      \"location\": null,\n      \"created_at\": {\n            \"date\": \"2017-06-10 03:50:39.000000\",\n        \"timezone_type\": 3,\n        \"timezone\": \"UTC\"\n      },\n      \"updated_at\": {\n            \"date\": \"2017-06-10 04:13:05.000000\",\n        \"timezone_type\": 3,\n        \"timezone\": \"UTC\"\n      },\n      \"readable_created_at\": \"22 minutes ago\",\n      \"readable_updated_at\": \"1 second ago\",\n      \"real_id\": 7\n    },\n    \"view_event\": {\n        \"href\": \"v1/event/7\",\n      \"method\": \"GET\"\n    }\n  },\n  \"meta\": {\n    \"include\": [],\n    \"custom\": []\n  }\n}",
           "type": "json"
         }
       ]
