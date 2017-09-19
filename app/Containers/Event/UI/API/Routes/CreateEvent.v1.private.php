@@ -8,7 +8,7 @@
  * @apiDescription     Create an event
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated User
+ * @apiPermission      Authenticated User / Owner
  *
  * @apiParam           {string} title (required)
  * @apiParam           {text} description (optional)

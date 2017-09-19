@@ -4,11 +4,11 @@
  * @apiGroup           Event
  * @apiName            ListAllEvents
  *
- * @api                {get}  /event List Events
+ * @api                {get}  /v1/event List Events
  * @apiDescription     Lists all Events (if no query parameter is given)
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated User
+ * @apiPermission      Admin
  *
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK

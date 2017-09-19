@@ -13,6 +13,7 @@ use App\Containers\User\Actions\RegisterUserAction;
 use App\Containers\User\Actions\UpdateUserAction;
 use App\Containers\User\UI\API\Requests\CreateAdminRequest;
 use App\Containers\User\UI\API\Requests\DeleteUserRequest;
+use App\Containers\User\UI\API\Requests\FallowNgoRequest;
 use App\Containers\User\UI\API\Requests\GetAuthenticatedUserRequest;
 use App\Containers\User\UI\API\Requests\GetUserByIdRequest;
 use App\Containers\User\UI\API\Requests\ListAllUsersRequest;
@@ -135,6 +136,10 @@ class Controller extends ApiController
         $user = $this->call(GetAuthenticatedUserAction::class);
 
         return $this->transform($user, UserTransformer::class);
+    }
+
+    public function fallowNgo(FallowNgoRequest $request){
+        //TODO Code
     }
 
 }

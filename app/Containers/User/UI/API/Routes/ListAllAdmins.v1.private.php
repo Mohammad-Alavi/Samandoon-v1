@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @apiGroup           Users
+ * @apiGroup           User
  * @apiName            ListAllAdmins
- * @api                {get} /v1/admins List Admin Users
+ * @api                {get} /v1/admin List Admin Users
  * @apiDescription     List all Users where role `Admin`.
  *                     You can search for Users by email, name and ID.
  *                     Example: `?search=Mahmoud` or `?search=whatever@mail.com`.
@@ -16,7 +16,7 @@
  * @apiUse             GeneralSuccessMultipleResponse
  */
 
-$router->get('admins', [
+$router->get('admin', [
     'uses'       => 'Controller@listAllAdmins',
     'middleware' => [
         'auth:api',

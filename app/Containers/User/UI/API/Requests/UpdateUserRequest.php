@@ -49,7 +49,8 @@ class UpdateUserRequest extends Request
         return [
             'email'    => 'email|max:40|unique:users,email',
             'password' => 'min:6|max:40',
-            'name'     => 'min:2|max:50',
+            'first_name'     => 'min:2|max:50',
+            'last_name'     => 'min:2|max:50',
             'platform' => 'in:android,ios,web,desktop',
         ];
     }

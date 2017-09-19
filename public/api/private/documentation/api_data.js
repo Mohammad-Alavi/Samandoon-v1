@@ -9,7 +9,7 @@ define({ "api": [
     "version": "1.0.0",
     "permission": [
       {
-        "name": "Authenticated User"
+        "name": "Authenticated User / Owner"
       }
     ],
     "parameter": {
@@ -69,13 +69,13 @@ define({ "api": [
     "group": "Event",
     "name": "DeleteEvent",
     "type": "delete",
-    "url": "/v1/event/:id",
+    "url": "/v1/event/{id}",
     "title": "Delete Event",
     "description": "<p>Delete an Event by ID</p>",
     "version": "1.0.0",
     "permission": [
       {
-        "name": "Authenticated User"
+        "name": "Authenticated User / Owner"
       }
     ],
     "success": {
@@ -92,9 +92,34 @@ define({ "api": [
   },
   {
     "group": "Event",
+    "name": "GetAuthenticatedUserNgoEvents",
+    "type": "GET",
+    "url": "/v1/user/ngo/events",
+    "title": "Get authenticated user NGO Events",
+    "description": "<p>Get events of the authenticated user NGO</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Owner"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": [\n        {\n            \"object\": \"Event\",\n            \"id\": \"x680j7ro7l4kdqbe\",\n            \"title\": \"انجمن برنامه نویسان آبادان 223\",\n            \"description\": null,\n            \"event_date\": \"2016-10-10 06:17:00\",\n            \"location\": null,\n            \"photo_path\": null,\n            \"ngo_id\": 22,\n            \"created_at\": {\n            \"date\": \"2017-07-01 13:03:38.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-07-01 13:03:38.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"4 seconds ago\",\n            \"readable_updated_at\": \"4 seconds ago\"\n        }\n    ],\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/Event/UI/API/Routes/GetAuthenticatedUserNgoEvents.v1.private.php",
+    "groupTitle": "Event"
+  },
+  {
+    "group": "Event",
     "name": "GetEvent",
     "type": "get",
-    "url": "/event/:id",
+    "url": "/v1/event/{id}",
     "title": "Get Event",
     "description": "<p>Get an event by ID</p>",
     "version": "1.0.0",
@@ -119,13 +144,13 @@ define({ "api": [
     "group": "Event",
     "name": "ListAllEvents",
     "type": "get",
-    "url": "/event",
+    "url": "/v1/event",
     "title": "List Events",
     "description": "<p>Lists all Events (if no query parameter is given)</p>",
     "version": "1.0.0",
     "permission": [
       {
-        "name": "Authenticated User"
+        "name": "Admin"
       }
     ],
     "success": {
@@ -144,13 +169,13 @@ define({ "api": [
     "group": "Event",
     "name": "UpdateEvent",
     "type": "put",
-    "url": "/event/:id",
+    "url": "/v1/event/{id}",
     "title": "Update Event",
     "description": "<p>Update a given event</p>",
     "version": "1.0.0",
     "permission": [
       {
-        "name": "Authenticated User"
+        "name": "Authenticated User / Owner"
       }
     ],
     "parameter": {
@@ -205,6 +230,336 @@ define({ "api": [
     },
     "filename": "app/Containers/Event/UI/API/Routes/UpdateEvent.v1.private.php",
     "groupTitle": "Event"
+  },
+  {
+    "group": "NGO",
+    "name": "CreateNGO",
+    "type": "POST",
+    "url": "/v1/ngo",
+    "title": "Create NGO",
+    "description": "<p>Create a NGO</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated User"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>(required) required|max:255|unique:ngos,name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "text",
+            "optional": false,
+            "field": "description",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "subject",
+            "description": "<p>(required) required|max:255</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "area_of_activity",
+            "description": "<p>(required) required|max:255</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "text",
+            "optional": false,
+            "field": "address",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "registration_date",
+            "description": "<p>(optional) date_format:YmdHiT</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "license_date",
+            "description": "<p>(optional) date_format:YmdHiT</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "registration_number",
+            "description": "<p>(optional) unique:ngos,registration_number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "national_number",
+            "description": "<p>(optional) unique:ngos,national_number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "license_number",
+            "description": "<p>(optional) unique:ngos,license_number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "image",
+            "optional": false,
+            "field": "logo_photo",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "image",
+            "optional": false,
+            "field": "banner_photo",
+            "description": "<p>(optional)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Ngo created\",\n        \"ngo\": {\n        \"object\": \"Ngo\",\n            \"id\": \"a0dg7o534grq4m3p\",\n            \"name\": \"انجمن برنامه نویسان آبادان\",\n            \"description\": null,\n            \"subject\": \"فرهنگی-ورزشی\",\n            \"area_of_activity\": \"شهرستان آبادان\",\n            \"address\": null,\n            \"registration_date\": null,\n            \"registration_number\": null,\n            \"national_number\": null,\n            \"license_number\": null,\n            \"license_date\": null,\n            \"logo_photo_path\": null,\n            \"banner_photo_path\": null,\n            \"user_id\": 1,\n            \"created_at\": {\n            \"date\": \"2017-06-27 08:39:07.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-06-27 08:39:07.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"real_id\": 51\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/51\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/NGO/UI/API/Routes/CreateNgo.v1.private.php",
+    "groupTitle": "NGO"
+  },
+  {
+    "group": "NGO",
+    "name": "DeleteNGO",
+    "type": "DELETE",
+    "url": "/v1/ngo/{id}",
+    "title": "Delete NGO",
+    "description": "<p>Delete a NGO by ID</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Owner | Admin"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"message\": \"NGO (oj64bp5zjl8ywzn0) Deleted Successfully.\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/NGO/UI/API/Routes/DeleteNgo.v1.private.php",
+    "groupTitle": "NGO"
+  },
+  {
+    "group": "NGO",
+    "name": "GetAuthenticatedUserNgo",
+    "type": "GET",
+    "url": "/v1/user/ngo",
+    "title": "Get authenticated user NGO",
+    "description": "<p>Gets the authenticated user's ngo</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Owner"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"Ngo\",\n        \"id\": \"6mqkpblv7loev403\",\n        \"name\": \"edrar1234\",\n        \"description\": null,\n        \"subject\": \"lililoool\",\n        \"area_of_activity\": \"آبادان\",\n        \"address\": null,\n        \"registration_date\": null,\n        \"registration_number\": null,\n        \"national_number\": null,\n        \"license_number\": null,\n        \"license_date\": null,\n        \"logo_photo_path\": null,\n        \"banner_photo_path\": null,\n        \"user_id\": 3,\n        \"created_at\": {\n        \"date\": \"2017-07-01 00:32:50.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-07-01 00:32:50.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"3 minutes ago\",\n        \"readable_updated_at\": \"3 minutes ago\"\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/NGO/UI/API/Routes/GetAuthenticatedUserNgo.v1.private.php",
+    "groupTitle": "NGO"
+  },
+  {
+    "group": "NGO",
+    "name": "GetNGO",
+    "type": "GET",
+    "url": "/v1/ngo/{id}",
+    "title": "Get NGO",
+    "description": "<p>Get a NGO by ID</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated User"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"Ngo\",\n        \"id\": \"kjeonp5eordqzvb8\",\n        \"name\": \"Metz, Denesik and Feeney\",\n        \"description\": \"Pepper For a minute or two to think this a very deep well. Either the well was very glad to find herself talking familiarly with them, as if she could have been ill.' 'So they were,' said the King.\",\n        \"subject\": \"maiores\",\n        \"area_of_activity\": \"Torranceburgh\",\n        \"address\": \"9272 Angeline Corner\\nMadalynfurt, MT 89782-1979\",\n        \"registration_date\": \"1977-07-11\",\n        \"registration_number\": 84163,\n        \"national_number\": 22219,\n        \"license_number\": 90649,\n        \"license_date\": \"1978-10-18\",\n        \"logo_photo_path\": \"297952626\",\n        \"banner_photo_path\": \"456262418\",\n        \"user_id\": 2,\n        \"created_at\": {\n        \"date\": \"2017-06-27 02:41:41.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-06-27 02:41:41.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"6 hours ago\",\n        \"readable_updated_at\": \"6 hours ago\",\n        \"real_id\": 1\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/NGO/UI/API/Routes/GetNgo.v1.private.php",
+    "groupTitle": "NGO"
+  },
+  {
+    "group": "NGO",
+    "name": "UpdateNGO",
+    "type": "PUT",
+    "url": "/v1/ngo/{id}",
+    "title": "Update NGO",
+    "description": "<p>Update a given NGO</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Owner | Admin"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>(optional) max:255|unique:ngos,name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "text",
+            "optional": false,
+            "field": "description",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "subject",
+            "description": "<p>(optional) max:255</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "area_of_activity",
+            "description": "<p>(optional) max:255</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "text",
+            "optional": false,
+            "field": "address",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "registration_date",
+            "description": "<p>(optional) date_format:YmdHiT</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "license_date",
+            "description": "<p>(optional) date_format:YmdHiT</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "registration_number",
+            "description": "<p>(optional) unique:ngos,registration_number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "national_number",
+            "description": "<p>(optional) unique:ngos,national_number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "license_number",
+            "description": "<p>(optional) unique:ngos,license_number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "image",
+            "optional": false,
+            "field": "logo_photo",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "image",
+            "optional": false,
+            "field": "banner_photo",
+            "description": "<p>(optional)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Ngo updated\",\n        \"ngo\": {\n        \"object\": \"Ngo\",\n            \"id\": \"a0dg7o53grq4m3pn\",\n            \"name\": \"انجمن هنتوشان\",\n            \"description\": \"I suppose, by being drowned in my time, but never ONE with such a puzzled expression that she had been to a mouse: she had this fit) An obstacle that came between Him, and ourselves, and it. Don't.\",\n            \"subject\": \"فرهنگی-سلامتی\",\n            \"area_of_activity\": \"North Anne\",\n            \"address\": \"817 Stroman Route\\nRainaberg, TN 93696\",\n            \"registration_date\": \"2015-09-08\",\n            \"registration_number\": 100108,\n            \"national_number\": 77836,\n            \"license_number\": 105178,\n            \"license_date\": \"1971-08-05\",\n            \"logo_photo_path\": \"634475519\",\n            \"banner_photo_path\": \"131333280\",\n            \"user_id\": 4,\n            \"created_at\": {\n            \"date\": \"2017-06-27 02:41:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-06-27 09:04:46.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"6 hours ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"real_id\": 3\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/3\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/NGO/UI/API/Routes/UpdateNgo.v1.private.php",
+    "groupTitle": "NGO"
+  },
+  {
+    "group": "NGO",
+    "name": "listAllNGOs",
+    "type": "GET",
+    "url": "/v1/ngo",
+    "title": "List NGOs",
+    "description": "<p>Lists all NGOs (if no query parameter is given)</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated User"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": [\n        {\n            \"object\": \"Ngo\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"Metz, Denesik and Feeney\",\n            \"description\": \"Pepper For a minute or two to think this a very deep well. Either the well was very glad to find herself talking familiarly with them, as if she could have been ill.' 'So they were,' said the King.\",\n            \"subject\": \"maiores\",\n            \"area_of_activity\": \"Torranceburgh\",\n            \"address\": \"9272 Angeline Corner\\nMadalynfurt, MT 89782-1979\",\n            \"registration_date\": \"1977-07-11\",\n            \"registration_number\": 84163,\n            \"national_number\": 22219,\n            \"license_number\": 90649,\n            \"license_date\": \"1978-10-18\",\n            \"logo_photo_path\": \"297952626\",\n            \"banner_photo_path\": \"456262418\",\n            \"user_id\": 2,\n            \"created_at\": {\n            \"date\": \"2017-06-27 02:41:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-06-27 02:41:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"6 hours ago\",\n            \"readable_updated_at\": \"6 hours ago\",\n            \"real_id\": 1\n        },\n    ],\n    \"meta\": {\n    \"include\": [],\n        \"custom\": [],\n        \"pagination\": {\n        \"total\": 51,\n            \"count\": 10,\n            \"per_page\": 10,\n            \"current_page\": 1,\n            \"total_pages\": 6,\n            \"links\": {\n            \"next\": \"http://api.apiato.dev/v1/ngo?page=2\"\n            }\n        }\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/NGO/UI/API/Routes/ListAllNgos.v1.private.php",
+    "groupTitle": "NGO"
   },
   {
     "group": "OAuth2",
@@ -1007,10 +1362,10 @@ define({ "api": [
     "groupTitle": "Stripe"
   },
   {
-    "group": "Users",
+    "group": "User",
     "name": "CreateAdmin",
     "type": "post",
-    "url": "/v1/admins",
+    "url": "/v1/admin",
     "title": "Create Admin type Users",
     "description": "<p>Creating non client Users, form the Dashboard.</p>",
     "version": "1.0.0",
@@ -1047,7 +1402,7 @@ define({ "api": [
       }
     },
     "filename": "app/Containers/User/UI/API/Routes/CreateAdmin.v1.private.php",
-    "groupTitle": "Users",
+    "groupTitle": "User",
     "success": {
       "examples": [
         {
@@ -1059,10 +1414,10 @@ define({ "api": [
     }
   },
   {
-    "group": "Users",
+    "group": "User",
     "name": "DeleteUser",
     "type": "delete",
-    "url": "/v1/users/:id",
+    "url": "/v1/user/{id}",
     "title": "Delete User (admin, client..)",
     "description": "<p>Delete Users of any type (Admin, Client,...)</p>",
     "version": "1.0.0",
@@ -1081,10 +1436,10 @@ define({ "api": [
       ]
     },
     "filename": "app/Containers/User/UI/API/Routes/DeleteUser.v1.private.php",
-    "groupTitle": "Users"
+    "groupTitle": "User"
   },
   {
-    "group": "Users",
+    "group": "User",
     "name": "GetAuthenticatedUser",
     "type": "get",
     "url": "/v1/userinfo",
@@ -1097,7 +1452,7 @@ define({ "api": [
       }
     ],
     "filename": "app/Containers/User/UI/API/Routes/GetAuthenticatedUser.v1.private.php",
-    "groupTitle": "Users",
+    "groupTitle": "User",
     "success": {
       "examples": [
         {
@@ -1109,10 +1464,10 @@ define({ "api": [
     }
   },
   {
-    "group": "Users",
+    "group": "User",
     "name": "ListAllAdmins",
     "type": "get",
-    "url": "/v1/admins",
+    "url": "/v1/admin",
     "title": "List Admin Users",
     "description": "<p>List all Users where role <code>Admin</code>. You can search for Users by email, name and ID. Example: <code>?search=Mahmoud</code> or <code>?search=whatever@mail.com</code>. You can specify the field as follow <code>?search=email:whatever@mail.com</code> or <code>?search=id:20</code>. You can search by multiple fields as follow: <code>?search=name:Mahmoud&amp;email:whatever@mail.com</code>.</p>",
     "version": "1.0.0",
@@ -1122,7 +1477,7 @@ define({ "api": [
       }
     ],
     "filename": "app/Containers/User/UI/API/Routes/ListAllAdmins.v1.private.php",
-    "groupTitle": "Users",
+    "groupTitle": "User",
     "success": {
       "examples": [
         {
@@ -1134,7 +1489,7 @@ define({ "api": [
     }
   },
   {
-    "group": "Users",
+    "group": "User",
     "name": "ListAllClients",
     "type": "get",
     "url": "/v1/clients",
@@ -1147,7 +1502,7 @@ define({ "api": [
       }
     ],
     "filename": "app/Containers/User/UI/API/Routes/ListAllClients.v1.private.php",
-    "groupTitle": "Users",
+    "groupTitle": "User",
     "success": {
       "examples": [
         {
@@ -1159,10 +1514,10 @@ define({ "api": [
     }
   },
   {
-    "group": "Users",
+    "group": "User",
     "name": "ListAllUsers",
     "type": "get",
-    "url": "/v1/users",
+    "url": "/v1/user",
     "title": "List All Users",
     "description": "<p>List all Application Users (clients and admins). For all registered users &quot;Clients&quot; only you can use <code>/clients</code>. And for all &quot;Admins&quot; only you can use <code>/admins</code>.</p>",
     "version": "1.0.0",
@@ -1172,7 +1527,7 @@ define({ "api": [
       }
     ],
     "filename": "app/Containers/User/UI/API/Routes/ListAllUsers.v1.private.php",
-    "groupTitle": "Users",
+    "groupTitle": "User",
     "success": {
       "examples": [
         {
@@ -1184,10 +1539,10 @@ define({ "api": [
     }
   },
   {
-    "group": "Users",
+    "group": "User",
     "name": "UpdateUser",
     "type": "put",
-    "url": "/v1/users/:id",
+    "url": "/v1/user/{id}",
     "title": "Update User",
     "version": "1.0.0",
     "permission": [
@@ -1265,7 +1620,7 @@ define({ "api": [
       }
     },
     "filename": "app/Containers/User/UI/API/Routes/UpdateUser.v1.private.php",
-    "groupTitle": "Users",
+    "groupTitle": "User",
     "success": {
       "examples": [
         {
@@ -1277,10 +1632,48 @@ define({ "api": [
     }
   },
   {
-    "group": "Users",
+    "group": "User",
+    "name": "fallowNgo",
+    "type": "POST",
+    "url": "/v1/user/fallow",
+    "title": "Endpoint title here..",
+    "description": "<p>Endpoint description here..</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parameters",
+            "description": "<p>here..</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  // Insert the response of the request here...\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/User/UI/API/Routes/FallowNgo.v1.private.php",
+    "groupTitle": "User"
+  },
+  {
+    "group": "User",
     "name": "getUser",
     "type": "get",
-    "url": "/v1/users/:id",
+    "url": "/v1/user/{id}",
     "title": "Get User",
     "description": "<p>Find a user by its ID</p>",
     "version": "1.0.0",
@@ -1290,7 +1683,7 @@ define({ "api": [
       }
     ],
     "filename": "app/Containers/User/UI/API/Routes/GetUser.v1.private.php",
-    "groupTitle": "Users",
+    "groupTitle": "User",
     "success": {
       "examples": [
         {
@@ -1302,12 +1695,12 @@ define({ "api": [
     }
   },
   {
-    "group": "Users",
+    "group": "User",
     "name": "registerUser",
     "type": "post",
     "url": "/v1/register",
     "title": "Register User (create client)",
-    "description": "<p>Register users as (client).</p>",
+    "description": "<p>Register user as (client).</p>",
     "version": "1.0.0",
     "permission": [
       {
@@ -1384,7 +1777,7 @@ define({ "api": [
       }
     },
     "filename": "app/Containers/User/UI/API/Routes/RegisterUser.v1.private.php",
-    "groupTitle": "Users",
+    "groupTitle": "User",
     "success": {
       "examples": [
         {

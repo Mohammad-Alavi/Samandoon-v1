@@ -81,7 +81,11 @@ class User extends UserModel
         return $this->hasOne(StripeAccount::class);
     }
 
-    public function ngos(){
-        return $this->hasMany(NGO::class);
+    public function ngo(){
+        return $this->hasOne(NGO::class);
+    }
+
+    public function follow(){
+        return $this->hasMany(user_fallow::class);
     }
 }

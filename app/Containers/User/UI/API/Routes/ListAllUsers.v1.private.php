@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @apiGroup           Users
+ * @apiGroup           User
  * @apiName            ListAllUsers
- * @api                {get} /v1/users List All Users
+ * @api                {get} /v1/user List All Users
  * @apiDescription     List all Application Users (clients and admins). For all registered users "Clients" only you
  *                     can use `/clients`. And for all "Admins" only you can use `/admins`.
  *
@@ -13,7 +13,7 @@
  * @apiUse             GeneralSuccessMultipleResponse
  */
 
-$router->get('users', [
+$router->get('user', [
     'uses'       => 'Controller@listAllUsers',
     'middleware' => [
         'auth:api',

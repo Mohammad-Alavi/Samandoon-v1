@@ -14,13 +14,14 @@ class CreateEventTask extends Task
 {
     /**
      * @param Request $request
+     * @param $ngo
      * @return mixed
      */
-    public function run(Request $request)
+    public function run(Request $request, $ngo)
     {
         $title = $request->input('title');
         $description = $request->input('description');
-        $event_date = $request->input('event_date');
+        $event_date = Carbon::createFromFormat('YmdHiT', $request->input('event_date'));
         $request->hasFile('event_photo') ? $photo_path = $request->file('event_photo')->store('event_photo') : $photo_path = null;
         $location = $request->input('location');
 
@@ -29,9 +30,10 @@ class CreateEventTask extends Task
             $event = App::make(EventRepository::class)->create([
                 'title'         =>  $title,
                 'description'   =>  $description,
-                'event_date'    =>  Carbon::createFromFormat('YmdHiT', $event_date),
+                'event_date'    =>  $event_date,
                 'photo_path'    =>  $photo_path,
                 'location'      =>  $location,
+                'ngo_id'      =>  $ngo->id,
             ]);
         } catch (Exception $e) {
             throw (new EventCreationFailedException);

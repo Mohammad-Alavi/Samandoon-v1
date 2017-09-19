@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @apiGroup           Users
+ * @apiGroup           User
  * @apiName            GetAuthenticatedUser
  * @api                {get} /v1/userinfo Get Authenticated User without specifying it's ID
  * @apiDescription     Get the current authenticated user object.

@@ -7,7 +7,14 @@ use App\Ship\Parents\Models\Model;
 
 class Event extends Model
 {
-    protected $fillable = ['title', 'description', 'event_date', 'photo_path', 'location'];
+    protected $fillable = [
+        'title',
+        'description',
+        'event_date',
+        'photo_path',
+        'location',
+        'ngo_id',
+    ];
 
     //protected $hidden = ['created_at', 'updated_at'];
 

@@ -4,8 +4,10 @@ namespace App\Ship\Seeders\Data\Testing\Seeders;
 
 use App\Containers\Event\Models\Event;
 use App\Containers\NGO\Models\NGO;
+use App\Containers\User\Data\Repositories\UserRepository;
 use App\Containers\User\Models\User;
 use App\Ship\Parents\Seeders\Seeder;
+use Illuminate\Support\Facades\App;
 
 /**
  * Class TestingDataSeeder
@@ -22,22 +24,18 @@ class TestingDataSeeder extends Seeder
      */
     public function run()
     {
-//        factory(NGO::class, 50)
-//            ->create()
-//            ->each(function ($u){
-//                $u->events()->saveMany(factory(Event::class, rand(2, 11))->make());
-//            });
+        factory(User::class, 50)->create()
+            ->each(function ($ngo){
+                $ngo->ngo()->save(factory(NGO::class)->make());
+//                    ->each(function ($events){
+//                        $events->events()->saveMany(factory(Event::class, 5)->make());
+//                    });
+                });
 
-//        factory(Event::class, 100)->create();
-
-        factory(User::class, 50)
-            ->create()
-            ->each(function ($u){
-            $u->ngos()->saveMany(factory(NGO::class, rand(0, 3))->make())
-                ->each(function ($u){
-                $u->events()->saveMany(factory(Event::class, rand(2, 11))->make());
-            });;
-        });
+        $ngos = NGO::all();
+        foreach($ngos as $ngo){
+            factory(Event::class, rand(0, 50))->create(['ngo_id' => $ngo->id]);
+        }
     }
 
 }

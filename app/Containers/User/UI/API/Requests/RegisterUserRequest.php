@@ -49,7 +49,8 @@ class RegisterUserRequest extends Request
         return [
             'email'    => 'required|email|max:40|unique:users,email',
             'password' => 'required|min:6|max:40',
-            'name'     => 'required|min:2|max:50',
+            'first_name'     => 'required|min:2|max:50',
+            'last_name'     => 'required|min:2|max:50',
             'platform' => 'in:android,ios,web,desktop',
         ];
     }

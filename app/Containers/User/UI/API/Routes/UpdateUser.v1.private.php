@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @apiGroup           Users
+ * @apiGroup           User
  * @apiName            UpdateUser
- * @api                {put} /v1/users/:id Update User
+ * @api                {put} /v1/user/{id} Update User
  *
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated User
@@ -21,7 +21,7 @@
  * @apiUse             UserSuccessSingleResponse
  */
 
-$router->put('users/{id}', [
+$router->put('user/{id}', [
     'uses'       => 'Controller@updateUser',
     'middleware' => [
         'auth:api',

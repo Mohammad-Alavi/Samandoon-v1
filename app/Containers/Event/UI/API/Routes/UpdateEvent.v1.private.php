@@ -4,11 +4,11 @@
  * @apiGroup           Event
  * @apiName            UpdateEvent
  *
- * @api                {put}  /event/:id Update Event
+ * @api                {put}  /v1/event/{id} Update Event
  * @apiDescription     Update a given event
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated User
+ * @apiPermission      Authenticated User / Owner
  *
  * @apiParam           {string}  title (optional)
  * @apiParam           {text}  description (optional)

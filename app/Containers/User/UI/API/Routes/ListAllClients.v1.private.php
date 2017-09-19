@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @apiGroup           Users
+ * @apiGroup           User
  * @apiName            ListAllClients
  * @api                {get} /v1/clients List Client Users
  * @apiDescription     List all Users where role `Client`.

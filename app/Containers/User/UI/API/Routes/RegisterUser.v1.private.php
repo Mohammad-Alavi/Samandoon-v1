@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @apiGroup           Users
+ * @apiGroup           User
  * @apiName            registerUser
  * @api                {post} /v1/register Register User (create client)
- * @apiDescription     Register users as (client).
+ * @apiDescription     Register user as (client).
  *
  * @apiVersion         1.0.0
  * @apiPermission      none

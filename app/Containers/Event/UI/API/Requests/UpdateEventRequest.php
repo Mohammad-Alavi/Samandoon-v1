@@ -25,7 +25,7 @@ class UpdateEventRequest extends Request
      * @var  array
      */
     protected $decode = [
-        // 'id',
+         'id',
     ];
 
     /**
@@ -35,7 +35,7 @@ class UpdateEventRequest extends Request
      * @var  array
      */
     protected $urlParameters = [
-        //'id',
+        'id',
     ];
 
     /**
@@ -44,9 +44,9 @@ class UpdateEventRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title' => 'required|max:255',
             'event_date'    =>  'required|date_format:YmdHiT',
-            'event_photo'   =>  'image'
+            'event_photo'   =>  'image',
         ];
     }
 

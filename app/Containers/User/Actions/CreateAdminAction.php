@@ -26,7 +26,8 @@ class CreateAdminAction extends Action
             $isClient = false,
             $request->email,
             $request->password,
-            $request->name
+            $request->first_name,
+            $request->last_name,
         ]);
 
         // NOTE: if not using a single general role for all Admins, comment out that line below. And assign Roles

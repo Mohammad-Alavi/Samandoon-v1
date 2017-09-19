@@ -12,15 +12,16 @@ class Ngo extends Model
         'name',
         'description',
         'subject',
-        'province',
-        'city',
+        'area_of_activity',
         'address',
         'registration_date',
         'registration_number',
         'national_number',
         'license_number',
         'license_date',
-        'photo_path',
+        'logo_photo_path',
+        'banner_photo_path',
+        'user_id',
     ];
 
     protected $hidden = [];

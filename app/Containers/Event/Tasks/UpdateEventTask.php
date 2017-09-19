@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\App;
 
 class UpdateEventTask extends Task
 {
-    /**
-     * @param $eventData
-     * @param $eventId
-     * @return mixed
-     */
     public function run($eventData, $eventId)
     {
         if (empty($eventData)) {

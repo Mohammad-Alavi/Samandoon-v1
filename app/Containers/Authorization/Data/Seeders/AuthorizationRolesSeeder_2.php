@@ -29,5 +29,10 @@ class AuthorizationRolesSeeder_2 extends Seeder
             App::make(ListAllPermissionsTask::class)->run()->pluck('name')->toArray()
         );
 
+        // give the user required permissions, while seeding
+        App::make(CreateRoleTask::class)->run('user', 'User')->givePermissionTo([
+                'manage-ngo',
+            ]
+        );
     }
 }

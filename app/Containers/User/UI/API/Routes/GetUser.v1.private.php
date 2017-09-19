@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @apiGroup           Users
+ * @apiGroup           User
  * @apiName            getUser
- * @api                {get} /v1/users/:id Get User
+ * @api                {get} /v1/user/{id} Get User
  * @apiDescription     Find a user by its ID
  *
  * @apiVersion         1.0.0
@@ -12,7 +12,7 @@
  * @apiUse             UserSuccessSingleResponse
  */
 
-$router->get('users/{id}', [
+$router->get('user/{id}', [
     'uses'       => 'Controller@getUser',
     'middleware' => [
         'auth:api',

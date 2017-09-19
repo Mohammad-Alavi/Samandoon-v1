@@ -4,11 +4,11 @@
  * @apiGroup           Event
  * @apiName            DeleteEvent
  *
- * @api                {delete} /v1/event/:id Delete Event
+ * @api                {delete} /v1/event/{id} Delete Event
  * @apiDescription     Delete an Event by ID
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated User
+ * @apiPermission      Authenticated User / Owner
  *
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK

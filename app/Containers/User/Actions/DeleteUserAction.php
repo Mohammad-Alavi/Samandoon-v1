@@ -3,6 +3,8 @@
 namespace App\Containers\User\Actions;
 
 use App\Containers\Authentication\Tasks\GetAuthenticatedUserTask;
+use App\Containers\NGO\Models\Ngo;
+use App\Containers\NGO\Tasks\DeleteNgoTask;
 use App\Containers\User\Tasks\DeleteUserTask;
 use App\Containers\User\Tasks\FindUserByIdTask;
 use App\Ship\Parents\Actions\Action;

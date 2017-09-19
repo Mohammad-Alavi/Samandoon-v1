@@ -32,7 +32,7 @@ class UpdateEventTransformer extends Transformer
             'msg' => 'Event updated',
             'event' => $eventTransformer->transform($event),
             'view_event' => [
-                'href'  =>  'v1/event/' . $event->id,
+                'href'  =>  'v1/event/' . $event->getHashedKey(),
                 'method'    =>  'GET'
             ],
         ];

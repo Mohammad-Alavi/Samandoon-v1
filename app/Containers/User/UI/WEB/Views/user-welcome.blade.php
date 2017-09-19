@@ -40,7 +40,6 @@
             <div class="content">
                 {{--<div class="title">Welcome Anonymous User :)</div>--}}
 
-                @foreach($ngos as $ngo)
                     <h1>NGO Name: {{ $ngo->name }}</h1>
                     <h2>NGO Owner: {{ $ngo->user->first_name }} {{ $ngo->user->last_name }}</h2>
                     <ul>
@@ -57,7 +56,6 @@
                         {{--{{ $ngo->user->last_name }}--}}
                         </li>
                     </ul>
-                @endforeach
 
             </div>
         </div>

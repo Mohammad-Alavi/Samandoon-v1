@@ -13,14 +13,18 @@ use Illuminate\Support\Facades\App;
  */
 class DeleteUserTask extends Task
 {
-
-    /**
-     * @param $user
-     *
-     * @return  bool
-     */
     public function run($user)
     {
-        return App::make(UserRepository::class)->delete($user->id);
+//        return App::make(UserRepository::class)->delete($user->id);
+        $_user = App::make(UserRepository::class)->find($user->id);
+        if($_user->ngo){
+            if($_user->ngo->events){
+                foreach($_user->ngo->events as $event) {
+                    $event->delete();
+                }
+            }
+            $_user->ngo->delete();
+        }
+        return $_user->forceDelete();
     }
 }

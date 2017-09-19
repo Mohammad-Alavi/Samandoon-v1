@@ -15,7 +15,7 @@ class CreateEventRequest extends Request
      * @var  array
      */
     protected $access = [
-        'permissions' => '',
+        'permissions' => 'manage-event',
         'roles'       => '',
     ];
 
@@ -44,7 +44,7 @@ class CreateEventRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title' => 'required|max:255',
             'event_date'    =>  'required|date_format:YmdHiT',
             'event_photo'   =>  'image'
         ];

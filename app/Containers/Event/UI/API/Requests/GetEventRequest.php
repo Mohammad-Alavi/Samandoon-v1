@@ -25,7 +25,7 @@ class GetEventRequest extends Request
      * @var  array
      */
     protected $decode = [
-        // 'id',
+         'id',
     ];
 
     /**
@@ -35,7 +35,7 @@ class GetEventRequest extends Request
      * @var  array
      */
     protected $urlParameters = [
-        //'id',
+        'id',
     ];
 
     /**
@@ -44,8 +44,7 @@ class GetEventRequest extends Request
     public function rules()
     {
         return [
-            // put your rules here
-            // 'name' => 'required|max:255'
+//            'id' => 'required|exists:events,id',
         ];
     }
 

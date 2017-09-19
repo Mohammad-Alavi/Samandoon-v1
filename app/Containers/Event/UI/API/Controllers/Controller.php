@@ -4,11 +4,15 @@ namespace App\Containers\Event\UI\API\Controllers;
 
 use App\Containers\Event\Actions\CreateEventAction;
 use App\Containers\Event\Actions\DeleteEventAction;
+use App\Containers\Event\Actions\GetAuthenticatedUserEventsAction;
+use App\Containers\Event\Actions\GetAuthenticatedUserNgoEventsAction;
 use App\Containers\Event\Actions\GetEventAction;
 use App\Containers\Event\Actions\ListEventsAction;
 use App\Containers\Event\Actions\UpdateEventAction;
 use App\Containers\Event\UI\API\Requests\CreateEventRequest;
 use App\Containers\Event\UI\API\Requests\DeleteEventRequest;
+use App\Containers\Event\UI\API\Requests\GetAuthenticatedUserEventsRequest;
+use App\Containers\Event\UI\API\Requests\GetAuthenticatedUserNgoEventsRequest;
 use App\Containers\Event\UI\API\Requests\GetEventRequest;
 use App\Containers\Event\UI\API\Requests\ListAllEventsRequest;
 use App\Containers\Event\UI\API\Requests\UpdateEventRequest;
@@ -28,7 +32,6 @@ class Controller extends ApiController
     public function listAllEvents(ListAllEventsRequest $request) {
 
         $events = $this->call(ListEventsAction::class, [$request]);
-
         return $this->transform($events, EventTransformer::class);
     }
 
@@ -74,5 +77,11 @@ class Controller extends ApiController
 
         $event = $this->call(DeleteEventAction::class, [$request]);
         return $this->deleted($event);
+    }
+
+    public function getAuthenticatedUserNgoEvents(GetAuthenticatedUserNgoEventsRequest $request) {
+
+        $events = $this->call(GetAuthenticatedUserNgoEventsAction::class, [$request]);
+        return $this->transform($events, EventTransformer::class);
     }
 }
