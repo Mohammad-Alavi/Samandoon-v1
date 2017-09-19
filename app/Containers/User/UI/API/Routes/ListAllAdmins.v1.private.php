@@ -17,6 +17,7 @@
  */
 
 $router->get('admin', [
+    'as' => 'API_User_listAllAdmins',
     'uses'       => 'Controller@listAllAdmins',
     'middleware' => [
         'auth:api',

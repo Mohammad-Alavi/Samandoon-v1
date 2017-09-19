@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Hash;
  */
 class CreateUserByCredentialsTask extends Task
 {
+
     /**
      * @param bool $isClient
      * @param $email

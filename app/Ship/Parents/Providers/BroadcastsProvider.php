@@ -2,8 +2,8 @@
 
 namespace App\Ship\Parents\Providers;
 
+use Apiato\Core\Abstracts\Providers\BroadcastsProvider as AbstractBroadcastsProvider;
 use Illuminate\Support\Facades\Broadcast;
-use Illuminate\Support\ServiceProvider as LaravelBroadcastServiceProvider;
 
 /**
  * Class BroadcastsProvider
@@ -12,15 +12,8 @@ use Illuminate\Support\ServiceProvider as LaravelBroadcastServiceProvider;
  *
  * @author  Mahmoud Zalt  <mahmoud@zalt.me>
  */
-class BroadcastsProvider extends LaravelBroadcastServiceProvider
+class BroadcastsProvider extends AbstractBroadcastsProvider
 {
-
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = true;
 
     /**
      * Bootstrap any application services.
@@ -31,6 +24,7 @@ class BroadcastsProvider extends LaravelBroadcastServiceProvider
     {
         Broadcast::routes();
 
-//        require base_path('routes/channels.php');
+        // require base_path('routes/channels.php');
     }
+
 }

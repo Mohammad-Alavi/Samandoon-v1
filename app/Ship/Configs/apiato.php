@@ -32,27 +32,42 @@ return [
         | API URL
         |--------------------------------------------------------------------------
         */
-        'url'                    => env('API_URL', 'http://localhost'),
+        'url'                     => env('API_URL', 'http://localhost'),
+
+        /*
+        |--------------------------------------------------------------------------
+        | API Prefix
+        |--------------------------------------------------------------------------
+        */
+        'prefix'                  => '/',
+
+        /*
+        |--------------------------------------------------------------------------
+        | API Prefix
+        |--------------------------------------------------------------------------
+        */
+        'enable_version_prefix'   => true,
+
 
         /*
         |--------------------------------------------------------------------------
         | Access Token Expiration
         |--------------------------------------------------------------------------
         |
-        | In Minutes. Default to 5,256,000 minutes = 10 years
+        | In Minutes. Default to 1,440 minutes = 1 day
         |
         */
-        'expires-in'             => env('API_TOKEN_EXPIRES', 5256000),
+        'expires-in'             => env('API_TOKEN_EXPIRES', 1440),
 
         /*
         |--------------------------------------------------------------------------
         | Refresh Token Expiration
         |--------------------------------------------------------------------------
         |
-        | In Minutes. Default to 5,256,000 minutes = 10 years
+        | In Minutes. Default to 43,200 minutes = 30 days
         |
         */
-        'refresh-expires-in'     => env('API_REFRESH_TOKEN_EXPIRES', 5256000),
+        'refresh-expires-in'     => env('API_REFRESH_TOKEN_EXPIRES', 43200),
 
         /*
         |--------------------------------------------------------------------------
@@ -74,16 +89,64 @@ return [
 
         /*
         |--------------------------------------------------------------------------
-        | Rate Limit
+        | Rate Limit (throttle)
         |--------------------------------------------------------------------------
         |
         | Attempts per minutes.
-        | `throttle_attempts` the number of attempts per `throttle_expires` in
-        | minutes.
+        | `attempts` the number of attempts per `expires` in minutes.
         |
         */
-        'throttle_attempts' => env('API_RATE_LIMIT_ATTEMPTS', '30'),
-        'throttle_expires' => env('API_RATE_LIMIT_EXPIRES', '1'),
+        'throttle' => [
+            'enabled'  => env('API_RATE_LIMIT_ENABLED', true),
+            'attempts' => env('API_RATE_LIMIT_ATTEMPTS', '30'),
+            'expires'  => env('API_RATE_LIMIT_EXPIRES', '1'),
+        ]
+
+    ],
+
+    'requests' => [
+        /*
+        |--------------------------------------------------------------------------
+        | Allow Roles to access all Routes
+        |--------------------------------------------------------------------------
+        |
+        | Define a list of roles that do not need to go through the "hasAccess"
+        | check in Requests. These roles automatically pass this check. This is
+        | useful, if you want to make all routes accessible for admin users.
+        |
+        | Usage: ['admin', 'editor']
+        | Default: []
+        |
+        */
+        'allow-roles-to-access-all-routes' => [],
+
+        /*
+        |--------------------------------------------------------------------------
+        | Force Request Header to Contain header
+        |--------------------------------------------------------------------------
+        |
+        | By default users can send request without defining the accept header and
+        | setting it to [ accept = application/json ].
+        | To force the users to define that header, set this to true.
+        | When set to true, a PHP exception will be thrown preventing users from access
+        | When set to false, the header will contain a warning message.
+        |
+        */
+        'force-accept-header' => false,
+
+        /*
+        |--------------------------------------------------------------------------
+        | Use ETags
+        |--------------------------------------------------------------------------
+        |
+        | This option appends an "ETag" HTTP Header to the Response. This ETag is a
+        | calculated hash of the content to be delivered.
+        | Clients can add an "If-None-Match" HTTP Header to the Request and submit
+        | an (old) ETag. These ETags are validated. If they match (are the same),
+        | an empty BODY with HTTP STATUS 304 (not modified) is returned!
+        |
+        */
+        'use-etag' => true,
     ],
 
 ];

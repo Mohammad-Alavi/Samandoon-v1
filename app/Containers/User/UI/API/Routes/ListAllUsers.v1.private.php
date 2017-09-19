@@ -14,6 +14,7 @@
  */
 
 $router->get('user', [
+    'as' => 'API_User_listAllUsers',
     'uses'       => 'Controller@listAllUsers',
     'middleware' => [
         'auth:api',

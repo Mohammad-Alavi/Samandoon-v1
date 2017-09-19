@@ -3,6 +3,7 @@
 namespace App\Containers\Authentication\Actions;
 
 use App\Containers\Authentication\Tasks\CallOAuthServerTask;
+use App\Containers\Authentication\Tasks\CheckIfUserIsConfirmedTask;
 use App\Containers\Authentication\Tasks\MakeRefreshCookieTask;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
@@ -33,10 +34,10 @@ class ProxyApiLoginAction extends Action
 
         $responseContent = $this->call(CallOAuthServerTask::class, [$requestData]);
 
-        $refreshCookie = $this->call(MakeRefreshCookieTask::class, [$responseContent['refresh_token']]);
+        // check if user email is confirmed only if that feature is enabled.
+        $this->call(CheckIfUserIsConfirmedTask::class, [], [ ['loginWithCredentials' => [$requestData['username'], $requestData['password']]]]);
 
-        // Make sure we only send the refresh_token in the cookie
-        unset($responseContent['refresh_token']);
+        $refreshCookie = $this->call(MakeRefreshCookieTask::class, [$responseContent['refresh_token']]);
 
         return [
             'response-content' => $responseContent,

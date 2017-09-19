@@ -2,8 +2,15 @@
 
 namespace App\Containers\User\Models;
 
+<<<<<<< HEAD
 use App\Containers\NGO\Models\NGO;
 use App\Containers\Stripe\Models\StripeAccount;
+=======
+use App\Containers\Authorization\Traits\AuthorizationTrait;
+use App\Containers\Payment\Contracts\ChargeableInterface;
+use App\Containers\Payment\Models\PaymentAccount;
+use App\Containers\Payment\Traits\ChargeableTrait;
+>>>>>>> c1eec9d09d28424ec3c1c36bfbe1629aadd296f1
 use App\Ship\Parents\Models\UserModel;
 
 /**
@@ -11,8 +18,11 @@ use App\Ship\Parents\Models\UserModel;
  *
  * @author Mahmoud Zalt <mahmoud@zalt.me>
  */
-class User extends UserModel
+class User extends UserModel implements ChargeableInterface
 {
+
+    use ChargeableTrait;
+    use AuthorizationTrait;
 
     /**
      * The database table used by the model.
@@ -76,9 +86,9 @@ class User extends UserModel
         'remember_token',
     ];
 
-    public function stripeAccount()
+    public function paymentAccounts()
     {
-        return $this->hasOne(StripeAccount::class);
+        return $this->hasMany(PaymentAccount::class);
     }
 
     public function ngo(){

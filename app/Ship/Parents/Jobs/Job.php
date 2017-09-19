@@ -2,7 +2,12 @@
 
 namespace App\Ship\Parents\Jobs;
 
+use Apiato\Core\Abstracts\Jobs\Job as AbstractJob;
 use Illuminate\Bus\Queueable;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
 
 /**
  * Class Job
@@ -11,8 +16,10 @@ use Illuminate\Bus\Queueable;
  *
  * @author  Mahmoud Zalt  <mahmoud@zalt.me>
  */
-abstract class Job
+abstract class Job extends AbstractJob implements ShouldQueue
 {
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
     /*
     |--------------------------------------------------------------------------
     | Queueable Jobs
@@ -24,5 +31,4 @@ abstract class Job
     |
     */
 
-    use Queueable;
 }

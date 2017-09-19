@@ -4,7 +4,7 @@ namespace App\Containers\User\UI\API\Controllers;
 
 use App\Containers\User\Actions\CreateAdminAction;
 use App\Containers\User\Actions\DeleteUserAction;
-use App\Containers\User\Actions\GetAuthenticatedUserAction;
+use App\Containers\User\Actions\GetMyProfileAction;
 use App\Containers\User\Actions\GetUserAction;
 use App\Containers\User\Actions\ListAdminsAction;
 use App\Containers\User\Actions\ListAndSearchUsersAction;
@@ -13,8 +13,12 @@ use App\Containers\User\Actions\RegisterUserAction;
 use App\Containers\User\Actions\UpdateUserAction;
 use App\Containers\User\UI\API\Requests\CreateAdminRequest;
 use App\Containers\User\UI\API\Requests\DeleteUserRequest;
+<<<<<<< HEAD
 use App\Containers\User\UI\API\Requests\FallowNgoRequest;
 use App\Containers\User\UI\API\Requests\GetAuthenticatedUserRequest;
+=======
+use App\Containers\User\UI\API\Requests\GetMyProfileRequest;
+>>>>>>> c1eec9d09d28424ec3c1c36bfbe1629aadd296f1
 use App\Containers\User\UI\API\Requests\GetUserByIdRequest;
 use App\Containers\User\UI\API\Requests\ListAllUsersRequest;
 use App\Containers\User\UI\API\Requests\RegisterUserRequest;
@@ -127,15 +131,15 @@ class Controller extends ApiController
     }
 
     /**
-     * @param \App\Containers\User\UI\API\Requests\GetAuthenticatedUserRequest $request
+     * @param GetMyProfileRequest $request
      *
-     * @return  mixed
+     * @return mixed
      */
-    public function getAuthenticatedUserData(GetAuthenticatedUserRequest $request)
+    public function getUserProfile(GetMyProfileRequest $request)
     {
-        $user = $this->call(GetAuthenticatedUserAction::class);
+        $user = $this->call(GetMyProfileAction::class, [$request]);
 
-        return $this->transform($user, UserTransformer::class);
+        return $this->transform($user, UserTransformer::class, ['roles']);
     }
 
     public function fallowNgo(FallowNgoRequest $request){

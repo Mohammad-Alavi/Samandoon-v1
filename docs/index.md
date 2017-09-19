@@ -1,6 +1,8 @@
 ---
-title: "Welcome to apiato"
+title: "Welcome to APIATO"
 ---
+
+[![apiato.jpg](https://s19.postimg.org/o1y4gerrn/apiato.jpg)](http://apiato.io)
 
 [![apiato](https://img.shields.io/badge/Status-Awesome-brightgreen.svg)](https://github.com/apiato/apiato)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/apiato/apiato/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/apiato/apiato/?branch=master)
@@ -12,22 +14,19 @@ title: "Welcome to apiato"
 [![composer.lock](https://poser.pugx.org/apiato/apiato/composerlock)](https://packagist.org/packages/apiato/apiato)
 [![License](https://poser.pugx.org/apiato/apiato/license)](https://packagist.org/packages/apiato/apiato)
 
-**Build better API's faster with PHP and Laravel 5.4**
+**Build better API's faster with PHP and laravel 5.5**
 
-**apiato** is a starter project, designed to help you build scalable API's faster, by providing tools and
-functionalities that facilitates the development of any API-Centric Applications.
+**APIATO** is a flawless framework for building scalable and testable API-Centric Applications with PHP. 
+It is designed to help you build scalable API's faster, by providing tools and functionalities that facilitates the development of any API-Centric App.
+           
 
-apiato uses the best frameworks, tools and conventions in a very creative way to deliver a modern PHP Application.
+APIATO uses the best frameworks, tools and conventions in a creative way to deliver a rich set of features in a modern PHP Application.
 
-Why!? setting up a solid API from scratch is time consuming (and time is money).
-apiato gives you the core features of robust API's, so you can focus on your business logic and deliver faster.
-Skip the repetitive work and enjoy the open source fun.
+Why!? setting up a solid API from scratch is time consuming (and time is money). APIATO gives you the core features of robust API's, so you can focus on your business logic and deliver faster. Skip the repetitive work and enjoy the open source fun.
 
+<br>
 
-**apiato [Features list](https://github.com/apiato/apiato#features) on Github.**
-
-
-> `Hello API` was the first name of this project, it was renamed to `apiato` in March, 22, 2017 for no reason.
+**APIATO [Features list](https://github.com/apiato/apiato) on Github.**
 
 ## How to read the docs
 
@@ -35,11 +34,11 @@ The documentation has 4 sections:
 
 - **Getting Started**: contains mainly the project installation steps.
 - **General**: contains few general things to get you started.
-- **Features**: explains how to use each feature of apiato, and show how it works and how it can be configured to meet your needs.
+- **Features**: explains how to use each feature of APIATO, and show how it works and how it can be configured to meet your needs.
 - **Components**: explains how, where and why you need to use each component "class". In each component page you will see:
   * **Definition**: what is the the component and what it's role.
   * **Principles**: the general principles of the component, which could be applied to any programming language.
-  * **Rules**: how to apply the component principles in apiato (a PHP/Laravel project), to ensure a smooth operation.
+  * **Rules**: how to apply the component principles in APIATO (a PHP/Laravel project), to ensure a smooth operation.
   * **Folder Structure**: the folder structure, that shows where to place your component.
   * **Code Sample**: a boilerplate to show how to write and use the component.
   * **Misc**: things related to the component, like configurations and other stuff you might need while coding.
@@ -57,6 +56,13 @@ The documentation has 4 sections:
 Join our [Slack](https://now-examples-slackin-bvfqosqozk.now.sh) chatting room, by click on the Slack icon below.
 
 [![](https://s19.postimg.org/h7pvzy9ar/Slack-i_OS-icon.png)](https://now-examples-slackin-bvfqosqozk.now.sh)
+
+
+<a name="Testimonials"></a>
+## Testimonials
+
+[Some feedback from awesome people here.]({{ site.baseurl }}{% link _docs/miscellaneous/testimonials.md %})
+
 
 <a name="Donations"></a>
 ## Donations

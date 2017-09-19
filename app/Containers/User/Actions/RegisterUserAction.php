@@ -2,10 +2,16 @@
 
 namespace App\Containers\User\Actions;
 
+use App\Containers\User\Events\UserRegisteredEvent;
+use App\Containers\User\Mails\UserRegisteredMail;
+use App\Containers\User\Notifications\UserRegisteredNotification;
 use App\Containers\User\Tasks\CreateUserByCredentialsTask;
-use App\Containers\User\Tasks\FireUserCreatedEventTask;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Contracts\Bus\Dispatcher;
 
 /**
  * Class RegisterUserAction.
@@ -23,7 +29,7 @@ class RegisterUserAction extends Action
     public function run(Request $request)
     {
         // create user record in the database and return it.
-        return $this->call(CreateUserByCredentialsTask::class, [
+        $user = $this->call(CreateUserByCredentialsTask::class, [
             $isClient = true,
             $request->email,
             $request->password,
@@ -36,5 +42,13 @@ class RegisterUserAction extends Action
             $request->device,
             $request->platform,
         ]);
+
+        Mail::send(new UserRegisteredMail($user));
+
+        Notification::send($user, new UserRegisteredNotification($user));
+
+        App::make(Dispatcher::class)->dispatch(New UserRegisteredEvent($user));
+
+        return $user;
     }
 }
