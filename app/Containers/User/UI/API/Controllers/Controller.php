@@ -13,12 +13,9 @@ use App\Containers\User\Actions\RegisterUserAction;
 use App\Containers\User\Actions\UpdateUserAction;
 use App\Containers\User\UI\API\Requests\CreateAdminRequest;
 use App\Containers\User\UI\API\Requests\DeleteUserRequest;
-<<<<<<< HEAD
 use App\Containers\User\UI\API\Requests\FallowNgoRequest;
 use App\Containers\User\UI\API\Requests\GetAuthenticatedUserRequest;
-=======
 use App\Containers\User\UI\API\Requests\GetMyProfileRequest;
->>>>>>> c1eec9d09d28424ec3c1c36bfbe1629aadd296f1
 use App\Containers\User\UI\API\Requests\GetUserByIdRequest;
 use App\Containers\User\UI\API\Requests\ListAllUsersRequest;
 use App\Containers\User\UI\API\Requests\RegisterUserRequest;
