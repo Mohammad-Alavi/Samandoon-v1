@@ -2,11 +2,7 @@
 
 namespace App\Containers\SocialAuth\Actions;
 
-use App\Containers\Authentication\Tasks\ApiLoginThisUserObjectTask;
-use App\Containers\SocialAuth\Tasks\CreateUserBySocialProfileTask;
-use App\Containers\SocialAuth\Tasks\FindSocialUserTask;
-use App\Containers\SocialAuth\Tasks\GetUserSocialProfileTask;
-use App\Containers\SocialAuth\Tasks\UpdateUserSocialProfileTask;
+use Apiato\Core\Foundation\Facades\Apiato;
 use App\Ship\Parents\Actions\Action;
 
 /**
@@ -30,25 +26,24 @@ class SocialLoginAction extends Action
      */
     public function run($request, $provider)
     {
-        // TODO: needs refactoring so bad :D
-
-        // fetch the user data from facebook
-        $socialUserProfile = $this->call(GetUserSocialProfileTask::class, [$provider, $request->all()]);
-        // checking if some data are available in the response
-        // (these lines are written to make this function compatible with multiple providers)
-        $tokenSecret = isset($socialUserProfile->tokenSecret) ? $socialUserProfile->tokenSecret : null;
-        $expiresIn = isset($socialUserProfile->expiresIn) ? $socialUserProfile->expiresIn : null;
-        $refreshToken = isset($socialUserProfile->refreshToken) ? $socialUserProfile->refreshToken : null;
-        $avatar_original = isset($socialUserProfile->avatar_original) ? $socialUserProfile->avatar_original : null;
+        // fetch the user data from the support platforms
+        $socialUserProfile = Apiato::call('Socialauth@FindUserSocialProfileTask', [$provider, $request->all()]);
 
         // check if the social ID exist on any of our users, and get that user in case it was found
-        $socialUser = $this->call(FindSocialUserTask::class, [$provider, $socialUserProfile->id]);
-        if ($socialUser) {
-            // THIS IS: A USER AND ALREADY HAVE A SOCIAL PROFILE
-            // DO: UPDATE THE EXISTING USER SOCIAL PROFILE.
+        $socialUser = Apiato::call('Socialauth@FindSocialUserTask', [$provider, $socialUserProfile->id]);
 
+        // checking if some data are available in the response
+        // (these lines are written to make this function compatible with multiple providers)
+        $tokenSecret = $socialUserProfile->tokenSecret ?? null;
+        $expiresIn = $socialUserProfile->expiresIn ?? null;
+        $refreshToken = $socialUserProfile->refreshToken ?? null;
+        $avatar_original = $socialUserProfile->avatar_original ?? null;
+
+        // THIS IS: A USER AND ALREADY HAVE A SOCIAL PROFILE
+        // DO: UPDATE THE EXISTING USER SOCIAL PROFILE.
+        if ($socialUser) {
             // Only update tokens and updated information. Never override the user profile.
-            $user = $this->call(UpdateUserSocialProfileTask::class, [
+            $user = Apiato::call('Socialauth@UpdateUserSocialProfileTask', [
                 $socialUser->id,
                 $socialUserProfile->token,
                 $expiresIn,
@@ -57,10 +52,11 @@ class SocialLoginAction extends Action
                 $socialUserProfile->avatar,
                 $avatar_original
             ]);
-        } else {
+
             // THIS IS: A NEW USER
             // DO: CREATE NEW USER FROM THE SOCIAL PROFILE INFORMATION.
-            $user = $this->call(CreateUserBySocialProfileTask::class, [
+        } else {
+            $user = Apiato::call('Socialauth@CreateUserBySocialProfileTask', [
                 $provider,
                 $socialUserProfile->token,
                 $socialUserProfile->id,
@@ -75,9 +71,13 @@ class SocialLoginAction extends Action
             ]);
         }
 
-        $user = $this->call(ApiLoginThisUserObjectTask::class, [$user]);
+        // Authenticate the user from its object
+        $personalAccessTokenResult = Apiato::call('Authentication@ApiLoginFromUserTask', [$user]);
 
-        return $user;
+        return [
+            'user'  => $user,
+            'token' => $personalAccessTokenResult,
+        ];
     }
 
 }

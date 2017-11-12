@@ -16,12 +16,12 @@
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK
 {
-  // Insert the response of the request here...
+    // TODO: Insert the response of the request here.
 }
  */
 
 $router->patch('user/paymentaccounts/{id}', [
-    'as' => 'API_Payment_updatePaymentAccount',
+    'as' => 'api_payment_update_payment_account',
     'uses'  => 'Controller@updatePaymentAccount',
     'middleware' => [
       'auth:api',

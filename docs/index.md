@@ -4,20 +4,24 @@ title: "Welcome to APIATO"
 
 [![apiato.jpg](https://s19.postimg.org/o1y4gerrn/apiato.jpg)](http://apiato.io)
 
+
 [![apiato](https://img.shields.io/badge/Status-Awesome-brightgreen.svg)](https://github.com/apiato/apiato)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/apiato/apiato/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/apiato/apiato/?branch=master)
-[![Build Status](https://travis-ci.org/apiato/apiato.svg?branch=master)](https://travis-ci.org/apiato/apiato)
-[![Latest Stable Version](https://poser.pugx.org/apiato/apiato/v/stable)](https://packagist.org/packages/apiato/apiato)
-[![Latest Unstable Version](https://poser.pugx.org/apiato/apiato/v/unstable)](https://packagist.org/packages/apiato/apiato)
-[![Dependency Status](https://www.versioneye.com/user/projects/578988f4c3d40f0046852116/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/578988f4c3d40f0046852116)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ce8fed7f8fcd492ebbe5ef0fb36c0a9a)](https://www.codacy.com/app/mahmoudz/apiato?utm_source=github.com&utm_medium=referral&utm_content=apiato/apiato&utm_campaign=badger)
 [![Build Status](https://scrutinizer-ci.com/g/apiato/apiato/badges/build.png?b=master)](https://scrutinizer-ci.com/g/apiato/apiato/build-status/master)
-[![composer.lock](https://poser.pugx.org/apiato/apiato/composerlock)](https://packagist.org/packages/apiato/apiato)
+[![Build Status](https://travis-ci.org/apiato/apiato.svg?branch=master)](https://travis-ci.org/apiato/apiato)
+[![Dependency Status](https://www.versioneye.com/user/projects/59ddea8a2de28c000f857199/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/59ddea8a2de28c000f857199)
+[![Latest Stable Version](https://poser.pugx.org/apiato/apiato/v/stable)](https://packagist.org/packages/apiato/apiato)
 [![License](https://poser.pugx.org/apiato/apiato/license)](https://packagist.org/packages/apiato/apiato)
+[![composer.lock](https://poser.pugx.org/apiato/apiato/composerlock)](https://packagist.org/packages/apiato/apiato)
+[![Latest Unstable Version](https://poser.pugx.org/apiato/apiato/v/unstable)](https://packagist.org/packages/apiato/apiato)
+
 
 **Build better API's faster with PHP and laravel 5.5**
 
 **APIATO** is a flawless framework for building scalable and testable API-Centric Applications with PHP. 
-It is designed to help you build scalable API's faster, by providing tools and functionalities that facilitates the development of any API-Centric App.
+It is designed to help you build scalable API's faster, by providing tools and features that facilitates the development 
+of any API-Centric App.
            
 
 APIATO uses the best frameworks, tools and conventions in a creative way to deliver a rich set of features in a modern PHP Application.

@@ -17,7 +17,7 @@
  */
 
 $router->post('admin', [
-    'as' => 'API_User_createAdmin',
+    'as' => 'api_user_create_admin',
     'uses'  => 'Controller@createAdmin',
     'middleware' => [
         'auth:api',

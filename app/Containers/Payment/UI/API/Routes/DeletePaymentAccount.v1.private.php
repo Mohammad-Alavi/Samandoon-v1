@@ -16,12 +16,12 @@
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK
 {
-  // Insert the response of the request here...
+    // TODO: Insert the response of the request here.
 }
  */
 
 $router->delete('user/paymentaccounts/{id}', [
-    'as' => 'API_Payment_deletePaymentAccount',
+    'as' => 'api_payment_delete_payment_account',
     'uses'  => 'Controller@deletePaymentAccount',
     'middleware' => [
       'auth:api',
