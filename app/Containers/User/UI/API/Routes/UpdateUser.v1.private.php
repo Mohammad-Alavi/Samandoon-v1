@@ -10,7 +10,9 @@
  *
  * @apiParam           {String}  email (optional)
  * @apiParam           {String}  password (optional)
- * @apiParam           {String}  name (optional)
+ * @apiParam           {String}  first_name (optional)
+ * @apiParam           {String}  last_name (optional)
+ * @apiParam           {image}   avatar (optional)
  * @apiParam           {String}  gender (optional)
  * @apiParam           {String}  birth (optional)
  * @apiParam           {String}  province (optional)

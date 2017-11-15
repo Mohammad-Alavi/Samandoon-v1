@@ -41,6 +41,7 @@ class UserTransformer extends Transformer
             'first_name'           => $user->first_name,
             'last_name'            => $user->last_name,
             'email'                => $user->email,
+            'avatar'               => $user->avatar,
             'confirmed'            => $user->confirmed,
             'gender'               => $user->gender,
             'birth'                => $user->birth,

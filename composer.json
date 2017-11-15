@@ -101,7 +101,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require-dev": {
-    "deployer/deployer": "^4.3",
+    "deployer/deployer": "^6.0",
     "laravel/homestead": "^5.2"
   }
 }

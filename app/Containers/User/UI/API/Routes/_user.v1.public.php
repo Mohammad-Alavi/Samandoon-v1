@@ -11,6 +11,7 @@ HTTP/1.1 200 OK
         "first_name": "Mohammad",
         "last_name": "Alavi",
         "email": "m.alavi1989@gmail.com",
+        "avatar": "asd7f6tasfg12t3yf412t3f",
         "confirmed": null,
         "gender": null,
         "birth": null,
