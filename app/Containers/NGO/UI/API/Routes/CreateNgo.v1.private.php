@@ -43,7 +43,7 @@
             "license_date": null,
             "logo_photo_path": null,
             "banner_photo_path": null,
-            "user_id": 1,
+            "user_id": "a0dg5o534grq4s3p",
             "created_at": {
             "date": "2017-06-27 08:39:07.000000",
                 "timezone_type": 3,

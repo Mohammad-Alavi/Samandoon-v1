@@ -8,7 +8,7 @@ $factory->define(App\Containers\User\Models\User::class, function (Faker\Generat
     return [
         'first_name'     => $faker->firstName,
         'last_name'     => $faker->lastName,
-        'email'    => => $faker->unique()->safeEmail,
+        'email'    => $faker->unique()->safeEmail,
         'password' => $password ? : $password = Hash::make('testing-password'),
         'confirmed'     => $faker->boolean(),
         'device'     => str_random(7, 13),

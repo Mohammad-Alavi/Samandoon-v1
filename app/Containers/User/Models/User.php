@@ -2,15 +2,11 @@
 
 namespace App\Containers\User\Models;
 
-<<<<<<< HEAD
 use App\Containers\NGO\Models\NGO;
-use App\Containers\Stripe\Models\StripeAccount;
-=======
 use App\Containers\Authorization\Traits\AuthorizationTrait;
 use App\Containers\Payment\Contracts\ChargeableInterface;
 use App\Containers\Payment\Models\PaymentAccount;
 use App\Containers\Payment\Traits\ChargeableTrait;
->>>>>>> c1eec9d09d28424ec3c1c36bfbe1629aadd296f1
 use App\Ship\Parents\Models\UserModel;
 
 /**
@@ -47,6 +43,7 @@ class User extends UserModel implements ChargeableInterface
         'birth',
         'province',
         'city',
+        'ngo_id',
         'social_provider',
         'social_token',
         'social_refresh_token',

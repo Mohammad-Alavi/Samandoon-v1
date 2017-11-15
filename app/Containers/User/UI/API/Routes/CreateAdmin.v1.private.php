@@ -11,7 +11,8 @@
  *
  * @apiParam           {String}  email
  * @apiParam           {String}  password
- * @apiParam           {String}  name
+ * @apiParam           {String}  first_name
+ * @apiParam           {String}  last_name
  *
  * @apiUse             UserSuccessSingleResponse
  */

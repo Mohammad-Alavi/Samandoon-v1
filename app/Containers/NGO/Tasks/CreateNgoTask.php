@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\App;
 
 class CreateNgoTask extends Task
 {
-    public function run(Request $request, $authed_user)
+    public function run(Request $request, $authenticated_user)
     {
         $name = $request->input('name');
         $description = $request->input('description');
@@ -28,7 +28,7 @@ class CreateNgoTask extends Task
         $request->hasFile('banner_photo') ? $banner_photo_path = $request->file('banner_photo')->store('banner_photo') : $banner_photo_path = null;
 
         try {
-            if($authed_user->ngo) {
+            if($authenticated_user->ngo) {
                 throw new AlreadyHaveOneNgoException;
             }
             else {
@@ -46,11 +46,15 @@ class CreateNgoTask extends Task
                     'license_date' => $license_date,
                     'logo_photo_path' => $logo_photo_path,
                     'banner_photo_path' => $banner_photo_path,
-                    'user_id' => $authed_user->id,
+                    'user_id' => $authenticated_user->getHashedKey(),
                 ]);
 
                 // give manage-event permission to authenticated user
-                $authed_user->givePermissionTo('manage-event');
+                $authenticated_user->givePermissionTo('manage-event');
+
+                // add ngo id to user who created it
+                $authenticated_user->ngo_id = $ngo->getHashedKey();
+                $authenticated_user->save();
             }
         } catch (Exception $e) {
             throw (new NgoCreationFailedException);

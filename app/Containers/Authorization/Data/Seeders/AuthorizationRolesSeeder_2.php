@@ -3,7 +3,9 @@
 namespace App\Containers\Authorization\Data\Seeders;
 
 use Apiato\Core\Foundation\Facades\Apiato;
+use App\Containers\Authorization\Tasks\CreateRoleTask;
 use App\Ship\Parents\Seeders\Seeder;
+use Illuminate\Support\Facades\App;
 
 /**
  * Class AuthorizationRolesSeeder_2
@@ -21,13 +23,20 @@ class AuthorizationRolesSeeder_2 extends Seeder
     public function run()
     {
         // Default Roles ----------------------------------------------------------------
-        Apiato::call('Authorization@CreateRoleTask', ['admin', 'Administrator']);
+        Apiato::call('Authorization@CreateRoleTask', ['admin', 'Administrator'])->givePermissionTo([
+                'manage-roles',
+                'create-admins',
+                'manage-admins-access',
+                'access-dashboard'
+            ]
+        );
 
         // ...
 
         // give the user required permissions, while seeding
-        App::make(CreateRoleTask::class)->run('user', 'User')->givePermissionTo([
+        Apiato::call('Authorization@CreateRoleTask', ['user', 'User'])->givePermissionTo([
                 'manage-ngo',
+                'manage-event'
             ]
         );
     }

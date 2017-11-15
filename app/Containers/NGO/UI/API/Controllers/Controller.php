@@ -75,15 +75,4 @@ class Controller extends ApiController
         $ngo = $this->call(DeleteNgoAction::class, [$request]);
         return $this->deleted($ngo);
     }
-
-    /**
-     * Gets the authenticated user's ngo
-     * @param GetAuthenticatedUserNgoRequest $request
-     * @return mixed
-     */
-    public function getAuthenticatedUserNgo(GetAuthenticatedUserNgoRequest $request) {
-
-        $ngo = $this->call(GetAuthenticatedUserNgoAction::class);
-        return$this->transform($ngo, NgoTransformer::class);
-    }
 }

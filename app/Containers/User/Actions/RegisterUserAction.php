@@ -43,12 +43,12 @@ class RegisterUserAction extends Action
             $request->platform,
         ]);
 
-        Mail::send(new UserRegisteredMail($user));
-
+        if(env('APP_ENV') != 'local') {
+            Mail::send(new UserRegisteredMail($user));
+        }
         Notification::send($user, new UserRegisteredNotification($user));
 
         App::make(Dispatcher::class)->dispatch(New UserRegisteredEvent($user));
-
 
         return $user;
     }

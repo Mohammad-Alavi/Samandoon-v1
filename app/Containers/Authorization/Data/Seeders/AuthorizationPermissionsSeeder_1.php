@@ -3,7 +3,9 @@
 namespace App\Containers\Authorization\Data\Seeders;
 
 use Apiato\Core\Foundation\Facades\Apiato;
+use App\Containers\Authorization\Tasks\CreatePermissionTask;
 use App\Ship\Parents\Seeders\Seeder;
+use Illuminate\Support\Facades\App;
 
 /**
  * Class AuthorizationPermissionsSeeder_1
@@ -19,7 +21,7 @@ class AuthorizationPermissionsSeeder_1 extends Seeder
      */
     public function run()
     {
-        // Default Permissions ----------------------------------------------------------
+        // Super Admin Permissions ----------------------------------------------------------
         Apiato::call('Authorization@CreatePermissionTask', ['manage-roles', 'Create, Update, Delete, Get All, Attach/detach permissions to Roles and Get All Permissions.']);
         Apiato::call('Authorization@CreatePermissionTask', ['create-admins', 'Create new Users (Admins) from the dashboard.']);
         Apiato::call('Authorization@CreatePermissionTask', ['manage-admins-access', 'Assign users to Roles.']);

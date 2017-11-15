@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
 
             $table->string('province')->nullable();
             $table->string('city')->nullable();
+            $table->string('ngo_id')->nullable();
 
             $table->string('social_provider')->nullable();
             $table->string('social_nickname')->nullable();

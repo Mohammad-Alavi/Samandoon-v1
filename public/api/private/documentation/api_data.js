@@ -338,7 +338,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Ngo created\",\n        \"ngo\": {\n        \"object\": \"Ngo\",\n            \"id\": \"a0dg7o534grq4m3p\",\n            \"name\": \"انجمن برنامه نویسان آبادان\",\n            \"description\": null,\n            \"subject\": \"فرهنگی-ورزشی\",\n            \"area_of_activity\": \"شهرستان آبادان\",\n            \"address\": null,\n            \"registration_date\": null,\n            \"registration_number\": null,\n            \"national_number\": null,\n            \"license_number\": null,\n            \"license_date\": null,\n            \"logo_photo_path\": null,\n            \"banner_photo_path\": null,\n            \"user_id\": 1,\n            \"created_at\": {\n            \"date\": \"2017-06-27 08:39:07.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-06-27 08:39:07.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"real_id\": 51\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/51\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Ngo created\",\n        \"ngo\": {\n        \"object\": \"Ngo\",\n            \"id\": \"a0dg7o534grq4m3p\",\n            \"name\": \"انجمن برنامه نویسان آبادان\",\n            \"description\": null,\n            \"subject\": \"فرهنگی-ورزشی\",\n            \"area_of_activity\": \"شهرستان آبادان\",\n            \"address\": null,\n            \"registration_date\": null,\n            \"registration_number\": null,\n            \"national_number\": null,\n            \"license_number\": null,\n            \"license_date\": null,\n            \"logo_photo_path\": null,\n            \"banner_photo_path\": null,\n            \"user_id\": \"a0dg5o534grq4s3p\",\n            \"created_at\": {\n            \"date\": \"2017-06-27 08:39:07.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-06-27 08:39:07.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"real_id\": 51\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/51\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -369,31 +369,6 @@ define({ "api": [
       ]
     },
     "filename": "app/Containers/NGO/UI/API/Routes/DeleteNgo.v1.private.php",
-    "groupTitle": "NGO"
-  },
-  {
-    "group": "NGO",
-    "name": "GetAuthenticatedUserNgo",
-    "type": "GET",
-    "url": "/v1/user/ngo",
-    "title": "Get authenticated user NGO",
-    "description": "<p>Gets the authenticated user's ngo</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "Owner"
-      }
-    ],
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"Ngo\",\n        \"id\": \"6mqkpblv7loev403\",\n        \"name\": \"edrar1234\",\n        \"description\": null,\n        \"subject\": \"lililoool\",\n        \"area_of_activity\": \"آبادان\",\n        \"address\": null,\n        \"registration_date\": null,\n        \"registration_number\": null,\n        \"national_number\": null,\n        \"license_number\": null,\n        \"license_date\": null,\n        \"logo_photo_path\": null,\n        \"banner_photo_path\": null,\n        \"user_id\": 3,\n        \"created_at\": {\n        \"date\": \"2017-07-01 00:32:50.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-07-01 00:32:50.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"3 minutes ago\",\n        \"readable_updated_at\": \"3 minutes ago\"\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "app/Containers/NGO/UI/API/Routes/GetAuthenticatedUserNgo.v1.private.php",
     "groupTitle": "NGO"
   },
   {
@@ -593,7 +568,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 315360000,\n  \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbG...\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 315360000,\n  \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbG...\",\n  \"refresh_token\": \"ZFDPA1S7H8Wydjkjl+xt+hPGWTagX...\"\n}",
           "type": "json"
         }
       ]
@@ -607,13 +582,26 @@ define({ "api": [
     "type": "post",
     "url": "/v1/clients/web/admin/refresh",
     "title": "Refresh",
-    "description": "<p>Refresh access token based on refreshToken http cookie.</p>",
+    "description": "<p>If <code>refresh_token</code> is not provided the w'll try to get it from the http cookie.</p>",
     "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "refresh_token",
+            "description": "<p>The refresh Token</p>"
+          }
+        ]
+      }
+    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 315360000,\n  \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbG...\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 315360000,\n  \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbG...\",\n  \"refresh_token\": \"ZFDPA1S7H8Wydjkjl+xt+hPGWTagX...\"\n}",
           "type": "json"
         }
       ]
@@ -779,6 +767,196 @@ define({ "api": [
     "groupTitle": "OAuth2"
   },
   {
+    "group": "Payment",
+    "name": "deletePaymentAccount",
+    "type": "DELETE",
+    "url": "/v1/user/paymentaccounts/:id",
+    "title": "Delete Payment Account",
+    "description": "<p>Deletes a payment account. Also deletes the corresponding model with the account details (e.g., for stripe, ...)</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parameters",
+            "description": "<p>here..</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    // TODO: Insert the response of the request here.\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/Payment/UI/API/Routes/DeletePaymentAccount.v1.private.php",
+    "groupTitle": "Payment"
+  },
+  {
+    "group": "Payment",
+    "name": "getPaymentAccount",
+    "type": "GET",
+    "url": "/v1/user/paymentaccounts/:id",
+    "title": "Find Payment Account by ID",
+    "description": "<p>Find Details for a specific payment account. Note that this outputs respective &quot;visible&quot; fields from the model of the Payment Provider (e.g., Paypal)</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parameters",
+            "description": "<p>here..</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  // TODO: Insert the response of the request here.\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/Payment/UI/API/Routes/GetPaymentAccount.v1.private.php",
+    "groupTitle": "Payment"
+  },
+  {
+    "group": "Payment",
+    "name": "getPaymentAccountDetails",
+    "type": "GET",
+    "url": "/v1/user/paymentaccounts/:id",
+    "title": "Find Payment Account Details",
+    "description": "<p>Find Details for a specific payment account. Note that this outputs respective &quot;visible&quot; fields from the model of the Payment Provider (e.g., Paypal)</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parameters",
+            "description": "<p>here..</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  // Insert the response of the request here...\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/Payment/UI/API/Routes/FindPaymentAccountDetails.v1.private.php",
+    "groupTitle": "Payment"
+  },
+  {
+    "group": "Payment",
+    "name": "getPaymentAccounts",
+    "type": "GET",
+    "url": "/v1/user/paymentaccounts",
+    "title": "Get All Payment Accounts",
+    "description": "<p>Get All Payment Accounts for this user</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parameters",
+            "description": "<p>here..</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  // Insert the response of the request here...\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/Payment/UI/API/Routes/GetAllPaymentAccounts.v1.private.php",
+    "groupTitle": "Payment"
+  },
+  {
+    "group": "Payment",
+    "name": "updatePaymentAccount",
+    "type": "PATCH",
+    "url": "/v1/user/paymentaccounts/:id",
+    "title": "Update Payment Account",
+    "description": "<p>Updates a single Payment Account. Does NOT (!) update the account credentials from the respective payment gateway (e.g., Paypal).</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parameters",
+            "description": "<p>here..</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    // TODO: Insert the response of the request here.\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/Payment/UI/API/Routes/UpdatePaymentAccount.v1.private.php",
+    "groupTitle": "Payment"
+  },
+  {
     "group": "RolePermission",
     "name": "assignUserToRole",
     "type": "post",
@@ -817,7 +995,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"User\",\n      \"id\": \"eqwja3vw94kzmxr0\",\n      \"name\": \"Mahmoud Zalt\",\n      \"email\": \"x.rolllln@hotmail.com\",\n      \"confirmed\": \"0\",\n      \"gender\": \"male\",\n      \"birth\": null,\n      \"social_provider\": null,\n      \"social_nickname\": null,\n      \"social_id\": null,\n      \"social_avatar\": {\n         \"avatar\": null,\n         \"original\": null\n      },\n      \"device\": \"galaxy note 10.1 n8000\",\n      \"platform\": \"android\",\n      \"created_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"updated_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"readable_created_at\":\"1 second ago\",\n      \"readable_updated_at\":\"1 second ago\",\n      \"real_id\": 3,\n      \"deleted_at\": null\n   },\n   \"meta\":{\n      \"include\":[\n         \"stores\",\n         \"invoices\",\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -991,6 +1169,54 @@ define({ "api": [
   },
   {
     "group": "RolePermission",
+    "name": "getAllPermissions",
+    "type": "get",
+    "url": "/v1/permissions",
+    "title": "Get All Permission",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated User"
+      }
+    ],
+    "filename": "app/Containers/Authorization/UI/API/Routes/GetAllPermissions.v1.private.php",
+    "groupTitle": "RolePermission",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      // same object structure of the single response\n    },\n    {\n      // ...\n    },\n    // ...\n  ],\n  \"include\": [\n    \"xxx\",\n    \"yyy\",\n  ],\n  \"custom\": [],\n  \"meta\": {\n    \"pagination\": {\n      \"total\": x,\n      \"count\": x,\n      \"per_page\": x,\n      \"current_page\": x,\n      \"total_pages\": x,\n      \"links\": []\n    }\n  }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "group": "RolePermission",
+    "name": "getAllRoles",
+    "type": "get",
+    "url": "/v1/roles",
+    "title": "Get All Roles",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated User"
+      }
+    ],
+    "filename": "app/Containers/Authorization/UI/API/Routes/GetAllRoles.v1.private.php",
+    "groupTitle": "RolePermission",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      // same object structure of the single response\n    },\n    {\n      // ...\n    },\n    // ...\n  ],\n  \"include\": [\n    \"xxx\",\n    \"yyy\",\n  ],\n  \"custom\": [],\n  \"meta\": {\n    \"pagination\": {\n      \"total\": x,\n      \"count\": x,\n      \"per_page\": x,\n      \"current_page\": x,\n      \"total_pages\": x,\n      \"links\": []\n    }\n  }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "group": "RolePermission",
     "name": "getPermission",
     "type": "get",
     "url": "/v1/permissions/:id",
@@ -1039,54 +1265,6 @@ define({ "api": [
   },
   {
     "group": "RolePermission",
-    "name": "listAllPermissions",
-    "type": "get",
-    "url": "/v1/permissions",
-    "title": "List all Permission",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "Authenticated User"
-      }
-    ],
-    "filename": "app/Containers/Authorization/UI/API/Routes/ListAllPermissions.v1.private.php",
-    "groupTitle": "RolePermission",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      // same object structure of the single response\n    },\n    {\n      // ...\n    },\n    // ...\n  ],\n  \"include\": [\n    \"xxx\",\n    \"yyy\",\n  ],\n  \"custom\": [],\n  \"meta\": {\n    \"pagination\": {\n      \"total\": x,\n      \"count\": x,\n      \"per_page\": x,\n      \"current_page\": x,\n      \"total_pages\": x,\n      \"links\": []\n    }\n  }\n}",
-          "type": "json"
-        }
-      ]
-    }
-  },
-  {
-    "group": "RolePermission",
-    "name": "listAllRoles",
-    "type": "get",
-    "url": "/v1/roles",
-    "title": "List all Roles",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "Authenticated User"
-      }
-    ],
-    "filename": "app/Containers/Authorization/UI/API/Routes/ListAllRoles.v1.private.php",
-    "groupTitle": "RolePermission",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      // same object structure of the single response\n    },\n    {\n      // ...\n    },\n    // ...\n  ],\n  \"include\": [\n    \"xxx\",\n    \"yyy\",\n  ],\n  \"custom\": [],\n  \"meta\": {\n    \"pagination\": {\n      \"total\": x,\n      \"count\": x,\n      \"per_page\": x,\n      \"current_page\": x,\n      \"total_pages\": x,\n      \"links\": []\n    }\n  }\n}",
-          "type": "json"
-        }
-      ]
-    }
-  },
-  {
-    "group": "RolePermission",
     "name": "revokeRoleFromUser",
     "type": "post",
     "url": "/v1/roles/revoke",
@@ -1124,7 +1302,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"User\",\n      \"id\": \"eqwja3vw94kzmxr0\",\n      \"name\": \"Mahmoud Zalt\",\n      \"email\": \"x.rolllln@hotmail.com\",\n      \"confirmed\": \"0\",\n      \"gender\": \"male\",\n      \"birth\": null,\n      \"social_provider\": null,\n      \"social_nickname\": null,\n      \"social_id\": null,\n      \"social_avatar\": {\n         \"avatar\": null,\n         \"original\": null\n      },\n      \"device\": \"galaxy note 10.1 n8000\",\n      \"platform\": \"android\",\n      \"created_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"updated_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"readable_created_at\":\"1 second ago\",\n      \"readable_updated_at\":\"1 second ago\",\n      \"real_id\": 3,\n      \"deleted_at\": null\n   },\n   \"meta\":{\n      \"include\":[\n         \"stores\",\n         \"invoices\",\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1214,19 +1392,19 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"User\",\n      \"id\": \"eqwja3vw94kzmxr0\",\n      \"name\": \"Mahmoud Zalt\",\n      \"email\": \"x.rolllln@hotmail.com\",\n      \"confirmed\": \"0\",\n      \"gender\": \"male\",\n      \"birth\": null,\n      \"social_provider\": null,\n      \"social_nickname\": null,\n      \"social_id\": null,\n      \"social_avatar\": {\n         \"avatar\": null,\n         \"original\": null\n      },\n      \"device\": \"galaxy note 10.1 n8000\",\n      \"platform\": \"android\",\n      \"created_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"updated_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"readable_created_at\":\"1 second ago\",\n      \"readable_updated_at\":\"1 second ago\",\n      \"real_id\": 3,\n      \"deleted_at\": null\n   },\n   \"meta\":{\n      \"include\":[\n         \"stores\",\n         \"invoices\",\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
     }
   },
   {
-    "group": "SocialAuth",
-    "name": "socialAuthFb",
-    "type": "post",
-    "url": "/v1/auth/facebook",
-    "title": "",
-    "description": "<p>After getting the User Token from facebook, call this Endpoint passing the user token to it in order to fetch his data and create the user in our database if not exist or return the existing one. For testing purposes use this endpoint <code>auth/facebook/test</code> to get the code/token.</p>",
+    "group": "Setting",
+    "name": "getAllSettings",
+    "type": "GET",
+    "url": "/v1/settings",
+    "title": "Get All Settings",
+    "description": "<p>Get All settings for the application</p>",
     "version": "1.0.0",
     "permission": [
       {
@@ -1238,9 +1416,10 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
+            "type": "String",
             "optional": false,
-            "field": "access_token",
-            "description": "<p>access_token=41EAAJyuLl3gaUBAPN6BrVIO.. (required)</p>"
+            "field": "parameters",
+            "description": "<p>here..</p>"
           }
         ]
       }
@@ -1249,21 +1428,135 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"data\": {\n    \"id\": 1,\n    \"name\": \"Mahmoud Zalt\",\n    \"points\": 0,\n    \"email\": \"mahmoud@zalt.me\",\n    \"confirmed\": 0,\n    \"token\": {\n      \"object\": \"token\",\n      \"token\": \"eyJ0eXAxOiJKV1QcLCJhbGciO2JIUzI1NiJz...\"\n      \"access_token\": {\n        \"token_type\": \"Bearer\",\n        \"time_to_live\": {\n          \"minutes\": 60\n        },\n        \"expires_in\": {\n          \"date\": \"2017-02-10 23:43:41.668135\",\n          \"timezone_type\": 3,\n          \"timezone\": \"UTC\"\n        }\n      }\n    },\n    \"referral_code\": \"57aa0b88ab334\",\n    \"gender\": \"male\",\n    \"birth\": \"null\",\n    \"nickname\": \"MEGA\",\n    \"social_auth_provider\": \"facebook\",\n    \"social_id\": \"88208885713788888\",\n    \"social_avatar\": {\n        \"avatar\": \"https://graph.facebook.com/v2.6/88208885713788888/picture?type=normal\",\n        \"original\": \"https://graph.facebook.com/v2.6/88208885713788888/picture?width=1920\"\n    },\n    \"created_at\": {\n      \"date\": \"2016-08-09 16:57:44.000000\",\n      \"timezone_type\": 3,\n      \"timezone\": \"UTC\"\n    },\n    \"updated_at\": {\n      \"date\": \"2016-08-09 16:59:04.000000\",\n      \"timezone_type\": 3,\n      \"timezone\": \"UTC\"\n    }\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": [\n        {\n            \"object\": \"Setting\",\n            \"id\": \"damq35egme74k0xv\",\n            \"key\": \"foo\",\n            \"value\": \"bar\"\n        },\n        {\n            \"object\": \"Setting\",\n            \"id\": \"damq35egme74k0xv\",\n            \"key\": \"test\",\n            \"value\": \"456\"\n        },\n        {\n            \"object\": \"Setting\",\n            \"id\": \"damq35egme74k0xv\",\n            \"key\": \"logout\",\n            \"value\": \"false\"\n        }\n    ],\n    \"meta\": {\n\n    }\n}",
           "type": "json"
         }
       ]
     },
-    "filename": "app/Containers/Socialauth/UI/API/Routes/AuthenticateAll.v1.private.php",
-    "groupTitle": "SocialAuth"
+    "filename": "app/Containers/Settings/UI/API/Routes/GetAllSettings.v1.private.php",
+    "groupTitle": "Setting"
+  },
+  {
+    "group": "Settings",
+    "name": "createSetting",
+    "type": "POST",
+    "url": "/v1/settings",
+    "title": "Create Setting",
+    "description": "<p>Create a new setting for the application</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parameters",
+            "description": "<p>here..</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n        \"object\": \"Setting\",\n        \"id\": \"aadfa72342sa\",\n        \"key\": \"hello\",\n        \"value\": \"world\"\n    },\n    \"meta\": {\n        \"include\": [],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/Settings/UI/API/Routes/CreateSetting.v1.private.php",
+    "groupTitle": "Settings"
+  },
+  {
+    "group": "Settings",
+    "name": "deleteSetting",
+    "type": "DELETE",
+    "url": "/v1/settings/:id",
+    "title": "Delete Setting",
+    "description": "<p>Deletes a setting entry</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parameters",
+            "description": "<p>here..</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 204 OK\n{\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/Settings/UI/API/Routes/DeleteSetting.v1.private.php",
+    "groupTitle": "Settings"
+  },
+  {
+    "group": "Settings",
+    "name": "updateSetting",
+    "type": "PATCH",
+    "url": "/v1/settings/:id",
+    "title": "Update Setting",
+    "description": "<p>Updates a setting entry (both key / value)</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parameters",
+            "description": "<p>here..</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n        \"object\": \"Setting\",\n        \"id\": \"aadfa72342sa\",\n        \"key\": \"foo\",\n        \"value\": \"bar\"\n    },\n    \"meta\": {\n        \"include\": [],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/Settings/UI/API/Routes/UpdateSetting.v1.private.php",
+    "groupTitle": "Settings"
   },
   {
     "group": "SocialAuth",
-    "name": "socialAuthTw",
+    "name": "socialAuthFb",
     "type": "post",
-    "url": "/v1/auth/twitter",
+    "url": "/v1/auth/facebook",
     "title": "",
-    "description": "<p>After getting the User Token from twitter, call this Endpoint passing the user token to it in order to fetch his data and create the user in our database if not exist or return the existing one. For testing purposes use this endpoint <code>auth/twitter/test</code> to get the code/token.</p>",
+    "description": "<p>After getting the User Token from facebook, call this Endpoint passing the user token to it in order to fetch his data and create the user in our database if not exist or return the existing one. For testing purposes use this endpoint <code>auth/facebook</code> to get the token.</p>",
     "version": "1.0.0",
     "permission": [
       {
@@ -1277,13 +1570,7 @@ define({ "api": [
             "group": "Parameter",
             "optional": false,
             "field": "oauth_token",
-            "description": "<p>?oauth_token=FeUoXZRIThimLxKjg6HqyzELREJr103L (required)</p>"
-          },
-          {
-            "group": "Parameter",
-            "optional": false,
-            "field": "oauth_verifier",
-            "description": "<p>?oauth_verifier=144hi333mLxKjg6HqyzELRE13LxYz (required)</p>"
+            "description": ""
           }
         ]
       }
@@ -1292,7 +1579,50 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"data\": {\n    \"id\": 1,\n    \"name\": \"Mahmoud Zalt\",\n    \"points\": 0,\n    \"email\": \"mahmoud@zalt.me\",\n    \"confirmed\": 0,\n    \"token\": {\n      \"object\": \"token\",\n      \"token\": \"eyJ0eXAxOiJKV1QcLCJhbGciO2JIUzI1NiJz...\"\n      \"access_token\": {\n        \"token_type\": \"Bearer\",\n        \"time_to_live\": {\n          \"minutes\": 60\n        },\n        \"expires_in\": {\n          \"date\": \"2017-02-10 23:43:41.668135\",\n          \"timezone_type\": 3,\n          \"timezone\": \"UTC\"\n        }\n      }\n    },\n    \"referral_code\": \"57aa0b88ab334\",\n    \"gender\": \"male\",\n    \"birth\": \"null\",\n    \"nickname\": \"MEGA\",\n    \"social_auth_provider\": \"twitter\",\n    \"social_id\": \"5713788888\",\n    \"social_avatar\": {\n        \"avatar\": \"https://graph.twitter.com/v2.6/88208885713788888/picture?type=normal\",\n        \"original\": \"https://graph.twitter.com/v2.6/88208885713788888/picture?width=1920\"\n    },\n    \"created_at\": {\n      \"date\": \"2016-08-09 16:57:44.000000\",\n      \"timezone_type\": 3,\n      \"timezone\": \"UTC\"\n    },\n    \"updated_at\": {\n      \"date\": \"2016-08-09 16:59:04.000000\",\n      \"timezone_type\": 3,\n      \"timezone\": \"UTC\"\n    }\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n        \"object\": \"User\",\n        \"id\": \"eqwja3vw94kzmxr1\",\n        \"name\": \"Mahmoud Zalt\",\n        \"email\": null,\n        \"confirmed\": false,\n        \"nickname\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"social_auth_provider\": \"facebook\",\n        \"social_id\": \"42719726\",\n        \"social_avatar\": {\n            \"avatar\": null,\n            \"original\": null\n        },\n        \"created_at\": {\n            \"date\": \"2017-10-20 21:45:03.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n            \"date\": \"2017-10-20 21:45:03.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"48 minutes ago\",\n        \"readable_updated_at\": \"48 minutes ago\"\n    },\n    \"meta\": {\n        \"include\": [\n            \"roles\"\n        ],\n        \"custom\": {\n            \"token_type\": \"personal\",\n            \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUxI...\"\n        }\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/Socialauth/UI/API/Routes/AuthenticateAll.v1.private.php",
+    "groupTitle": "SocialAuth"
+  },
+  {
+    "group": "SocialAuth",
+    "name": "socialAuthTw",
+    "type": "post",
+    "url": "/v1/auth/twitter",
+    "title": "",
+    "description": "<p>After getting the User Token from twitter, call this Endpoint passing the user token to it in order to fetch his data and create the user in our database if not exist or return the existing one. For testing purposes use this endpoint <code>auth/twitter/</code> to get the token.</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "oauth_token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "oauth_secret",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n        \"object\": \"User\",\n        \"id\": \"eqwja3vw94kzmxr0\",\n        \"name\": \"Mahmoud Zalt\",\n        \"email\": null,\n        \"confirmed\": false,\n        \"nickname\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"social_auth_provider\": \"twitter\",\n        \"social_id\": \"42719726\",\n        \"social_avatar\": {\n            \"avatar\": \"http://pbs.twimg.com/profile_images/1111111111/PENrcePC_normal.jpg\",\n            \"original\": null\n        },\n        \"created_at\": {\n            \"date\": \"2017-10-20 21:45:03.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n            \"date\": \"2017-10-20 21:45:03.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"48 minutes ago\",\n        \"readable_updated_at\": \"48 minutes ago\"\n    },\n    \"meta\": {\n        \"include\": [\n            \"roles\"\n        ],\n        \"custom\": {\n            \"token_type\": \"personal\",\n            \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI...\"\n        }\n    }\n}",
           "type": "json"
         }
       ]
@@ -1304,7 +1634,7 @@ define({ "api": [
     "group": "Stripe",
     "name": "createStripeAccount",
     "type": "post",
-    "url": "/v1/stripes",
+    "url": "/v1/user/payments/accounts/stripe",
     "title": "Create Stripe Account",
     "description": "<p>Before calling this endpoint make sure to call Stripe first and get the <code>customer_id</code>. You may use &quot;Stripe Checkout&quot; or &quot;Stripe.js&quot; to make your Stripe call. This Information will be used to charge the user whenever he to purchase anything on the platform.</p>",
     "version": "1.0.0",
@@ -1318,33 +1648,45 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
+            "type": "String",
             "optional": false,
             "field": "customer_id",
             "description": ""
           },
           {
             "group": "Parameter",
+            "type": "String",
             "optional": false,
             "field": "card_id",
             "description": ""
           },
           {
             "group": "Parameter",
+            "type": "String",
             "optional": false,
             "field": "card_funding",
             "description": ""
           },
           {
             "group": "Parameter",
+            "type": "String",
             "optional": false,
             "field": "card_last_digits",
             "description": ""
           },
           {
             "group": "Parameter",
+            "type": "String",
             "optional": false,
             "field": "card_fingerprint",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "nickname",
+            "description": "<p>payment nickname for your usage</p>"
           }
         ]
       }
@@ -1359,6 +1701,44 @@ define({ "api": [
       ]
     },
     "filename": "app/Containers/Stripe/UI/API/Routes/CreateStripeAccount.v1.private.php",
+    "groupTitle": "Stripe"
+  },
+  {
+    "group": "Stripe",
+    "name": "updateStripeAccount",
+    "type": "PATCH",
+    "url": "/v1/user/payments/accounts/stripe/:id",
+    "title": "Update Stripe Account",
+    "description": "<p>Update a stripe account.</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parameters",
+            "description": "<p>here..</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  // Insert the response of the request here...\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/Stripe/UI/API/Routes/UpdateStripeAccount.v1.private.php",
     "groupTitle": "Stripe"
   },
   {
@@ -1395,7 +1775,14 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "name",
+            "field": "first_name",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "last_name",
             "description": ""
           }
         ]
@@ -1407,7 +1794,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"User\",\n      \"id\": \"eqwja3vw94kzmxr0\",\n      \"name\": \"Mahmoud Zalt\",\n      \"email\": \"x.rolllln@hotmail.com\",\n      \"confirmed\": \"0\",\n      \"gender\": \"male\",\n      \"birth\": null,\n      \"social_provider\": null,\n      \"social_nickname\": null,\n      \"social_id\": null,\n      \"social_avatar\": {\n         \"avatar\": null,\n         \"original\": null\n      },\n      \"device\": \"galaxy note 10.1 n8000\",\n      \"platform\": \"android\",\n      \"created_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"updated_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"readable_created_at\":\"1 second ago\",\n      \"readable_updated_at\":\"1 second ago\",\n      \"real_id\": 3,\n      \"deleted_at\": null\n   },\n   \"meta\":{\n      \"include\":[\n         \"stores\",\n         \"invoices\",\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1440,15 +1827,128 @@ define({ "api": [
   },
   {
     "group": "User",
-    "name": "GetAuthenticatedUser",
-    "type": "get",
-    "url": "/v1/userinfo",
-    "title": "Get Authenticated User without specifying it's ID",
-    "description": "<p>Get the current authenticated user object.</p>",
+    "name": "FallowNgo",
+    "type": "POST",
+    "url": "/v1/user/fallow",
+    "title": "Fallow NGO",
+    "description": "<p>Fallow the specified ngo</p>",
     "version": "1.0.0",
     "permission": [
       {
         "name": "Authenticated User"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parameters",
+            "description": "<p>here..</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  // Insert the response of the request here...\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/User/UI/API/Routes/FallowNgo.v1.private.php",
+    "groupTitle": "User"
+  },
+  {
+    "group": "User",
+    "name": "GetAllAdmins",
+    "type": "get",
+    "url": "/v1/admin",
+    "title": "Get Admin Users",
+    "description": "<p>Get all Users where role <code>Admin</code>. You can search for Users by email, name and ID. Example: <code>?search=Mahmoud</code> or <code>?search=whatever@mail.com</code>. You can specify the field as follow <code>?search=email:whatever@mail.com</code> or <code>?search=id:20</code>. You can search by multiple fields as follow: <code>?search=name:Mahmoud&amp;email:whatever@mail.com</code>.</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated Admin"
+      }
+    ],
+    "filename": "app/Containers/User/UI/API/Routes/GetAllAdmins.v1.private.php",
+    "groupTitle": "User",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      // same object structure of the single response\n    },\n    {\n      // ...\n    },\n    // ...\n  ],\n  \"include\": [\n    \"xxx\",\n    \"yyy\",\n  ],\n  \"custom\": [],\n  \"meta\": {\n    \"pagination\": {\n      \"total\": x,\n      \"count\": x,\n      \"per_page\": x,\n      \"current_page\": x,\n      \"total_pages\": x,\n      \"links\": []\n    }\n  }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "group": "User",
+    "name": "GetAllClients",
+    "type": "get",
+    "url": "/v1/client",
+    "title": "Get Client Users",
+    "description": "<p>Get all Users where role <code>Client</code>. You can search for Users by email, name and ID. Example: <code>?search=Mahmoud</code> or <code>?search=whatever@mail.com</code>. You can specify the field as follow <code>?search=email:whatever@mail.com</code> or <code>?search=id:20</code>. You can search by multiple fields as follow: <code>?search=name:Mahmoud&amp;email:whatever@mail.com</code>.</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated User"
+      }
+    ],
+    "filename": "app/Containers/User/UI/API/Routes/GetAllClients.v1.private.php",
+    "groupTitle": "User",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      // same object structure of the single response\n    },\n    {\n      // ...\n    },\n    // ...\n  ],\n  \"include\": [\n    \"xxx\",\n    \"yyy\",\n  ],\n  \"custom\": [],\n  \"meta\": {\n    \"pagination\": {\n      \"total\": x,\n      \"count\": x,\n      \"per_page\": x,\n      \"current_page\": x,\n      \"total_pages\": x,\n      \"links\": []\n    }\n  }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "group": "User",
+    "name": "GetAllUsers",
+    "type": "get",
+    "url": "/v1/user",
+    "title": "Get All Users",
+    "description": "<p>Get all Application Users (clients and admins). For all registered users. For all the &quot;Clients&quot; only you can use <code>/clients</code>. And for all &quot;Admins&quot; only you can use <code>/admins</code>.</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated User"
+      }
+    ],
+    "filename": "app/Containers/User/UI/API/Routes/GetAllUsers.v1.private.php",
+    "groupTitle": "User",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      // same object structure of the single response\n    },\n    {\n      // ...\n    },\n    // ...\n  ],\n  \"include\": [\n    \"xxx\",\n    \"yyy\",\n  ],\n  \"custom\": [],\n  \"meta\": {\n    \"pagination\": {\n      \"total\": x,\n      \"count\": x,\n      \"per_page\": x,\n      \"current_page\": x,\n      \"total_pages\": x,\n      \"links\": []\n    }\n  }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "group": "User",
+    "name": "GetAuthenticatedUser",
+    "type": "GET",
+    "url": "/v1/user/profile",
+    "title": "Get Logged in user Profile",
+    "description": "<p>Find the user details of the logged in user from its Token. (without specifying his ID)</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
       }
     ],
     "filename": "app/Containers/User/UI/API/Routes/GetAuthenticatedUser.v1.private.php",
@@ -1457,82 +1957,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"User\",\n      \"id\": \"eqwja3vw94kzmxr0\",\n      \"name\": \"Mahmoud Zalt\",\n      \"email\": \"x.rolllln@hotmail.com\",\n      \"confirmed\": \"0\",\n      \"gender\": \"male\",\n      \"birth\": null,\n      \"social_provider\": null,\n      \"social_nickname\": null,\n      \"social_id\": null,\n      \"social_avatar\": {\n         \"avatar\": null,\n         \"original\": null\n      },\n      \"device\": \"galaxy note 10.1 n8000\",\n      \"platform\": \"android\",\n      \"created_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"updated_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"readable_created_at\":\"1 second ago\",\n      \"readable_updated_at\":\"1 second ago\",\n      \"real_id\": 3,\n      \"deleted_at\": null\n   },\n   \"meta\":{\n      \"include\":[\n         \"stores\",\n         \"invoices\",\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
-          "type": "json"
-        }
-      ]
-    }
-  },
-  {
-    "group": "User",
-    "name": "ListAllAdmins",
-    "type": "get",
-    "url": "/v1/admin",
-    "title": "List Admin Users",
-    "description": "<p>List all Users where role <code>Admin</code>. You can search for Users by email, name and ID. Example: <code>?search=Mahmoud</code> or <code>?search=whatever@mail.com</code>. You can specify the field as follow <code>?search=email:whatever@mail.com</code> or <code>?search=id:20</code>. You can search by multiple fields as follow: <code>?search=name:Mahmoud&amp;email:whatever@mail.com</code>.</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "Authenticated Admin"
-      }
-    ],
-    "filename": "app/Containers/User/UI/API/Routes/ListAllAdmins.v1.private.php",
-    "groupTitle": "User",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      // same object structure of the single response\n    },\n    {\n      // ...\n    },\n    // ...\n  ],\n  \"include\": [\n    \"xxx\",\n    \"yyy\",\n  ],\n  \"custom\": [],\n  \"meta\": {\n    \"pagination\": {\n      \"total\": x,\n      \"count\": x,\n      \"per_page\": x,\n      \"current_page\": x,\n      \"total_pages\": x,\n      \"links\": []\n    }\n  }\n}",
-          "type": "json"
-        }
-      ]
-    }
-  },
-  {
-    "group": "User",
-    "name": "ListAllClients",
-    "type": "get",
-    "url": "/v1/clients",
-    "title": "List Client Users",
-    "description": "<p>List all Users where role <code>Client</code>. You can search for Users by email, name and ID. Example: <code>?search=Mahmoud</code> or <code>?search=whatever@mail.com</code>. You can specify the field as follow <code>?search=email:whatever@mail.com</code> or <code>?search=id:20</code>. You can search by multiple fields as follow: <code>?search=name:Mahmoud&amp;email:whatever@mail.com</code>.</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "Authenticated User"
-      }
-    ],
-    "filename": "app/Containers/User/UI/API/Routes/ListAllClients.v1.private.php",
-    "groupTitle": "User",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      // same object structure of the single response\n    },\n    {\n      // ...\n    },\n    // ...\n  ],\n  \"include\": [\n    \"xxx\",\n    \"yyy\",\n  ],\n  \"custom\": [],\n  \"meta\": {\n    \"pagination\": {\n      \"total\": x,\n      \"count\": x,\n      \"per_page\": x,\n      \"current_page\": x,\n      \"total_pages\": x,\n      \"links\": []\n    }\n  }\n}",
-          "type": "json"
-        }
-      ]
-    }
-  },
-  {
-    "group": "User",
-    "name": "ListAllUsers",
-    "type": "get",
-    "url": "/v1/user",
-    "title": "List All Users",
-    "description": "<p>List all Application Users (clients and admins). For all registered users &quot;Clients&quot; only you can use <code>/clients</code>. And for all &quot;Admins&quot; only you can use <code>/admins</code>.</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "Authenticated User"
-      }
-    ],
-    "filename": "app/Containers/User/UI/API/Routes/ListAllUsers.v1.private.php",
-    "groupTitle": "User",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      // same object structure of the single response\n    },\n    {\n      // ...\n    },\n    // ...\n  ],\n  \"include\": [\n    \"xxx\",\n    \"yyy\",\n  ],\n  \"custom\": [],\n  \"meta\": {\n    \"pagination\": {\n      \"total\": x,\n      \"count\": x,\n      \"per_page\": x,\n      \"current_page\": x,\n      \"total_pages\": x,\n      \"links\": []\n    }\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1625,7 +2050,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"User\",\n      \"id\": \"eqwja3vw94kzmxr0\",\n      \"name\": \"Mahmoud Zalt\",\n      \"email\": \"x.rolllln@hotmail.com\",\n      \"confirmed\": \"0\",\n      \"gender\": \"male\",\n      \"birth\": null,\n      \"social_provider\": null,\n      \"social_nickname\": null,\n      \"social_id\": null,\n      \"social_avatar\": {\n         \"avatar\": null,\n         \"original\": null\n      },\n      \"device\": \"galaxy note 10.1 n8000\",\n      \"platform\": \"android\",\n      \"created_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"updated_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"readable_created_at\":\"1 second ago\",\n      \"readable_updated_at\":\"1 second ago\",\n      \"real_id\": 3,\n      \"deleted_at\": null\n   },\n   \"meta\":{\n      \"include\":[\n         \"stores\",\n         \"invoices\",\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1633,48 +2058,10 @@ define({ "api": [
   },
   {
     "group": "User",
-    "name": "fallowNgo",
-    "type": "POST",
-    "url": "/v1/user/fallow",
-    "title": "Endpoint title here..",
-    "description": "<p>Endpoint description here..</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "none"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "parameters",
-            "description": "<p>here..</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  // Insert the response of the request here...\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "app/Containers/User/UI/API/Routes/FallowNgo.v1.private.php",
-    "groupTitle": "User"
-  },
-  {
-    "group": "User",
-    "name": "getUser",
+    "name": "findUserById",
     "type": "get",
     "url": "/v1/user/{id}",
-    "title": "Get User",
+    "title": "Find User",
     "description": "<p>Find a user by its ID</p>",
     "version": "1.0.0",
     "permission": [
@@ -1682,13 +2069,13 @@ define({ "api": [
         "name": "Authenticated User"
       }
     ],
-    "filename": "app/Containers/User/UI/API/Routes/GetUser.v1.private.php",
+    "filename": "app/Containers/User/UI/API/Routes/FindUserById.v1.private.php",
     "groupTitle": "User",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"User\",\n      \"id\": \"eqwja3vw94kzmxr0\",\n      \"name\": \"Mahmoud Zalt\",\n      \"email\": \"x.rolllln@hotmail.com\",\n      \"confirmed\": \"0\",\n      \"gender\": \"male\",\n      \"birth\": null,\n      \"social_provider\": null,\n      \"social_nickname\": null,\n      \"social_id\": null,\n      \"social_avatar\": {\n         \"avatar\": null,\n         \"original\": null\n      },\n      \"device\": \"galaxy note 10.1 n8000\",\n      \"platform\": \"android\",\n      \"created_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"updated_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"readable_created_at\":\"1 second ago\",\n      \"readable_updated_at\":\"1 second ago\",\n      \"real_id\": 3,\n      \"deleted_at\": null\n   },\n   \"meta\":{\n      \"include\":[\n         \"stores\",\n         \"invoices\",\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1728,7 +2115,14 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "name",
+            "field": "first_name",
+            "description": "<p>(required) required|min:2|max:50</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "last_name",
             "description": "<p>(required) required|min:2|max:50</p>"
           },
           {
@@ -1782,10 +2176,104 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"data\":{\n      \"object\": \"User\",\n      \"id\": \"eqwja3vw94kzmxr0\",\n      \"name\": \"Mahmoud Zalt\",\n      \"email\": \"x.rolllln@hotmail.com\",\n      \"confirmed\": \"0\",\n      \"gender\": \"male\",\n      \"birth\": null,\n      \"social_provider\": null,\n      \"social_nickname\": null,\n      \"social_id\": null,\n      \"social_avatar\": {\n         \"avatar\": null,\n         \"original\": null\n      },\n      \"device\": \"galaxy note 10.1 n8000\",\n      \"platform\": \"android\",\n      \"created_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"updated_at\":{\n         \"date\":\"2017-06-06 05:40:51.000000\",\n         \"timezone_type\":3,\n         \"timezone\":\"UTC\"\n      },\n      \"readable_created_at\":\"1 second ago\",\n      \"readable_updated_at\":\"1 second ago\",\n      \"real_id\": 3,\n      \"deleted_at\": null\n   },\n   \"meta\":{\n      \"include\":[\n         \"stores\",\n         \"invoices\",\n      ],\n      \"custom\":[\n\n      ]\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
     }
+  },
+  {
+    "group": "wepay",
+    "name": "createWepayAccount",
+    "type": "post",
+    "url": "/v1/user/payments/accounts/wepay",
+    "title": "Create wepay Account",
+    "description": "<p>Before calling this endpoint make sure to call wepay first and get the <code>customer_id</code>. You may use &quot;Wepay Checkout&quot; or &quot;wepay.js&quot; to make your Wepay call. This Information will be used to charge the User whenever he to purchase anything on the platform.</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated User"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "imageUrl",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "gaqDomains",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mcc",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "country",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "currencies",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "nickname",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 202 OK\n{\n   \"message\":\"wepay account created successfully.\",\n   \"wepay_account_id\":1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/Wepay/UI/API/Routes/CreateWepayAccount.v1.private.php",
+    "groupTitle": "wepay"
   }
 ] });

@@ -3,8 +3,8 @@
 namespace App\Containers\User\Tasks;
 
 use App\Containers\Authorization\Tasks\GetRoleTask;
+use App\Containers\Socialauth\Exceptions\AccountFailedException;
 use App\Containers\User\Data\Repositories\UserRepository;
-use App\Containers\User\Exceptions\AccountFailedException;
 use App\Ship\Parents\Tasks\Task;
 use Exception;
 use Illuminate\Support\Facades\App;
@@ -53,8 +53,9 @@ class CreateUserByCredentialsTask extends Task
             ]);
 
             // assign 'user' role to registered user
-            $user->assignRole('user');
-
+            if($isClient) {
+                $user->assignRole('user');
+            }
         } catch (Exception $e) {
             throw (new AccountFailedException())->debug($e);
         }

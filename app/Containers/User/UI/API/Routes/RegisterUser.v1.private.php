@@ -11,7 +11,8 @@
  *
  * @apiParam           {String}  email (required) required|email|max:40|unique:users
  * @apiParam           {String}  password (required) required|min:6|max:30
- * @apiParam           {String}  name (required) required|min:2|max:50
+ * @apiParam           {String}  first_name (required) required|min:2|max:50
+ * @apiParam           {String}  last_name (required) required|min:2|max:50
  * @apiParam           {String}  gender (optional)
  * @apiParam           {String}  birth (optional)
  * @apiParam           {String}  province (optional)

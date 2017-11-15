@@ -24,7 +24,6 @@ class SeedTestingData extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD:app/Ship/Seeders/Data/Testing/Seeders/TestingDataSeeder.php
         factory(User::class, 50)->create()
             ->each(function ($ngo){
                 $ngo->ngo()->save(factory(NGO::class)->make());
@@ -37,9 +36,5 @@ class SeedTestingData extends Seeder
         foreach($ngos as $ngo){
             factory(Event::class, rand(0, 50))->create(['ngo_id' => $ngo->id]);
         }
-=======
-        // Create Testing data for live tests
->>>>>>> c1eec9d09d28424ec3c1c36bfbe1629aadd296f1:app/Ship/Seeders/SeedTestingData.php
     }
-
 }

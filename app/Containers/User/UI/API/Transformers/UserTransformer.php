@@ -46,6 +46,7 @@ class UserTransformer extends Transformer
             'birth'                => $user->birth,
             'province'             => $user->province,
             'city'                 => $user->city,
+            'ngo_id'               => $user->ngo_id,
             'social_provider'      => $user->social_provider,
             'social_nickname'      => $user->social_nickname,
             'social_id'            => $user->social_id,
