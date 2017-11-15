@@ -23,10 +23,11 @@ class UpdateUserAction extends Action
     public function run(Request $request)
     {
         $userData = [
-            'password'             => $request->password ? Hash::make($request->password) : null,
             'first_name'           => $request->first_name,
             'last_name'            => $request->last_name,
             'email'                => $request->email,
+            'password'             => $request->password ? Hash::make($request->password) : null,
+            'avatar'               => $request->avatar,
             'gender'               => $request->gender,
             'birth'                => $request->birth,
             'province'             => $request->province,

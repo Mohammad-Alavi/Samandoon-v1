@@ -19,14 +19,13 @@ class CreateUserByCredentialsTask extends Task
 {
 
     /**
-     * @param bool $isClient
-     * @param $email
-     * @param $password
      * @param null $first_name
      * @param null $last_name
+     * @param $email
+     * @param $password
      * @param null $gender
      * @param null $birth
-     *
+     * @param bool $isClient
      * @param null $province
      * @param null $city
      * @param null $device
@@ -34,15 +33,16 @@ class CreateUserByCredentialsTask extends Task
      * @return mixed
      * @internal param null $name
      */
-    public function run($isClient = true, $email, $password, $first_name = null, $last_name = null, $gender = null, $birth = null, $province = null, $city = null, $device = null, $platform = null)
-    {
+    public function run($isClient = true, $email, $password, $first_name = null, $last_name = null,
+                        $avatar = null, $gender = null, $birth = null, $province = null, $city = null, $device = null, $platform = null) {
         try {
             // create new user
             $user = App::make(UserRepository::class)->create([
-                'password' => Hash::make($password),
-                'email'    => $email,
                 'first_name'   => $first_name,
                 'last_name'     => $last_name,
+                'email'    => $email,
+                'password' => Hash::make($password),
+                'avatar'   => $avatar,
                 'gender'   => $gender,
                 'birth'    => $birth,
                 'province'    => $province,

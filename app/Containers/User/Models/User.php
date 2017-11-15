@@ -37,6 +37,7 @@ class User extends UserModel implements ChargeableInterface
         'last_name',
         'email',
         'password',
+        'avatar',
         'device',
         'platform',
         'gender',

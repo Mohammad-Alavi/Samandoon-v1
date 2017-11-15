@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name')->nullable();
             $table->string('email')->unique()->nullable();
             $table->string('password')->nullable();
+            $table->string('avatar')->nullable();
             $table->boolean('confirmed')->default(false);
             $table->boolean('is_client')->default(false);
 
@@ -26,6 +27,7 @@ class CreateUsersTable extends Migration
 
             $table->string('province')->nullable();
             $table->string('city')->nullable();
+
             $table->string('ngo_id')->nullable();
 
             $table->string('social_provider')->nullable();
