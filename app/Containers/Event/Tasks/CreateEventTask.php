@@ -33,7 +33,7 @@ class CreateEventTask extends Task
                 'event_date'    =>  $event_date,
                 'photo_path'    =>  $photo_path,
                 'location'      =>  $location,
-                'ngo_id'      =>  $ngo->id,
+                'ngo_id'      =>  $ngo->getHashedKey(),
             ]);
         } catch (Exception $e) {
             throw (new EventCreationFailedException);

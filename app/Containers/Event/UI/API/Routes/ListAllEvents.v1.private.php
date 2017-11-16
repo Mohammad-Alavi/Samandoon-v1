@@ -8,7 +8,7 @@
  * @apiDescription     Lists all Events (if no query parameter is given)
  *
  * @apiVersion         1.0.0
- * @apiPermission      Admin
+ * @apiPermission      none
  *
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK

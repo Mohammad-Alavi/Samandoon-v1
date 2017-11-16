@@ -8,7 +8,7 @@
  * @apiDescription     Get a NGO by ID
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated User
+ * @apiPermission      none
  *
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK

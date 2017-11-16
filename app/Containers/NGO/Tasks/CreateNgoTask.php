@@ -5,6 +5,7 @@ namespace App\Containers\NGO\Tasks;
 use App\Containers\NGO\Data\Repositories\NGORepository;
 use App\Containers\NGO\Exceptions\AlreadyHaveOneNgoException;
 use App\Containers\NGO\Exceptions\NgoCreationFailedException;
+use App\Ship\Parents\Exceptions\Exception;
 use App\Ship\Parents\Requests\Request;
 use App\Ship\Parents\Tasks\Task;
 use Carbon\Carbon;

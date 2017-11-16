@@ -92,31 +92,6 @@ define({ "api": [
   },
   {
     "group": "Event",
-    "name": "GetAuthenticatedUserNgoEvents",
-    "type": "GET",
-    "url": "/v1/user/ngo/events",
-    "title": "Get authenticated user NGO Events",
-    "description": "<p>Get events of the authenticated user NGO</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "Owner"
-      }
-    ],
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": [\n        {\n            \"object\": \"Event\",\n            \"id\": \"x680j7ro7l4kdqbe\",\n            \"title\": \"انجمن برنامه نویسان آبادان 223\",\n            \"description\": null,\n            \"event_date\": \"2016-10-10 06:17:00\",\n            \"location\": null,\n            \"photo_path\": null,\n            \"ngo_id\": 22,\n            \"created_at\": {\n            \"date\": \"2017-07-01 13:03:38.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-07-01 13:03:38.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"4 seconds ago\",\n            \"readable_updated_at\": \"4 seconds ago\"\n        }\n    ],\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "app/Containers/Event/UI/API/Routes/GetAuthenticatedUserNgoEvents.v1.private.php",
-    "groupTitle": "Event"
-  },
-  {
-    "group": "Event",
     "name": "GetEvent",
     "type": "get",
     "url": "/v1/event/{id}",
@@ -125,7 +100,7 @@ define({ "api": [
     "version": "1.0.0",
     "permission": [
       {
-        "name": "Authenticated User"
+        "name": "none"
       }
     ],
     "success": {
@@ -150,7 +125,7 @@ define({ "api": [
     "version": "1.0.0",
     "permission": [
       {
-        "name": "Admin"
+        "name": "none"
       }
     ],
     "success": {
@@ -381,7 +356,7 @@ define({ "api": [
     "version": "1.0.0",
     "permission": [
       {
-        "name": "Authenticated User"
+        "name": "none"
       }
     ],
     "success": {
@@ -521,7 +496,7 @@ define({ "api": [
     "version": "1.0.0",
     "permission": [
       {
-        "name": "Authenticated User"
+        "name": "none"
       }
     ],
     "success": {
@@ -995,7 +970,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1302,7 +1277,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1392,7 +1367,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1794,7 +1769,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1957,7 +1932,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1996,7 +1971,21 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "name",
+            "field": "first_name",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "last_name",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "image",
+            "optional": false,
+            "field": "avatar",
             "description": "<p>(optional)</p>"
           },
           {
@@ -2050,7 +2039,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -2075,7 +2064,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -2176,7 +2165,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
