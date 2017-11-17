@@ -2047,6 +2047,31 @@ define({ "api": [
   },
   {
     "group": "User",
+    "name": "findUserByEmail",
+    "type": "GET",
+    "url": "/v1/user/email/{email}",
+    "title": "Find User by Email",
+    "description": "<p>Find user by given email</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"avatar\": null\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/User/UI/API/Routes/FindUserByEmail.v1.private.php",
+    "groupTitle": "User"
+  },
+  {
+    "group": "User",
     "name": "findUserById",
     "type": "get",
     "url": "/v1/user/{id}",

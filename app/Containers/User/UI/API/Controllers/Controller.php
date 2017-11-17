@@ -6,11 +6,13 @@ use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\User\UI\API\Requests\CreateAdminRequest;
 use App\Containers\User\UI\API\Requests\DeleteUserRequest;
 use App\Containers\User\UI\API\Requests\FallowNgoRequest;
+use App\Containers\User\UI\API\Requests\FindUserByEmailRequest;
 use App\Containers\User\UI\API\Requests\GetAuthenticatedUserRequest;
 use App\Containers\User\UI\API\Requests\FindUserByIdRequest;
 use App\Containers\User\UI\API\Requests\GetAllUsersRequest;
 use App\Containers\User\UI\API\Requests\RegisterUserRequest;
 use App\Containers\User\UI\API\Requests\UpdateUserRequest;
+use App\Containers\User\UI\API\Transformers\UserByEmailTransformer;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Controllers\ApiController;
 
@@ -128,6 +130,13 @@ class Controller extends ApiController
         $user = Apiato::call('User@GetAuthenticatedUserAction', [$request]);
 
         return $this->transform($user, UserTransformer::class, ['roles']);
+    }
+
+    public function findUserByEmail(FindUserByEmailRequest $request)
+    {
+        $user = Apiato::call('User@FindUserByEmailAction', [$request]);
+
+        return $this->transform($user, UserByEmailTransformer::class);
     }
 
     public function fallowNgo(FallowNgoRequest $request){

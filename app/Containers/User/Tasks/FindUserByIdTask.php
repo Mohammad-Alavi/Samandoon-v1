@@ -34,5 +34,4 @@ class FindUserByIdTask extends Task
 
         return $user;
     }
-
 }

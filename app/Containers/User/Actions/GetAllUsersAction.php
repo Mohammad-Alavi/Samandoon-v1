@@ -12,7 +12,6 @@ use Apiato\Core\Foundation\Facades\Apiato;
  */
 class GetAllUsersAction extends Action
 {
-
     /**
      * @return  mixed
      */
