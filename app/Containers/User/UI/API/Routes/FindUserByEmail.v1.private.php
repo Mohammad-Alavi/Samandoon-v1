@@ -16,6 +16,7 @@
     "data": {
     "first_name": "Mohammad",
         "last_name": "Alavi",
+        "email": "m.alavi1989@gmail.com",
         "avatar": null
     },
     "meta": {

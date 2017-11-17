@@ -2062,7 +2062,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"avatar\": null\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": null\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]

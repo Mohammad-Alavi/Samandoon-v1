@@ -21,16 +21,12 @@ class UserByEmailTransformer extends Transformer
 
     ];
 
-    /**
-     * @param User $entity
-     *
-     * @return array
-     */
     public function transform(User $user)
     {
         $response = [
             'first_name'           => $user->first_name,
             'last_name'            => $user->last_name,
+            'email'                => $user->email,
             'avatar'               => $user->avatar,
         ];
 
