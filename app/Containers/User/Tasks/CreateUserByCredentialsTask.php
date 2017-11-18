@@ -2,6 +2,7 @@
 
 namespace App\Containers\User\Tasks;
 
+use Apiato\Core\Abstracts\Requests\Request;
 use App\Containers\Authorization\Tasks\GetRoleTask;
 use App\Containers\Socialauth\Exceptions\AccountFailedException;
 use App\Containers\User\Data\Repositories\UserRepository;
@@ -17,43 +18,27 @@ use Illuminate\Support\Facades\Hash;
  */
 class CreateUserByCredentialsTask extends Task
 {
-
-    /**
-     * @param null $first_name
-     * @param null $last_name
-     * @param $email
-     * @param $password
-     * @param null $gender
-     * @param null $birth
-     * @param bool $isClient
-     * @param null $province
-     * @param null $city
-     * @param null $device
-     * @param null $platform
-     * @return mixed
-     * @internal param null $name
-     */
-    public function run($isClient = true, $email, $password, $first_name = null, $last_name = null,
-                        $avatar = null, $gender = null, $birth = null, $province = null, $city = null, $device = null, $platform = null) {
+    public function run(Request $request, $isClient = true)
+    {
         try {
             // create new user
             $user = App::make(UserRepository::class)->create([
-                'first_name'   => $first_name,
-                'last_name'     => $last_name,
-                'email'    => $email,
-                'password' => Hash::make($password),
-                'avatar'   => $avatar,
-                'gender'   => $gender,
-                'birth'    => $birth,
-                'province'    => $province,
-                'city'    => $city,
-                'device'   => $device,
-                'platform' => $platform,
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'avatar' => $request->hasFile('avatar') ? $avatar = $request->file('avatar')->store('avatar') : $avatar = null,
+                'gender' => $request->gender,
+                'birth' => $request->birth,
+                'province' => $request->province,
+                'city' => $request->city,
+                'device' => $request->device,
+                'platform' => $request->platform,
                 'is_client' => $isClient,
             ]);
 
             // assign 'user' role to registered user
-            if($isClient) {
+            if ($isClient) {
                 $user->assignRole('user');
             }
         } catch (Exception $e) {
@@ -62,5 +47,4 @@ class CreateUserByCredentialsTask extends Task
 
         return $user;
     }
-
 }

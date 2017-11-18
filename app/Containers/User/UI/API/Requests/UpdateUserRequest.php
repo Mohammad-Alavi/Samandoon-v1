@@ -52,6 +52,7 @@ class UpdateUserRequest extends Request
             'password' => 'min:6|max:40',
             'first_name'     => 'min:2|max:50',
             'last_name'     => 'min:2|max:50',
+            'avatar'    => 'image',
             'platform' => 'in:android,ios,web,desktop',
         ];
     }

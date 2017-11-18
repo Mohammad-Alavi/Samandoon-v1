@@ -51,6 +51,7 @@ class CreateAdminRequest extends Request
             'password' => 'required|min:3|max:30',
             'first_name'     => 'min:2|max:50',
             'last_name'     => 'min:2|max:50',
+            'avatar'    => 'image',
         ];
     }
 

@@ -51,6 +51,7 @@ class RegisterUserRequest extends Request
             'password' => 'required|min:6|max:40',
             'first_name'     => 'required|min:2|max:50',
             'last_name'     => 'required|min:2|max:50',
+            'avatar'    => 'image',
             'platform' => 'in:android,ios,web,desktop',
         ];
     }

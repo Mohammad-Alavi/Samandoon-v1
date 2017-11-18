@@ -12,7 +12,7 @@
  * @apiSuccessExample  {json}       Success-Response:
  * HTTP/1.1 202 OK
 {
-    "message": "User (4) Deleted Successfully."
+    "message": "User (z5ds4as5d4zxc) Deleted Successfully."
 }
  */
 
