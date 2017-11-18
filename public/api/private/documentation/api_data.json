@@ -1792,7 +1792,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 202 OK\n{\n    \"message\": \"User (4) Deleted Successfully.\"\n}",
+          "content": "HTTP/1.1 202 OK\n{\n    \"message\": \"User (z5ds4as5d4zxc) Deleted Successfully.\"\n}",
           "type": "json"
         }
       ]
