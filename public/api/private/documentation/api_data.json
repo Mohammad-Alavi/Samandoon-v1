@@ -53,17 +53,17 @@
         ]
       }
     },
+    "filename": "app/Containers/Event/UI/API/Routes/CreateEvent.v1.private.php",
+    "groupTitle": "Event",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Event updated\",\n    \"event\": {\n        \"object\": \"Event\",\n      \"id\": \"3a8wvzlg3r7n0e4m\",\n      \"title\": \"Seventh Event\",\n      \"description\": \"Event number 7\",\n      \"event_date\": {\n            \"date\": \"2016-10-13 15:04:00.000000\",\n        \"timezone_type\": 2,\n        \"timezone\": \"EST\"\n      },\n      \"photo_path\": null,\n      \"location\": null,\n      \"created_at\": {\n            \"date\": \"2017-06-10 03:50:39.000000\",\n        \"timezone_type\": 3,\n        \"timezone\": \"UTC\"\n      },\n      \"updated_at\": {\n            \"date\": \"2017-06-10 04:13:05.000000\",\n        \"timezone_type\": 3,\n        \"timezone\": \"UTC\"\n      },\n      \"readable_created_at\": \"22 minutes ago\",\n      \"readable_updated_at\": \"1 second ago\",\n      \"real_id\": 7\n    },\n    \"view_event\": {\n        \"href\": \"v1/event/7\",\n      \"method\": \"GET\"\n    }\n  },\n  \"meta\": {\n    \"include\": [],\n    \"custom\": []\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n\n{\n    \"data\": {\n    \"msg\": \"Informative msg here\",\n        \"event\": {\n        \"object\": \"Event\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"title\": \"Test Update Event\",\n            \"description\": null,\n            \"event_date\": {\n            \"date\": \"2016-12-08 13:16:00.000000\",\n                \"timezone_type\": 2,\n                \"timezone\": \"GMT\"\n            },\n            \"location\": null,\n            \"photo_path\": null,\n            \"created_at\": {\n            \"date\": \"2017-11-19 01:29:11.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-19 02:09:20.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"ngo\": {\n            \"object\": \"Ngo\",\n                \"id\": \"kjeonp5eordqzvb8\",\n                \"name\": \"Edrar Ngo\",\n                \"description\": null,\n                \"subject\": \"Edrar Subject\",\n                \"area_of_activity\": \"Edrar Area\",\n                \"address\": null,\n                \"registration_date\": null,\n                \"registration_number\": null,\n                \"national_number\": null,\n                \"license_number\": null,\n                \"license_date\": null,\n                \"logo_photo_path\": null,\n                \"banner_photo_path\": null,\n                \"user_id\": \"3mjzyg5dp5a0vwp6\",\n                \"created_at\": {\n                \"date\": \"2017-11-19 01:29:01.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"updated_at\": {\n                \"date\": \"2017-11-19 01:29:01.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"readable_created_at\": \"40 minutes ago\",\n                \"readable_updated_at\": \"40 minutes ago\"\n            }\n        },\n        \"view_event\": {\n        \"href\": \"v1/event/kjeonp5eordqzvb8\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/Event/UI/API/Routes/CreateEvent.v1.private.php",
-    "groupTitle": "Event"
+    }
   },
   {
     "group": "Event",
@@ -103,17 +103,17 @@
         "name": "none"
       }
     ],
+    "filename": "app/Containers/Event/UI/API/Routes/GetEvent.v1.private.php",
+    "groupTitle": "Event",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"Event\",\n    \"id\": \"3a8wvzlg3r7n0e4m\",\n    \"title\": \"edrarEvent\",\n    \"description\": \"lilcription\",\n    \"event_date\": \"2015-10-13 15:04:00\",\n    \"photo_path\": null,\n    \"created_at\": {\n        \"date\": \"2017-06-10 03:50:39.000000\",\n      \"timezone_type\": 3,\n      \"timezone\": \"UTC\"\n    },\n    \"updated_at\": {\n        \"date\": \"2017-06-10 03:50:39.000000\",\n      \"timezone_type\": 3,\n      \"timezone\": \"UTC\"\n    },\n    \"readable_created_at\": \"18 seconds ago\",\n    \"readable_updated_at\": \"18 seconds ago\",\n    \"real_id\": 7\n  },\n  \"meta\": {\n    \"include\": [],\n    \"custom\": []\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n\n{\n    \"data\": {\n    \"msg\": \"Informative msg here\",\n        \"event\": {\n        \"object\": \"Event\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"title\": \"Test Update Event\",\n            \"description\": null,\n            \"event_date\": {\n            \"date\": \"2016-12-08 13:16:00.000000\",\n                \"timezone_type\": 2,\n                \"timezone\": \"GMT\"\n            },\n            \"location\": null,\n            \"photo_path\": null,\n            \"created_at\": {\n            \"date\": \"2017-11-19 01:29:11.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-19 02:09:20.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"ngo\": {\n            \"object\": \"Ngo\",\n                \"id\": \"kjeonp5eordqzvb8\",\n                \"name\": \"Edrar Ngo\",\n                \"description\": null,\n                \"subject\": \"Edrar Subject\",\n                \"area_of_activity\": \"Edrar Area\",\n                \"address\": null,\n                \"registration_date\": null,\n                \"registration_number\": null,\n                \"national_number\": null,\n                \"license_number\": null,\n                \"license_date\": null,\n                \"logo_photo_path\": null,\n                \"banner_photo_path\": null,\n                \"user_id\": \"3mjzyg5dp5a0vwp6\",\n                \"created_at\": {\n                \"date\": \"2017-11-19 01:29:01.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"updated_at\": {\n                \"date\": \"2017-11-19 01:29:01.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"readable_created_at\": \"40 minutes ago\",\n                \"readable_updated_at\": \"40 minutes ago\"\n            }\n        },\n        \"view_event\": {\n        \"href\": \"v1/event/kjeonp5eordqzvb8\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/Event/UI/API/Routes/GetEvent.v1.private.php",
-    "groupTitle": "Event"
+    }
   },
   {
     "group": "Event",
@@ -128,17 +128,17 @@
         "name": "none"
       }
     ],
+    "filename": "app/Containers/Event/UI/API/Routes/ListAllEvents.v1.private.php",
+    "groupTitle": "Event",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"Event\",\n    \"id\": \"3a8wvzlg3r7n0e4m\",\n    \"title\": \"edrarEvent\",\n    \"description\": \"lilcription\",\n    \"event_date\": \"2015-10-13 15:04:00\",\n    \"photo_path\": null,\n    \"created_at\": {\n        \"date\": \"2017-06-10 03:50:39.000000\",\n      \"timezone_type\": 3,\n      \"timezone\": \"UTC\"\n    },\n    \"updated_at\": {\n        \"date\": \"2017-06-10 03:50:39.000000\",\n      \"timezone_type\": 3,\n      \"timezone\": \"UTC\"\n    },\n    \"readable_created_at\": \"18 seconds ago\",\n    \"readable_updated_at\": \"18 seconds ago\",\n    \"real_id\": 7\n  },\n  \"meta\": {\n    \"include\": [],\n    \"custom\": []\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n\n{\n    \"data\": {\n    \"msg\": \"Informative msg here\",\n        \"event\": {\n        \"object\": \"Event\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"title\": \"Test Update Event\",\n            \"description\": null,\n            \"event_date\": {\n            \"date\": \"2016-12-08 13:16:00.000000\",\n                \"timezone_type\": 2,\n                \"timezone\": \"GMT\"\n            },\n            \"location\": null,\n            \"photo_path\": null,\n            \"created_at\": {\n            \"date\": \"2017-11-19 01:29:11.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-19 02:09:20.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"ngo\": {\n            \"object\": \"Ngo\",\n                \"id\": \"kjeonp5eordqzvb8\",\n                \"name\": \"Edrar Ngo\",\n                \"description\": null,\n                \"subject\": \"Edrar Subject\",\n                \"area_of_activity\": \"Edrar Area\",\n                \"address\": null,\n                \"registration_date\": null,\n                \"registration_number\": null,\n                \"national_number\": null,\n                \"license_number\": null,\n                \"license_date\": null,\n                \"logo_photo_path\": null,\n                \"banner_photo_path\": null,\n                \"user_id\": \"3mjzyg5dp5a0vwp6\",\n                \"created_at\": {\n                \"date\": \"2017-11-19 01:29:01.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"updated_at\": {\n                \"date\": \"2017-11-19 01:29:01.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"readable_created_at\": \"40 minutes ago\",\n                \"readable_updated_at\": \"40 minutes ago\"\n            }\n        },\n        \"view_event\": {\n        \"href\": \"v1/event/kjeonp5eordqzvb8\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/Event/UI/API/Routes/ListAllEvents.v1.private.php",
-    "groupTitle": "Event"
+    }
   },
   {
     "group": "Event",
@@ -194,17 +194,17 @@
         ]
       }
     },
+    "filename": "app/Containers/Event/UI/API/Routes/UpdateEvent.v1.private.php",
+    "groupTitle": "Event",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Event updated\",\n    \"event\": {\n        \"object\": \"Event\",\n      \"id\": \"3a8wvzlg3r7n0e4m\",\n      \"title\": \"Seventh Event\",\n      \"description\": \"Event number 7\",\n      \"event_date\": {\n            \"date\": \"2016-10-13 15:04:00.000000\",\n        \"timezone_type\": 2,\n        \"timezone\": \"EST\"\n      },\n      \"photo_path\": null,\n      \"location\": null,\n      \"created_at\": {\n            \"date\": \"2017-06-10 03:50:39.000000\",\n        \"timezone_type\": 3,\n        \"timezone\": \"UTC\"\n      },\n      \"updated_at\": {\n            \"date\": \"2017-06-10 04:13:05.000000\",\n        \"timezone_type\": 3,\n        \"timezone\": \"UTC\"\n      },\n      \"readable_created_at\": \"22 minutes ago\",\n      \"readable_updated_at\": \"1 second ago\",\n      \"real_id\": 7\n    },\n    \"view_event\": {\n        \"href\": \"v1/event/7\",\n      \"method\": \"GET\"\n    }\n  },\n  \"meta\": {\n    \"include\": [],\n    \"custom\": []\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n\n{\n    \"data\": {\n    \"msg\": \"Informative msg here\",\n        \"event\": {\n        \"object\": \"Event\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"title\": \"Test Update Event\",\n            \"description\": null,\n            \"event_date\": {\n            \"date\": \"2016-12-08 13:16:00.000000\",\n                \"timezone_type\": 2,\n                \"timezone\": \"GMT\"\n            },\n            \"location\": null,\n            \"photo_path\": null,\n            \"created_at\": {\n            \"date\": \"2017-11-19 01:29:11.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-19 02:09:20.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"ngo\": {\n            \"object\": \"Ngo\",\n                \"id\": \"kjeonp5eordqzvb8\",\n                \"name\": \"Edrar Ngo\",\n                \"description\": null,\n                \"subject\": \"Edrar Subject\",\n                \"area_of_activity\": \"Edrar Area\",\n                \"address\": null,\n                \"registration_date\": null,\n                \"registration_number\": null,\n                \"national_number\": null,\n                \"license_number\": null,\n                \"license_date\": null,\n                \"logo_photo_path\": null,\n                \"banner_photo_path\": null,\n                \"user_id\": \"3mjzyg5dp5a0vwp6\",\n                \"created_at\": {\n                \"date\": \"2017-11-19 01:29:01.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"updated_at\": {\n                \"date\": \"2017-11-19 01:29:01.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"readable_created_at\": \"40 minutes ago\",\n                \"readable_updated_at\": \"40 minutes ago\"\n            }\n        },\n        \"view_event\": {\n        \"href\": \"v1/event/kjeonp5eordqzvb8\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/Event/UI/API/Routes/UpdateEvent.v1.private.php",
-    "groupTitle": "Event"
+    }
   },
   {
     "group": "NGO",
