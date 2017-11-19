@@ -4,7 +4,6 @@ namespace App\Ship\Seeders;
 
 use App\Containers\Event\Models\Event;
 use App\Containers\NGO\Models\NGO;
-use App\Containers\User\Models\User;
 use App\Ship\Parents\Seeders\Seeder;
 
 /**
@@ -22,9 +21,11 @@ class SeedTestingData extends Seeder
      */
     public function run()
     {
-        factory(User::class, 50)->create()
-            ->each(function ($ngo) {
-                $ngo->ngo()->save(factory(NGO::class)->make());
+        factory(\App\Containers\User\Models\User::class, 50)->
+        create()->each(function ($ngo) {
+            $ngo->ngo()->save(
+                factory(NGO::class)->make()
+            );
 //                    ->each(function ($events){
 //                        $events->events()->saveMany(factory(Event::class, 5)->make());
 //                    });

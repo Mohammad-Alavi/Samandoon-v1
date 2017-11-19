@@ -2,11 +2,7 @@
 
 namespace App\Containers\Authorization\Data\Seeders;
 
-use App\Containers\Authorization\Tasks\FindRoleTask;
-use App\Containers\User\Models\User;
 use App\Ship\Parents\Seeders\Seeder;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Hash;
 
 /**
  * Class AuthorizationSuperAdminsSeeder_9
@@ -34,6 +30,5 @@ class AuthorizationSuperAdminsSeeder_9 extends Seeder
 //        $admin->assignRole(App::make(FindRoleTask::class)->run('admin'));
 
         // ...
-
     }
 }
