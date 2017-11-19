@@ -19,5 +19,6 @@ class FindNgoByIdTask extends Task
             throw new NgoNotFoundException;
         }
 
-        return $ngo;    }
+        return $ngo;
+    }
 }

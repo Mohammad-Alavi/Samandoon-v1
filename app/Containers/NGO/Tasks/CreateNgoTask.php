@@ -47,7 +47,7 @@ class CreateNgoTask extends Task
                     'license_date' => $license_date,
                     'logo_photo_path' => $logo_photo_path,
                     'banner_photo_path' => $banner_photo_path,
-                    'user_id' => $authenticated_user->getHashedKey(),
+                    'user_id' => $authenticated_user->id,
                 ]);
 
                 // give manage-event permission to authenticated user

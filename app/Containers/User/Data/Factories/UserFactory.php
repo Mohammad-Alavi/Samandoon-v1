@@ -1,8 +1,10 @@
 <?php
 
+
+use App\Containers\User\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-$factory->define(App\Containers\User\Models\User::class, function (Faker\Generator $faker) {
+$factory->define(User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -10,7 +12,6 @@ $factory->define(App\Containers\User\Models\User::class, function (Faker\Generat
         'last_name'     => $faker->lastName,
         'email'    => $faker->unique()->safeEmail,
         'password' => $password ? : $password = Hash::make('testing-password'),
-        'confirmed'     => $faker->boolean(),
         'device'     => str_random(7, 13),
         'platform'     => $faker->randomElement(['android', 'ios', 'web', 'desktop']),
         'gender'     => $faker->randomElement(['male', 'female']),
@@ -22,7 +23,7 @@ $factory->define(App\Containers\User\Models\User::class, function (Faker\Generat
     ];
 });
 
-$factory->state(App\Containers\User\Models\User::class, 'client', function (Faker\Generator $faker) {
+$factory->state(User::class, 'client', function (Faker\Generator $faker) {
     return [
         'is_client' => true,
     ];

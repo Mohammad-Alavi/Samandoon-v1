@@ -1917,7 +1917,7 @@
     "group": "User",
     "name": "GetAuthenticatedUser",
     "type": "GET",
-    "url": "/v1/user/profile",
+    "url": "/v1/profile",
     "title": "Get Logged in user Profile",
     "description": "<p>Find the user details of the logged in user from its Token. (without specifying his ID)</p>",
     "version": "1.0.0",

@@ -36,7 +36,8 @@ class AuthorizationRolesSeeder_2 extends Seeder
         // give the user required permissions, while seeding
         Apiato::call('Authorization@CreateRoleTask', ['user', 'User'])->givePermissionTo([
                 'manage-ngo',
-                'manage-event'
+                'manage-event',
+                'update-users'
             ]
         );
     }

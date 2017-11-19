@@ -32,6 +32,8 @@ class User extends UserModel implements ChargeableInterface
      *
      * @var array
      */
+
+//    protected $guarded = [];
     protected $fillable = [
         'first_name',
         'last_name',

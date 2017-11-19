@@ -4,6 +4,8 @@ namespace App\Containers\NGO\UI\API\Transformers;
 
 use App\Containers\NGO\Models\Ngo;
 use App\Ship\Parents\Transformers\Transformer;
+use Illuminate\Support\Facades\Hash;
+use Vinkla\Hashids\Facades\Hashids;
 
 class NgoTransformer extends Transformer
 {
@@ -41,7 +43,7 @@ class NgoTransformer extends Transformer
             'license_date' => $ngo->license_date,
             'logo_photo_path' => $ngo->logo_photo_path,
             'banner_photo_path' => $ngo->banner_photo_path,
-            'user_id' => $ngo->user_id,
+            'user_id' => Hashids::encode($ngo->user_id),
             'created_at' => $ngo->created_at,
             'updated_at' => $ngo->updated_at,
             'readable_created_at'  => $ngo->created_at->diffForHumans(),

@@ -5,6 +5,7 @@ namespace App\Containers\User\UI\API\Transformers;
 use App\Containers\Authorization\UI\API\Transformers\RoleTransformer;
 use App\Containers\User\Models\User;
 use App\Ship\Parents\Transformers\Transformer;
+use Vinkla\Hashids\Facades\Hashids;
 
 /**
  * Class UserTransformer.
@@ -47,7 +48,7 @@ class UserTransformer extends Transformer
             'birth'                => $user->birth,
             'province'             => $user->province,
             'city'                 => $user->city,
-            'ngo_id'               => $user->ngo_id,
+            'ngo_id'               => Hashids::encode($user->ngo_id),
             'social_provider'      => $user->social_provider,
             'social_nickname'      => $user->social_nickname,
             'social_id'            => $user->social_id,

@@ -27,7 +27,7 @@ class CreateNgosTable extends Migration
             $table->integer('license_number')->unique()->nullable();
             $table->string('logo_photo_path')->nullable();
             $table->string('banner_photo_path')->nullable();
-            $table->string('user_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
