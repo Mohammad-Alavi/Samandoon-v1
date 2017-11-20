@@ -1609,7 +1609,7 @@ define({ "api": [
     "group": "Storage",
     "name": "downloadFile",
     "type": "GET",
-    "url": "/v1/{folder}/{file_name}",
+    "url": "/v1/download/{folder}/{file_name}",
     "title": "Download File",
     "description": "<p>Download a file from server's public folder</p>",
     "version": "1.0.0",
