@@ -8,7 +8,7 @@ class DownloadFileTask extends Task
 {
     public function run($folder, $file_name)
     {
-        $path = public_path($folder.'/'.$file_name);
+        $path = public_path('storage/'.$folder.'/'.$file_name);
         return $path;
     }
 }
