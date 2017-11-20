@@ -1606,6 +1606,31 @@ define({ "api": [
     "groupTitle": "SocialAuth"
   },
   {
+    "group": "Storage",
+    "name": "downloadFile",
+    "type": "GET",
+    "url": "/v1/{folder}/{file_name}",
+    "title": "Download File",
+    "description": "<p>Download a file from server's public folder</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "filename": "app/Containers/Storage/UI/API/Routes/DownloadFile.v1.private.php",
+    "groupTitle": "Storage",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
     "group": "Stripe",
     "name": "createStripeAccount",
     "type": "post",

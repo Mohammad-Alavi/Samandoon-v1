@@ -1,25 +1,19 @@
 <?php
-
 /**
  * @apiGroup           Storage
  * @apiName            downloadFile
  *
- * @api                {GET} /v1/storage/:folder/:file_name Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {GET} /v1/{folder}/{file_name} Download File
+ * @apiDescription     Download a file from server's public folder
  *
  * @apiVersion         1.0.0
  * @apiPermission      none
  *
- * @apiParam           {String}  parameters here..
- *
- * @apiSuccessExample  {json}  Success-Response:
- * HTTP/1.1 200 OK
-{
-  // Insert the response of the request here...
-}
+ * @apiUse             UserSuccessSingleResponse
  */
 
-$router->get('storage/{folder}/{file_name}', [
+
+$router->get('{folder}/{file_name}', [
     'as' => 'api_storage_download_file',
     'uses'  => 'Controller@downloadFile',
 ]);
