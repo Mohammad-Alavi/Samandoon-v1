@@ -259,6 +259,20 @@ define({ "api": [
           },
           {
             "group": "Parameter",
+            "type": "image",
+            "optional": false,
+            "field": "logo_photo",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "image",
+            "optional": false,
+            "field": "banner_photo",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "date",
             "optional": false,
             "field": "registration_date",
@@ -291,20 +305,6 @@ define({ "api": [
             "optional": false,
             "field": "license_number",
             "description": "<p>(optional) unique:ngos,license_number</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "image",
-            "optional": false,
-            "field": "logo_photo",
-            "description": "<p>(optional)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "image",
-            "optional": false,
-            "field": "banner_photo",
-            "description": "<p>(optional)</p>"
           }
         ]
       }
@@ -424,6 +424,20 @@ define({ "api": [
           },
           {
             "group": "Parameter",
+            "type": "image",
+            "optional": false,
+            "field": "logo_photo",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "image",
+            "optional": false,
+            "field": "banner_photo",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "date",
             "optional": false,
             "field": "registration_date",
@@ -456,20 +470,6 @@ define({ "api": [
             "optional": false,
             "field": "license_number",
             "description": "<p>(optional) unique:ngos,license_number</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "image",
-            "optional": false,
-            "field": "logo_photo",
-            "description": "<p>(optional)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "image",
-            "optional": false,
-            "field": "banner_photo",
-            "description": "<p>(optional)</p>"
           }
         ]
       }
