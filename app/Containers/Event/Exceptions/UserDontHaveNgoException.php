@@ -9,7 +9,7 @@ class UserDontHaveNgoException extends Exception
 {
     public $httpStatusCode = Response::HTTP_NOT_FOUND;
 
-    public $message = 'User don\'t have an NGO.';
+    public $message = 'User doesn\'t have a NGO.';
 
     public $code = 0;
 }
