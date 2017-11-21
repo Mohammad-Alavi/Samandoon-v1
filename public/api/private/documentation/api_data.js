@@ -309,17 +309,17 @@ define({ "api": [
         ]
       }
     },
+    "filename": "app/Containers/NGO/UI/API/Routes/CreateNgo.v1.private.php",
+    "groupTitle": "NGO",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Ngo created\",\n        \"ngo\": {\n        \"object\": \"Ngo\",\n            \"id\": \"a0dg7o534grq4m3p\",\n            \"name\": \"انجمن برنامه نویسان آبادان\",\n            \"description\": null,\n            \"subject\": \"فرهنگی-ورزشی\",\n            \"area_of_activity\": \"شهرستان آبادان\",\n            \"address\": null,\n            \"registration_date\": null,\n            \"registration_number\": null,\n            \"national_number\": null,\n            \"license_number\": null,\n            \"license_date\": null,\n            \"logo_photo_path\": null,\n            \"banner_photo_path\": null,\n            \"user_id\": \"a0dg5o534grq4s3p\",\n            \"created_at\": {\n            \"date\": \"2017-06-27 08:39:07.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-06-27 08:39:07.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"real_id\": 51\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/51\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here\",\n        \"ngo\": {\n        \"object\": \"Ngo\",\n            \"id\": \"3mjzyg5dp5a0vwp6\",\n            \"name\": \"Edrar Ngo\",\n            \"description\": null,\n            \"subject\": \"Edrar Subject\",\n            \"area_of_activity\": \"Edrar Area\",\n            \"address\": null,\n            \"logo_photo_path\": null,\n            \"banner_photo_path\": null,\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"Registration specification\": {\n                \"registration_date\": null,\n                \"registration_number\": null,\n                \"national_number\": null,\n                \"license_number\": null,\n                \"license_date\": null\n            },\n            \"created_at\": {\n            \"date\": \"2017-11-21 00:55:30.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-21 00:55:30.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/3mjzyg5dp5a0vwp6\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/NGO/UI/API/Routes/CreateNgo.v1.private.php",
-    "groupTitle": "NGO"
+    }
   },
   {
     "group": "NGO",
@@ -359,17 +359,17 @@ define({ "api": [
         "name": "none"
       }
     ],
+    "filename": "app/Containers/NGO/UI/API/Routes/GetNgo.v1.private.php",
+    "groupTitle": "NGO",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"Ngo\",\n        \"id\": \"kjeonp5eordqzvb8\",\n        \"name\": \"Metz, Denesik and Feeney\",\n        \"description\": \"Pepper For a minute or two to think this a very deep well. Either the well was very glad to find herself talking familiarly with them, as if she could have been ill.' 'So they were,' said the King.\",\n        \"subject\": \"maiores\",\n        \"area_of_activity\": \"Torranceburgh\",\n        \"address\": \"9272 Angeline Corner\\nMadalynfurt, MT 89782-1979\",\n        \"registration_date\": \"1977-07-11\",\n        \"registration_number\": 84163,\n        \"national_number\": 22219,\n        \"license_number\": 90649,\n        \"license_date\": \"1978-10-18\",\n        \"logo_photo_path\": \"297952626\",\n        \"banner_photo_path\": \"456262418\",\n        \"user_id\": 2,\n        \"created_at\": {\n        \"date\": \"2017-06-27 02:41:41.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-06-27 02:41:41.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"6 hours ago\",\n        \"readable_updated_at\": \"6 hours ago\",\n        \"real_id\": 1\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here\",\n        \"ngo\": {\n        \"object\": \"Ngo\",\n            \"id\": \"3mjzyg5dp5a0vwp6\",\n            \"name\": \"Edrar Ngo\",\n            \"description\": null,\n            \"subject\": \"Edrar Subject\",\n            \"area_of_activity\": \"Edrar Area\",\n            \"address\": null,\n            \"logo_photo_path\": null,\n            \"banner_photo_path\": null,\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"Registration specification\": {\n                \"registration_date\": null,\n                \"registration_number\": null,\n                \"national_number\": null,\n                \"license_number\": null,\n                \"license_date\": null\n            },\n            \"created_at\": {\n            \"date\": \"2017-11-21 00:55:30.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-21 00:55:30.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/3mjzyg5dp5a0vwp6\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/NGO/UI/API/Routes/GetNgo.v1.private.php",
-    "groupTitle": "NGO"
+    }
   },
   {
     "group": "NGO",
@@ -474,17 +474,17 @@ define({ "api": [
         ]
       }
     },
+    "filename": "app/Containers/NGO/UI/API/Routes/UpdateNgo.v1.private.php",
+    "groupTitle": "NGO",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Ngo updated\",\n        \"ngo\": {\n        \"object\": \"Ngo\",\n            \"id\": \"a0dg7o53grq4m3pn\",\n            \"name\": \"انجمن هنتوشان\",\n            \"description\": \"I suppose, by being drowned in my time, but never ONE with such a puzzled expression that she had been to a mouse: she had this fit) An obstacle that came between Him, and ourselves, and it. Don't.\",\n            \"subject\": \"فرهنگی-سلامتی\",\n            \"area_of_activity\": \"North Anne\",\n            \"address\": \"817 Stroman Route\\nRainaberg, TN 93696\",\n            \"registration_date\": \"2015-09-08\",\n            \"registration_number\": 100108,\n            \"national_number\": 77836,\n            \"license_number\": 105178,\n            \"license_date\": \"1971-08-05\",\n            \"logo_photo_path\": \"634475519\",\n            \"banner_photo_path\": \"131333280\",\n            \"user_id\": 4,\n            \"created_at\": {\n            \"date\": \"2017-06-27 02:41:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-06-27 09:04:46.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"6 hours ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"real_id\": 3\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/3\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here\",\n        \"ngo\": {\n        \"object\": \"Ngo\",\n            \"id\": \"3mjzyg5dp5a0vwp6\",\n            \"name\": \"Edrar Ngo\",\n            \"description\": null,\n            \"subject\": \"Edrar Subject\",\n            \"area_of_activity\": \"Edrar Area\",\n            \"address\": null,\n            \"logo_photo_path\": null,\n            \"banner_photo_path\": null,\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"Registration specification\": {\n                \"registration_date\": null,\n                \"registration_number\": null,\n                \"national_number\": null,\n                \"license_number\": null,\n                \"license_date\": null\n            },\n            \"created_at\": {\n            \"date\": \"2017-11-21 00:55:30.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-21 00:55:30.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/3mjzyg5dp5a0vwp6\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/NGO/UI/API/Routes/UpdateNgo.v1.private.php",
-    "groupTitle": "NGO"
+    }
   },
   {
     "group": "NGO",
@@ -499,17 +499,17 @@ define({ "api": [
         "name": "none"
       }
     ],
+    "filename": "app/Containers/NGO/UI/API/Routes/ListAllNgos.v1.private.php",
+    "groupTitle": "NGO",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": [\n        {\n            \"object\": \"Ngo\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"Metz, Denesik and Feeney\",\n            \"description\": \"Pepper For a minute or two to think this a very deep well. Either the well was very glad to find herself talking familiarly with them, as if she could have been ill.' 'So they were,' said the King.\",\n            \"subject\": \"maiores\",\n            \"area_of_activity\": \"Torranceburgh\",\n            \"address\": \"9272 Angeline Corner\\nMadalynfurt, MT 89782-1979\",\n            \"registration_date\": \"1977-07-11\",\n            \"registration_number\": 84163,\n            \"national_number\": 22219,\n            \"license_number\": 90649,\n            \"license_date\": \"1978-10-18\",\n            \"logo_photo_path\": \"297952626\",\n            \"banner_photo_path\": \"456262418\",\n            \"user_id\": 2,\n            \"created_at\": {\n            \"date\": \"2017-06-27 02:41:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-06-27 02:41:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"6 hours ago\",\n            \"readable_updated_at\": \"6 hours ago\",\n            \"real_id\": 1\n        },\n    ],\n    \"meta\": {\n    \"include\": [],\n        \"custom\": [],\n        \"pagination\": {\n        \"total\": 51,\n            \"count\": 10,\n            \"per_page\": 10,\n            \"current_page\": 1,\n            \"total_pages\": 6,\n            \"links\": {\n            \"next\": \"http://api.apiato.dev/v1/ngo?page=2\"\n            }\n        }\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here\",\n        \"ngo\": {\n        \"object\": \"Ngo\",\n            \"id\": \"3mjzyg5dp5a0vwp6\",\n            \"name\": \"Edrar Ngo\",\n            \"description\": null,\n            \"subject\": \"Edrar Subject\",\n            \"area_of_activity\": \"Edrar Area\",\n            \"address\": null,\n            \"logo_photo_path\": null,\n            \"banner_photo_path\": null,\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"Registration specification\": {\n                \"registration_date\": null,\n                \"registration_number\": null,\n                \"national_number\": null,\n                \"license_number\": null,\n                \"license_date\": null\n            },\n            \"created_at\": {\n            \"date\": \"2017-11-21 00:55:30.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-21 00:55:30.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/3mjzyg5dp5a0vwp6\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/NGO/UI/API/Routes/ListAllNgos.v1.private.php",
-    "groupTitle": "NGO"
+    }
   },
   {
     "group": "OAuth2",
@@ -1618,17 +1618,17 @@ define({ "api": [
         "name": "none"
       }
     ],
-    "filename": "app/Containers/Storage/UI/API/Routes/DownloadFile.v1.private.php",
-    "groupTitle": "Storage",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 202 OK",
           "type": "json"
         }
       ]
-    }
+    },
+    "filename": "app/Containers/Storage/UI/API/Routes/DownloadFile.v1.private.php",
+    "groupTitle": "Storage"
   },
   {
     "group": "Stripe",

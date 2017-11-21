@@ -28,7 +28,6 @@ class NgoTransformer extends Transformer
     public function transform(Ngo $ngo)
     {
         $response = [
-
             'object' => 'Ngo',
             'id' => $ngo->getHashedKey(),
             'name' => $ngo->name,
@@ -36,14 +35,16 @@ class NgoTransformer extends Transformer
             'subject' => $ngo->subject,
             'area_of_activity' => $ngo->area_of_activity,
             'address' => $ngo->address,
-            'registration_date' => $ngo->registration_date,
-            'registration_number' => $ngo->registration_number,
-            'national_number' => $ngo->national_number,
-            'license_number' => $ngo->license_number,
-            'license_date' => $ngo->license_date,
             'logo_photo_path' => $ngo->logo_photo_path,
             'banner_photo_path' => $ngo->banner_photo_path,
             'user_id' => Hashids::encode($ngo->user_id),
+            'Registration specification' => [
+                'registration_date' => $ngo->registration_date,
+                'registration_number' => $ngo->registration_number,
+                'national_number' => $ngo->national_number,
+                'license_number' => $ngo->license_number,
+                'license_date' => $ngo->license_date,
+            ],
             'created_at' => $ngo->created_at,
             'updated_at' => $ngo->updated_at,
             'readable_created_at'  => $ngo->created_at->diffForHumans(),
