@@ -15,8 +15,8 @@ class UpdateNgoAction extends Action
         // check if has access to manage and delete ngo then deletes the ngo
         $this->call(CheckHasAccessToNgoTask::class, [$request]);
 
-        $request->hasFile('logo_photo') ? $logo_photo_path = $request->file('logo_photo')->store('logo_photo') : $logo_photo_path = null;
-        $request->hasFile('banner_photo') ? $banner_photo_path = $request->file('banner_photo')->store('banner_photo') : $banner_photo_path = null;
+        $request->hasFile('logo_photo') ? $logo_photo_path = $request->file('logo_photo')->store('ngo_logo', 'public') : $logo_photo_path = null;
+        $request->hasFile('banner_photo') ? $banner_photo_path = $request->file('banner_photo')->store('ngo_banner', 'public') : $banner_photo_path = null;
         !empty($request->input('registration_date')) ? $registration_date = Carbon::createFromFormat('YmdHiT', $request->input('registration_date')) : $registration_date = null;
         !empty($request->input('license_date')) ? $license_date = Carbon::createFromFormat('YmdHiT', $request->input('license_date')) : $license_date = null;
         $ngoData = [

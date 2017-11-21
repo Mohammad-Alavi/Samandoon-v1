@@ -25,8 +25,8 @@ class CreateNgoTask extends Task
         $national_number = $request->input('national_number');
         $license_number = $request->input('license_number');
         !empty($request->input('license_date')) ? $license_date = Carbon::createFromFormat('YmdHiT', $request->input('license_date')) : $license_date = null;
-        $request->hasFile('logo_photo') ? $logo_photo_path = $request->file('logo_photo')->store('logo_photo') : $logo_photo_path = null;
-        $request->hasFile('banner_photo') ? $banner_photo_path = $request->file('banner_photo')->store('banner_photo') : $banner_photo_path = null;
+        $request->hasFile('logo_photo') ? $logo_photo_path = $request->file('logo_photo')->store('ngo_logo', 'public') : $logo_photo_path = null;
+        $request->hasFile('banner_photo') ? $banner_photo_path = $request->file('banner_photo')->store('ngo_banner', 'public') : $banner_photo_path = null;
 
         try {
             if($authenticated_user->ngo) {
