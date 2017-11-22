@@ -2,6 +2,7 @@
 
 namespace App\Containers\User\Tasks;
 
+use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\User\Data\Repositories\UserRepository;
 use App\Ship\Exceptions\InternalErrorException;
 use App\Ship\Exceptions\NotFoundException;
@@ -10,6 +11,7 @@ use App\Ship\Parents\Tasks\Task;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class UpdateUserTask.
@@ -30,6 +32,10 @@ class UpdateUserTask extends Task
     {
         if (empty($userData)) {
             throw new UpdateResourceFailedException('Inputs are empty.');
+        }
+
+        if (array_key_exists('avatar', $userData)) {
+            Storage::disk('public')->delete(Apiato::call('User@FindUserByIdTask', [$userId])->avatar);
         }
 
         try {
