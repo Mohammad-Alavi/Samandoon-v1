@@ -44,7 +44,7 @@ class UpdateNgoRequest extends Request
     public function rules()
     {
         return [
-            'id'    => 'required|exists:ngos,id',
+//            'id'    => 'required|exists:ngos,id',
             'name' => 'max:255|unique:ngos,name',
             'subject' => 'max:255',
             'province' => 'max:255',
