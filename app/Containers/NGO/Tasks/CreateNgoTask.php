@@ -54,7 +54,7 @@ class CreateNgoTask extends Task
                 $authenticated_user->givePermissionTo('manage-event');
 
                 // add ngo id to user who created it
-                $authenticated_user->ngo_id = $ngo->getHashedKey();
+                $authenticated_user->ngo_id = $ngo->id;
                 $authenticated_user->save();
             }
         } catch (Exception $e) {

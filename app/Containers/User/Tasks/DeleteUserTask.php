@@ -2,6 +2,7 @@
 
 namespace App\Containers\User\Tasks;
 
+use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\User\Data\Repositories\UserRepository;
 use App\Ship\Parents\Tasks\Task;
 use Illuminate\Support\Facades\App;
@@ -29,7 +30,10 @@ class DeleteUserTask extends Task
                     $event->delete();
                 }
             }
-            $_user->ngo->delete();
+            // delete user ngo photos before deleting his ngo
+            Storage::disk('public')->delete($_user->ngo->logo_photo_path);
+            Storage::disk('public')->delete($_user->ngo->banner_photo_path);
+            Apiato::call('NGO@DeleteNgoTask', [$_user->ngo]);
         }
         return $_user->forceDelete();
     }

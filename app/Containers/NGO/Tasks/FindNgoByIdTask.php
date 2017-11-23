@@ -15,6 +15,9 @@ class FindNgoByIdTask extends Task
         // find the ngo by its id
         try {
             $ngo = App::make(NgoRepository::class)->find($ngoId);
+            if (empty($ngo->id)) {
+                throw new NgoNotFoundException();
+            }
         } catch (Exception $e) {
             throw new NgoNotFoundException;
         }

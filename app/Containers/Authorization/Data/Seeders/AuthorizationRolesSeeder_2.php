@@ -27,7 +27,11 @@ class AuthorizationRolesSeeder_2 extends Seeder
                 'manage-roles',
                 'create-admins',
                 'manage-admins-access',
-                'access-dashboard'
+                'access-dashboard',
+                'search-users',
+                'list-users',
+                'delete-users',
+                'update-users'
             ]
         );
 
@@ -37,7 +41,6 @@ class AuthorizationRolesSeeder_2 extends Seeder
         Apiato::call('Authorization@CreateRoleTask', ['user', 'User'])->givePermissionTo([
                 'manage-ngo',
                 'manage-event',
-                'update-users'
             ]
         );
     }
