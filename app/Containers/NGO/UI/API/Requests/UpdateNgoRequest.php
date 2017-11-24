@@ -45,14 +45,8 @@ class UpdateNgoRequest extends Request
     {
         return [
 //            'id'    => 'required|exists:ngos,id',
-            'name' => 'max:255|unique:ngos,name',
-            'subject' => 'max:255',
-            'province' => 'max:255',
-            'registration_number' => 'unique:ngos',
-            'national_number' => 'unique:ngos',
-            'license_number' => 'unique:ngos',
-            'registration_date' => 'date_format:YmdHiT',
-            'license_date' => 'date_format:YmdHiT',
+            'area_of_activity' => 'max:255',
+            'zip_code' => 'max:255',
             'logo_photo' => 'image',
             'banner_photo' => 'image',
         ];

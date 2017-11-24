@@ -15,18 +15,8 @@ class CreateNgoTask extends Task
 {
     public function run(Request $request, $authenticated_user)
     {
-        $name = $request->input('name');
-        $description = $request->input('description');
-        $subject = $request->input('subject');
-        $area_of_activity = $request->input('area_of_activity');
-        $address = $request->input('address');
-        !empty($request->input('registration_date')) ? $registration_date = Carbon::createFromFormat('YmdHiT', $request->input('registration_date')) : $registration_date = null;
-        $registration_number = $request->input('registration_number');
-        $national_number = $request->input('national_number');
-        $license_number = $request->input('license_number');
-        !empty($request->input('license_date')) ? $license_date = Carbon::createFromFormat('YmdHiT', $request->input('license_date')) : $license_date = null;
-        $request->hasFile('logo_photo') ? $logo_photo_path = $request->file('logo_photo')->store('ngo_logo', 'public') : $logo_photo_path = null;
-        $request->hasFile('banner_photo') ? $banner_photo_path = $request->file('banner_photo')->store('ngo_banner', 'public') : $banner_photo_path = null;
+        $request->hasFile('logo_photo') ? $logo_photo = $request->file('logo_photo')->store('ngo_logo', 'public') : $logo_photo = null;
+        $request->hasFile('banner_photo') ? $banner_photo = $request->file('banner_photo')->store('ngo_banner', 'public') : $banner_photo = null;
 
         try {
             if($authenticated_user->ngo) {
@@ -35,18 +25,18 @@ class CreateNgoTask extends Task
             else {
                 // create a new ngo
                 $ngo = App::make(NgoRepository::class)->create([
-                    'name' => $name,
-                    'description' => $description,
-                    'subject' => $subject,
-                    'area_of_activity' => $area_of_activity,
-                    'address' => $address,
-                    'registration_date' => $registration_date,
-                    'registration_number' => $registration_number,
-                    'national_number' => $national_number,
-                    'license_number' => $license_number,
-                    'license_date' => $license_date,
-                    'logo_photo_path' => $logo_photo_path,
-                    'banner_photo_path' => $banner_photo_path,
+                    'name' => $request->name,
+                    'description' => $request->description,
+                    'area_of_activity' => $request->area_of_activity,
+                    'address' => $request->address,
+                    'zip_code' => $request->zip_code,
+                    'type' => $request->type,
+                    'national_number' => $request->national_number,
+                    'registration_number' => $request->registration_number,
+                    'registration_date' => $request->registration_date,
+                    'registration_unit' => $request->registration_unit,
+                    'logo_photo' => $logo_photo,
+                    'banner_photo' => $banner_photo,
                     'user_id' => $authenticated_user->id,
                 ]);
 

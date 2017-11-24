@@ -18,8 +18,8 @@ class DeleteNgoTask extends Task
             }
         }
 
-        Storage::disk('public')->delete($ngo->logo_photo_path);
-        Storage::disk('public')->delete($ngo->banner_photo_path);
+        Storage::disk('public')->delete($ngo->logo_photo);
+        Storage::disk('public')->delete($ngo->banner_photo);
 
         // revoke user's permission to manage events
         $ngo->user->revokePermissionTo('manage-event');

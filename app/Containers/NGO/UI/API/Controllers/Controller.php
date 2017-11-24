@@ -2,6 +2,7 @@
 
 namespace App\Containers\NGO\UI\API\Controllers;
 
+use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\NGO\Actions\CreateNgoAction;
 use App\Containers\NGO\Actions\DeleteNgoAction;
 use App\Containers\NGO\Actions\GetAuthenticatedUserNgoAction;
@@ -16,6 +17,7 @@ use App\Containers\NGO\UI\API\Requests\ListAllNgosRequest;
 use App\Containers\NGO\UI\API\Requests\UpdateNgoRequest;
 use App\Containers\NGO\UI\API\Transformers\CreateNgoTransformer;
 use App\Containers\NGO\UI\API\Transformers\NgoTransformer;
+use App\Containers\NGO\UI\API\Transformers\SubjectTransformer;
 use App\Containers\NGO\UI\API\Transformers\UpdateNgoTransformer;
 use App\Ship\Parents\Controllers\ApiController;
 
@@ -72,7 +74,13 @@ class Controller extends ApiController
      */
     public function deleteNgo(DeleteNgoRequest $request) {
 
-        $ngo = $this->call(DeleteNgoAction::class, [$request]);
-        return $this->deleted($ngo);
+//        $ngo = $this->call(DeleteNgoAction::class, [$request]);
+//        return $this->deleted($ngo);
+        return $this->call(DeleteNgoAction::class, [$request]);
+    }
+
+    public function getNgoSubjects() {
+        $subjects = Apiato::call('NGO@GetNgoSubjectsAction');
+        return $this->transform($subjects,SubjectTransformer::class);
     }
 }

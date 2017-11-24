@@ -6,7 +6,7 @@
  * @api                {put} /v1/user/{id} Update User
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated User
+ * @apiPermission      Authenticated User (Admin | Owner)
  *
  * @apiParam           {String}  email (optional)
  * @apiParam           {String}  password (optional)

@@ -11,7 +11,6 @@ class ListNgosAction extends Action
     public function run(Request $request)
     {
         $ngos = $this->call(ListNgosTask::class, [$request]);
-
         return $ngos;
     }
 }

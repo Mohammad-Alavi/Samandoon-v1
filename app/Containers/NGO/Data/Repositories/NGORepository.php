@@ -15,13 +15,14 @@ class NGORepository extends Repository
     protected $fieldSearchable = [
         'id'    => '=',
         'name'  => 'like',
-        'subject'    => 'like',
         'area_of_activity'    => 'like',
-        'registration_date'    => '=',
-        'registration_number'    => '=',
+        'address'    => 'like',
+        'type'    => 'like',
+        'zip_code'    => '=',
         'national_number'    => '=',
-        'license_number'    => '=',
-        'license_date'    => '=',
+        'registration_number'    => '=',
+        'registration_date'    => '=',
+        'registration_unit'    => '=',
     ];
 
     public function boot()

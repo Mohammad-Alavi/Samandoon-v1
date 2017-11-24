@@ -11,17 +11,17 @@ class Ngo extends Model
     protected $fillable = [
         'name',
         'description',
-        'subject',
         'area_of_activity',
         'address',
-        'registration_date',
-        'registration_number',
-        'national_number',
-        'license_number',
-        'license_date',
-        'logo_photo_path',
-        'banner_photo_path',
+        'zip_code',
+        'type',
+        'logo_photo',
+        'banner_photo',
         'user_id',
+        'national_number',
+        'registration_number',
+        'registration_date',
+        'registration_unit',
     ];
 
     protected $hidden = [];
@@ -39,5 +39,9 @@ class Ngo extends Model
 
     public function events(){
         return $this->hasMany(Event::class);
+    }
+
+    public function subjects(){
+        return $this->belongsToMany(Subject::class);
     }
 }

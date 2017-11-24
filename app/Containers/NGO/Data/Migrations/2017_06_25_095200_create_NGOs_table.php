@@ -17,17 +17,18 @@ class CreateNgosTable extends Migration
             $table->increments('id');
             $table->string('name')->unique()->nullable();
             $table->text('description')->nullable();
-            $table->string('subject')->nullable();
             $table->string('area_of_activity')->nullable();
             $table->text('address')->nullable();
-            $table->date('registration_date')->nullable();
-            $table->date('license_date')->nullable();
-            $table->integer('registration_number')->unique()->nullable();
-            $table->integer('national_number')->unique()->nullable();
-            $table->integer('license_number')->unique()->nullable();
-            $table->string('logo_photo_path')->nullable();
-            $table->string('banner_photo_path')->nullable();
+            $table->string('zip_code')->nullable();
+            $table->string('type')->nullable();
+            $table->boolean('confirmed')->default(false);
+            $table->string('logo_photo')->nullable();
+            $table->string('banner_photo')->nullable();
             $table->integer('user_id');
+            $table->string('national_number')->unique()->nullable();
+            $table->string('registration_number')->unique()->nullable();
+            $table->string('registration_date')->nullable();
+            $table->string('registration_unit')->nullable();
             $table->timestamps();
         });
     }

@@ -31,8 +31,8 @@ class DeleteUserTask extends Task
                 }
             }
             // delete user ngo photos before deleting his ngo
-            Storage::disk('public')->delete($_user->ngo->logo_photo_path);
-            Storage::disk('public')->delete($_user->ngo->banner_photo_path);
+            Storage::disk('public')->delete($_user->ngo->logo_photo);
+            Storage::disk('public')->delete($_user->ngo->banner_photo);
             Apiato::call('NGO@DeleteNgoTask', [$_user->ngo]);
         }
         return $_user->forceDelete();

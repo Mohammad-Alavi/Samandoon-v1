@@ -17,12 +17,12 @@ class UpdateNgoTask extends Task
             throw new UpdateResourceFailedException('Inputs are empty.');
         }
 
-        if (array_key_exists('logo_photo_path', $ngoData)) {
-            Storage::disk('public')->delete(Apiato::call('NGO@FindNgoByIdTask', [$ngoId])->logo_photo_path);
+        if (array_key_exists('logo_photo', $ngoData)) {
+            Storage::disk('public')->delete(Apiato::call('NGO@FindNgoByIdTask', [$ngoId])->logo_photo);
         }
 
-        if (array_key_exists('banner_photo_path', $ngoData)) {
-            Storage::disk('public')->delete(Apiato::call('NGO@FindNgoByIdTask', [$ngoId])->banner_photo_path);
+        if (array_key_exists('banner_photo', $ngoData)) {
+            Storage::disk('public')->delete(Apiato::call('NGO@FindNgoByIdTask', [$ngoId])->banner_photo);
         }
 
         return App::make(NgoRepository::class)->update($ngoData, $ngoId);

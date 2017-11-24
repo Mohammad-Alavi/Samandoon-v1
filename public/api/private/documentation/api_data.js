@@ -240,21 +240,21 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "subject",
-            "description": "<p>(required) required|max:255</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
             "field": "area_of_activity",
-            "description": "<p>(required) required|max:255</p>"
+            "description": "<p>(optional) max:255</p>"
           },
           {
             "group": "Parameter",
             "type": "text",
             "optional": false,
             "field": "address",
+            "description": "<p>(optional) max:255</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "zip_code",
             "description": "<p>(optional)</p>"
           },
           {
@@ -270,41 +270,6 @@ define({ "api": [
             "optional": false,
             "field": "banner_photo",
             "description": "<p>(optional)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "date",
-            "optional": false,
-            "field": "registration_date",
-            "description": "<p>(optional) date_format:YmdHiT</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "date",
-            "optional": false,
-            "field": "license_date",
-            "description": "<p>(optional) date_format:YmdHiT</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "registration_number",
-            "description": "<p>(optional) unique:ngos,registration_number</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "national_number",
-            "description": "<p>(optional) unique:ngos,national_number</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "license_number",
-            "description": "<p>(optional) unique:ngos,license_number</p>"
           }
         ]
       }
@@ -315,7 +280,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here\",\n        \"ngo\": {\n        \"object\": \"Ngo\",\n            \"id\": \"3mjzyg5dp5a0vwp6\",\n            \"name\": \"Edrar Ngo\",\n            \"description\": null,\n            \"subject\": \"Edrar Subject\",\n            \"area_of_activity\": \"Edrar Area\",\n            \"address\": null,\n            \"logo_photo_path\": null,\n            \"banner_photo_path\": null,\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"Registration specification\": {\n                \"registration_date\": null,\n                \"registration_number\": null,\n                \"national_number\": null,\n                \"license_number\": null,\n                \"license_date\": null\n            },\n            \"created_at\": {\n            \"date\": \"2017-11-21 00:55:30.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-21 00:55:30.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/3mjzyg5dp5a0vwp6\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here\",\n        \"ngo\": {\n        \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"Edrar Ngo 2\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": \"Edrar Area\",\n            \"address\": null,\n            \"zip_code\": null,\n            \"type\": null,\n            \"confirmed\": null,\n            \"logo_photo\": null,\n            \"banner_photo\": null,\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"Registration specification\": {\n            \"national_number\": null,\n                \"registration_number\": null,\n                \"registration_date\": null,\n                \"registration_unit\": null\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -365,7 +330,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here\",\n        \"ngo\": {\n        \"object\": \"Ngo\",\n            \"id\": \"3mjzyg5dp5a0vwp6\",\n            \"name\": \"Edrar Ngo\",\n            \"description\": null,\n            \"subject\": \"Edrar Subject\",\n            \"area_of_activity\": \"Edrar Area\",\n            \"address\": null,\n            \"logo_photo_path\": null,\n            \"banner_photo_path\": null,\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"Registration specification\": {\n                \"registration_date\": null,\n                \"registration_number\": null,\n                \"national_number\": null,\n                \"license_number\": null,\n                \"license_date\": null\n            },\n            \"created_at\": {\n            \"date\": \"2017-11-21 00:55:30.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-21 00:55:30.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/3mjzyg5dp5a0vwp6\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here\",\n        \"ngo\": {\n        \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"Edrar Ngo 2\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": \"Edrar Area\",\n            \"address\": null,\n            \"zip_code\": null,\n            \"type\": null,\n            \"confirmed\": null,\n            \"logo_photo\": null,\n            \"banner_photo\": null,\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"Registration specification\": {\n            \"national_number\": null,\n                \"registration_number\": null,\n                \"registration_date\": null,\n                \"registration_unit\": null\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -389,24 +354,10 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "name",
-            "description": "<p>(optional) max:255|unique:ngos,name</p>"
-          },
-          {
-            "group": "Parameter",
             "type": "text",
             "optional": false,
             "field": "description",
             "description": "<p>(optional)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "subject",
-            "description": "<p>(optional) max:255</p>"
           },
           {
             "group": "Parameter",
@@ -420,7 +371,14 @@ define({ "api": [
             "type": "text",
             "optional": false,
             "field": "address",
-            "description": "<p>(optional)</p>"
+            "description": "<p>(optional) (optional) max:255</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "zip_code",
+            "description": "<p>(optional) (optional) max:255</p>"
           },
           {
             "group": "Parameter",
@@ -435,41 +393,6 @@ define({ "api": [
             "optional": false,
             "field": "banner_photo",
             "description": "<p>(optional)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "date",
-            "optional": false,
-            "field": "registration_date",
-            "description": "<p>(optional) date_format:YmdHiT</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "date",
-            "optional": false,
-            "field": "license_date",
-            "description": "<p>(optional) date_format:YmdHiT</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "registration_number",
-            "description": "<p>(optional) unique:ngos,registration_number</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "national_number",
-            "description": "<p>(optional) unique:ngos,national_number</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "license_number",
-            "description": "<p>(optional) unique:ngos,license_number</p>"
           }
         ]
       }
@@ -480,11 +403,49 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here\",\n        \"ngo\": {\n        \"object\": \"Ngo\",\n            \"id\": \"3mjzyg5dp5a0vwp6\",\n            \"name\": \"Edrar Ngo\",\n            \"description\": null,\n            \"subject\": \"Edrar Subject\",\n            \"area_of_activity\": \"Edrar Area\",\n            \"address\": null,\n            \"logo_photo_path\": null,\n            \"banner_photo_path\": null,\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"Registration specification\": {\n                \"registration_date\": null,\n                \"registration_number\": null,\n                \"national_number\": null,\n                \"license_number\": null,\n                \"license_date\": null\n            },\n            \"created_at\": {\n            \"date\": \"2017-11-21 00:55:30.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-21 00:55:30.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/3mjzyg5dp5a0vwp6\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here\",\n        \"ngo\": {\n        \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"Edrar Ngo 2\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": \"Edrar Area\",\n            \"address\": null,\n            \"zip_code\": null,\n            \"type\": null,\n            \"confirmed\": null,\n            \"logo_photo\": null,\n            \"banner_photo\": null,\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"Registration specification\": {\n            \"national_number\": null,\n                \"registration_number\": null,\n                \"registration_date\": null,\n                \"registration_unit\": null\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
     }
+  },
+  {
+    "group": "NGO",
+    "name": "getNgoSubjects",
+    "type": "GET",
+    "url": "/v1/ngo/resources/subject",
+    "title": "Get NGO Subjects",
+    "description": "<p>Get all ngo subjects</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parameters",
+            "description": "<p>here..</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  // Insert the response of the request here...\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/NGO/UI/API/Routes/GetNgoSubjects.v1.private.php",
+    "groupTitle": "NGO"
   },
   {
     "group": "NGO",
@@ -505,7 +466,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here\",\n        \"ngo\": {\n        \"object\": \"Ngo\",\n            \"id\": \"3mjzyg5dp5a0vwp6\",\n            \"name\": \"Edrar Ngo\",\n            \"description\": null,\n            \"subject\": \"Edrar Subject\",\n            \"area_of_activity\": \"Edrar Area\",\n            \"address\": null,\n            \"logo_photo_path\": null,\n            \"banner_photo_path\": null,\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"Registration specification\": {\n                \"registration_date\": null,\n                \"registration_number\": null,\n                \"national_number\": null,\n                \"license_number\": null,\n                \"license_date\": null\n            },\n            \"created_at\": {\n            \"date\": \"2017-11-21 00:55:30.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-21 00:55:30.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/3mjzyg5dp5a0vwp6\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here\",\n        \"ngo\": {\n        \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"Edrar Ngo 2\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": \"Edrar Area\",\n            \"address\": null,\n            \"zip_code\": null,\n            \"type\": null,\n            \"confirmed\": null,\n            \"logo_photo\": null,\n            \"banner_photo\": null,\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"Registration specification\": {\n            \"national_number\": null,\n                \"registration_number\": null,\n                \"registration_date\": null,\n                \"registration_unit\": null\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_ngo\": {\n        \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1810,7 +1771,7 @@ define({ "api": [
     "version": "1.0.0",
     "permission": [
       {
-        "name": "Authenticated User"
+        "name": "Authorized User | Owner"
       }
     ],
     "success": {
@@ -1972,7 +1933,7 @@ define({ "api": [
     "version": "1.0.0",
     "permission": [
       {
-        "name": "Authenticated User"
+        "name": "Authenticated User (Admin | Owner)"
       }
     ],
     "parameter": {
