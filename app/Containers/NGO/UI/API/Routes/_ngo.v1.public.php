@@ -9,29 +9,27 @@ HTTP/1.1 200 OK
     "msg": "Some informative msg here",
         "ngo": {
         "object": "NGO",
-            "id": "kjeonp5eordqzvb8",
-            "name": "Edrar Ngo 2",
+            "id": "e8dz0jl84rngaxv3",
+            "name": "انجمن همراهان محيط زيست آبادان",
             "description": null,
             "subjects": [],
-            "area_of_activity": "Edrar Area",
-            "address": null,
-            "zip_code": null,
-            "type": null,
-            "confirmed": null,
+            "area_of_activity": null,
+            "address": "احمدآباد خيابان 15 منازل شركتي پلاك 3412",
+            "zip_code": "0000000000",
+            "type": "موسسه غير تجاري",
+            "confirmed": false,
             "logo_photo": null,
             "banner_photo": null,
             "user_id": "3mjzyg5dp5a0vwp6",
             "Registration specification": {
-            "national_number": null,
-                "registration_number": null,
-                "registration_date": null,
-                "registration_unit": null
-            },
-            "readable_created_at": "1 second ago",
-            "readable_updated_at": "1 second ago"
+            "national_number": "14004590766",
+                "registration_number": "236",
+                "registration_date": "1393/09/12",
+                "registration_unit": "مرجع ثبت شركت ها و موسسات غيرتجاري آبادان"
+            }
         },
         "view_ngo": {
-        "href": "v1/ngo/kjeonp5eordqzvb8",
+        "href": "v1/ngo/e8dz0jl84rngaxv3",
             "method": "GET"
         }
     },

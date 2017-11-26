@@ -5,9 +5,9 @@ namespace App\Containers\NGO\UI\API\Requests;
 use App\Ship\Parents\Requests\Request;
 
 /**
- * Class CreateNgoRequest.
+ * Class FindNgoByNationalIdRequest.
  */
-class CreateNgoRequest extends Request
+class FindNgoByNationalIdRequest extends Request
 {
     /**
      * Define which Roles and/or Permissions has access to this request.
@@ -15,8 +15,8 @@ class CreateNgoRequest extends Request
      * @var  array
      */
     protected $access = [
-        'permissions' => 'manage-ngo',
-        'roles'       => 'user|admin',
+        'permissions' => '',
+        'roles'       => '',
     ];
 
     /**
@@ -35,7 +35,7 @@ class CreateNgoRequest extends Request
      * @var  array
      */
     protected $urlParameters = [
-        //'id',
+         'national_id',
     ];
 
     /**
@@ -44,7 +44,8 @@ class CreateNgoRequest extends Request
     public function rules()
     {
         return [
-            'national_id' => 'required',
+             'national_id' => 'required',
+            // '{user-input}' => 'required|max:255',
         ];
     }
 

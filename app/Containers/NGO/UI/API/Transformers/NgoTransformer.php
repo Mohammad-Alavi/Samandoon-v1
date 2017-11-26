@@ -37,7 +37,7 @@ class NgoTransformer extends Transformer
             'address' => $ngo->address,
             'zip_code' => $ngo->zip_code,
             'type' => $ngo->type,
-            'confirmed' => $ngo->confirmed,
+            'confirmed' => ($ngo->confirmed == 0) ? false : true,
             'logo_photo' => $ngo->logo_photo,
             'banner_photo' => $ngo->banner_photo,
             'user_id' => Hashids::encode($ngo->user_id),
@@ -47,13 +47,23 @@ class NgoTransformer extends Transformer
                 'registration_date' => $ngo->registration_date,
                 'registration_unit' => $ngo->registration_unit,
             ],
-            'readable_created_at'  => $ngo->created_at->diffForHumans(),
-            'readable_updated_at'  => $ngo->updated_at->diffForHumans(),
         ];
 
-        $response = $this->ifAdmin([
-            'real_id'    => $ngo->id,
-        ], $response);
+        if($ngo->created_at && $ngo->created_at) {
+            $response = $this->ifAdmin([
+                'real_id' => $ngo->id,
+            ], $response);
+        }
+        elseif($ngo->created_at) {
+            $response = [
+                'readable_created_at'  => $ngo->created_at->diffForHumans(),
+            ];
+        }
+        elseif($ngo->created_at) {
+            $response = [
+                'readable_updated_at'  => $ngo->updated_at->diffForHumans(),
+            ];
+        }
 
         return $response;
     }

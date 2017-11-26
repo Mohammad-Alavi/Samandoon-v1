@@ -10,6 +10,6 @@ class GetNgoSubjectsTask extends Task
 {
     public function run()
     {
-        return $subjects = App::make(SubjectRepository::class)->paginate();
+        return $subjects = App::make(SubjectRepository::class)->paginate(1000);
     }
 }

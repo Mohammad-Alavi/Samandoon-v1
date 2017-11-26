@@ -6,18 +6,13 @@ use App\Containers\NGO\Data\Repositories\NGORepository;
 use App\Containers\NGO\Exceptions\AlreadyHaveOneNgoException;
 use App\Containers\NGO\Exceptions\NgoCreationFailedException;
 use App\Ship\Parents\Exceptions\Exception;
-use App\Ship\Parents\Requests\Request;
 use App\Ship\Parents\Tasks\Task;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 
 class CreateNgoTask extends Task
 {
-    public function run(Request $request, $authenticated_user)
+    public function run($ngo_data, $authenticated_user)
     {
-        $request->hasFile('logo_photo') ? $logo_photo = $request->file('logo_photo')->store('ngo_logo', 'public') : $logo_photo = null;
-        $request->hasFile('banner_photo') ? $banner_photo = $request->file('banner_photo')->store('ngo_banner', 'public') : $banner_photo = null;
-
         try {
             if($authenticated_user->ngo) {
                 throw new AlreadyHaveOneNgoException;
@@ -25,18 +20,14 @@ class CreateNgoTask extends Task
             else {
                 // create a new ngo
                 $ngo = App::make(NgoRepository::class)->create([
-                    'name' => $request->name,
-                    'description' => $request->description,
-                    'area_of_activity' => $request->area_of_activity,
-                    'address' => $request->address,
-                    'zip_code' => $request->zip_code,
-                    'type' => $request->type,
-                    'national_number' => $request->national_number,
-                    'registration_number' => $request->registration_number,
-                    'registration_date' => $request->registration_date,
-                    'registration_unit' => $request->registration_unit,
-                    'logo_photo' => $logo_photo,
-                    'banner_photo' => $banner_photo,
+                    'name' => $ngo_data['ResultList']['0']['Name'],
+                    'address' => $ngo_data['ResultList']['0']['Address'],
+                    'zip_code' => $ngo_data['ResultList']['0']['PostCode'],
+                    'type' => $ngo_data['ResultList']['0']['CompanyType'],
+                    'national_number' => $ngo_data['ResultList']['0']['NationalCode'],
+                    'registration_number' => $ngo_data['ResultList']['0']['RegisterNumber'],
+                    'registration_date' => $ngo_data['ResultList']['0']['RegisterDate'],
+                    'registration_unit' => $ngo_data['ResultList']['0']['UnitName'],
                     'user_id' => $authenticated_user->id,
                 ]);
 

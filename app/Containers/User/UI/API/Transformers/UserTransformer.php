@@ -43,7 +43,7 @@ class UserTransformer extends Transformer
             'last_name'            => $user->last_name,
             'email'                => $user->email,
             'avatar'               => $user->avatar,
-            'confirmed'            => $user->confirmed,
+            'confirmed'            => ($user->confirmed == 0) ? false : true,
             'gender'               => $user->gender,
             'birth'                => $user->birth,
             'province'             => $user->province,

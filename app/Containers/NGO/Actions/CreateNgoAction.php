@@ -11,8 +11,9 @@ class CreateNgoAction extends Action
 {
     public function run(Request $request)
     {
-        $authenticated_user = $this->call(GetAuthenticatedUserTask::class);
-        $ngo = $this->call(CreateNgoTask::class, [$request, $authenticated_user]);
+        $authenticated_user = $this->call('Authentication@GetAuthenticatedUserTask');
+        $ngo_data = $this->call('NGO@FindNgoByNationalIdTask',[$request->national_id]);
+        $ngo = $this->call('NGO@CreateNgoTask', [$ngo_data, $authenticated_user]);
 
         return $ngo;
     }

@@ -3,19 +3,16 @@
 namespace App\Containers\NGO\UI\API\Controllers;
 
 use Apiato\Core\Foundation\Facades\Apiato;
-use App\Containers\NGO\Actions\CreateNgoAction;
-use App\Containers\NGO\Actions\DeleteNgoAction;
 use App\Containers\NGO\Actions\GetAuthenticatedUserNgoAction;
-use App\Containers\NGO\Actions\GetNgoAction;
-use App\Containers\NGO\Actions\ListNgosAction;
-use App\Containers\NGO\Actions\UpdateNgoAction;
 use App\Containers\NGO\UI\API\Requests\CreateNgoRequest;
 use App\Containers\NGO\UI\API\Requests\DeleteNgoRequest;
+use App\Containers\NGO\UI\API\Requests\FindNgoByNationalIdRequest;
 use App\Containers\NGO\UI\API\Requests\GetAuthenticatedUserNgoRequest;
 use App\Containers\NGO\UI\API\Requests\GetNgoRequest;
 use App\Containers\NGO\UI\API\Requests\ListAllNgosRequest;
 use App\Containers\NGO\UI\API\Requests\UpdateNgoRequest;
 use App\Containers\NGO\UI\API\Transformers\CreateNgoTransformer;
+use App\Containers\NGO\UI\API\Transformers\NGOFromSiteTransformer;
 use App\Containers\NGO\UI\API\Transformers\NgoTransformer;
 use App\Containers\NGO\UI\API\Transformers\SubjectTransformer;
 use App\Containers\NGO\UI\API\Transformers\UpdateNgoTransformer;
@@ -30,7 +27,7 @@ class Controller extends ApiController
      */
     public function listAllNgos(ListAllNgosRequest $request) {
 
-        $ngos = $this->call(ListNgosAction::class, [$request]);
+        $ngos = Apiato::call('NGO@ListNgosAction', [$request]);
         return $this->transform($ngos, NgoTransformer::class);
     }
 
@@ -41,7 +38,7 @@ class Controller extends ApiController
      */
     public function getNgo(GetNgoRequest $request) {
 
-        $ngo = $this->call(GetNgoAction::class, [$request]);
+        $ngo = Apiato::call('NGO@GetNgoAction', [$request]);
         return $this->transform($ngo, NgoTransformer::class);
     }
 
@@ -52,7 +49,7 @@ class Controller extends ApiController
      */
     public function createNgo(CreateNgoRequest $request) {
 
-        $ngo = $this->call(CreateNgoAction::class, [$request]);
+        $ngo = Apiato::call('NGO@CreateNgoAction', [$request]);
         return $this->transform($ngo, CreateNgoTransformer::class);
     }
 
@@ -63,7 +60,7 @@ class Controller extends ApiController
      */
     public function updateNgo(UpdateNgoRequest $request) {
 
-        $ngo = $this->call(UpdateNgoAction::class, [$request]);
+        $ngo = Apiato::call('NGO@UpdateNgoAction', [$request]);
         return $this->transform($ngo, UpdateNgoTransformer::class);
     }
 
@@ -74,13 +71,17 @@ class Controller extends ApiController
      */
     public function deleteNgo(DeleteNgoRequest $request) {
 
-//        $ngo = $this->call(DeleteNgoAction::class, [$request]);
-//        return $this->deleted($ngo);
-        return $this->call(DeleteNgoAction::class, [$request]);
+        $ngo = Apiato::call('NGO@DeleteNgoAction', [$request]);
+        return $this->deleted($ngo);
     }
 
     public function getNgoSubjects() {
         $subjects = Apiato::call('NGO@GetNgoSubjectsAction');
         return $this->transform($subjects,SubjectTransformer::class);
+    }
+
+    public function findNgoByNationalId(FindNgoByNationalIdRequest $request) {
+        $ngo = $this->call('NGO@FindNgoByNationalIdAction',[$request]);
+        return $this->transform($ngo, NGOTransformer::class);
     }
 }
