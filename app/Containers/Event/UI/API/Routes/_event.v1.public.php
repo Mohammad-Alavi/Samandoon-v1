@@ -4,14 +4,13 @@
  * @apiDefine EventSuccessSingleResponse
  * @apiSuccessExample {json} Success-Response:
 HTTP/1.1 200 OK
-
 {
     "data": {
-    "msg": "Informative msg here",
+    "msg": "Some informative msg here",
         "event": {
         "object": "Event",
-            "id": "kjeonp5eordqzvb8",
-            "title": "Test Update Event",
+            "id": "qv4jdwrw0lanm6xg",
+            "title": "Event Title",
             "description": null,
             "event_date": {
             "date": "2016-12-08 13:16:00.000000",
@@ -19,51 +18,43 @@ HTTP/1.1 200 OK
                 "timezone": "GMT"
             },
             "location": null,
-            "photo_path": null,
+            "banner_image": null,
             "created_at": {
-            "date": "2017-11-19 01:29:11.000000",
+            "date": "2017-11-26 22:22:55.000000",
                 "timezone_type": 3,
                 "timezone": "UTC"
             },
             "updated_at": {
-            "date": "2017-11-19 02:09:20.000000",
+            "date": "2017-11-26 22:22:55.000000",
                 "timezone_type": 3,
                 "timezone": "UTC"
             },
-            "readable_created_at": "40 minutes ago",
+            "readable_created_at": "1 second ago",
             "readable_updated_at": "1 second ago",
             "ngo": {
-            "object": "Ngo",
-                "id": "kjeonp5eordqzvb8",
-                "name": "Edrar Ngo",
+            "object": "NGO",
+                "id": "3mjzyg5dp5a0vwp6",
+                "name": "انجمن همراهان محيط زيست آبادان",
                 "description": null,
-                "subject": "Edrar Subject",
-                "area_of_activity": "Edrar Area",
-                "address": null,
-                "registration_date": null,
-                "registration_number": null,
-                "national_number": null,
-                "license_number": null,
-                "license_date": null,
-                "logo_photo_path": null,
-                "banner_photo_path": null,
-                "user_id": "3mjzyg5dp5a0vwp6",
-                "created_at": {
-                "date": "2017-11-19 01:29:01.000000",
-                    "timezone_type": 3,
-                    "timezone": "UTC"
-                },
-                "updated_at": {
-                "date": "2017-11-19 01:29:01.000000",
-                    "timezone_type": 3,
-                    "timezone": "UTC"
-                },
-                "readable_created_at": "40 minutes ago",
-                "readable_updated_at": "40 minutes ago"
+                "subjects": [],
+                "area_of_activity": null,
+                "address": "احمدآباد خيابان 15 منازل شركتي پلاك 3412",
+                "zip_code": "0000000000",
+                "type": "موسسه غير تجاري",
+                "confirmed": false,
+                "logo_photo": null,
+                "banner_photo": null,
+                "user_id": "a0dg7o53grq4m3pn",
+                "Registration specification": {
+                "national_number": "14004590766",
+                    "registration_number": "236",
+                    "registration_date": "1393/09/12",
+                    "registration_unit": "مرجع ثبت شركت ها و موسسات غيرتجاري آبادان"
+                }
             }
         },
         "view_event": {
-        "href": "v1/event/kjeonp5eordqzvb8",
+        "href": "v1/event/qv4jdwrw0lanm6xg",
             "method": "GET"
         }
     },
