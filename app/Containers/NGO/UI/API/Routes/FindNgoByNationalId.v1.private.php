@@ -8,9 +8,7 @@
  * @apiDescription     Search a NGO in National Registration website and return it's data if ngo is found
  *
  * @apiVersion         1.0.0
- * @apiPermission      none
- *
- * @apiParam           {String}  national_id
+ * @apiPermission      Authenticated user
  *
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK

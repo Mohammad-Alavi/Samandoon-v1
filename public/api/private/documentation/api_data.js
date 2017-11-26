@@ -422,22 +422,9 @@ define({ "api": [
     "version": "1.0.0",
     "permission": [
       {
-        "name": "none"
+        "name": "Authenticated user"
       }
     ],
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "national_id",
-            "description": ""
-          }
-        ]
-      }
-    },
     "success": {
       "examples": [
         {
