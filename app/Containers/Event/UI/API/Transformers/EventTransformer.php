@@ -38,7 +38,7 @@ class EventTransformer extends Transformer
             'description' => $event->description,
             'event_date' => $event->event_date,
             'location' => $event->location,
-            'photo_path' => $event->photo_path,
+            'banner_image' => $event->banner_image,
             'created_at'           => $event->created_at,
             'updated_at'           => $event->updated_at,
             'readable_created_at'  => $event->created_at->diffForHumans(),

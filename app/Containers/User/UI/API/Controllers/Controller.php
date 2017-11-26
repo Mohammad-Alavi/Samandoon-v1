@@ -12,6 +12,8 @@ use App\Containers\User\UI\API\Requests\FindUserByIdRequest;
 use App\Containers\User\UI\API\Requests\GetAllUsersRequest;
 use App\Containers\User\UI\API\Requests\RegisterUserRequest;
 use App\Containers\User\UI\API\Requests\UpdateUserRequest;
+use App\Containers\User\UI\API\Transformers\CreateUserTransformer;
+use App\Containers\User\UI\API\Transformers\UpdateUserTransformer;
 use App\Containers\User\UI\API\Transformers\UserByEmailTransformer;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Controllers\ApiController;
@@ -33,7 +35,7 @@ class Controller extends ApiController
     {
         $user = Apiato::call('User@RegisterUserAction', [$request]);
 
-        return $this->transform($user, UserTransformer::class);
+        return $this->transform($user, CreateUserTransformer::class);
     }
 
     /**
@@ -45,7 +47,7 @@ class Controller extends ApiController
     {
         $admin = Apiato::call('User@CreateAdminAction', [$request]);
 
-        return $this->transform($admin, UserTransformer::class);
+        return $this->transform($admin, CreateUserTransformer::class);
     }
 
     /**
@@ -57,7 +59,7 @@ class Controller extends ApiController
     {
         $user = Apiato::call('User@UpdateUserAction', [$request]);
 
-        return $this->transform($user, UserTransformer::class);
+        return $this->transform($user, UpdateUserTransformer::class);
     }
 
     /**

@@ -23,8 +23,8 @@ class CreateEventTask extends Task
         $title = $request->input('title');
         $description = $request->input('description');
         $event_date = Carbon::createFromFormat('YmdHiT', $request->input('event_date'));
-        $request->hasFile('event_photo') ? $photo_path = $request->file('event_photo')->store('event_photo') : $photo_path = null;
         $location = $request->input('location');
+        $request->hasFile('banner_image') ? $banner_image = $request->file('banner_image')->store('event_image/banner_image', 'public') : $banner_image = null;
 
         if (!$ngo){
             throw (new UserDontHaveNgoException);
@@ -36,8 +36,8 @@ class CreateEventTask extends Task
                     'title' => $title,
                     'description' => $description,
                     'event_date' => $event_date,
-                    'photo_path' => $photo_path,
                     'location' => $location,
+                    'banner_image' => $banner_image,
                     'ngo_id' => $ngo->id,
                 ]);
             } catch (Exception $e) {

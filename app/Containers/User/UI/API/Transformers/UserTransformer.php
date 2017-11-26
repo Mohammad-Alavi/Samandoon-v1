@@ -56,8 +56,6 @@ class UserTransformer extends Transformer
                 'avatar'   => $user->social_avatar,
                 'original' => $user->social_avatar_original,
             ],
-            'device'               => $user->device,
-            'platform'             => $user->platform,
             'created_at'           => $user->created_at,
             'updated_at'           => $user->updated_at,
             'readable_created_at'  => $user->created_at->diffForHumans(),

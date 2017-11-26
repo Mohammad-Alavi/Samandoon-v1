@@ -32,8 +32,6 @@ class UpdateUserAction extends Action
             'birth'                => $request->birth,
             'province'             => $request->province,
             'city'                 => $request->city,
-            'device'               => $request->device,
-            'platform'             => $request->platform,
             'social_token'         => $request->token,
             'social_expires_in'    => $request->expiresIn,
             'social_refresh_token' => $request->refreshToken,

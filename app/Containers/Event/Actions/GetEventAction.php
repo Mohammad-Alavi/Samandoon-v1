@@ -10,7 +10,7 @@ class GetEventAction extends Action
 {
     public function run(Request $request)
     {
-        $event = $this->call(FindEventByIdTask::class, [$request->id]);
+        $event = $this->call('Event@FindEventByIdTask', [$request->id]);
 
         return $event;
     }

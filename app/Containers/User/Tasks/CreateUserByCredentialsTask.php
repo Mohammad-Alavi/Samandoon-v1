@@ -32,8 +32,6 @@ class CreateUserByCredentialsTask extends Task
                 'birth' => $request->birth,
                 'province' => $request->province,
                 'city' => $request->city,
-                'device' => $request->device,
-                'platform' => $request->platform,
                 'is_client' => $isClient,
             ]);
 

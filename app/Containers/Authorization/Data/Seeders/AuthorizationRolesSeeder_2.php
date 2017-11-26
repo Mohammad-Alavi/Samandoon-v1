@@ -31,7 +31,9 @@ class AuthorizationRolesSeeder_2 extends Seeder
                 'search-users',
                 'list-users',
                 'delete-users',
-                'update-users'
+                'update-users',
+                'manage-ngo',
+                'manage-event',
             ]
         );
 

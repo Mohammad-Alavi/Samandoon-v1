@@ -15,8 +15,8 @@ class UpdateEventRequest extends Request
      * @var  array
      */
     protected $access = [
-        'permissions' => '',
-        'roles'       => '',
+        'permissions' => 'manage-event',
+        'roles'       => 'admin',
     ];
 
     /**
@@ -46,7 +46,7 @@ class UpdateEventRequest extends Request
         return [
             'title' => 'required|max:255',
             'event_date'    =>  'required|date_format:YmdHiT',
-            'event_photo'   =>  'image',
+            'banner_image'    =>  'image',
         ];
     }
 
@@ -56,7 +56,7 @@ class UpdateEventRequest extends Request
     public function authorize()
     {
         return $this->check([
-            'hasAccess',
+            'hasAccess|isOwner',
         ]);
     }
 }

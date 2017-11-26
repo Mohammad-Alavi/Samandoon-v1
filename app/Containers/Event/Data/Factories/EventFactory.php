@@ -7,6 +7,6 @@ $factory->define(App\Containers\Event\Models\Event::class, function (Faker\Gener
         'description'    => $faker->realText(),
         'event_date' => $faker->dateTime($format = 'Y-m-d-H-i-T'),
         'location' => $faker->address,
-        'photo_path'     => random_int(100000000, 1100000000),
+        'banner_image'     => random_int(100000000, 1100000000),
     ];
 });

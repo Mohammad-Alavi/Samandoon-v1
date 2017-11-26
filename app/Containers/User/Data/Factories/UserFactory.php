@@ -12,8 +12,6 @@ $factory->define(User::class, function (Faker\Generator $faker) {
         'last_name'     => $faker->lastName,
         'email'    => $faker->unique()->safeEmail,
         'password' => $password ? : $password = Hash::make('testing-password'),
-        'device'     => str_random(7, 13),
-        'platform'     => $faker->randomElement(['android', 'ios', 'web', 'desktop']),
         'gender'     => $faker->randomElement(['male', 'female']),
         'birth'     => $faker->date($format = 'Y-m-d', $max = 'now'),
         'is_client'      => false,

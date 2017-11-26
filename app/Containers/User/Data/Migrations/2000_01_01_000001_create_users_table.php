@@ -40,9 +40,6 @@ class CreateUsersTable extends Migration
             $table->string('social_avatar')->nullable();
             $table->string('social_avatar_original')->nullable();
 
-            $table->string('device')->nullable();
-            $table->string('platform')->nullable();
-
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

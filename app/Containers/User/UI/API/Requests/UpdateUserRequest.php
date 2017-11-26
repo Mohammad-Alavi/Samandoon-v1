@@ -53,7 +53,6 @@ class UpdateUserRequest extends Request
             'first_name'     => 'min:2|max:50',
             'last_name'     => 'min:2|max:50',
             'avatar'    => 'image',
-            'platform' => 'in:android,ios,web,desktop',
         ];
     }
 

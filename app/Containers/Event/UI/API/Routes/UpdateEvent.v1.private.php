@@ -13,8 +13,8 @@
  * @apiParam           {string}  title (optional)
  * @apiParam           {text}  description (optional)
  * @apiParam           {dateTime}  event_date (optional) date_format:YmdHiT
- * @apiParam           {image}  event_photo (optional)
  * @apiParam           {text} location (optional)
+ * @apiParam           {image} banner_image (optional)
 
  * @apiUse             EventSuccessSingleResponse
  */

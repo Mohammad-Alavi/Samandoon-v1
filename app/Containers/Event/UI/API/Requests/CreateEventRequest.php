@@ -16,7 +16,7 @@ class CreateEventRequest extends Request
      */
     protected $access = [
         'permissions' => 'manage-event',
-        'roles'       => '',
+        'roles'       => 'user|admin',
     ];
 
     /**
@@ -46,7 +46,7 @@ class CreateEventRequest extends Request
         return [
             'title' => 'required|max:255',
             'event_date'    =>  'required|date_format:YmdHiT',
-            'event_photo'   =>  'image'
+            'banner_image'    =>  'image',
         ];
     }
 

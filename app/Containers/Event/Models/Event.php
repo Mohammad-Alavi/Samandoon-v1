@@ -11,8 +11,8 @@ class Event extends Model
         'title',
         'description',
         'event_date',
-        'photo_path',
         'location',
+        'banner_image',
         'ngo_id',
     ];
 
@@ -27,5 +27,9 @@ class Event extends Model
 
     public function ngo(){
         return $this->belongsTo(NGO::class);
+    }
+
+    public function images(){
+        return $this->hasMany(Image::class);
     }
 }

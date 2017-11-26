@@ -11,9 +11,9 @@ class DeleteEventAction extends Action
 {
     public function run(Request $request)
     {
-        $event = $this->call(FindEventByIdTask::class, [$request->id]);
+        $event = $this->call('Event@FindEventByIdTask', [$request->id]);
 
-        $this->call(DeleteEventTask::class, [$event]);
+        $this->call('Event@DeleteEventTask', [$event]);
 
         return $event;
     }

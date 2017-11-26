@@ -15,8 +15,8 @@ class DeleteEventRequest extends Request
      * @var  array
      */
     protected $access = [
-        'permissions' => '',
-        'roles'       => '',
+        'permissions' => 'manage-event',
+        'roles'       => 'admin',
     ];
 
     /**
@@ -54,7 +54,7 @@ class DeleteEventRequest extends Request
     public function authorize()
     {
         return $this->check([
-            'hasAccess',
+            'hasAccess|isOwner',
         ]);
     }
 }

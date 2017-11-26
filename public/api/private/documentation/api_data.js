@@ -38,16 +38,16 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "image",
+            "type": "text",
             "optional": false,
-            "field": "event_photo",
+            "field": "location",
             "description": "<p>(optional)</p>"
           },
           {
             "group": "Parameter",
-            "type": "text",
+            "type": "image",
             "optional": false,
-            "field": "location",
+            "field": "banner_image",
             "description": "<p>(optional)</p>"
           }
         ]
@@ -179,16 +179,16 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "image",
+            "type": "text",
             "optional": false,
-            "field": "event_photo",
+            "field": "location",
             "description": "<p>(optional)</p>"
           },
           {
             "group": "Parameter",
-            "type": "text",
+            "type": "image",
             "optional": false,
-            "field": "location",
+            "field": "banner_image",
             "description": "<p>(optional)</p>"
           }
         ]
@@ -205,6 +205,51 @@ define({ "api": [
         }
       ]
     }
+  },
+  {
+    "group": "Event",
+    "name": "addImageToEvent",
+    "type": "POST",
+    "url": "/v1/event/image",
+    "title": "Add image to event",
+    "description": "<p>Add image to the given event</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated user"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "event_id",
+            "description": "<p>(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "image",
+            "optional": false,
+            "field": "image",
+            "description": "<p>(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  // Insert the response of the request here...\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/Event/UI/API/Routes/AddImageToEvent.v1.private.php",
+    "groupTitle": "Event"
   },
   {
     "group": "NGO",
@@ -914,7 +959,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"User created\",\n        \"user\": {\n        \"object\": \"User\",\n            \"id\": \"a0dg7o53grq4m3pn\",\n            \"first_name\": \"Mohammad\",\n            \"last_name\": \"Alavi\",\n            \"email\": \"m.alavi1989@gmail.com\",\n            \"avatar\": null,\n            \"confirmed\": false,\n            \"gender\": null,\n            \"birth\": null,\n            \"province\": null,\n            \"city\": null,\n            \"ngo_id\": \"\",\n            \"social_provider\": null,\n            \"social_nickname\": null,\n            \"social_id\": null,\n            \"social_avatar\": {\n            \"avatar\": null,\n                \"original\": null\n            },\n            \"created_at\": {\n            \"date\": \"2017-11-26 01:34:49.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-26 01:34:49.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"7 seconds ago\",\n            \"readable_updated_at\": \"7 seconds ago\"\n        },\n        \"view_user\": {\n        \"href\": \"v1/user/a0dg7o53grq4m3pn\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1221,7 +1266,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"User created\",\n        \"user\": {\n        \"object\": \"User\",\n            \"id\": \"a0dg7o53grq4m3pn\",\n            \"first_name\": \"Mohammad\",\n            \"last_name\": \"Alavi\",\n            \"email\": \"m.alavi1989@gmail.com\",\n            \"avatar\": null,\n            \"confirmed\": false,\n            \"gender\": null,\n            \"birth\": null,\n            \"province\": null,\n            \"city\": null,\n            \"ngo_id\": \"\",\n            \"social_provider\": null,\n            \"social_nickname\": null,\n            \"social_id\": null,\n            \"social_avatar\": {\n            \"avatar\": null,\n                \"original\": null\n            },\n            \"created_at\": {\n            \"date\": \"2017-11-26 01:34:49.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-26 01:34:49.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"7 seconds ago\",\n            \"readable_updated_at\": \"7 seconds ago\"\n        },\n        \"view_user\": {\n        \"href\": \"v1/user/a0dg7o53grq4m3pn\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1311,7 +1356,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"User created\",\n        \"user\": {\n        \"object\": \"User\",\n            \"id\": \"a0dg7o53grq4m3pn\",\n            \"first_name\": \"Mohammad\",\n            \"last_name\": \"Alavi\",\n            \"email\": \"m.alavi1989@gmail.com\",\n            \"avatar\": null,\n            \"confirmed\": false,\n            \"gender\": null,\n            \"birth\": null,\n            \"province\": null,\n            \"city\": null,\n            \"ngo_id\": \"\",\n            \"social_provider\": null,\n            \"social_nickname\": null,\n            \"social_id\": null,\n            \"social_avatar\": {\n            \"avatar\": null,\n                \"original\": null\n            },\n            \"created_at\": {\n            \"date\": \"2017-11-26 01:34:49.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-26 01:34:49.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"7 seconds ago\",\n            \"readable_updated_at\": \"7 seconds ago\"\n        },\n        \"view_user\": {\n        \"href\": \"v1/user/a0dg7o53grq4m3pn\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1738,7 +1783,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"User created\",\n        \"user\": {\n        \"object\": \"User\",\n            \"id\": \"a0dg7o53grq4m3pn\",\n            \"first_name\": \"Mohammad\",\n            \"last_name\": \"Alavi\",\n            \"email\": \"m.alavi1989@gmail.com\",\n            \"avatar\": null,\n            \"confirmed\": false,\n            \"gender\": null,\n            \"birth\": null,\n            \"province\": null,\n            \"city\": null,\n            \"ngo_id\": \"\",\n            \"social_provider\": null,\n            \"social_nickname\": null,\n            \"social_id\": null,\n            \"social_avatar\": {\n            \"avatar\": null,\n                \"original\": null\n            },\n            \"created_at\": {\n            \"date\": \"2017-11-26 01:34:49.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-26 01:34:49.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"7 seconds ago\",\n            \"readable_updated_at\": \"7 seconds ago\"\n        },\n        \"view_user\": {\n        \"href\": \"v1/user/a0dg7o53grq4m3pn\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1901,7 +1946,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"User created\",\n        \"user\": {\n        \"object\": \"User\",\n            \"id\": \"a0dg7o53grq4m3pn\",\n            \"first_name\": \"Mohammad\",\n            \"last_name\": \"Alavi\",\n            \"email\": \"m.alavi1989@gmail.com\",\n            \"avatar\": null,\n            \"confirmed\": false,\n            \"gender\": null,\n            \"birth\": null,\n            \"province\": null,\n            \"city\": null,\n            \"ngo_id\": \"\",\n            \"social_provider\": null,\n            \"social_nickname\": null,\n            \"social_id\": null,\n            \"social_avatar\": {\n            \"avatar\": null,\n                \"original\": null\n            },\n            \"created_at\": {\n            \"date\": \"2017-11-26 01:34:49.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-26 01:34:49.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"7 seconds ago\",\n            \"readable_updated_at\": \"7 seconds ago\"\n        },\n        \"view_user\": {\n        \"href\": \"v1/user/a0dg7o53grq4m3pn\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1984,20 +2029,6 @@ define({ "api": [
             "optional": false,
             "field": "city",
             "description": "<p>(optional)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "device",
-            "description": "<p>(optional)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "platform",
-            "description": "<p>(optional) in:android,ios,web,desktop</p>"
           }
         ]
       }
@@ -2008,7 +2039,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"User created\",\n        \"user\": {\n        \"object\": \"User\",\n            \"id\": \"a0dg7o53grq4m3pn\",\n            \"first_name\": \"Mohammad\",\n            \"last_name\": \"Alavi\",\n            \"email\": \"m.alavi1989@gmail.com\",\n            \"avatar\": null,\n            \"confirmed\": false,\n            \"gender\": null,\n            \"birth\": null,\n            \"province\": null,\n            \"city\": null,\n            \"ngo_id\": \"\",\n            \"social_provider\": null,\n            \"social_nickname\": null,\n            \"social_id\": null,\n            \"social_avatar\": {\n            \"avatar\": null,\n                \"original\": null\n            },\n            \"created_at\": {\n            \"date\": \"2017-11-26 01:34:49.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-26 01:34:49.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"7 seconds ago\",\n            \"readable_updated_at\": \"7 seconds ago\"\n        },\n        \"view_user\": {\n        \"href\": \"v1/user/a0dg7o53grq4m3pn\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -2058,7 +2089,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"User created\",\n        \"user\": {\n        \"object\": \"User\",\n            \"id\": \"a0dg7o53grq4m3pn\",\n            \"first_name\": \"Mohammad\",\n            \"last_name\": \"Alavi\",\n            \"email\": \"m.alavi1989@gmail.com\",\n            \"avatar\": null,\n            \"confirmed\": false,\n            \"gender\": null,\n            \"birth\": null,\n            \"province\": null,\n            \"city\": null,\n            \"ngo_id\": \"\",\n            \"social_provider\": null,\n            \"social_nickname\": null,\n            \"social_id\": null,\n            \"social_avatar\": {\n            \"avatar\": null,\n                \"original\": null\n            },\n            \"created_at\": {\n            \"date\": \"2017-11-26 01:34:49.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-26 01:34:49.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"7 seconds ago\",\n            \"readable_updated_at\": \"7 seconds ago\"\n        },\n        \"view_user\": {\n        \"href\": \"v1/user/a0dg7o53grq4m3pn\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -2135,20 +2166,6 @@ define({ "api": [
             "optional": false,
             "field": "city",
             "description": "<p>(optional)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "device",
-            "description": "<p>(optional)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "platform",
-            "description": "<p>(optional)</p>"
           }
         ]
       }
@@ -2159,7 +2176,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"User\",\n        \"id\": \"3mjzyg5dp5a0vwp6\",\n        \"first_name\": \"Mohammad\",\n        \"last_name\": \"Alavi\",\n        \"email\": \"m.alavi1989@gmail.com\",\n        \"avatar\": \"asd7f6tasfg12t3yf412t3f\",\n        \"confirmed\": null,\n        \"gender\": null,\n        \"birth\": null,\n        \"province\": null,\n        \"city\": null,\n        \"ngo_id\": null,\n        \"social_provider\": null,\n        \"social_nickname\": null,\n        \"social_id\": null,\n        \"social_avatar\": {\n        \"avatar\": null,\n            \"original\": null\n        },\n        \"device\": null,\n        \"platform\": null,\n        \"created_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"updated_at\": {\n        \"date\": \"2017-11-15 01:01:05.000000\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        },\n        \"readable_created_at\": \"1 second ago\",\n        \"readable_updated_at\": \"1 second ago\"\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"User created\",\n        \"user\": {\n        \"object\": \"User\",\n            \"id\": \"a0dg7o53grq4m3pn\",\n            \"first_name\": \"Mohammad\",\n            \"last_name\": \"Alavi\",\n            \"email\": \"m.alavi1989@gmail.com\",\n            \"avatar\": null,\n            \"confirmed\": false,\n            \"gender\": null,\n            \"birth\": null,\n            \"province\": null,\n            \"city\": null,\n            \"ngo_id\": \"\",\n            \"social_provider\": null,\n            \"social_nickname\": null,\n            \"social_id\": null,\n            \"social_avatar\": {\n            \"avatar\": null,\n                \"original\": null\n            },\n            \"created_at\": {\n            \"date\": \"2017-11-26 01:34:49.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-26 01:34:49.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"7 seconds ago\",\n            \"readable_updated_at\": \"7 seconds ago\"\n        },\n        \"view_user\": {\n        \"href\": \"v1/user/a0dg7o53grq4m3pn\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]

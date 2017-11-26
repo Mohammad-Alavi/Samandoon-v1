@@ -22,8 +22,6 @@ class UserRepository extends Repository
         'email' => '=',
         'province' => '=',
         'city' => '=',
-        'device'=> '=',
-        'platform' => '=',
         'confirmed'  => '=',
         'created_at' => 'like',
     ];
