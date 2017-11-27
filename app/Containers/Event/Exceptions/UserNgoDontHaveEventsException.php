@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class UserNgoDontHaveEventsException extends Exception
 {
-    public $httpStatusCode = Response::HTTP_BAD_REQUEST;
+    public $httpStatusCode = Response::HTTP_NOT_FOUND;
 
     public $message = 'User doesn\'t have any events attached to its ngo';
 }

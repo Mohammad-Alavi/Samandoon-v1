@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EventNotFoundException extends Exception
 {
-    public $httpStatusCode = Response::HTTP_BAD_REQUEST;
+    public $httpStatusCode = Response::HTTP_NOT_FOUND;
 
     public $message = 'Could not find the Event in our database.';
 }
