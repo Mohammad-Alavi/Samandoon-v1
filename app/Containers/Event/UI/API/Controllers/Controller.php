@@ -22,63 +22,43 @@ use App\Ship\Parents\Requests\Request;
 
 class Controller extends ApiController
 {
-    /**
-     * Show all events
-     * @param ListAllEventsRequest|Request $request
-     * @return mixed
-     */
-    public function listAllEvents(ListAllEventsRequest $request) {
-
+    public function listAllEvents(ListAllEventsRequest $request)
+    {
         $events = $this->call('Event@ListEventsAction', [$request]);
         return $this->transform($events, EventTransformer::class);
     }
 
-    /**
-     * Show one event
-     * @param GetEventRequest|Request $request
-     * @return mixed
-     */
-    public function getEvent(GetEventRequest $request) {
-
+    public function getEvent(GetEventRequest $request)
+    {
         $event = $this->call('Event@GetEventAction', [$request]);
+        $event->msg = 'Found Event';
         return $this->transform($event, EventTransformer::class);
     }
 
-    /**
-     * Add a new event
-     * @param CreateEventRequest|Request $request
-     * @return mixed
-     */
-    public function createEvent(CreateEventRequest $request) {
-
+    public function createEvent(CreateEventRequest $request)
+    {
         $event = $this->call('Event@CreateEventAction', [$request]);
-        return $this->transform($event, CreateEventTransformer::class);
+        $event->msg = 'Event created';
+        return $this->transform($event, EventTransformer::class);
     }
 
-    /**
-     * Update a given event
-     * @param UpdateEventRequest|Request $request
-     * @return mixed
-     */
-    public function updateEvent(UpdateEventRequest $request) {
-
+    public function updateEvent(UpdateEventRequest $request)
+    {
         $event = $this->call('Event@UpdateEventAction', [$request]);
-        return $this->transform($event, UpdateEventTransformer::class);
+        $event->msg = 'Event updated';
+        return $this->transform($event, EventTransformer::class);
     }
 
-    /**
-     * Delete a given event
-     * @param DeleteEventRequest|Request $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function deleteEvent(DeleteEventRequest $request) {
-
+    public function deleteEvent(DeleteEventRequest $request)
+    {
         $event = $this->call('Event@DeleteEventAction', [$request]);
         return $this->deleted($event);
     }
 
-    public function addImageToEvent(AddImageToEventRequest $request) {
+    public function addImageToEvent(AddImageToEventRequest $request)
+    {
         $image = $this->call('Event@AddImageToEventAction', [$request]);
+        $image->msg = 'Found Image';
         return $this->transform($image, ImageTransformer::class);
     }
 }

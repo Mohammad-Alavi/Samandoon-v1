@@ -21,25 +21,23 @@ class ImageTransformer extends Transformer
 
     ];
 
-    /**
-     * @param Image $entity
-     *
-     * @return array
-     */
     public function transform(Image $entity)
     {
         $response = [
-            'object' => 'Image',
-            'id' => $entity->getHashedKey(),
-            'image' => $entity->image,
-            'event_id' => $entity->event_id,
-            'created_at' => $entity->created_at,
-            'updated_at' => $entity->updated_at,
+            'msg' => $entity->msg,
+            'object' => [
+                'object' => 'Image',
+                'id' => $entity->getHashedKey(),
+                'image' => $entity->image,
+                'event_id' => $entity->event_id,
+                'created_at' => $entity->created_at,
+                'updated_at' => $entity->updated_at,
 
+            ],
         ];
 
         $response = $this->ifAdmin([
-            'real_id'    => $entity->id,
+            'real_id' => $entity->id,
             // 'deleted_at' => $entity->deleted_at,
         ], $response);
 

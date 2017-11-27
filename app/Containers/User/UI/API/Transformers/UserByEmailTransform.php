@@ -24,11 +24,25 @@ class UserByEmailTransformer extends Transformer
     public function transform(User $user)
     {
         $response = [
-            'first_name'           => $user->first_name,
-            'last_name'            => $user->last_name,
-            'email'                => $user->email,
-            'avatar'               => $user->avatar,
+            'msg' => $user->msg,
+            'object' => [
+                'object' => 'User',
+                'id' => $user->getHashedKey(),
+                'first_name' => $user->first_name,
+                'last_name' => $user->last_name,
+                'email' => $user->email,
+                'avatar' => $user->avatar,
+            ],
+            'view_user' => [
+                'href' => 'v1/user/' . $user->getHashedKey(),
+                'method' => 'GET'
+            ],
         ];
+
+        $response = $this->ifAdmin([
+            'real_id' => $user->id,
+            'deleted_at' => $user->deleted_at,
+        ], $response);
 
         return $response;
     }

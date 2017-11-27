@@ -37,33 +37,39 @@ class UserTransformer extends Transformer
     public function transform(User $user)
     {
         $response = [
-            'object'               => 'User',
-            'id'                   => $user->getHashedKey(),
-            'first_name'           => $user->first_name,
-            'last_name'            => $user->last_name,
-            'email'                => $user->email,
-            'avatar'               => $user->avatar,
-            'confirmed'            => ($user->confirmed == 0) ? false : true,
-            'gender'               => $user->gender,
-            'birth'                => $user->birth,
-            'province'             => $user->province,
-            'city'                 => $user->city,
-            'ngo_id'               => Hashids::encode($user->ngo_id),
-            'social_provider'      => $user->social_provider,
-            'social_nickname'      => $user->social_nickname,
-            'social_id'            => $user->social_id,
-            'social_avatar'        => [
-                'avatar'   => $user->social_avatar,
-                'original' => $user->social_avatar_original,
+            'msg' => $user->msg,
+            'object' => [
+                'object' => 'User',
+                'id' => $user->getHashedKey(),
+                'first_name' => $user->first_name,
+                'last_name' => $user->last_name,
+                'email' => $user->email,
+                'avatar' => $user->avatar,
+                'confirmed' => ($user->confirmed == 0) ? false : true,
+                'gender' => $user->gender,
+                'birth' => $user->birth,
+                'province' => $user->province,
+                'city' => $user->city,
+                'ngo_id' => $user->ngo_id ? Hashids::encode($user->ngo_id) : null,
+                'social_provider' => $user->social_provider,
+                'social_nickname' => $user->social_nickname,
+                'social_id' => $user->social_id,
+                'social_avatar' => [
+                    'avatar' => $user->social_avatar,
+                    'original' => $user->social_avatar_original],
+                'created_at' => $user->created_at,
+                'updated_at' => $user->updated_at,
+                'readable_created_at' => $user->created_at->diffForHumans(),
+                'readable_updated_at' => $user->updated_at->diffForHumans(),
             ],
-            'created_at'           => $user->created_at,
-            'updated_at'           => $user->updated_at,
-            'readable_created_at'  => $user->created_at->diffForHumans(),
-            'readable_updated_at'  => $user->updated_at->diffForHumans(),
+            'view_user' => [
+                'href' => 'v1/user/' . $user->getHashedKey(),
+                'method' => 'GET'
+            ],
         ];
 
         $response = $this->ifAdmin([
-            'real_id'    => $user->id,
+            'real_id' => $user->id,
             'deleted_at' => $user->deleted_at,
         ], $response);
 

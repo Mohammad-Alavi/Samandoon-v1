@@ -6,10 +6,10 @@
 HTTP/1.1 200 OK
 {
     "data": {
-    "msg": "Some informative msg here",
-        "ngo": {
+    "msg": "Some informative msg here or null",
+        "object": {
         "object": "NGO",
-            "id": "e8dz0jl84rngaxv3",
+            "id": "ndvm9yrj4rao0jkq",
             "name": "انجمن همراهان محيط زيست آبادان",
             "description": null,
             "subjects": [],
@@ -20,21 +20,23 @@ HTTP/1.1 200 OK
             "confirmed": false,
             "logo_photo": null,
             "banner_photo": null,
-            "user_id": "3mjzyg5dp5a0vwp6",
+            "user_id": "qv4jdwrw0lanm6xg",
             "Registration specification": {
             "national_number": "14004590766",
                 "registration_number": "236",
                 "registration_date": "1393/09/12",
                 "registration_unit": "مرجع ثبت شركت ها و موسسات غيرتجاري آبادان"
+            },
+            "view_ngo": {
+            "href": "v1/ngo/ndvm9yrj4rao0jkq",
+                "method": "GET"
             }
-        },
-        "view_ngo": {
-        "href": "v1/ngo/e8dz0jl84rngaxv3",
-            "method": "GET"
         }
     },
     "meta": {
-    "include": [],
+    "include": [
+        "User"
+    ],
         "custom": []
     }
 }

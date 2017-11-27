@@ -11,28 +11,40 @@
  * @apiPermission      none
  *
  * @apiSuccessExample  {json}  Success-Response:
- * HTTP/1.1 200 OK
+HTTP/1.1 200 OK
 {
     "data": [
         {
+            "msg": "Found Subject",
+            "object": {
             "object": "Subject",
-            "id": 1,
-            "subject": "test1"
+                "id": 1,
+                "subject": "test1"
+            }
         },
         {
+            "msg": "Found Subject",
+            "object": {
             "object": "Subject",
-            "id": 2,
-            "subject": "test2"
+                "id": 2,
+                "subject": "test2"
+            }
         },
         {
+            "msg": "Found Subject",
+            "object": {
             "object": "Subject",
-            "id": 3,
-            "subject": "test3"
+                "id": 3,
+                "subject": "test3"
+            }
         },
         {
+            "msg": "Found Subject",
+            "object": {
             "object": "Subject",
-            "id": 4,
-            "subject": "test4"
+                "id": 4,
+                "subject": "test4"
+            }
         }
     ],
     "meta": {
@@ -49,6 +61,7 @@
     }
 }
 */
+
 $router->get('ngo/resources/subject', [
     'as' => 'api_ngo_get_ngo_subjects',
     'uses'  => 'Controller@getNgoSubjects',

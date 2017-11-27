@@ -24,15 +24,8 @@ class DeleteUserTask extends Task
         if (!empty($user->avatar)) {
             Storage::disk('public')->delete($user->avatar);
         }
-        if($_user->ngo){
-            if($_user->ngo->events){
-                foreach($_user->ngo->events as $event) {
-                    $event->delete();
-                }
-            }
-            // delete user ngo photos before deleting his ngo
-            Storage::disk('public')->delete($_user->ngo->logo_photo);
-            Storage::disk('public')->delete($_user->ngo->banner_photo);
+        if ($_user->ngo) {
+            // Delete user ngo before deleting user
             Apiato::call('NGO@DeleteNgoTask', [$_user->ngo]);
         }
         return $_user->forceDelete();
