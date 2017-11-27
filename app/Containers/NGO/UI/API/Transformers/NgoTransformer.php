@@ -3,6 +3,7 @@
 namespace App\Containers\NGO\UI\API\Transformers;
 
 use App\Containers\NGO\Models\Ngo;
+use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Transformers\Transformer;
 use Illuminate\Support\Facades\Hash;
 use Vinkla\Hashids\Facades\Hashids;
@@ -19,6 +20,7 @@ class NgoTransformer extends Transformer
      * @var  array
      */
     protected $availableIncludes = [
+        'User'
     ];
 
     /**
@@ -66,5 +68,11 @@ class NgoTransformer extends Transformer
         }
 
         return $response;
+    }
+
+    public function includeUser(Ngo $ngo)
+    {
+        // use `item` with single relationship
+        return $this->item($ngo->user, new UserTransformer());
     }
 }
