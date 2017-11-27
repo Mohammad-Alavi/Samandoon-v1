@@ -44,8 +44,9 @@ class UpdateEventRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required|max:255',
-            'event_date'    =>  'required|date_format:YmdHiT',
+//            'id' => 'required|exists:events,id',
+            'title' => 'max:255',
+            'event_date'    =>  'date_format:YmdHiT',
             'banner_image'    =>  'image',
         ];
     }
