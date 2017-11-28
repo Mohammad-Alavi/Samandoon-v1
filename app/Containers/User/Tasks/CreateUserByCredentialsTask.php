@@ -27,7 +27,6 @@ class CreateUserByCredentialsTask extends Task
                 'last_name' => $request->last_name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-                'avatar' => $request->hasFile('avatar') ? $avatar = $request->file('avatar')->store('avatar') : $avatar = null,
                 'gender' => $request->gender,
                 'birth' => $request->birth,
                 'province' => $request->province,

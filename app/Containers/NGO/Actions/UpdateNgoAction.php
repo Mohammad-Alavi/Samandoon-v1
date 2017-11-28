@@ -7,16 +7,17 @@ use App\Containers\NGO\Tasks\UpdateNgoTask;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
 use Carbon\Carbon;
+use Vinkla\Hashids\Facades\Hashids;
 
 class UpdateNgoAction extends Action
 {
     public function run(Request $request)
     {
-        Apiato::call('NGO@FindNgoByIdTask', [$request->id]);
+        $ngo = Apiato::call('NGO@FindNgoByIdTask', [$request->id]);
         Apiato::call('NGO@CheckHasAccessToNgoTask', [$request]);
-        // check if has access to manage and delete ngo then deletes the ngo
-        $request->hasFile('logo_photo') ? $logo_photo = $request->file('logo_photo')->store('ngo_logo', 'public') : $logo_photo = null;
-        $request->hasFile('banner_photo') ? $banner_photo = $request->file('banner_photo')->store('ngo_banner', 'public') : $banner_photo = null;
+
+        $request->hasFile('logo_photo') ? $logo_photo = $request->logo_photo->store(Hashids::encode($ngo->user->id) . '/' . Hashids::encode($ngo->id), 'public') : $logo_photo = null;
+        $request->hasFile('banner_photo') ? $banner_photo = $request->banner_photo->store(Hashids::encode($ngo->user->id) . '/' . Hashids::encode($ngo->id), 'public'): $banner_photo = null;
 
         $ngoData = [
             'description' => $request->input('description'),
@@ -29,7 +30,7 @@ class UpdateNgoAction extends Action
 
         // remove null values and their keys
         $ngoData = array_filter($ngoData);
-        $ngo = $this->call(UpdateNgoTask::class, [$ngoData, $request->id]);
+        $ngo = $this->call(UpdateNgoTask::class, [$ngoData, $ngo]);
 
         return $ngo;
     }

@@ -12,6 +12,7 @@ use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
+use Vinkla\Hashids\Facades\Hashids;
 
 /**
  * Class UpdateUserTask.
@@ -35,7 +36,10 @@ class UpdateUserTask extends Task
         }
 
         if (array_key_exists('avatar', $userData)) {
-            Storage::disk('public')->delete(Apiato::call('User@FindUserByIdTask', [$userId])->avatar);
+            $user = Apiato::call('User@FindUserByIdTask', [$userId]);
+            Storage::disk('public')->delete($user->avatar);
+            $user->avatar = $userData['avatar'];
+            $user->save();
         }
 
         try {
