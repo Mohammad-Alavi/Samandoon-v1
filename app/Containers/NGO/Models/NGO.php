@@ -17,10 +17,10 @@ class Ngo extends Model
 
     public function toSearchableArray()
     {
-        $array = $this->toArray([
+        $array = [
             'id'    => $this->id,
             'name'  => $this->name,
-        ]);
+        ];
 
         // Customize array...
 
