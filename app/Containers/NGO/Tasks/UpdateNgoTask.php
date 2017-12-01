@@ -6,7 +6,6 @@ use App\Containers\NGO\Data\Repositories\NGORepository;
 use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Tasks\Task;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class UpdateNgoTask extends Task
@@ -28,8 +27,6 @@ class UpdateNgoTask extends Task
         if (array_key_exists('subjects', $ngoData)) {
             $tags = $ngoData['subjects'];
             $ngo->retag($tags);
-            log::info(gettype($tags));
-            log::info(explode(' ', $tags));
             //put tags in ngo tag group
             foreach ($ngo->tags as $tag) {
                 if (!$tag->isInGroup('ngo')) {
