@@ -7,6 +7,7 @@ use App\Containers\NGO\Tasks\UpdateNgoTask;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 use Vinkla\Hashids\Facades\Hashids;
 
 class UpdateNgoAction extends Action
@@ -22,6 +23,7 @@ class UpdateNgoAction extends Action
         $ngoData = [
             'description' => $request->input('description'),
             'area_of_activity' => $request->input('area_of_activity'),
+            'subjects'  => $request->input('subjects'),
             'address' => $request->input('address'),
             'zip_code' => $request->input('zip_code'),
             'logo_photo' => $logo_photo,

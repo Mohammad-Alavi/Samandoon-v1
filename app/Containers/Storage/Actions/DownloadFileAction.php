@@ -10,7 +10,7 @@ class DownloadFileAction extends Action
 {
     public function run(Request $request)
     {
-        $file = Apiato::call('Storage@DownloadFileTask', [$request->folder, $request->file_name]);
+        $file = Apiato::call('Storage@DownloadFileTask', [$request]);
         return $file;
     }
 }

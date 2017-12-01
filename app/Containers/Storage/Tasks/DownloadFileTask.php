@@ -3,12 +3,14 @@
 namespace App\Containers\Storage\Tasks;
 
 use App\Ship\Parents\Tasks\Task;
+use Illuminate\Support\Facades\Log;
 
 class DownloadFileTask extends Task
 {
-    public function run($folder, $file_name)
+    public function run($request)
     {
-        $path = public_path('storage/'.$folder.'/'.$file_name);
+//        Log::info(substr($request->fullUrl(), 42));
+        $path = public_path('storage/'. substr($request->fullUrl(), 42));//$folder.'/'.$file_name);
         return $path;
     }
 }

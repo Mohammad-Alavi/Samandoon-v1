@@ -1,10 +1,8 @@
 <?php
 
-
-use App\Containers\User\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-$factory->define(User::class, function (Faker\Generator $faker) {
+$factory->define(App\Containers\User\Models\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -21,7 +19,7 @@ $factory->define(User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->state(User::class, 'client', function (Faker\Generator $faker) {
+$factory->state(App\Containers\User\Models\User::class, 'client', function (Faker\Generator $faker) {
     return [
         'is_client' => true,
     ];

@@ -162,6 +162,9 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        \Conner\Tagging\Providers\TaggingServiceProvider::class,
+        TeamTNT\Scout\TNTSearchScoutServiceProvider::class,
+        Laravel\Scout\ScoutServiceProvider::class,
 
         /*
          * Application Service Providers...

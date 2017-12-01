@@ -35,8 +35,10 @@ class DownloadFileRequest extends Request
      * @var  array
      */
     protected $urlParameters = [
-        'folder',
-        'file_name',
+        'user_id',
+        'ngo_id',
+        'image_folder',
+        'image_name',
     ];
 
     /**
@@ -45,8 +47,7 @@ class DownloadFileRequest extends Request
     public function rules()
     {
         return [
-             'folder' => 'required',
-             'file_name' => 'required',
+//             'file_address' => 'required',
         ];
     }
 

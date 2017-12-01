@@ -5,9 +5,25 @@ namespace App\Containers\NGO\Models;
 use App\Containers\Event\Models\Event;
 use App\Containers\User\Models\User;
 use App\Ship\Parents\Models\Model;
+use Conner\Tagging\Taggable;
+use Laravel\Scout\Searchable;
 
 class Ngo extends Model
 {
+    use Taggable;
+    use Searchable;
+
+    public $asYouType = true;
+
+    public function toSearchableArray()
+    {
+        $array = $this->toArray(['id', 'name']);
+
+        // Customize array...
+
+        return $array;
+    }
+
     protected $fillable = [
         'name',
         'description',

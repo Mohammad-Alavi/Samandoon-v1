@@ -2,10 +2,10 @@
 
 namespace App\Containers\NGO\UI\API\Transformers;
 
+use App\Containers\Event\UI\API\Transformers\EventTransformer;
 use App\Containers\NGO\Models\Ngo;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Transformers\Transformer;
-use Illuminate\Support\Facades\Hash;
 use Vinkla\Hashids\Facades\Hashids;
 
 class NgoTransformer extends Transformer
@@ -20,7 +20,8 @@ class NgoTransformer extends Transformer
      * @var  array
      */
     protected $availableIncludes = [
-        'User'
+        'User',
+        'Events'
     ];
 
     /**
@@ -36,7 +37,7 @@ class NgoTransformer extends Transformer
                 'id' => $ngo->getHashedKey(),
                 'name' => $ngo->name,
                 'description' => $ngo->description,
-                'subjects' => $ngo->subjects,
+                'subjects' => $ngo->tags,
                 'area_of_activity' => $ngo->area_of_activity,
                 'address' => $ngo->address,
                 'zip_code' => $ngo->zip_code,
@@ -82,5 +83,11 @@ class NgoTransformer extends Transformer
     {
         // use `item` with single relationship
         return $this->item($ngo->user, new UserTransformer());
+    }
+
+    public function includeEvents(Ngo $ngo)
+    {
+        // use `collection` with single relationship
+        return $this->collection($ngo->events, new EventTransformer());
     }
 }

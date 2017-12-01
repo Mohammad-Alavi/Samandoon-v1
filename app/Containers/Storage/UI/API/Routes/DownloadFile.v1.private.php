@@ -3,7 +3,7 @@
  * @apiGroup           Storage
  * @apiName            downloadFile
  *
- * @api                {GET} /v1/download/{folder}/{file_name} Download File
+ * @api                {GET} /v1/storage/download/{folder}/{file_name} Download File
  * @apiDescription     Download a file from server's public folder
  *
  * @apiVersion         1.0.0
@@ -14,7 +14,17 @@
  */
 
 
-$router->get('download/{folder}/{file_name}', [
+$router->get('storage/download/{user_id}/{image_name}', [
+    'as' => 'api_storage_download_file',
+    'uses'  => 'Controller@downloadFile',
+]);
+
+$router->get('storage/download/{user_id}/{ngo_id}/{image_name}', [
+    'as' => 'api_storage_download_file',
+    'uses'  => 'Controller@downloadFile',
+]);
+
+$router->get('storage/download/{user_id}/{ngo_id}/{image_folder}/{image_name}', [
     'as' => 'api_storage_download_file',
     'uses'  => 'Controller@downloadFile',
 ]);

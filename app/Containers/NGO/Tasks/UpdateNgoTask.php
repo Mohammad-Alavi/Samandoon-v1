@@ -2,11 +2,11 @@
 
 namespace App\Containers\NGO\Tasks;
 
-use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\NGO\Data\Repositories\NGORepository;
 use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Tasks\Task;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class UpdateNgoTask extends Task
@@ -24,6 +24,18 @@ class UpdateNgoTask extends Task
         if (array_key_exists('banner_photo', $ngoData)) {
             Storage::disk('public')->delete($ngo->banner_photo);
             $ngo->banner_photo = $ngoData['banner_photo'];
+        }
+        if (array_key_exists('subjects', $ngoData)) {
+            $tags = $ngoData['subjects'];
+            $ngo->retag($tags);
+            log::info(gettype($tags));
+            log::info(explode(' ', $tags));
+            //put tags in ngo tag group
+            foreach ($ngo->tags as $tag) {
+                if (!$tag->isInGroup('ngo')) {
+                    $tag->setGroup('ngo');
+                };
+            }
         }
         $ngo->save();
 
