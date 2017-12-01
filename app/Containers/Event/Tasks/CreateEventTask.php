@@ -30,7 +30,7 @@ class CreateEventTask extends Task
             $description = $request->input('description');
             $event_date = Carbon::createFromFormat('YmdHiT', $request->input('event_date'));
             $location = $request->input('location');
-            $request->hasFile('banner_image') ? $banner_image = $request->hasFile('banner_image')->store(Hashids::encode($ngo->user->id) . '/' . Hashids::encode($ngo->id) . '/event_images', 'public') : $banner_image = null;
+            $request->hasFile('banner_image') ? $banner_image = $request->hasFile('banner_image')->store(Hashids::encode($ngo->user->id), 'public') : $banner_image = null;
 
             try {
                 // create a new event

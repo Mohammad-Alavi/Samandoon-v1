@@ -36,9 +36,7 @@ class DownloadFileRequest extends Request
      */
     protected $urlParameters = [
         'user_id',
-        'ngo_id',
-        'image_folder',
-        'image_name',
+        'file_name',
     ];
 
     /**
@@ -47,7 +45,8 @@ class DownloadFileRequest extends Request
     public function rules()
     {
         return [
-//             'file_address' => 'required',
+             'user_id' => 'required',
+             'file_name' => 'required',
         ];
     }
 

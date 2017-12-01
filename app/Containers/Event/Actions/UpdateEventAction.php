@@ -17,7 +17,7 @@ class UpdateEventAction extends Action
         $event = Event::find($request->id);
         throw_unless(count($event) > 0 ? true : false, new EventNotFoundException());
 
-        $request->hasFile('banner_image') ? $banner_image = $request->banner_image->store(Hashids::encode($event->ngo->user->id) . '/' . Hashids::encode($event->ngo->id) . '/event_images', 'public') : $banner_image = null;
+        $request->hasFile('banner_image') ? $banner_image = $request->banner_image->store(Hashids::encode($event->ngo->user->id), 'public') : $banner_image = null;
         $request->input('event_date') ? $event_date = Carbon::createFromFormat('YmdHiT', $request->input('event_date')) : $event_date = null;
 
         $eventData = [

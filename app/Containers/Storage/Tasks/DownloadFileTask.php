@@ -10,7 +10,7 @@ class DownloadFileTask extends Task
     public function run($request)
     {
 //        Log::info(substr($request->fullUrl(), 42));
-        $path = public_path('storage/'. substr($request->fullUrl(), 42));//$folder.'/'.$file_name);
+        $path = public_path('storage/'. $request->user_id.'/'. $request->file_name);
         return $path;
     }
 }

@@ -17,8 +17,8 @@ class UpdateNgoAction extends Action
         $ngo = Apiato::call('NGO@FindNgoByIdTask', [$request->id]);
         Apiato::call('NGO@CheckHasAccessToNgoTask', [$request]);
 
-        $request->hasFile('logo_photo') ? $logo_photo = $request->logo_photo->store(Hashids::encode($ngo->user->id) . '/' . Hashids::encode($ngo->id), 'public') : $logo_photo = null;
-        $request->hasFile('banner_photo') ? $banner_photo = $request->banner_photo->store(Hashids::encode($ngo->user->id) . '/' . Hashids::encode($ngo->id), 'public'): $banner_photo = null;
+        $request->hasFile('logo_photo') ? $logo_photo = $request->logo_photo->store(Hashids::encode($ngo->user->id), 'public') : $logo_photo = null;
+        $request->hasFile('banner_photo') ? $banner_photo = $request->banner_photo->store(Hashids::encode($ngo->user->id), 'public'): $banner_photo = null;
 
         $ngoData = [
             'description' => $request->input('description'),
