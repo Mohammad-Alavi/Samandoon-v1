@@ -15,7 +15,4 @@
 
 $router->get('/event/{id}', [
     'uses'  => 'Controller@getEvent',
-    'middleware' => [
-      'auth:api',
-    ],
 ]);

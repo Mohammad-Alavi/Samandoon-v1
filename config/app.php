@@ -165,7 +165,7 @@ return [
         \Conner\Tagging\Providers\TaggingServiceProvider::class,
         TeamTNT\Scout\TNTSearchScoutServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
-
+        Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         /*
          * Application Service Providers...
          *

@@ -10,24 +10,13 @@ use Vinkla\Hashids\Facades\Hashids;
 
 class NgoTransformer extends Transformer
 {
-    /**
-     * @var  array
-     */
     protected $defaultIncludes = [
     ];
 
-    /**
-     * @var  array
-     */
     protected $availableIncludes = [
         'User',
-        'Events'
     ];
 
-    /**
-     * @param Ngo $ngo
-     * @return array
-     */
     public function transform(Ngo $ngo)
     {
         $response = [
@@ -42,9 +31,9 @@ class NgoTransformer extends Transformer
                 'address' => $ngo->address,
                 'zip_code' => $ngo->zip_code,
                 'type' => $ngo->type,
-                'confirmed' => ($ngo->confirmed == 0) ? false : true,
-                'logo_photo' => $ngo->logo_photo,
-                'banner_photo' => $ngo->banner_photo,
+                'confirmed' => $ngo->confirmed,
+                'logo_photo' => $ngo->getFirstMediaUrl('ngo_logo'),
+                'banner_photo' => $ngo->getFirstMediaUrl('ngo_banner'),
                 'user_id' => Hashids::encode($ngo->user_id),
                 'Registration specification' => [
                     'national_number' => $ngo->national_number,
@@ -56,25 +45,12 @@ class NgoTransformer extends Transformer
                     'href' => 'v1/ngo/' . $ngo->getHashedKey(),
                     'method' => 'GET'
                 ],
-            ]];
+            ]
+        ];
 
         $response = $this->ifAdmin([
             'real_id' => $ngo->id,
         ], $response);
-
-//        if ($ngo->created_at && $ngo->updated_at) {
-//            $response = $this->ifAdmin([
-//                'real_id' => $ngo->id,
-//            ], $response);
-//        } elseif ($ngo->created_at) {
-//            $response = [
-//                'readable_created_at' => $ngo->created_at->diffForHumans(),
-//            ];
-//        } elseif ($ngo->updated_at) {
-//            $response = [
-//                'readable_updated_at' => $ngo->updated_at->diffForHumans(),
-//            ];
-//        }
 
         return $response;
     }
@@ -83,11 +59,5 @@ class NgoTransformer extends Transformer
     {
         // use `item` with single relationship
         return $this->item($ngo->user, new UserTransformer());
-    }
-
-    public function includeEvents(Ngo $ngo)
-    {
-        // use `collection` with single relationship
-        return $this->collection($ngo->events, new EventTransformer());
     }
 }

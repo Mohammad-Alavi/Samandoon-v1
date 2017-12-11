@@ -4,11 +4,11 @@
  * @apiGroup           NGO
  * @apiName            findNgoByNationalId
  *
- * @api                {GET} /v1/ngo/find/{national_id} Find NGO By National ID
+ * @api                {GET} /v1/ngo/find/{national_id} Find NGO by National ID
  * @apiDescription     Search a NGO in National Registration website and return it's data if ngo is found
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated user
+ * @apiPermission      none
  *
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK
@@ -44,7 +44,4 @@
 $router->get('ngo/find/{national_id}', [
     'as' => 'api_ngo_find_ngo_by_national_id',
     'uses'  => 'Controller@findNgoByNationalId',
-    'middleware' => [
-      'auth:api',
-    ],
 ]);

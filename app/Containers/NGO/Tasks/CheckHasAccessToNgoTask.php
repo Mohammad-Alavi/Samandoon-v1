@@ -2,7 +2,7 @@
 
 namespace App\Containers\NGO\Tasks;
 
-use App\Containers\NGO\Exceptions\DontHaveAccessToNgoException;
+use App\Ship\Exceptions\NotAuthorizedResourceException;
 use App\Ship\Parents\Tasks\Task;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +15,7 @@ class CheckHasAccessToNgoTask extends Task
         if (!$authed_user->is_client || $authed_user->ngo->id == $ngo->id) {
             return true;
         } else {
-            throw new DontHaveAccessToNgoException;
+            throw new NotAuthorizedResourceException('You don\'t have access to manage this NGO.');
         }
     }
 }

@@ -35,7 +35,9 @@
     "fideloper/proxy": "~3.3",
     "laravel/framework": "5.5.*",
     "laravel/tinker": "~1.0",
+    "league/glide": "^1.2",
     "rtconner/laravel-tagging": "~2.2",
+    "spatie/laravel-medialibrary": "^6.0.0",
     "teamtnt/laravel-scout-tntsearch-driver": "^3.0",
     "wikimedia/composer-merge-plugin": "^1.3.1"
   },

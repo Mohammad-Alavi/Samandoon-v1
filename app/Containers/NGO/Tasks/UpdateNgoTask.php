@@ -3,39 +3,39 @@
 namespace App\Containers\NGO\Tasks;
 
 use App\Containers\NGO\Data\Repositories\NGORepository;
+use App\Containers\NGO\Models\Ngo;
 use App\Ship\Exceptions\UpdateResourceFailedException;
+use App\Ship\Parents\Exceptions\Exception;
 use App\Ship\Parents\Tasks\Task;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Storage;
 
 class UpdateNgoTask extends Task
 {
-    public function run($ngoData, $ngo)
+    private $repository;
+
+    public function __construct(NGORepository $repository)
     {
-        if (empty($ngoData)) {
+        $this->repository = $repository;
+    }
+
+    public function run(Ngo $ngo, array $data)
+    {
+        if (empty($data)) {
             throw new UpdateResourceFailedException('Inputs are empty.');
         }
 
-        if (array_key_exists('logo_photo', $ngoData)) {
-            Storage::disk('public')->delete($ngo->logo_photo);
-            $ngo->logo_photo = $ngoData['logo_photo'];
-        }
-        if (array_key_exists('banner_photo', $ngoData)) {
-            Storage::disk('public')->delete($ngo->banner_photo);
-            $ngo->banner_photo = $ngoData['banner_photo'];
-        }
-        if (array_key_exists('subjects', $ngoData)) {
-            $tags = $ngoData['subjects'];
-            $ngo->retag($tags);
-            //put tags in ngo tag group
-            foreach ($ngo->tags as $tag) {
-                if (!$tag->isInGroup('ngo')) {
-                    $tag->setGroup('ngo');
-                };
+        try {
+            if (array_key_exists('logo_photo', $data)) {
+                $ngo->clearMediaCollection('ngo_logo');
+                $ngo->addMediaFromRequest('logo_photo')->toMediaCollection('ngo_logo');
             }
+            if (array_key_exists('banner_photo', $data)) {
+                $ngo->clearMediaCollection('ngo_banner');
+                $ngo->addMediaFromRequest('banner_photo')->toMediaCollection('ngo_banner');
+            }
+            return $this->repository->update($data, $ngo->id);
         }
-        $ngo->save();
-
-        return App::make(NgoRepository::class)->update($ngoData, $ngo->id);
+        catch (Exception $exception) {
+            throw new UpdateResourceFailedException('Updating NGO failed');
+        }
     }
 }

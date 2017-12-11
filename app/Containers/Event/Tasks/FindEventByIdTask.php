@@ -3,7 +3,7 @@
 namespace App\Containers\Event\Tasks;
 
 use App\Containers\Event\Data\Repositories\EventRepository;
-use App\Containers\Event\Exceptions\EventNotFoundException;
+use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Tasks\Task;
 use Exception;
 use Illuminate\Support\Facades\App;
@@ -20,7 +20,7 @@ class FindEventByIdTask extends Task
         try {
             $event = App::make(EventRepository::class)->find($eventId);
         } catch (Exception $e) {
-            throw new EventNotFoundException;
+            throw new NotFoundException('Event not found.');
         }
 
         return $event;

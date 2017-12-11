@@ -28,7 +28,7 @@ class UpdateUserAction extends Action
             'last_name'            => $request->last_name,
             'email'                => $request->email,
             'password'             => $request->password ? Hash::make($request->password) : null,
-            'avatar'               => $request->hasFile('avatar') ?             $request->avatar->store(Hashids::encode($request->id), 'public') : null,
+            'avatar'               => $request->hasFile('avatar') ? $request->avatar->storeAs(Hashids::encode($request->id), 'avatar.' . $request->avatar->getClientOriginalExtension(), 'public') : null,
             'gender'               => $request->gender,
             'birth'                => $request->birth,
             'province'             => $request->province,

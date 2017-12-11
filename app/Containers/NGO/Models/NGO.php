@@ -6,20 +6,24 @@ use App\Containers\Event\Models\Event;
 use App\Containers\User\Models\User;
 use App\Ship\Parents\Models\Model;
 use Conner\Tagging\Taggable;
+use Illuminate\Support\Facades\DB;
 use Laravel\Scout\Searchable;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-class Ngo extends Model
+class Ngo extends Model implements HasMedia
 {
     use Taggable;
     use Searchable;
+    use HasMediaTrait;
 
     public $asYouType = true;
 
     public function toSearchableArray()
     {
         $array = [
-            'id'    => $this->id,
-            'name'  => $this->name,
+            'id' => $this->id,
+            'name' => $this->name,
         ];
 
         // Customize array...
@@ -45,22 +49,42 @@ class Ngo extends Model
 
     protected $hidden = [];
 
-    protected $casts = [];
+    protected $casts = [
+        'confirmed' => 'boolean'
+    ];
 
     protected $dates = [
         'created_at',
         'updated_at',
     ];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function events(){
+    public function events()
+    {
         return $this->hasMany(Event::class);
     }
 
-    public function subjects(){
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
+
+    public function subjects()
+    {
         return $this->belongsToMany(Subject::class);
+    }
+
+    public function delete()
+    {
+        DB::transaction(function()
+        {
+            $this->articles()->delete();
+            $this->events()->delete();
+            parent::delete();
+        });
     }
 }

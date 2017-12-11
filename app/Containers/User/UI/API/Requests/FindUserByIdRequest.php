@@ -18,7 +18,7 @@ class FindUserByIdRequest extends Request
      * @var  array
      */
     protected $access = [
-        'permissions' => 'search-users',
+        'permissions' => '',
         'roles'       => '',
     ];
 
@@ -57,7 +57,7 @@ class FindUserByIdRequest extends Request
     public function authorize()
     {
         return $this->check([
-            'hasAccess|isOwner',
+            'hasAccess',
         ]);
     }
 }

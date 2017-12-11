@@ -9,11 +9,9 @@ Homestead.yaml
 storage/logs/laravel.log
 /public/uploads/
 /laradock*/
-<<<<<<< HEAD
 /storage/*.index
 /.idea
 /.vagrant
 deploy.php
-=======
 composer.lock
->>>>>>> c1eec9d09d28424ec3c1c36bfbe1629aadd296f1
+PackagesToAdd.txt

@@ -3,21 +3,26 @@
 namespace App\Containers\NGO\Tasks;
 
 use App\Containers\NGO\Data\Repositories\NGORepository;
-use App\Containers\NGO\Exceptions\AlreadyHaveOneNgoException;
-use App\Containers\NGO\Exceptions\NgoCreationFailedException;
+use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Exceptions\Exception;
 use App\Ship\Parents\Tasks\Task;
-use Illuminate\Support\Facades\App;
 
 class CreateNgoTask extends Task
 {
+    private $repository;
+
+    public function __construct(NGORepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     public function run($ngo_data, $authenticated_user)
     {
-        throw_if($authenticated_user->ngo, new AlreadyHaveOneNgoException());
+        throw_if($authenticated_user->ngo, new CreateResourceFailedException('User already have a NGO.'));
 
         try {
             // create a new ngo
-            $ngo = App::make(NgoRepository::class)->create([
+            $ngo = $this->repository->create([
                 'name' => $ngo_data['ResultList']['0']['Name'],
                 'address' => $ngo_data['ResultList']['0']['Address'],
                 'zip_code' => $ngo_data['ResultList']['0']['PostCode'],
@@ -31,14 +36,15 @@ class CreateNgoTask extends Task
 
             // give manage-event permission to authenticated user
             $authenticated_user->givePermissionTo('manage-event');
+            $authenticated_user->givePermissionTo('manage-article');
 
             // add ngo id to user who created it
             $authenticated_user->ngo_id = $ngo->id;
             $authenticated_user->save();
-        } catch (Exception $e) {
-            throw (new NgoCreationFailedException);
-        }
 
-        return $ngo;
+            return $ngo;
+        } catch (Exception $e) {
+            throw new CreateResourceFailedException('Failed to create new NGO.');
+        }
     }
 }

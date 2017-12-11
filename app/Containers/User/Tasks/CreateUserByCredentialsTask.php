@@ -32,6 +32,7 @@ class CreateUserByCredentialsTask extends Task
                 'province' => $request->province,
                 'city' => $request->city,
                 'is_client' => $isClient,
+                'avatar'    =>  config('samandoon.default.avatar'),
             ]);
 
             // assign 'user' role to registered user

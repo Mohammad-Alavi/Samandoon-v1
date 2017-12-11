@@ -32,6 +32,7 @@ class AuthorizationPermissionsSeeder_1 extends Seeder
         // Default User Permissions
         Apiato::call('Authorization@CreatePermissionTask', ['manage-ngo', 'Create, Update, Delete, List NGOs', 'Manage NGO']);
         Apiato::call('Authorization@CreatePermissionTask', ['manage-event', 'Create, Update, Delete, List Events', 'Manage Event']);
+        Apiato::call('Authorization@CreatePermissionTask', ['manage-article', 'Create, Update, Delete, List Article', 'Manage Article']);
 //        App::make(CreatePermissionTask::class)->run('manage-event', 'Create, Update, Delete, List Events', 'Manage Event');
     }
 }

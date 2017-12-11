@@ -15,7 +15,4 @@
 
 $router->get('ngo/{id}', [
     'uses'  => 'Controller@getNgo',
-    'middleware' => [
-      'auth:api',
-    ],
 ]);
