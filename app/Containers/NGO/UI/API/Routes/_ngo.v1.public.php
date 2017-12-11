@@ -67,8 +67,7 @@ HTTP/1.1 200 OK
     },
     "meta": {
     "include": [
-        "User",
-        "Events"
+        "User"
     ],
         "custom": []
     }

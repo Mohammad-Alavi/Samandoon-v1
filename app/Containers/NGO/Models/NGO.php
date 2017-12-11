@@ -78,6 +78,16 @@ class Ngo extends Model implements HasMedia
         return $this->belongsToMany(Subject::class);
     }
 
+    // this is a recommended way to declare event handlers
+//    protected static function boot() {
+//        parent::boot();
+//
+//        static::deleting(function($user) { // before delete() method call this
+//            $user->photos()->delete();
+//            // do the rest of the cleanup...
+//        });
+//    }
+
     public function delete()
     {
         DB::transaction(function()
