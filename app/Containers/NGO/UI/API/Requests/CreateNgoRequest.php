@@ -16,7 +16,7 @@ class CreateNgoRequest extends Request
      */
     protected $access = [
         'permissions' => 'manage-ngo',
-        'roles'       => 'user|admin',
+        'roles'       => 'admin',
     ];
 
     /**
@@ -54,7 +54,7 @@ class CreateNgoRequest extends Request
     public function authorize()
     {
         return $this->check([
-            'hasAccess',
+            'hasAccess|isOwner',
         ]);
     }
 }

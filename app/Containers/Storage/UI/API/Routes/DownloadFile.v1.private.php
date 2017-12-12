@@ -14,7 +14,7 @@
  */
 
 
-$router->get('{user_id}/{file_name}', [
+$router->get('{model_type}/{id}/{resource_name}', [
     'as' => 'api_storage_download_file',
     'uses'  => 'Controller@downloadFile',
 ]);

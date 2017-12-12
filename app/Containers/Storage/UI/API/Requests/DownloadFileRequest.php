@@ -35,8 +35,9 @@ class DownloadFileRequest extends Request
      * @var  array
      */
     protected $urlParameters = [
-        'user_id',
-        'file_name',
+        'model_type',
+        'id',
+        'resource_name',
     ];
 
     /**
@@ -45,8 +46,9 @@ class DownloadFileRequest extends Request
     public function rules()
     {
         return [
-             'user_id' => 'required',
-             'file_name' => 'required',
+            'model_type' => 'required|in:ngo',
+            'id' => 'required',
+            'resource_name' => 'required',
         ];
     }
 
