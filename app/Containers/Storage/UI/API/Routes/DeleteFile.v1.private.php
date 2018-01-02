@@ -20,7 +20,7 @@
  */
 
 /** @var Route $router */
-$router->delete('storage/delete/{id}/{file_name}', [
+$router->delete('storage/{id}/{file_name}', [
     'as' => 'api_storage_delete_file',
     'uses'  => 'Controller@deleteFile',
     'middleware' => [

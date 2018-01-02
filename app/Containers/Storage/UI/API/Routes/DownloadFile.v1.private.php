@@ -13,8 +13,7 @@
  * HTTP/1.1 202 OK
  */
 
-
-$router->get('{model_type}/{id}/{resource_name}', [
+$router->get('storage/{id}/{resource_name}', [
     'as' => 'api_storage_download_file',
     'uses'  => 'Controller@downloadFile',
 ]);

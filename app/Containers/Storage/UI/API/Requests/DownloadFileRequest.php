@@ -35,7 +35,6 @@ class DownloadFileRequest extends Request
      * @var  array
      */
     protected $urlParameters = [
-        'model_type',
         'id',
         'resource_name',
     ];

@@ -2,13 +2,8 @@
 
 namespace App\Containers\NGO\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
-use App\Containers\NGO\Tasks\UpdateNgoTask;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Log;
-use Vinkla\Hashids\Facades\Hashids;
 
 class UpdateNgoAction extends Action
 {
@@ -17,6 +12,7 @@ class UpdateNgoAction extends Action
         $ngo = $this->call('NGO@FindNgoByIdTask', [$request->id]);
         $this->call('NGO@CheckHasAccessToNgoTask', [$request]);
 
+        info($request);
         $data = $request->sanitizeInput([
             'description',
             'area_of_activity',

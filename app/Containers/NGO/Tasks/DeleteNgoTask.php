@@ -16,13 +16,6 @@ class DeleteNgoTask extends Task
 
     public function run($ngo)
     {
-        $ngo->clearMediaCollection('ngo_logo');
-        $ngo->clearMediaCollection('ngo_banner');
-
-        // revoke user's permission to manage events
-        $ngo->user->revokePermissionTo('manage-event');
-        $ngo->user->revokePermissionTo('manage-article');
-
         return $this->repository->delete($ngo->id);
     }
 }
