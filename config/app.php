@@ -167,6 +167,7 @@ return [
         Laravel\Scout\ScoutServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Optimus\Heimdal\Provider\LaravelServiceProvider::class,
         /*
          * Application Service Providers...
          *
