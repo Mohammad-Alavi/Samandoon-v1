@@ -166,7 +166,6 @@ return [
         TeamTNT\Scout\TNTSearchScoutServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
         /*
          * Application Service Providers...
          *
