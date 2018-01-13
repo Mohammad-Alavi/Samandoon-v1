@@ -3,16 +3,13 @@
 namespace App\Containers\Storage\Tasks;
 
 use App\Ship\Parents\Tasks\Task;
+use Illuminate\Support\Facades\Log;
 
 class DownloadFileTask extends Task
 {
     public function run($request)
     {
-        $file =  'storage/' . $request->id . '/' . $request->resource_name;
-//        switch ($request->model_type) {
-//            case 'ngo':
-//            $media = Ngo::find($request->id)->getMedia('');
-//        }
+        $file =  public_path() . '/storage/' . $request->id . '/' . $request->resource_name;
         return $file;
     }
 }

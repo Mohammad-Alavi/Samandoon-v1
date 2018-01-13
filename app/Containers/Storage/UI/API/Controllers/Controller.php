@@ -10,8 +10,8 @@ class Controller extends ApiController
 {
     public function downloadFile(DownloadFileRequest $request){
         $file = $this->call('Storage@DownloadFileAction', [$request]);
-        return response()->download($file);
         info($file);
+        return response()->download($file);
     }
     public function deleteFile(deleteFileRequest $request){
         $file = $this->call('Storage@DeleteFileAction', [$request]);

@@ -45,7 +45,6 @@ class DownloadFileRequest extends Request
     public function rules()
     {
         return [
-            'model_type' => 'required|in:ngo',
             'id' => 'required',
             'resource_name' => 'required',
         ];

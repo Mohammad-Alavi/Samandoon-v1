@@ -32,8 +32,8 @@ class NgoTransformer extends Transformer
                 'zip_code' => $ngo->zip_code,
                 'type' => $ngo->type,
                 'confirmed' => $ngo->confirmed,
-                'logo_photo' => $ngo->getFirstMediaUrl('ngo_logo'),
-                'banner_photo' => $ngo->getFirstMediaUrl('ngo_banner'),
+                'logo_photo' => 'api.' . str_replace('http://', '' , env('APP_URL')) . '/v1' . str_replace(str_replace('http://', '' , env('APP_URL')), '', $ngo->getFirstMediaUrl('ngo_logo')),
+                'banner_photo' => 'api.' . str_replace('http://', '' , env('APP_URL')) . '/v1' . str_replace(str_replace('http://', '' , env('APP_URL')), '', $ngo->getFirstMediaUrl('ngo_banner')),
                 'user_id' => Hashids::encode($ngo->user_id),
                 'Registration specification' => [
                     'national_number' => $ngo->national_number,
