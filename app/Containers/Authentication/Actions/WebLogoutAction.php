@@ -14,9 +14,9 @@ class WebLogoutAction extends Action
 {
 
     /**
-     * @return bool
+     * @return void
      */
-    public function run()
+    public function run(): void
     {
         Auth::logout();
     }

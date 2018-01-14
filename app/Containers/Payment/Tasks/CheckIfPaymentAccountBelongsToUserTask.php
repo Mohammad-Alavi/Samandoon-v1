@@ -19,9 +19,10 @@ class CheckIfPaymentAccountBelongsToUserTask extends Task
      * @param \App\Containers\User\Models\User              $user
      * @param \App\Containers\Payment\Models\PaymentAccount $account
      *
-     * @return  bool
+     * @return bool
+     * @throws PaymentAccountDoesNotBelongToUserException
      */
-    public function run(User $user, PaymentAccount $account)
+    public function run(User $user, PaymentAccount $account): bool
     {
         if ($user->id !== $account->user_id) {
             throw new PaymentAccountDoesNotBelongToUserException();

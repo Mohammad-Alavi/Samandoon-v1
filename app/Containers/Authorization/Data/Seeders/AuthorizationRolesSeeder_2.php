@@ -23,20 +23,21 @@ class AuthorizationRolesSeeder_2 extends Seeder
     public function run()
     {
         // Default Roles ----------------------------------------------------------------
-        Apiato::call('Authorization@CreateRoleTask', ['admin', 'Administrator'])->givePermissionTo([
-                'manage-roles',
-                'create-admins',
-                'manage-admins-access',
-                'access-dashboard',
-                'search-users',
-                'list-users',
-                'delete-users',
-                'update-users',
-                'manage-ngo',
-                'manage-event',
-                'manage-article'
-            ]
-        );
+//        Apiato::call('Authorization@CreateRoleTask', ['admin', 'Administrator'])->givePermissionTo([
+//                'manage-roles',
+//                'create-admins',
+//                'manage-admins-access',
+//                'access-dashboard',
+//                'search-users',
+//                'list-users',
+//                'delete-users',
+//                'update-users',
+//                'manage-ngo',
+//                'manage-event',
+//                'manage-article'
+//            ]
+//        );
+        Apiato::call('Authorization@CreateRoleTask', ['admin', 'Administrator', 'Administrator Role', 999]);
 
         // ...
 

@@ -3,17 +3,71 @@
 ## [Unreleased]
 
 ### Added
-- ...
+- Added the `TinkerServiceProvider` to `core` in order to allow for using `php artisan tinker` from the console.
 
 ### Changed
-- ...
+- Nothing.
 
 ### Fixed
-- ... 
+- Fixed Issue in `CountCriteria` [PR](https://github.com/apiato/apiato/pull/363)
 
 ### Removed
-- ...
+- Nothing.
 
+___
+
+## v7.3.2 (2017-12-11)
+
+### Added
+- Add new command "apiato:create:admin" to create admins from the CLI [issues/284](https://github.com/apiato/apiato/issues/284)
+- Added Broadcast routes [issues/327](https://github.com/apiato/apiato/issues/327)
+- Allow for nested `?includes` (via `include=parent.child`) [issues/324](https://github.com/apiato/apiato/issues/324)
+
+### Changed
+- Specify `apiato/core` version accordingly [issues/334](https://github.com/apiato/apiato/issues/334)
+- Get rid of env() calls [issues/314](https://github.com/apiato/apiato/issues/314)
+- Calling an `Action` is now done using `Transporters` instead of `Requests`
+- Rename `ValueObjects` to `Values` [issues/334](https://github.com/apiato/apiato/issues/334)
+
+### Fixed
+- Fixed "bug" in order to prevent duplicate index name in oracle DB. 
+- Removed the `composer.lock` entry from the `.gitignore` file [issues/335](https://github.com/apiato/apiato/issues/335)
+- Fix test failing.
+- Fixed some smaller issues (e.g., rename file (not class!), corrected docs-link, ...)
+
+### Removed
+- Removed the `composer.lock` entry from the `.gitignore` file
+
+___
+
+## v7.2.2 (2017-12-11)
+
+### Added
+- Added a new config flag (`apiato.requests.force-valid-includes` (default `true`)) to notify users about potential "invalid" `?include` query parameters
+- Added ValueObjects class type to be extended by classes that do not requires to be stored in the DB or have ID.
+- Added a `level` to the roles in order to indicate some kind of hierarchy (e.g., `admin` is "better" than `manager`).
+- Added `/password-forgot` and `/password-reset` endpoints.
+- Added Error Code Tables (`ApplicationErrorCodesTable` and `CustomErrorCodesTable`) in order to define exception codes in one place.
+
+### Changed
+- Changed the `Content-Language` header field (for requesting resources in a specific language) to `Accept-Language` instead (cf. [Specs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language)).
+- Rename `GiveAllPermissionsToRole` to `GiveAllPermissionsToRoleCommand`.
+- The structure of the `supported_languages` in `App/Containers/Localization/Configs` was changed in order to support `regions`.
+- The route `/logout` now uses `DELETE` instead of `POST` (to be more RESTful)
+- Move `Localization` and `Region` from Model to ValueObjects folder in the localization container.
+- Move `Output` and `RequestLogger` from Model to ValueObjects folder in the debugger container.
+- The route `/user/profile` (the profile of the current user) now uses a dedicated `UserPrivateProfileTransformer` in order to allow adding "private" information more easily (instead of using if-blocks in the `UserTransformer`) 
+
+### Fixed
+- Fixed "bug", where an Exception is thrown if the user requested an invalid `?include` parameter. Now a "real" Apiato Exception is thrown.
+- Fixed "bug" in order to prevent duplicate index name in oracle DB.
+- Removed the `composer.lock` entry from the `.gitignore` file
+
+### Removed
+- Nothing.
+
+
+___
 
 ## v7.1.0 (2017-10-17)
 
@@ -37,7 +91,7 @@
 - Add feature to read custom stub files form `app/Ship/Generators/CustomStubs`
 - Add command to sync all system permission with a given role.
 - Support Apiato new class calling style `controllerName@ClassActionOrTask` in the magic call, example: `$role = $this->call('Authorization@FindRoleTask', [$request->role_id]);`. 
-- Add new Facade class `Apiato` containing the old Butlers classes functions, in addition to the `call` magical methode (`Apiato::call()`) in the `CallableTrait`.
+- Add new Facade class `Apiato` containing the old Butlers classes functions, in addition to the `call` magical method (`Apiato::call()`) in the `CallableTrait`.
 - Add container specific config file to each container.
 - Add `readme.md` file to each container.
 - Add support for Exceptions Formatters (with some default Formatters). To allows users customize `Exceptions` JSON responses.

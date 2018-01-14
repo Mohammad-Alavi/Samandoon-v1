@@ -20,16 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->string('avatar')->nullable();
             $table->boolean('confirmed')->default(false);
-            $table->boolean('is_client')->default(false);
-
             $table->string('gender')->nullable();
             $table->string('birth')->nullable();
-
-            $table->string('province')->nullable();
-            $table->string('city')->nullable();
-
             $table->integer('ngo_id')->nullable();
-
             $table->string('social_provider')->nullable();
             $table->string('social_nickname')->nullable();
             $table->string('social_id')->nullable();
@@ -39,6 +32,7 @@ class CreateUsersTable extends Migration
             $table->string('social_expires_in')->nullable();
             $table->string('social_avatar')->nullable();
             $table->string('social_avatar_original')->nullable();
+            $table->boolean('is_client')->default(false);
 
             $table->rememberToken();
             $table->timestamps();

@@ -21,7 +21,9 @@ class ConsoleKernel extends LaravelConsoleKernel
      * @var array
      */
     protected $commands = [
-
+        // NOTE: your Containers command will all be auto registered for you.
+        // Same for the Ship commands who live in the `app/Ship/Commands/` directory.
+        // If you have commands living somewhere else then consider registering them manually here.
     ];
 
     /**
@@ -46,7 +48,8 @@ class ConsoleKernel extends LaravelConsoleKernel
         // As they are automatically registered by the Apiato Loader.
 
         // $this->load(__DIR__.'/Commands');
-        // require base_path('routes/console.php');
+
+        require app_path('Ship/Commands/Routes.php');
     }
 
 }

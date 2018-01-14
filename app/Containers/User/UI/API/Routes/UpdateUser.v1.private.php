@@ -15,8 +15,6 @@
  * @apiParam           {image}   avatar (optional)
  * @apiParam           {String}  gender (optional)
  * @apiParam           {String}  birth (optional)
- * @apiParam           {String}  province (optional)
- * @apiParam           {String}  city (optional)
  *
  * @apiUse             UserSuccessSingleResponse
  */

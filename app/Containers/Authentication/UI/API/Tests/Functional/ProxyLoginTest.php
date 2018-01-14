@@ -3,9 +3,8 @@
 namespace App\Containers\User\UI\API\Tests\Functional;
 
 use App\Containers\Authentication\Tests\TestCase;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
-use function file_exists;
-use function storage_path;
 
 /**
  * Class ProxyLoginTest
@@ -54,8 +53,8 @@ class ProxyLoginTest extends TestCase
         ]);
 
         // make the clients credentials available as env variables
-        putenv('CLIENT_WEB_ADMIN_ID=' . $clientId);
-        putenv('CLIENT_WEB_ADMIN_SECRET=' . $clientSecret);
+        Config::set('authentication-container.clients.web.admin.id', $clientId);
+        Config::set('authentication-container.clients.web.admin.secret', $clientSecret);
 
         // create testing oauth keys files
         $publicFilePath = $this->createTestingKey('oauth-public.key');
@@ -111,8 +110,8 @@ class ProxyLoginTest extends TestCase
         ]);
 
         // make the clients credentials available as env variables
-        putenv('CLIENT_WEB_ADMIN_ID=' . $clientId);
-        putenv('CLIENT_WEB_ADMIN_SECRET=' . $clientSecret);
+        Config::set('authentication-container.clients.web.admin.id', $clientId);
+        Config::set('authentication-container.clients.web.admin.secret', $clientSecret);
 
         // create testing oauth keys files
         $publicFilePath = $this->createTestingKey('oauth-public.key');
@@ -120,7 +119,7 @@ class ProxyLoginTest extends TestCase
 
         $response = $this->endpoint($endpoint)->makeCall($data);
 
-        if (\Config::get('authentication-container.require_email_confirmation')) {
+        if (Config::get('authentication-container.require_email_confirmation')) {
             $response->assertStatus(409);
         } else {
             $response->assertStatus(200);

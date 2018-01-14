@@ -3,7 +3,6 @@
 /public/hot
 /storage/*.key
 /vendor
-Homestead.json
 Homestead.yaml
 .env
 storage/logs/laravel.log
@@ -16,3 +15,5 @@ deploy.php
 composer.lock
 PackagesToAdd.txt
 default_images/
+_ide_helper*.php
+.phpstorm.meta.php

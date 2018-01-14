@@ -2,10 +2,11 @@
 
 namespace App\Containers\User\Actions;
 
-use App\Ship\Parents\Actions\Action;
-use App\Ship\Parents\Requests\Request;
-use Illuminate\Support\Facades\Hash;
 use Apiato\Core\Foundation\Facades\Apiato;
+use App\Containers\User\Models\User;
+use App\Ship\Parents\Actions\Action;
+use App\Ship\Transporters\DataTransporter;
+use Illuminate\Support\Facades\Hash;
 use Vinkla\Hashids\Facades\Hashids;
 
 /**
@@ -17,31 +18,37 @@ class UpdateUserAction extends Action
 {
 
     /**
-     * @param \App\Ship\Parents\Requests\Request $request
+     * @param \App\Ship\Transporters\DataTransporter $data
      *
-     * @return  mixed
+     * @return  \App\Containers\User\Models\User
      */
-    public function run(Request $request)
+    public function run(DataTransporter $data): User
     {
         $userData = [
-            'first_name'           => $request->first_name,
-            'last_name'            => $request->last_name,
-            'email'                => $request->email,
-            'password'             => $request->password ? Hash::make($request->password) : null,
-            'avatar'               => $request->hasFile('avatar') ? $request->avatar->storeAs(Hashids::encode($request->id), 'avatar.' . $request->avatar->getClientOriginalExtension(), 'public') : null,
-            'gender'               => $request->gender,
-            'birth'                => $request->birth,
-            'province'             => $request->province,
-            'city'                 => $request->city,
-            'social_token'         => $request->token,
-            'social_expires_in'    => $request->expiresIn,
-            'social_refresh_token' => $request->refreshToken,
-            'social_token_secret'  => $request->tokenSecret,
+            'first_name'           => $data->first_name,
+            'last_name'            => $data->last_name,
+            'email'                => $data->email,
+            'password'             => $data->password ? Hash::make($data->password) : null,
+            'avatar'               => $data->hasFile('avatar') ? $data->avatar->storeAs(Hashids::encode($data->id), 'avatar.' . $data->avatar->getClientOriginalExtension(), 'public') : null,
+            'gender'               => $data->gender,
+            'birth'                => $data->birth,
+            'province'             => $data->province,
+            'city'                 => $data->city,
+            'social_token'         => $data->token,
+            'social_expires_in'    => $data->expiresIn,
+            'social_refresh_token' => $data->refreshToken,
+            'social_token_secret'  => $data->tokenSecret,
+            'social_token'         => $data->token,
+            'social_expires_in'    => $data->expiresIn,
+            'social_refresh_token' => $data->refreshToken,
+            'social_token_secret'  => $data->tokenSecret,
         ];
 
         // remove null values and their keys
         $userData = array_filter($userData);
 
-        return Apiato::call('User@UpdateUserTask', [$userData, $request->id]);
+        $user = Apiato::call('User@UpdateUserTask', [$userData, $data->id]);
+
+        return $user;
     }
 }

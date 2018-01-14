@@ -4,9 +4,9 @@ namespace App\Containers\Wepay\Tasks;
 
 use App\Containers\Wepay\Exceptions\WepayApiErrorException;
 use App\Ship\Parents\Tasks\Task;
-use KevinEm\WePay\Laravel\WePayLaravel;
 use Exception;
 use Illuminate\Support\Facades\Config;
+use KevinEm\WePay\Laravel\WePayLaravel;
 
 /**
  * Class CreateWepayCustomerTask.
@@ -35,7 +35,8 @@ class CreateWepayCustomerTask extends Task
      * @param        $email
      * @param string $description
      *
-     * @return  array Wepay customer object
+     * @return array Wepay customer object
+     * @throws WepayApiErrorException
      */
     public function run($email, $description = '')
     {

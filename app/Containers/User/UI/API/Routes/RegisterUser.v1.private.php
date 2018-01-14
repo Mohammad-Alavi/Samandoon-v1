@@ -15,8 +15,6 @@
  * @apiParam           {String}  last_name (required) required|min:2|max:50
  * @apiParam           {String}  gender (optional)
  * @apiParam           {String}  birth (optional)
- * @apiParam           {String}  province (optional)
- * @apiParam           {String}  city (optional)
  *
  * @apiUse             UserSuccessSingleResponse
  */

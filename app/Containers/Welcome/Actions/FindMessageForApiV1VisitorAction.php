@@ -3,7 +3,6 @@
 namespace App\Containers\Welcome\Actions;
 
 use App\Ship\Parents\Actions\Action;
-use Illuminate\Support\Facades\Config;
 
 /**
  * Class WelcomeApiRootVisitorAction.
@@ -18,6 +17,6 @@ class FindMessageForApiV1VisitorAction extends Action
      */
     public function run()
     {
-        return ['Welcome to ' . Config::get('app.name') . ' (API V1).'];
+        return [trans('localization::messages.welcome') . ' (API V1)'];
     }
 }
