@@ -2,7 +2,6 @@
 
 namespace App\Containers\NGO\UI\API\Transformers;
 
-use App\Containers\Event\UI\API\Transformers\EventTransformer;
 use App\Containers\NGO\Models\Ngo;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Transformers\Transformer;
@@ -34,7 +33,7 @@ class NgoTransformer extends Transformer
                 'confirmed' => $ngo->confirmed,
                 'logo_photo' => 'api.' . str_replace('http://', '' , env('APP_URL')) . '/v1' . str_replace(str_replace('http://', '' , env('APP_URL')), '', $ngo->getFirstMediaUrl('ngo_logo')),
                 'banner_photo' => 'api.' . str_replace('http://', '' , env('APP_URL')) . '/v1' . str_replace(str_replace('http://', '' , env('APP_URL')), '', $ngo->getFirstMediaUrl('ngo_banner')),
-                'user_id' => Hashids::encode($ngo->user_id),
+                'user_id' => $ngo->user->getHashedKey(),
                 'Registration specification' => [
                     'national_number' => $ngo->national_number,
                     'registration_number' => $ngo->registration_number,
