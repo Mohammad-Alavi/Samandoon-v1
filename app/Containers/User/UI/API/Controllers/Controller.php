@@ -84,7 +84,8 @@ class Controller extends ApiController
     {
         $user = Apiato::call('User@GetAuthenticatedUserAction');
         $user->msg = 'Found User';
-        return $this->transform($user, UserTransformer::class, ['roles']);
+        return $this->transform($user, UserTransformer::class);
+//        return $this->transform($user, UserTransformer::class, ['roles']);
 //        return $this->transform($user, UserPrivateProfileTransformer::class);
     }
 

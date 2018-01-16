@@ -45,18 +45,18 @@ class UserTransformer extends Transformer
                 'last_name' => $user->last_name,
                 'email' => $user->email,
                 'avatar' => $user->avatar,
-                'confirmed' => ($user->confirmed == 0) ? false : true,
+                'confirmed' => $user->confirmed,
                 'gender' => $user->gender,
                 'birth' => $user->birth,
-                'province' => $user->province,
-                'city' => $user->city,
                 'ngo_id' => $user->ngo_id ? Hashids::encode($user->ngo_id) : null,
-                'social_provider' => $user->social_provider,
+
+                'social_auth_provider' => $user->social_provider,
                 'social_nickname' => $user->social_nickname,
                 'social_id' => $user->social_id,
                 'social_avatar' => [
                     'avatar' => $user->social_avatar,
                     'original' => $user->social_avatar_original],
+
                 'created_at' => $user->created_at,
                 'updated_at' => $user->updated_at,
                 'readable_created_at' => $user->created_at->diffForHumans(),
@@ -80,5 +80,4 @@ class UserTransformer extends Transformer
     {
         return $this->collection($user->roles, new RoleTransformer());
     }
-
 }

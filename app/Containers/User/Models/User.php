@@ -42,8 +42,6 @@ class User extends UserModel implements ChargeableInterface
         'avatar',
         'gender',
         'birth',
-        'province',
-        'city',
         'ngo_id',
         'social_provider',
         'social_token',
