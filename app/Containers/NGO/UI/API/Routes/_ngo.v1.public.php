@@ -43,7 +43,7 @@ HTTP/1.1 200 OK
                         "description": null,
                         "event_date": "2016-12-08 13:16:00",
                         "location": null,
-                        "banner_image": "ndvm9yrj4rao0jkq/e8dz0jl84rngaxv3/event_images/eeG5ithisNoWSd4nnvtZZbzXT8qKptEFjMSKzyVk.png",
+                        "banner_image": "api./v1denora.ir/storage/4/6cf4b3e93caef896b27dd9140f7171a5.jpg",
                         "created_at": {
                         "date": "2017-11-30 04:55:32.000000",
                             "timezone_type": 3,

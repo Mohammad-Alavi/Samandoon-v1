@@ -252,6 +252,44 @@ define({ "api": [
     "groupTitle": "Event"
   },
   {
+    "group": "Localization",
+    "name": "getAllLocalizations",
+    "type": "GET",
+    "url": "/v1/localizations",
+    "title": "Get all localizations",
+    "description": "<p>Return all available localizations that are &quot;configured&quot; in the application</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parameters",
+            "description": "<p>here..</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  // TODO..\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/Localization/UI/API/Routes/GetAllLocalizations.v1.private.php",
+    "groupTitle": "Localization"
+  },
+  {
     "group": "NGO",
     "name": "CreateNGO",
     "type": "POST",
@@ -283,7 +321,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"ُSome informative msg here or Null\",\n        \"object\": {\n        \"object\": \"NGO\",\n            \"id\": \"e8dz0jl84rngaxv3\",\n            \"name\": \"انجمن همراهان محيط زيست آبادان\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"address\": \"احمدآباد خيابان 15 منازل شركتي پلاك 3412\",\n            \"zip_code\": \"0000000000\",\n            \"type\": \"موسسه غير تجاري\",\n            \"confirmed\": false,\n            \"logo_photo\": null,\n            \"banner_photo\": null,\n            \"user_id\": \"ndvm9yrj4rao0jkq\",\n            \"Registration specification\": {\n            \"national_number\": \"14004590766\",\n                \"registration_number\": \"236\",\n                \"registration_date\": \"1393/09/12\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري آبادان\"\n            },\n            \"view_ngo\": {\n            \"href\": \"v1/ngo/e8dz0jl84rngaxv3\",\n                \"method\": \"GET\"\n            }\n        },\n        \"events\": {\n        \"data\": [\n                {\n                    \"msg\": null,\n                    \"object\": {\n                    \"object\": \"Event\",\n                        \"id\": \"x680j7ro7l4kdqbe\",\n                        \"title\": \"Event Title\",\n                        \"description\": null,\n                        \"event_date\": \"2016-12-08 13:16:00\",\n                        \"location\": null,\n                        \"banner_image\": \"ndvm9yrj4rao0jkq/e8dz0jl84rngaxv3/event_images/eeG5ithisNoWSd4nnvtZZbzXT8qKptEFjMSKzyVk.png\",\n                        \"created_at\": {\n                        \"date\": \"2017-11-30 04:55:32.000000\",\n                            \"timezone_type\": 3,\n                            \"timezone\": \"UTC\"\n                        },\n                        \"updated_at\": {\n                        \"date\": \"2017-11-30 04:57:04.000000\",\n                            \"timezone_type\": 3,\n                            \"timezone\": \"UTC\"\n                        },\n                        \"readable_created_at\": \"25 minutes ago\",\n                        \"readable_updated_at\": \"23 minutes ago\"\n                    },\n                    \"view_event\": {\n                    \"href\": \"v1/event/x680j7ro7l4kdqbe\",\n                        \"method\": \"GET\"\n                    }\n                }\n            ]\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"User\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"ُSome informative msg here or Null\",\n        \"object\": {\n        \"object\": \"NGO\",\n            \"id\": \"e8dz0jl84rngaxv3\",\n            \"name\": \"انجمن همراهان محيط زيست آبادان\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"address\": \"احمدآباد خيابان 15 منازل شركتي پلاك 3412\",\n            \"zip_code\": \"0000000000\",\n            \"type\": \"موسسه غير تجاري\",\n            \"confirmed\": false,\n            \"logo_photo\": null,\n            \"banner_photo\": null,\n            \"user_id\": \"ndvm9yrj4rao0jkq\",\n            \"Registration specification\": {\n            \"national_number\": \"14004590766\",\n                \"registration_number\": \"236\",\n                \"registration_date\": \"1393/09/12\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري آبادان\"\n            },\n            \"view_ngo\": {\n            \"href\": \"v1/ngo/e8dz0jl84rngaxv3\",\n                \"method\": \"GET\"\n            }\n        },\n        \"events\": {\n        \"data\": [\n                {\n                    \"msg\": null,\n                    \"object\": {\n                    \"object\": \"Event\",\n                        \"id\": \"x680j7ro7l4kdqbe\",\n                        \"title\": \"Event Title\",\n                        \"description\": null,\n                        \"event_date\": \"2016-12-08 13:16:00\",\n                        \"location\": null,\n                        \"banner_image\": \"api./v1denora.ir/storage/4/6cf4b3e93caef896b27dd9140f7171a5.jpg\",\n                        \"created_at\": {\n                        \"date\": \"2017-11-30 04:55:32.000000\",\n                            \"timezone_type\": 3,\n                            \"timezone\": \"UTC\"\n                        },\n                        \"updated_at\": {\n                        \"date\": \"2017-11-30 04:57:04.000000\",\n                            \"timezone_type\": 3,\n                            \"timezone\": \"UTC\"\n                        },\n                        \"readable_created_at\": \"25 minutes ago\",\n                        \"readable_updated_at\": \"23 minutes ago\"\n                    },\n                    \"view_event\": {\n                    \"href\": \"v1/event/x680j7ro7l4kdqbe\",\n                        \"method\": \"GET\"\n                    }\n                }\n            ]\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"User\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -333,7 +371,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"ُSome informative msg here or Null\",\n        \"object\": {\n        \"object\": \"NGO\",\n            \"id\": \"e8dz0jl84rngaxv3\",\n            \"name\": \"انجمن همراهان محيط زيست آبادان\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"address\": \"احمدآباد خيابان 15 منازل شركتي پلاك 3412\",\n            \"zip_code\": \"0000000000\",\n            \"type\": \"موسسه غير تجاري\",\n            \"confirmed\": false,\n            \"logo_photo\": null,\n            \"banner_photo\": null,\n            \"user_id\": \"ndvm9yrj4rao0jkq\",\n            \"Registration specification\": {\n            \"national_number\": \"14004590766\",\n                \"registration_number\": \"236\",\n                \"registration_date\": \"1393/09/12\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري آبادان\"\n            },\n            \"view_ngo\": {\n            \"href\": \"v1/ngo/e8dz0jl84rngaxv3\",\n                \"method\": \"GET\"\n            }\n        },\n        \"events\": {\n        \"data\": [\n                {\n                    \"msg\": null,\n                    \"object\": {\n                    \"object\": \"Event\",\n                        \"id\": \"x680j7ro7l4kdqbe\",\n                        \"title\": \"Event Title\",\n                        \"description\": null,\n                        \"event_date\": \"2016-12-08 13:16:00\",\n                        \"location\": null,\n                        \"banner_image\": \"ndvm9yrj4rao0jkq/e8dz0jl84rngaxv3/event_images/eeG5ithisNoWSd4nnvtZZbzXT8qKptEFjMSKzyVk.png\",\n                        \"created_at\": {\n                        \"date\": \"2017-11-30 04:55:32.000000\",\n                            \"timezone_type\": 3,\n                            \"timezone\": \"UTC\"\n                        },\n                        \"updated_at\": {\n                        \"date\": \"2017-11-30 04:57:04.000000\",\n                            \"timezone_type\": 3,\n                            \"timezone\": \"UTC\"\n                        },\n                        \"readable_created_at\": \"25 minutes ago\",\n                        \"readable_updated_at\": \"23 minutes ago\"\n                    },\n                    \"view_event\": {\n                    \"href\": \"v1/event/x680j7ro7l4kdqbe\",\n                        \"method\": \"GET\"\n                    }\n                }\n            ]\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"User\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"ُSome informative msg here or Null\",\n        \"object\": {\n        \"object\": \"NGO\",\n            \"id\": \"e8dz0jl84rngaxv3\",\n            \"name\": \"انجمن همراهان محيط زيست آبادان\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"address\": \"احمدآباد خيابان 15 منازل شركتي پلاك 3412\",\n            \"zip_code\": \"0000000000\",\n            \"type\": \"موسسه غير تجاري\",\n            \"confirmed\": false,\n            \"logo_photo\": null,\n            \"banner_photo\": null,\n            \"user_id\": \"ndvm9yrj4rao0jkq\",\n            \"Registration specification\": {\n            \"national_number\": \"14004590766\",\n                \"registration_number\": \"236\",\n                \"registration_date\": \"1393/09/12\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري آبادان\"\n            },\n            \"view_ngo\": {\n            \"href\": \"v1/ngo/e8dz0jl84rngaxv3\",\n                \"method\": \"GET\"\n            }\n        },\n        \"events\": {\n        \"data\": [\n                {\n                    \"msg\": null,\n                    \"object\": {\n                    \"object\": \"Event\",\n                        \"id\": \"x680j7ro7l4kdqbe\",\n                        \"title\": \"Event Title\",\n                        \"description\": null,\n                        \"event_date\": \"2016-12-08 13:16:00\",\n                        \"location\": null,\n                        \"banner_image\": \"api./v1denora.ir/storage/4/6cf4b3e93caef896b27dd9140f7171a5.jpg\",\n                        \"created_at\": {\n                        \"date\": \"2017-11-30 04:55:32.000000\",\n                            \"timezone_type\": 3,\n                            \"timezone\": \"UTC\"\n                        },\n                        \"updated_at\": {\n                        \"date\": \"2017-11-30 04:57:04.000000\",\n                            \"timezone_type\": 3,\n                            \"timezone\": \"UTC\"\n                        },\n                        \"readable_created_at\": \"25 minutes ago\",\n                        \"readable_updated_at\": \"23 minutes ago\"\n                    },\n                    \"view_event\": {\n                    \"href\": \"v1/event/x680j7ro7l4kdqbe\",\n                        \"method\": \"GET\"\n                    }\n                }\n            ]\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"User\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -406,7 +444,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"ُSome informative msg here or Null\",\n        \"object\": {\n        \"object\": \"NGO\",\n            \"id\": \"e8dz0jl84rngaxv3\",\n            \"name\": \"انجمن همراهان محيط زيست آبادان\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"address\": \"احمدآباد خيابان 15 منازل شركتي پلاك 3412\",\n            \"zip_code\": \"0000000000\",\n            \"type\": \"موسسه غير تجاري\",\n            \"confirmed\": false,\n            \"logo_photo\": null,\n            \"banner_photo\": null,\n            \"user_id\": \"ndvm9yrj4rao0jkq\",\n            \"Registration specification\": {\n            \"national_number\": \"14004590766\",\n                \"registration_number\": \"236\",\n                \"registration_date\": \"1393/09/12\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري آبادان\"\n            },\n            \"view_ngo\": {\n            \"href\": \"v1/ngo/e8dz0jl84rngaxv3\",\n                \"method\": \"GET\"\n            }\n        },\n        \"events\": {\n        \"data\": [\n                {\n                    \"msg\": null,\n                    \"object\": {\n                    \"object\": \"Event\",\n                        \"id\": \"x680j7ro7l4kdqbe\",\n                        \"title\": \"Event Title\",\n                        \"description\": null,\n                        \"event_date\": \"2016-12-08 13:16:00\",\n                        \"location\": null,\n                        \"banner_image\": \"ndvm9yrj4rao0jkq/e8dz0jl84rngaxv3/event_images/eeG5ithisNoWSd4nnvtZZbzXT8qKptEFjMSKzyVk.png\",\n                        \"created_at\": {\n                        \"date\": \"2017-11-30 04:55:32.000000\",\n                            \"timezone_type\": 3,\n                            \"timezone\": \"UTC\"\n                        },\n                        \"updated_at\": {\n                        \"date\": \"2017-11-30 04:57:04.000000\",\n                            \"timezone_type\": 3,\n                            \"timezone\": \"UTC\"\n                        },\n                        \"readable_created_at\": \"25 minutes ago\",\n                        \"readable_updated_at\": \"23 minutes ago\"\n                    },\n                    \"view_event\": {\n                    \"href\": \"v1/event/x680j7ro7l4kdqbe\",\n                        \"method\": \"GET\"\n                    }\n                }\n            ]\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"User\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"ُSome informative msg here or Null\",\n        \"object\": {\n        \"object\": \"NGO\",\n            \"id\": \"e8dz0jl84rngaxv3\",\n            \"name\": \"انجمن همراهان محيط زيست آبادان\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"address\": \"احمدآباد خيابان 15 منازل شركتي پلاك 3412\",\n            \"zip_code\": \"0000000000\",\n            \"type\": \"موسسه غير تجاري\",\n            \"confirmed\": false,\n            \"logo_photo\": null,\n            \"banner_photo\": null,\n            \"user_id\": \"ndvm9yrj4rao0jkq\",\n            \"Registration specification\": {\n            \"national_number\": \"14004590766\",\n                \"registration_number\": \"236\",\n                \"registration_date\": \"1393/09/12\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري آبادان\"\n            },\n            \"view_ngo\": {\n            \"href\": \"v1/ngo/e8dz0jl84rngaxv3\",\n                \"method\": \"GET\"\n            }\n        },\n        \"events\": {\n        \"data\": [\n                {\n                    \"msg\": null,\n                    \"object\": {\n                    \"object\": \"Event\",\n                        \"id\": \"x680j7ro7l4kdqbe\",\n                        \"title\": \"Event Title\",\n                        \"description\": null,\n                        \"event_date\": \"2016-12-08 13:16:00\",\n                        \"location\": null,\n                        \"banner_image\": \"api./v1denora.ir/storage/4/6cf4b3e93caef896b27dd9140f7171a5.jpg\",\n                        \"created_at\": {\n                        \"date\": \"2017-11-30 04:55:32.000000\",\n                            \"timezone_type\": 3,\n                            \"timezone\": \"UTC\"\n                        },\n                        \"updated_at\": {\n                        \"date\": \"2017-11-30 04:57:04.000000\",\n                            \"timezone_type\": 3,\n                            \"timezone\": \"UTC\"\n                        },\n                        \"readable_created_at\": \"25 minutes ago\",\n                        \"readable_updated_at\": \"23 minutes ago\"\n                    },\n                    \"view_event\": {\n                    \"href\": \"v1/event/x680j7ro7l4kdqbe\",\n                        \"method\": \"GET\"\n                    }\n                }\n            ]\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"User\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -576,7 +614,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"ُSome informative msg here or Null\",\n        \"object\": {\n        \"object\": \"NGO\",\n            \"id\": \"e8dz0jl84rngaxv3\",\n            \"name\": \"انجمن همراهان محيط زيست آبادان\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"address\": \"احمدآباد خيابان 15 منازل شركتي پلاك 3412\",\n            \"zip_code\": \"0000000000\",\n            \"type\": \"موسسه غير تجاري\",\n            \"confirmed\": false,\n            \"logo_photo\": null,\n            \"banner_photo\": null,\n            \"user_id\": \"ndvm9yrj4rao0jkq\",\n            \"Registration specification\": {\n            \"national_number\": \"14004590766\",\n                \"registration_number\": \"236\",\n                \"registration_date\": \"1393/09/12\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري آبادان\"\n            },\n            \"view_ngo\": {\n            \"href\": \"v1/ngo/e8dz0jl84rngaxv3\",\n                \"method\": \"GET\"\n            }\n        },\n        \"events\": {\n        \"data\": [\n                {\n                    \"msg\": null,\n                    \"object\": {\n                    \"object\": \"Event\",\n                        \"id\": \"x680j7ro7l4kdqbe\",\n                        \"title\": \"Event Title\",\n                        \"description\": null,\n                        \"event_date\": \"2016-12-08 13:16:00\",\n                        \"location\": null,\n                        \"banner_image\": \"ndvm9yrj4rao0jkq/e8dz0jl84rngaxv3/event_images/eeG5ithisNoWSd4nnvtZZbzXT8qKptEFjMSKzyVk.png\",\n                        \"created_at\": {\n                        \"date\": \"2017-11-30 04:55:32.000000\",\n                            \"timezone_type\": 3,\n                            \"timezone\": \"UTC\"\n                        },\n                        \"updated_at\": {\n                        \"date\": \"2017-11-30 04:57:04.000000\",\n                            \"timezone_type\": 3,\n                            \"timezone\": \"UTC\"\n                        },\n                        \"readable_created_at\": \"25 minutes ago\",\n                        \"readable_updated_at\": \"23 minutes ago\"\n                    },\n                    \"view_event\": {\n                    \"href\": \"v1/event/x680j7ro7l4kdqbe\",\n                        \"method\": \"GET\"\n                    }\n                }\n            ]\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"User\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"ُSome informative msg here or Null\",\n        \"object\": {\n        \"object\": \"NGO\",\n            \"id\": \"e8dz0jl84rngaxv3\",\n            \"name\": \"انجمن همراهان محيط زيست آبادان\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"address\": \"احمدآباد خيابان 15 منازل شركتي پلاك 3412\",\n            \"zip_code\": \"0000000000\",\n            \"type\": \"موسسه غير تجاري\",\n            \"confirmed\": false,\n            \"logo_photo\": null,\n            \"banner_photo\": null,\n            \"user_id\": \"ndvm9yrj4rao0jkq\",\n            \"Registration specification\": {\n            \"national_number\": \"14004590766\",\n                \"registration_number\": \"236\",\n                \"registration_date\": \"1393/09/12\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري آبادان\"\n            },\n            \"view_ngo\": {\n            \"href\": \"v1/ngo/e8dz0jl84rngaxv3\",\n                \"method\": \"GET\"\n            }\n        },\n        \"events\": {\n        \"data\": [\n                {\n                    \"msg\": null,\n                    \"object\": {\n                    \"object\": \"Event\",\n                        \"id\": \"x680j7ro7l4kdqbe\",\n                        \"title\": \"Event Title\",\n                        \"description\": null,\n                        \"event_date\": \"2016-12-08 13:16:00\",\n                        \"location\": null,\n                        \"banner_image\": \"api./v1denora.ir/storage/4/6cf4b3e93caef896b27dd9140f7171a5.jpg\",\n                        \"created_at\": {\n                        \"date\": \"2017-11-30 04:55:32.000000\",\n                            \"timezone_type\": 3,\n                            \"timezone\": \"UTC\"\n                        },\n                        \"updated_at\": {\n                        \"date\": \"2017-11-30 04:57:04.000000\",\n                            \"timezone_type\": 3,\n                            \"timezone\": \"UTC\"\n                        },\n                        \"readable_created_at\": \"25 minutes ago\",\n                        \"readable_updated_at\": \"23 minutes ago\"\n                    },\n                    \"view_event\": {\n                    \"href\": \"v1/event/x680j7ro7l4kdqbe\",\n                        \"method\": \"GET\"\n                    }\n                }\n            ]\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"User\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -835,7 +873,7 @@ define({ "api": [
   {
     "group": "OAuth2",
     "name": "Logout",
-    "type": "post",
+    "type": "DELETE",
     "url": "/v1/logout",
     "title": "Logout",
     "description": "<p>User Logout. (Revoking Access Token)</p>",
@@ -1763,7 +1801,7 @@ define({ "api": [
     "group": "Storage",
     "name": "downloadFile",
     "type": "GET",
-    "url": "/v1/{folder}/{file_name}",
+    "url": "/v1/storage/{folder}/{file_name}",
     "title": "Download File",
     "description": "<p>Download a file from server's public folder</p>",
     "version": "1.0.0",
@@ -2180,20 +2218,6 @@ define({ "api": [
             "optional": false,
             "field": "birth",
             "description": "<p>(optional)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "province",
-            "description": "<p>(optional)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "city",
-            "description": "<p>(optional)</p>"
           }
         ]
       }
@@ -2262,6 +2286,51 @@ define({ "api": [
   },
   {
     "group": "User",
+    "name": "forgotPassword",
+    "type": "POST",
+    "url": "/v1/password/forgot",
+    "title": "Forgot password",
+    "description": "<p>Forgot password endpoint.</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "reseturl",
+            "description": "<p>the reset password url</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 202 OK\n{}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/User/UI/API/Routes/ForgotPassword.v1.public.php",
+    "groupTitle": "User"
+  },
+  {
+    "group": "User",
     "name": "registerUser",
     "type": "post",
     "url": "/v1/register",
@@ -2317,20 +2386,6 @@ define({ "api": [
             "optional": false,
             "field": "birth",
             "description": "<p>(optional)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "province",
-            "description": "<p>(optional)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "city",
-            "description": "<p>(optional)</p>"
           }
         ]
       }
@@ -2346,6 +2401,58 @@ define({ "api": [
         }
       ]
     }
+  },
+  {
+    "group": "User",
+    "name": "resetPassword",
+    "type": "GET/POST",
+    "url": "/v1/password/reset",
+    "title": "Reset Password",
+    "description": "<p>Resets a password for an user.</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>from the forgot password email</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>the new password</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 204 OK\n{}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/User/UI/API/Routes/ResetPassword.v1.public.php",
+    "groupTitle": "User"
   },
   {
     "group": "wepay",

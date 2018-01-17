@@ -5,7 +5,6 @@ namespace App\Containers\NGO\UI\API\Transformers;
 use App\Containers\NGO\Models\Ngo;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Transformers\Transformer;
-use Vinkla\Hashids\Facades\Hashids;
 
 class NgoTransformer extends Transformer
 {
@@ -31,8 +30,8 @@ class NgoTransformer extends Transformer
                 'zip_code' => $ngo->zip_code,
                 'type' => $ngo->type,
                 'confirmed' => $ngo->confirmed,
-                'logo_photo' => 'api.' . str_replace('http://', '' , env('APP_URL')) . '/v1' . str_replace(str_replace('http://', '' , env('APP_URL')), '', $ngo->getFirstMediaUrl('ngo_logo')),
-                'banner_photo' => 'api.' . str_replace('http://', '' , env('APP_URL')) . '/v1' . str_replace(str_replace('http://', '' , env('APP_URL')), '', $ngo->getFirstMediaUrl('ngo_banner')),
+                'logo_photo' => 'api.' . str_replace('http://', '' , config('app.url')) . '/v1' . str_replace(str_replace('http://', '' , config('app.url')), '', $ngo->getFirstMediaUrl('ngo_logo')),
+                'banner_photo' => 'api.' . str_replace('http://', '' , config('app.url')) . '/v1' . str_replace(str_replace('http://', '' , config('app.url')), '', $ngo->getFirstMediaUrl('ngo_banner')),
                 'user_id' => $ngo->user->getHashedKey(),
                 'Registration specification' => [
                     'national_number' => $ngo->national_number,

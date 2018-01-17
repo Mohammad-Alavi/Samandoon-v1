@@ -134,7 +134,7 @@ define({ "api": [
   {
     "group": "OAuth2",
     "name": "Logout",
-    "type": "post",
+    "type": "DELETE",
     "url": "/v1/logout",
     "title": "Logout",
     "description": "<p>User Logout. (Revoking Access Token)</p>",
@@ -155,5 +155,102 @@ define({ "api": [
     },
     "filename": "app/Containers/Authentication/UI/API/Routes/Logout.v1.public.php",
     "groupTitle": "OAuth2"
+  },
+  {
+    "group": "User",
+    "name": "forgotPassword",
+    "type": "POST",
+    "url": "/v1/password/forgot",
+    "title": "Forgot password",
+    "description": "<p>Forgot password endpoint.</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "reseturl",
+            "description": "<p>the reset password url</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 202 OK\n{}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/User/UI/API/Routes/ForgotPassword.v1.public.php",
+    "groupTitle": "User"
+  },
+  {
+    "group": "User",
+    "name": "resetPassword",
+    "type": "GET/POST",
+    "url": "/v1/password/reset",
+    "title": "Reset Password",
+    "description": "<p>Resets a password for an user.</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>from the forgot password email</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>the new password</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 204 OK\n{}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/User/UI/API/Routes/ResetPassword.v1.public.php",
+    "groupTitle": "User"
   }
 ] });
