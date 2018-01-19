@@ -36,7 +36,7 @@ class DeleteFileRequest extends Request
      */
     protected $urlParameters = [
         'id',
-        'file_name',
+        'resource_name',
     ];
 
     /**
@@ -46,7 +46,7 @@ class DeleteFileRequest extends Request
     {
         return [
             'id' => 'required',
-            'file_name' => 'required|max:255',
+            'resource_name' => 'required|max:255',
         ];
     }
 

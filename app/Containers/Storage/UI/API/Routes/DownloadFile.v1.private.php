@@ -3,7 +3,7 @@
  * @apiGroup           Storage
  * @apiName            downloadFile
  *
- * @api                {GET} /v1/storage/{folder}/{file_name} Download File
+ * @api                {GET} /v1/storage/{folder_name}/{resource_name} Download File
  * @apiDescription     Download a file from server's public folder
  *
  * @apiVersion         1.0.0

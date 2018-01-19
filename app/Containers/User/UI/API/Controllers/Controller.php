@@ -43,7 +43,7 @@ class Controller extends ApiController
 
     public function updateUser(UpdateUserRequest $request)
     {
-        $user = Apiato::call('User@UpdateUserAction', [new DataTransporter($request)]);
+        $user = Apiato::call('User@UpdateUserAction', [$request]);
         $user->msg = 'User updated';
         return $this->transform($user, UserTransformer::class);
     }

@@ -9,11 +9,9 @@ use App\Ship\Exceptions\InternalErrorException;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Tasks\Task;
+use App\Ship\Transporters\DataTransporter;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Storage;
-use Vinkla\Hashids\Facades\Hashids;
 
 /**
  * Class UpdateUserTask.
@@ -23,39 +21,37 @@ use Vinkla\Hashids\Facades\Hashids;
 class UpdateUserTask extends Task
 {
 
-    /**
-     * @param $userData
-     * @param $userId
-     *
-     * @return mixed
-     * @throws InternalErrorException
-     * @throws NotFoundException
-     * @throws UpdateResourceFailedException
-     *
-     * @return  \App\Containers\User\Models\User
-     */
-    public function run($userData, $userId): User
+    private $repository;
+
+    public function __construct(UserRepository $repository)
     {
-        if (empty($userData)) {
+        $this->repository = $repository;
+    }
+
+    /**
+     * @param DataTransporter $data
+     * @param $userId
+     * @return User|mixed
+     * @internal param $userData
+     */
+    public function run($data, $userId): User
+    {
+        if (empty($data)) {
             throw new UpdateResourceFailedException('Inputs are empty.');
         }
 
-        if (array_key_exists('avatar', $userData)) {
+        if (array_key_exists('avatar', $data)) {
             $user = Apiato::call('User@FindUserByIdTask', [$userId]);
-            Storage::disk('public')->delete($user->avatar);
-            $user->avatar = $userData['avatar'];
-            $user->save();
+            $user->clearMediaCollection('avatar');
+            $user->addMediaFromRequest('avatar')->toMediaCollection('avatar');
         }
 
         try {
-            $user = App::make(UserRepository::class)->update($userData, $userId);
+            return $this->repository->update($data, $userId);
         } catch (ModelNotFoundException $exception) {
             throw new NotFoundException('User Not Found.');
         } catch (Exception $exception) {
             throw new InternalErrorException();
         }
-
-        return $user;
     }
-
 }

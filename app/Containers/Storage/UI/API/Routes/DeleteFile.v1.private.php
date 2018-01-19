@@ -4,7 +4,7 @@
  * @apiGroup           Storage
  * @apiName            deleteFile
  *
- * @api                {DELETE} /v1/storage/delete/{user_id}/{file_name} Delete File
+ * @api                {DELETE} /v1/storage/{folder_name}/{resource_name} Delete File
  * @apiDescription     Endpoint description here..
  *
  * @apiVersion         1.0.0
@@ -15,12 +15,12 @@
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK
 {
-  // Insert the response of the request here...
+    "Media (50762ff31f0d03520cd26dbb54d37443.jpg) deleted."
 }
  */
 
 /** @var Route $router */
-$router->delete('storage/{id}/{file_name}', [
+$router->delete('storage/{id}/{resource_name}', [
     'as' => 'api_storage_delete_file',
     'uses'  => 'Controller@deleteFile',
     'middleware' => [

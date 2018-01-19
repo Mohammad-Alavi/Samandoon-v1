@@ -1763,7 +1763,7 @@ define({ "api": [
     "group": "Storage",
     "name": "deleteFile",
     "type": "DELETE",
-    "url": "/v1/storage/delete/{user_id}/{file_name}",
+    "url": "/v1/storage/{folder_name}/{resource_name}",
     "title": "Delete File",
     "description": "<p>Endpoint description here..</p>",
     "version": "1.0.0",
@@ -1789,7 +1789,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  // Insert the response of the request here...\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"Media (50762ff31f0d03520cd26dbb54d37443.jpg) deleted.\"\n}",
           "type": "json"
         }
       ]
@@ -1801,7 +1801,7 @@ define({ "api": [
     "group": "Storage",
     "name": "downloadFile",
     "type": "GET",
-    "url": "/v1/storage/{folder}/{file_name}",
+    "url": "/v1/storage/{folder_name}/{resource_name}",
     "title": "Download File",
     "description": "<p>Download a file from server's public folder</p>",
     "version": "1.0.0",

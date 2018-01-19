@@ -19,7 +19,7 @@ class UserTransformer extends Transformer
      * @var  array
      */
     protected $availableIncludes = [
-        'roles',
+        'oles',
     ];
 
     /**
@@ -44,11 +44,11 @@ class UserTransformer extends Transformer
                 'first_name' => $user->first_name,
                 'last_name' => $user->last_name,
                 'email' => $user->email,
-                'avatar' => $user->avatar,
+                'avatar' => 'api.' . str_replace('http://', '' , config('app.url')) . '/v1' . str_replace(str_replace('http://', '' , config('app.url')), '', $user->getFirstMediaUrl('avatar')),
                 'confirmed' => $user->confirmed,
                 'gender' => $user->gender,
                 'birth' => $user->birth,
-                'ngo_id' => $user->ngo_id ? Hashids::encode($user->ngo_id) : null,
+                'ngo_id' => $user->ngo_id ? $user->ngo->getHashedKey() : null,
 
                 'social_auth_provider' => $user->social_provider,
                 'social_nickname' => $user->social_nickname,

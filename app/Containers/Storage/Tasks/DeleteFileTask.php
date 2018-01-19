@@ -13,7 +13,7 @@ class DeleteFileTask extends Task
     {
         try {
             $media->delete();
-            return new JsonResponse('Media (' . $request->file_name . ') deleted.', 200);
+            return new JsonResponse('Media (' . $request->resource_name . ') deleted.', 200);
         }
         catch (Exception $exception)
         {
