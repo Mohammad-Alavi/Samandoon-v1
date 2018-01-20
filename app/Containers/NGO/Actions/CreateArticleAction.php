@@ -14,6 +14,7 @@ class CreateArticleAction extends Action
         $data = $request->sanitizeInput([
             'title',
             'text',
+            'image',
             'ngo_id'
         ]);
 

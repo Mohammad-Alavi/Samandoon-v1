@@ -10,6 +10,6 @@ class DeleteArticleAction extends Action
 {
     public function run(Request $request)
     {
-        return Apiato::call('NGO@DeleteArticleTask', [$request->id]);
+        return Apiato::call('NGO@DeleteArticleTask', [$request]);
     }
 }

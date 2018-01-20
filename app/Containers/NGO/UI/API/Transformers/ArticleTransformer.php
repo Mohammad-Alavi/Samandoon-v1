@@ -5,7 +5,6 @@ namespace App\Containers\NGO\UI\API\Transformers;
 use App\Containers\NGO\Models\Article;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Transformers\Transformer;
-use Vinkla\Hashids\Facades\Hashids;
 
 class ArticleTransformer extends Transformer
 {
@@ -14,32 +13,37 @@ class ArticleTransformer extends Transformer
     ];
 
    protected $availableIncludes = [
-        'NGO',
-        'User'
+        'ngo',
+        'user'
     ];
 
-    public function transform(Article $entity)
+    public function transform(Article $article)
     {
         $response = [
-            'msg' => $entity->msg,
+            'msg' => $article->msg,
             'object' => [
                 'object' => 'Article',
-                'id' => $entity->getHashedKey(),
-                'title' => $entity->title,
-                'text' => $entity->text,
-                'ngo' => Hashids::encode($entity->ngo->id),
-                'created_at' => $entity->created_at,
-                'updated_at' => $entity->updated_at,
+                'id' => $article->getHashedKey(),
+                'title' => $article->title,
+                'text' => $article->text,
+                'image' => 'api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $article->getFirstMediaUrl('article_image')),
+                'ngo_id' => $article->ngo->getHashedKey(),
+
+                'created_at' => $article->created_at,
+                'updated_at' => $article->updated_at,
+                'readable_created_at' => $article->created_at->diffForHumans(),
+                'readable_updated_at' => $article->updated_at->diffForHumans(),
+
                 'view_article' => [
-                    'href' => 'v1/ngo/article/' . $entity->getHashedKey(),
+                    'href' => 'v1/ngo/article/' . $article->getHashedKey(),
                     'method' => 'GET'
                 ],
             ]
         ];
 
         $response = $this->ifAdmin([
-            'real_id'    => $entity->id,
-            // 'deleted_at' => $entity->deleted_at,
+            'real_id' => $article->id,
+            // 'deleted_at' => $article->deleted_at,
         ], $response);
 
         return $response;

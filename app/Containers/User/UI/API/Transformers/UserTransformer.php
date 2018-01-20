@@ -19,7 +19,7 @@ class UserTransformer extends Transformer
      * @var  array
      */
     protected $availableIncludes = [
-        'oles',
+        'roles',
     ];
 
     /**
@@ -44,7 +44,9 @@ class UserTransformer extends Transformer
                 'first_name' => $user->first_name,
                 'last_name' => $user->last_name,
                 'email' => $user->email,
-                'avatar' => 'api.' . str_replace('http://', '' , config('app.url')) . '/v1' . str_replace(str_replace('http://', '' , config('app.url')), '', $user->getFirstMediaUrl('avatar')),
+                'avatar' => isEmptyOrNullString($user->avatar) ?
+                    'api.' . str_replace('http://', '' , config('app.url')) . '/v1' . str_replace(str_replace('http://', '' , config('app.url')), '', $user->getFirstMediaUrl('avatar')) :
+                    'api.' . str_replace('http://', '' , config('app.url')) . '/v1' . '/default_images/default_avatar.png',
                 'confirmed' => $user->confirmed,
                 'gender' => $user->gender,
                 'birth' => $user->birth,

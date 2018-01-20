@@ -19,6 +19,10 @@ class UpdateArticleTask extends Task
     public function run($id, array $data)
     {
         try {
+            if (array_key_exists('image', $data)) {
+                $data->clearMediaCollection('article_image');
+                $data->addMediaFromRequest('image')->toMediaCollection('article_image');
+            }
             return $this->repository->update($data, $id);
         }
         catch (Exception $exception) {

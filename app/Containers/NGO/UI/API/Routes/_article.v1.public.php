@@ -12,7 +12,8 @@ HTTP/1.1 200 OK
             "id": "3mjzyg5dp5a0vwp6",
             "title": "This is an Article",
             "text": "Some random texts and description for nealy created Article",
-            "ngo": "kjeonp5eordqzvb8",
+            "image": "api.samandoon.local/v1/storage/1/50762ff31f0d03520cd26dbb54d37443.jpg",
+            "ngo_id": "kjeonp5eordqzvb8",
             "created_at": {
             "date": "2017-12-11 10:00:19.000000",
                 "timezone_type": 3,
@@ -61,8 +62,8 @@ HTTP/1.1 200 OK
     },
     "meta": {
     "include": [
-        "NGO",
-        "User"
+        "ngo",
+        "user"
     ],
         "custom": []
     }

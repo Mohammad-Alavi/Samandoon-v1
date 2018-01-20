@@ -94,6 +94,11 @@ class Ngo extends Model implements HasMedia
         {
             $this->articles()->delete();
             $this->events()->delete();
+
+            // revoke user's permission to manage events and articles
+            $this->user->revokePermissionTo('manage-event');
+            $this->user->revokePermissionTo('manage-article');
+
             parent::delete();
         });
     }

@@ -54,8 +54,8 @@ class Controller extends ApiController
 
     public function deleteNgo(DeleteNgoRequest $request)
     {
-        $ngo = Apiato::call('NGO@DeleteNgoAction', [$request]);
-        return $this->deleted($ngo);
+        Apiato::call('NGO@DeleteNgoAction', [$request]);
+        return $this->noContent();
     }
 
     public function getNgoSubjects()
@@ -80,8 +80,8 @@ class Controller extends ApiController
 
     public function deleteArticle(DeleteArticleRequest $request)
     {
-        $article = Apiato::call('NGO@DeleteArticleAction', [$request]);
-        return $this->deleted($article);
+        Apiato::call('NGO@DeleteArticleAction', [$request]);
+        return $this->noContent();
     }
 
     public function getArticle(GetArticleRequest $request)

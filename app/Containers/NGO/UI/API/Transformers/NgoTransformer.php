@@ -12,7 +12,8 @@ class NgoTransformer extends Transformer
     ];
 
     protected $availableIncludes = [
-        'User',
+        'user',
+        'articles'
     ];
 
     public function transform(Ngo $ngo)
@@ -30,8 +31,8 @@ class NgoTransformer extends Transformer
                 'zip_code' => $ngo->zip_code,
                 'type' => $ngo->type,
                 'confirmed' => $ngo->confirmed,
-                'logo_photo' => 'api.' . str_replace('http://', '' , config('app.url')) . '/v1' . str_replace(str_replace('http://', '' , config('app.url')), '', $ngo->getFirstMediaUrl('ngo_logo')),
-                'banner_photo' => 'api.' . str_replace('http://', '' , config('app.url')) . '/v1' . str_replace(str_replace('http://', '' , config('app.url')), '', $ngo->getFirstMediaUrl('ngo_banner')),
+                'logo_photo' => 'api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_logo')),
+                'banner_photo' => 'api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_banner')),
                 'user_id' => $ngo->user->getHashedKey(),
                 'Registration specification' => [
                     'national_number' => $ngo->national_number,
@@ -39,6 +40,12 @@ class NgoTransformer extends Transformer
                     'registration_date' => $ngo->registration_date,
                     'registration_unit' => $ngo->registration_unit,
                 ],
+
+                'created_at' => $ngo->created_at,
+                'updated_at' => $ngo->updated_at,
+                'readable_created_at' => $ngo->created_at->diffForHumans(),
+                'readable_updated_at' => $ngo->updated_at->diffForHumans(),
+
                 'view_ngo' => [
                     'href' => 'v1/ngo/' . $ngo->getHashedKey(),
                     'method' => 'GET'
@@ -48,6 +55,7 @@ class NgoTransformer extends Transformer
 
         $response = $this->ifAdmin([
             'real_id' => $ngo->id,
+//            'deleted_at' => $ngo->deleted_at,
         ], $response);
 
         return $response;
@@ -57,5 +65,11 @@ class NgoTransformer extends Transformer
     {
         // use `item` with single relationship
         return $this->item($ngo->user, new UserTransformer());
+    }
+
+    public function includeArticles(Ngo $ngo)
+    {
+        // use `item` with single relationship
+        return $this->collection($ngo->article, new ArticleTransformer());
     }
 }

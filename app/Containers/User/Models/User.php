@@ -98,4 +98,13 @@ class User extends UserModel implements ChargeableInterface, HasMedia
     public function follow(){
         return $this->hasMany(user_fallow::class);
     }
+
+    public function delete()
+    {
+        DB::transaction(function()
+        {
+            $this->ngo()->delete();
+            parent::delete();
+        });
+    }
 }

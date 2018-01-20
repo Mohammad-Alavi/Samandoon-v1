@@ -12,7 +12,8 @@ class UpdateArticleAction extends Action
     {
         $data = $request->sanitizeInput([
             'title',
-            'text'
+            'text',
+            'image'
         ]);
 
         $article = Apiato::call('NGO@UpdateArticleTask', [$request->id, $data]);

@@ -11,8 +11,7 @@ class UpdateNgoAction extends Action
     {
         $ngo = $this->call('NGO@FindNgoByIdTask', [$request->id]);
         $this->call('NGO@CheckHasAccessToNgoTask', [$request]);
-
-        info($request);
+;
         $data = $request->sanitizeInput([
             'description',
             'area_of_activity',

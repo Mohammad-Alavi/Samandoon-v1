@@ -3,12 +3,17 @@
 namespace App\Containers\NGO\Models;
 
 use App\Ship\Parents\Models\Model;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-class Article extends Model
+class Article extends Model implements HasMedia
 {
+    use HasMediaTrait;
+
     protected $fillable = [
         'title',
         'text',
+        'image',
         'ngo_id'
     ];
 
