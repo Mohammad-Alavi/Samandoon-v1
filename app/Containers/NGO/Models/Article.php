@@ -13,7 +13,6 @@ class Article extends Model implements HasMedia
     protected $fillable = [
         'title',
         'text',
-        'image',
         'ngo_id'
     ];
 

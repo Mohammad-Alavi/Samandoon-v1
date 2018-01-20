@@ -31,8 +31,12 @@ class NgoTransformer extends Transformer
                 'zip_code' => $ngo->zip_code,
                 'type' => $ngo->type,
                 'confirmed' => $ngo->confirmed,
-                'logo_photo' => 'api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_logo')),
-                'banner_photo' => 'api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_banner')),
+                'ngo_logo' => empty($ngo->getFirstMediaUrl('ngo_logo')) ?
+                    'api.' . str_replace('http://', '' , config('app.url')) . '/v1' . config('samandoon.default.ngo_logo') :
+                    'api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_logo')),
+                'ngo_banner' => empty($ngo->getFirstMediaUrl('ngo_banner')) ?
+                    'api.' . str_replace('http://', '' , config('app.url')) . '/v1' . config('samandoon.default.ngo_banner') :
+                    'api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_banner')),
                 'user_id' => $ngo->user->getHashedKey(),
                 'Registration specification' => [
                     'national_number' => $ngo->national_number,

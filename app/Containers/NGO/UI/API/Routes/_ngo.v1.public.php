@@ -10,67 +10,46 @@ HTTP/1.1 200 OK
         "object": {
         "object": "NGO",
             "id": "e8dz0jl84rngaxv3",
-            "name": "انجمن همراهان محيط زيست آبادان",
+            "name": "مهرگان كرشته",
             "description": null,
             "subjects": [],
             "area_of_activity": null,
-            "address": "احمدآباد خيابان 15 منازل شركتي پلاك 3412",
-            "zip_code": "0000000000",
-            "type": "موسسه غير تجاري",
+            "address": "----",
+            "zip_code": "6316713649",
+            "type": "شركت سهامي خاص",
             "confirmed": false,
-            "logo_photo": null,
-            "banner_photo": null,
-            "user_id": "ndvm9yrj4rao0jkq",
+            "ngo_logo": "api.samandoon.local/v1/storage/21/6cf4b3e93caef896b27dd9140f7171a5.jpg",
+            "ngo_banner": "api.samandoon.local/v1/default_images/ngo_banner.png",
+            "user_id": "Je",
             "Registration specification": {
-            "national_number": "14004590766",
-                "registration_number": "236",
-                "registration_date": "1393/09/12",
-                "registration_unit": "مرجع ثبت شركت ها و موسسات غيرتجاري آبادان"
+            "national_number": "10100000006",
+                "registration_number": "17",
+                "registration_date": "1350/01/23",
+                "registration_unit": "مرجع ثبت شركت ها و موسسات غيرتجاري شهريار"
             },
+            "created_at": {
+            "date": "2018-01-20 06:41:17.000000",
+                "timezone_type": 3,
+                "timezone": "UTC"
+            },
+            "updated_at": {
+            "date": "2018-01-20 09:02:47.000000",
+                "timezone_type": 3,
+                "timezone": "UTC"
+            },
+            "readable_created_at": "2 hours ago",
+            "readable_updated_at": "24 minutes ago",
             "view_ngo": {
-            "href": "v1/ngo/e8dz0jl84rngaxv3",
+            "href": "v1/ngo/Je",
                 "method": "GET"
             }
-        },
-        "events": {
-        "data": [
-                {
-                    "msg": null,
-                    "object": {
-                    "object": "Event",
-                        "id": "x680j7ro7l4kdqbe",
-                        "title": "Event Title",
-                        "description": null,
-                        "event_date": "2016-12-08 13:16:00",
-                        "location": null,
-                        "banner_image": "api./v1denora.ir/storage/4/6cf4b3e93caef896b27dd9140f7171a5.jpg",
-                        "created_at": {
-                        "date": "2017-11-30 04:55:32.000000",
-                            "timezone_type": 3,
-                            "timezone": "UTC"
-                        },
-                        "updated_at": {
-                        "date": "2017-11-30 04:57:04.000000",
-                            "timezone_type": 3,
-                            "timezone": "UTC"
-                        },
-                        "readable_created_at": "25 minutes ago",
-                        "readable_updated_at": "23 minutes ago"
-                    },
-                    "view_event": {
-                    "href": "v1/event/x680j7ro7l4kdqbe",
-                        "method": "GET"
-                    }
-                }
-            ]
         }
     },
     "meta": {
     "include": [
-        "user"
+        "user",
         "articles"
     ],
         "custom": []
     }
-}
 */

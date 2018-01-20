@@ -38,8 +38,6 @@ class Ngo extends Model implements HasMedia
         'address',
         'zip_code',
         'type',
-        'logo_photo',
-        'banner_photo',
         'user_id',
         'national_number',
         'registration_number',

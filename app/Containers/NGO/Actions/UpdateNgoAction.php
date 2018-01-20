@@ -18,8 +18,8 @@ class UpdateNgoAction extends Action
             'subjects',
             'address',
             'zip_code',
-            'logo_photo',
-            'banner_photo'
+            'ngo_logo',
+            'ngo_banner'
         ]);
 
         $ngo = $this->call('NGO@UpdateNgoTask', [$ngo, $data]);

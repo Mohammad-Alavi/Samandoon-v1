@@ -22,8 +22,6 @@ class CreateNgosTable extends Migration
             $table->string('zip_code')->nullable();
             $table->string('type')->nullable();
             $table->boolean('confirmed')->default(false);
-            $table->string('logo_photo')->nullable();
-            $table->string('banner_photo')->nullable();
             $table->integer('user_id');
             $table->string('national_number')->unique()->nullable();
             $table->string('registration_number')->unique()->nullable();

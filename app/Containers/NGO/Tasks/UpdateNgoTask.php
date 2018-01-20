@@ -24,13 +24,13 @@ class UpdateNgoTask extends Task
         }
 
         try {
-            if (array_key_exists('logo_photo', $data)) {
+            if (array_key_exists('ngo_logo', $data)) {
                 $ngo->clearMediaCollection('ngo_logo');
-                $ngo->addMediaFromRequest('logo_photo')->toMediaCollection('ngo_logo');
+                $ngo->addMediaFromRequest('ngo_logo')->toMediaCollection('ngo_logo');
             }
-            if (array_key_exists('banner_photo', $data)) {
+            if (array_key_exists('ngo_banner', $data)) {
                 $ngo->clearMediaCollection('ngo_banner');
-                $ngo->addMediaFromRequest('banner_photo')->toMediaCollection('ngo_banner');
+                $ngo->addMediaFromRequest('ngo_banner')->toMediaCollection('ngo_banner');
             }
             return $this->repository->update($data, $ngo->id);
         }

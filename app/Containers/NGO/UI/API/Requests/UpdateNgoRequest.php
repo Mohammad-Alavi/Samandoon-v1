@@ -47,8 +47,8 @@ class UpdateNgoRequest extends Request
 //            'id'    => 'required|exists:ngos,id',
             'area_of_activity' => 'max:255',
             'zip_code' => 'max:255',
-            'logo_photo' => 'image',
-            'banner_photo' => 'image',
+            'ngo_logo' => 'image',
+            'ngo_banner' => 'image',
         ];
     }
 

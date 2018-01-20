@@ -17,7 +17,6 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->string('title')->nullable();
             $table->text('text')->nullable();
-            $table->string('image')->nullable();
             $table->integer('ngo_id');
             $table->timestamps();
             //$table->softDeletes();
