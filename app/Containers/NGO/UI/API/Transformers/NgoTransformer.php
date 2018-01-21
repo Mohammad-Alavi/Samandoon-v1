@@ -22,7 +22,7 @@ class NgoTransformer extends Transformer
             'msg' => $ngo->msg,
             'object' => [
                 'object' => 'NGO',
-                'id' => $ngo->getHashedKey(),
+                'id' => $ngo->id ? $ngo->getHashedKey() : null,
                 'name' => $ngo->name,
                 'description' => $ngo->description,
                 'subjects' => $ngo->tags,
@@ -37,7 +37,7 @@ class NgoTransformer extends Transformer
                 'ngo_banner' => empty($ngo->getFirstMediaUrl('ngo_banner')) ?
                     'api.' . str_replace('http://', '' , config('app.url')) . '/v1' . config('samandoon.default.ngo_banner') :
                     'api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_banner')),
-                'user_id' => $ngo->user->getHashedKey(),
+                'user_id' => $ngo->user ? $ngo->user->getHashedKey() : null,
                 'Registration specification' => [
                     'national_number' => $ngo->national_number,
                     'registration_number' => $ngo->registration_number,
@@ -47,11 +47,11 @@ class NgoTransformer extends Transformer
 
                 'created_at' => $ngo->created_at,
                 'updated_at' => $ngo->updated_at,
-                'readable_created_at' => $ngo->created_at->diffForHumans(),
-                'readable_updated_at' => $ngo->updated_at->diffForHumans(),
+                'readable_created_at' => $ngo->created_at ? $ngo->created_at->diffForHumans() : null,
+                'readable_updated_at' => $ngo->updated_at ? $ngo->updated_at->diffForHumans() : null,
 
                 'view_ngo' => [
-                    'href' => 'v1/ngo/' . $ngo->getHashedKey(),
+                    'href' => $ngo->id ? 'v1/ngo/' . $ngo->getHashedKey() : null,
                     'method' => 'GET'
                 ],
             ]

@@ -62,7 +62,7 @@ class User extends UserModel implements ChargeableInterface, HasMedia
 
     protected $casts = [
         'is_client' => 'boolean',
-        'confirmed' => 'boolean',
+        'confirmed' => 'boolean'
     ];
 
     /**
