@@ -45,8 +45,8 @@ class UserTransformer extends Transformer
                 'last_name' => $user->last_name,
                 'email' => $user->email,
                 'avatar' => empty($user->getFirstMediaUrl('avatar')) ?
-                    'api.' . str_replace('http://', '' , config('app.url')) . '/v1' . config('samandoon.default.avatar') :
-                    'api.' . str_replace('http://', '' , config('app.url')) . '/v1' . str_replace(str_replace('http://', '' , config('app.url')), '', $user->getFirstMediaUrl('avatar')),
+                    'http://api.' . str_replace('http://', '' , config('app.url')) . '/v1' . config('samandoon.default.avatar') :
+                    'http://api.' . str_replace('http://', '' , config('app.url')) . '/v1' . str_replace(str_replace('http://', '' , config('app.url')), '', $user->getFirstMediaUrl('avatar')),
                 'confirmed' => $user->confirmed,
                 'gender' => $user->gender,
                 'birth' => $user->birth,

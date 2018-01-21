@@ -32,11 +32,11 @@ class NgoTransformer extends Transformer
                 'type' => $ngo->type,
                 'confirmed' => $ngo->confirmed,
                 'ngo_logo' => empty($ngo->getFirstMediaUrl('ngo_logo')) ?
-                    'api.' . str_replace('http://', '' , config('app.url')) . '/v1' . config('samandoon.default.ngo_logo') :
-                    'api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_logo')),
+                    'http://api.' . str_replace('http://', '' , config('app.url')) . '/v1' . config('samandoon.default.ngo_logo') :
+                    'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_logo')),
                 'ngo_banner' => empty($ngo->getFirstMediaUrl('ngo_banner')) ?
-                    'api.' . str_replace('http://', '' , config('app.url')) . '/v1' . config('samandoon.default.ngo_banner') :
-                    'api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_banner')),
+                    'http://api.' . str_replace('http://', '' , config('app.url')) . '/v1' . config('samandoon.default.ngo_banner') :
+                    'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_banner')),
                 'user_id' => $ngo->user ? $ngo->user->getHashedKey() : null,
                 'Registration specification' => [
                     'national_number' => $ngo->national_number,
