@@ -4,23 +4,23 @@
  * @apiGroup           Event
  * @apiName            CreateEvent
  *
- * @api                {post} /v1/event Create Event
+ * @api                {post} /v1/ngo/event Create Event
  * @apiDescription     Create an event
  *
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated User / Owner
  *
- * @apiParam           {string} title (required)
+ * @apiParam           {string} title (required) max:255
  * @apiParam           {text} description (optional)
- * @apiParam           {dateTime} event_date (required) required|date_format:YmdHiT
+ * @apiParam           {image} event_image (optional)
+ * @apiParam           {dateTime} event_date (required) date_format:YmdHiT
  * @apiParam           {text} location (optional)
- * @apiParam           {image} banner_image (optional)
  *
  * @apiUse             EventSuccessSingleResponse
 */
 
 
-$router->post('/event', [
+$router->post('ngo/event', [
     'uses'  => 'Controller@createEvent',
     'middleware' => [
       'auth:api',

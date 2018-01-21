@@ -18,8 +18,8 @@ HTTP/1.1 200 OK
             "zip_code": "6316713649",
             "type": "شركت سهامي خاص",
             "confirmed": false,
-            "ngo_logo": "api.samandoon.local/v1/storage/21/6cf4b3e93caef896b27dd9140f7171a5.jpg",
-            "ngo_banner": "api.samandoon.local/v1/default_images/ngo_banner.png",
+            "ngo_logo": "http://api.samandoon.local/v1/storage/21/6cf4b3e93caef896b27dd9140f7171a5.jpg",
+            "ngo_banner": "http://api.samandoon.local/v1/default_images/ngo_banner.png",
             "user_id": "Je",
             "Registration specification": {
             "national_number": "10100000006",

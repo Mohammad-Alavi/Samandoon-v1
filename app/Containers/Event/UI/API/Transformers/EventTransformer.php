@@ -2,12 +2,9 @@
 
 namespace App\Containers\Event\UI\API\Transformers;
 
-use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\Event\Models\Event;
-use App\Containers\NGO\Data\Repositories\NGORepository;
 use App\Containers\NGO\UI\API\Transformers\NgoTransformer;
 use App\Ship\Parents\Transformers\Transformer;
-use Illuminate\Support\Facades\App;
 
 class EventTransformer extends Transformer
 {
@@ -21,7 +18,7 @@ class EventTransformer extends Transformer
      * @var  array
      */
     protected $availableIncludes = [
-        'NGO'
+        'ngo'
     ];
 
     public function transform(Event $event)
@@ -33,9 +30,10 @@ class EventTransformer extends Transformer
                 'id' => $event->getHashedKey(),
                 'title' => $event->title,
                 'description' => $event->description,
+                'event_image' => empty($event->getFirstMediaUrl('event_image')) ? null :
+                    'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $event->getFirstMediaUrl('event_image')),
                 'event_date' => $event->event_date,
                 'location' => $event->location,
-                'banner_image' => $event->banner_image,
                 'created_at' => $event->created_at,
                 'updated_at' => $event->updated_at,
                 'readable_created_at' => $event->created_at->diffForHumans(),

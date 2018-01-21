@@ -10,7 +10,7 @@
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated User
  *
- * @apiParam           {String}  national_id (required) required
+ * @apiParam           {String}  national_id (required)
  *
  * @apiUse             NGOSuccessSingleResponse
  */

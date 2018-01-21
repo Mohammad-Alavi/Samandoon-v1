@@ -16,6 +16,6 @@ class DeleteArticleTask extends Task
 
     public function run($article)
     {
-            return $this->repository->delete($article->id);
+        return $this->repository->delete($article->id);
     }
 }

@@ -19,10 +19,11 @@ class CreateArticleTask extends Task
     public function run(array $data)
     {
         try {
-            if (array_key_exists('image', $data)) {
-                $data->addMediaFromRequest('image')->toMediaCollection('article_image');
+            $article = $this->repository->create($data);
+            if (array_key_exists('article_image', $data)) {
+                $article->addMediaFromRequest('article_image')->toMediaCollection('article_image');
             }
-            return $this->repository->create($data);
+            return $article;
         } catch (Exception $exception) {
             throw new CreateResourceFailedException('Failed to create new Article');
         }

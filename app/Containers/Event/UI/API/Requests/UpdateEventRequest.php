@@ -47,7 +47,7 @@ class UpdateEventRequest extends Request
 //            'id' => 'required|exists:events,id',
             'title' => 'max:255',
             'event_date'    =>  'date_format:YmdHiT',
-            'banner_image'    =>  'image',
+            'event_image'    =>  'image',
         ];
     }
 

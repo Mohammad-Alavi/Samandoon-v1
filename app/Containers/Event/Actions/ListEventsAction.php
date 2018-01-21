@@ -10,8 +10,6 @@ class ListEventsAction extends Action
 {
     public function run(Request $request)
     {
-        $events = $this->call('Event@ListEventsTask', [$request]);
-
-        return $events;
+        return $this->call('Event@ListEventsTask', [$request]);;
     }
 }

@@ -7,7 +7,6 @@ use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
 use Carbon\Carbon;
-use Vinkla\Hashids\Facades\Hashids;
 
 class CreateEventAction extends Action
 {
@@ -17,8 +16,6 @@ class CreateEventAction extends Action
         if (!$ngo) {
             throw new NotFoundException('User don\'t have a NGO.');
         }
-
-//        $request->hasFile('banner_image') ? $banner_image = $request->banner_image->storeAs(Hashids::encode($ngo->user->id), 'event_banner.' . $request->banner_image->getClientOriginalExtension(), 'public') : $banner_image = null;
 
         // manipulated data of request
         $fixedData = [
@@ -33,7 +30,7 @@ class CreateEventAction extends Action
             'title',
             'description',
             'location',
-            'banner_image',
+            'event_image',
             'event_date',
             'ngo_id'
         ]);

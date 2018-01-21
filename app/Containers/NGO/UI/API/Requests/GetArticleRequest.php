@@ -45,7 +45,6 @@ class GetArticleRequest extends Request
     {
         return [
              'id' => 'required',
-            // '{user-input}' => 'required|max:255',
         ];
     }
 

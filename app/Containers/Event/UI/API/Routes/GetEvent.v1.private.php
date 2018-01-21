@@ -4,7 +4,7 @@
  * @apiGroup           Event
  * @apiName            GetEvent
  *
- * @api                {get}  /v1/event/{id} Get Event
+ * @api                {get}  /v1/ngo/event/{id} Get Event
  * @apiDescription     Get an event by ID
  *
  * @apiVersion         1.0.0
@@ -13,6 +13,6 @@
  * @apiUse             EventSuccessSingleResponse
  */
 
-$router->get('/event/{id}', [
+$router->get('ngo/event/{id}', [
     'uses'  => 'Controller@getEvent',
 ]);

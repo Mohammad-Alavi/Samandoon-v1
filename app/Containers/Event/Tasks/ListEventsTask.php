@@ -4,10 +4,16 @@ namespace App\Containers\Event\Tasks;
 
 use App\Containers\Event\Data\Repositories\EventRepository;
 use App\Ship\Parents\Tasks\Task;
-use Illuminate\Support\Facades\App;
 
 class ListEventsTask extends Task
 {
+    private $repository;
+
+    public function __construct(EventRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      *
      */
@@ -17,8 +23,6 @@ class ListEventsTask extends Task
     // Todo Add criteria and parameters
     public function run()
     {
-        $eventRepository = App::make(EventRepository::class);
-
-        return $eventRepository->paginate();
+        return $this->repository->paginate(null, '*');
     }
 }

@@ -44,8 +44,9 @@ class UpdateArticleRequest extends Request
     public function rules()
     {
         return [
-             'id' => 'required',
-            // '{user-input}' => 'required|max:255',
+            'id' => 'required',
+            'title' => 'max:255',
+            'article_image' => 'image'
         ];
     }
 

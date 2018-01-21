@@ -26,7 +26,8 @@ class ArticleTransformer extends Transformer
                 'id' => $article->getHashedKey(),
                 'title' => $article->title,
                 'text' => $article->text,
-                'image' => 'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $article->getFirstMediaUrl('article_image')),
+                'article_image' => empty($article->getFirstMediaUrl('article_image')) ? null :
+                    'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $article->getFirstMediaUrl('article_image')),
                 'ngo_id' => $article->ngo->getHashedKey(),
 
                 'created_at' => $article->created_at,

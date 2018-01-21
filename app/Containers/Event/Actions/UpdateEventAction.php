@@ -7,7 +7,6 @@ use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
 use Carbon\Carbon;
-use Vinkla\Hashids\Facades\Hashids;
 
 class UpdateEventAction extends Action
 {
@@ -17,21 +16,28 @@ class UpdateEventAction extends Action
         $event = Event::find($request->id);
         throw_unless(count($event) > 0 ? true : false, new NotFoundException('Event not found.'));
 
-        $request->hasFile('banner_image') ? $banner_image = $request->banner_image->storeAs(Hashids::encode($event->ngo->user->id), 'event_banner.' . $request->banner_image->getClientOriginalExtension(), 'public') : $banner_image = null;
-        $request->input('event_date') ? $event_date = Carbon::createFromFormat('YmdHiT', $request->input('event_date')) : $event_date = null;
-
-        $eventData = [
-            'title' => $request->title,
-            'description' => $request->description,
-            'event_date' => $event_date,
-            'location' => $request->location,
-            'banner_image' => $banner_image,
+        $request->input('event_date') ?
+            $event_date = Carbon::createFromFormat('YmdHiT', $request->input('event_date')) :
+            $event_date = null;
+        // manipulated data of request
+        $fixedData = [
+            'event_date' => $event_date
         ];
 
-        // remove null values and their keys
-        $eventData = array_filter($eventData);
+        // add some manipulated request data to request
+        if ($event_date) {
+            $request->request->add($fixedData);
+        }
 
-        $event = $this->call('Event@UpdateEventTask', [$eventData, $event]);
+        $data = $request->sanitizeInput([
+            'title',
+            'description',
+            'event_image',
+            'event_date',
+            'location',
+        ]);
+
+        $event = $this->call('Event@UpdateEventTask', [$request->id, $data]);
 
         return $event;
     }

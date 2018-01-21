@@ -44,8 +44,9 @@ class CreateArticleRequest extends Request
     public function rules()
     {
         return [
-            // 'id' => 'required',
-            // '{user-input}' => 'required|max:255',
+            'title' => 'required|max:255',
+            'text' => 'required',
+            'article_image' => 'image'
         ];
     }
 

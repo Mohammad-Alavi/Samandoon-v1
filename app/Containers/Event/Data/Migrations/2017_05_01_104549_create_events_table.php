@@ -19,7 +19,6 @@ class CreateEventsTable extends Migration
             $table->text('description')->nullable();
             $table->dateTime('event_date');
             $table->text('location')->nullable();
-            $table->string('banner_image')->nullable();
             $table->integer('ngo_id');
             $table->timestamps();
         });

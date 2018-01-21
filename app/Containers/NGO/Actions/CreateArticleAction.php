@@ -10,11 +10,17 @@ class CreateArticleAction extends Action
 {
     public function run(Request $request)
     {
-        $request->request->add(['ngo_id' => Apiato::call('Authentication@GetAuthenticatedUserTask')->ngo->id]);
+        $ngo = Apiato::call('Authentication@GetAuthenticatedUserTask')->ngo;
+        if (!$ngo) {
+            throw new NotFoundException('User don\'t have a NGO.');
+        }
+
+        $request->request->add(['ngo_id' => $ngo->id]);
+
         $data = $request->sanitizeInput([
             'title',
             'text',
-            'image',
+            'article_image',
             'ngo_id'
         ]);
 

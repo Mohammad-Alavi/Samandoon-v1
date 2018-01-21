@@ -8,12 +8,12 @@
  * @apiDescription     Delete an Article
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated
+ * @apiPermission      Authenticated User / Owner
  *
  * @apiSuccessExample  {json}  Success-Response:
- * HTTP/1.1 200 OK
+ * HTTP/1.1 204 No Content
 {
-    "message": "Article (oj64bp5zjl8ywzn0) Deleted Successfully."
+
 }
  */
 

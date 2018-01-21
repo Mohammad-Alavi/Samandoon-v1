@@ -4,7 +4,7 @@
  * @apiGroup           Event
  * @apiName            UpdateEvent
  *
- * @api                {put}  /v1/event/{id} Update Event
+ * @api                {put}  /v1/ngo/event/{id} Update Event
  * @apiDescription     Update a given event
  *
  * @apiVersion         1.0.0
@@ -13,13 +13,13 @@
  * @apiParam           {string}  title (optional)
  * @apiParam           {text}  description (optional)
  * @apiParam           {dateTime}  event_date (optional) date_format:YmdHiT
+ * @apiParam           {image} event_image (optional)
  * @apiParam           {text} location (optional)
- * @apiParam           {image} banner_image (optional)
 
  * @apiUse             EventSuccessSingleResponse
  */
 
-$router->put('/event/{id}', [
+$router->put('ngo/event/{id}', [
     'uses'  => 'Controller@updateEvent',
     'middleware' => [
       'auth:api',

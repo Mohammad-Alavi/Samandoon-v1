@@ -5,24 +5,20 @@ namespace App\Containers\Event\Tasks;
 use App\Containers\Event\Data\Repositories\EventRepository;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Tasks\Task;
-use Exception;
-use Illuminate\Support\Facades\App;
 
 class FindEventByIdTask extends Task
 {
-    /**
-     * @param $eventId
-     * @return mixed
-     */
+    private $repository;
+
+    public function __construct(EventRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     public function run($eventId)
     {
-        // find the event by its id
-        try {
-            $event = App::make(EventRepository::class)->find($eventId);
-        } catch (Exception $e) {
-            throw new NotFoundException('Event not found.');
-        }
-
+        $event = $this->repository->find($eventId);
+        throw_if(empty($event->id), new NotFoundException('Event not found.'));
         return $event;
     }
 }

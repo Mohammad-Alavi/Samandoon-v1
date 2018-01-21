@@ -46,7 +46,7 @@ class CreateEventRequest extends Request
         return [
             'title' => 'required|max:255',
             'event_date'    =>  'required|date_format:YmdHiT',
-            'banner_image'    =>  'image',
+            'event_image'    =>  'image',
         ];
     }
 
