@@ -10,22 +10,22 @@ HTTP/1.1 200 OK
         "object": {
         "object": "Event",
             "id": "pm8njbr9jl9eko4w",
-            "title": "New Event",
-            "description": null,
+            "title": "Some event title",
+            "description": "Some event description",
+            "event_image": "http://api.samandoon.local/v1/storage/10/43c4",
             "event_date": {
-            "date": "2016-10-12 10:09:00.000000",
+            "date": "2016-12-08 13:16:00.000000",
                 "timezone_type": 2,
                 "timezone": "GMT"
             },
             "location": null,
-            "banner_image": "event_image/banner_image/CpxxKJRvgLt7GUuEJNgvjQAV0lkQ4NqYbLCRvPZa.png",
             "created_at": {
-            "date": "2017-11-27 04:13:15.000000",
+            "date": "2018-01-23 07:19:41.000000",
                 "timezone_type": 3,
                 "timezone": "UTC"
             },
             "updated_at": {
-            "date": "2017-11-27 04:13:15.000000",
+            "date": "2018-01-23 07:19:41.000000",
                 "timezone_type": 3,
                 "timezone": "UTC"
             },
@@ -33,43 +33,13 @@ HTTP/1.1 200 OK
             "readable_updated_at": "1 second ago"
         },
         "view_event": {
-        "href": "v1/event/pm8njbr9jl9eko4w",
+        "href": "v1/ngo/event/dj",
             "method": "GET"
-        },
-        "ngo": {
-        "data": {
-            "msg": null,
-                "object": {
-                "object": "NGO",
-                    "id": "ndvm9yrj4rao0jkq",
-                    "name": "انجمن همراهان محيط زيست آبادان",
-                    "description": null,
-                    "subjects": [],
-                    "area_of_activity": null,
-                    "address": "احمدآباد خيابان 15 منازل شركتي پلاك 3412",
-                    "zip_code": "0000000000",
-                    "type": "موسسه غير تجاري",
-                    "confirmed": false,
-                    "logo_photo": null,
-                    "banner_photo": null,
-                    "user_id": "qv4jdwrw0lanm6xg",
-                    "Registration specification": {
-                    "national_number": "14004590766",
-                        "registration_number": "236",
-                        "registration_date": "1393/09/12",
-                        "registration_unit": "مرجع ثبت شركت ها و موسسات غيرتجاري آبادان"
-                    },
-                    "view_ngo": {
-                    "href": "v1/ngo/ndvm9yrj4rao0jkq",
-                        "method": "GET"
-                    }
-                }
-            }
         }
     },
     "meta": {
     "include": [
-        "NGO"
+        "ngo"
     ],
         "custom": []
     }

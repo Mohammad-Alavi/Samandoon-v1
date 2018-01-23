@@ -11,9 +11,9 @@
  * @apiPermission      Owner | Admin
  *
  * @apiSuccessExample  {json}  Success-Response:
- * HTTP/1.1 200 OK
+ * HTTP/1.1 204 No Content
 {
-    "message": "NGO (oj64bp5zjl8ywzn0) Deleted Successfully."
+
 }
  */
 

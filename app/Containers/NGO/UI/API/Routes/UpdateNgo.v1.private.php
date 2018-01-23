@@ -14,8 +14,8 @@
  * @apiParam           {String}  area_of_activity (optional) max:255
  * @apiParam           {text}  address (optional) (optional)
  * @apiParam           {String}  zip_code (optional) (optional) max:255
- * @apiParam           {image}  logo_photo (optional)
- * @apiParam           {image}  banner_photo (optional)
+ * @apiParam           {image}  ngo_logo (optional)
+ * @apiParam           {image}  ngo_banner (optional)
  *
  * @apiUse             NGOSuccessSingleResponse
 */

@@ -40,7 +40,7 @@ class EventTransformer extends Transformer
                 'readable_updated_at' => $event->updated_at->diffForHumans(),
             ],
             'view_event' => [
-                'href' => 'v1/event/' . $event->getHashedKey(),
+                'href' => 'v1/ngo/event/' . $event->getHashedKey(),
                 'method' => 'GET'
             ],
         ];
