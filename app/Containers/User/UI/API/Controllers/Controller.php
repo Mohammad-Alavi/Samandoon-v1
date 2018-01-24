@@ -115,8 +115,8 @@ class Controller extends ApiController
 
     public function findUserByEmail(FindUserByEmailRequest $request)
     {
-        $user = Apiato::call('User@FindUserByEmailAction', [$request]);
-        $user->msg = 'Found User';
+        $user = $this->call('User@FindUserByEmailAction', [$request]);
+        $user->msg = 'User Found';
         return $this->transform($user, UserByEmailTransformer::class);
     }
 

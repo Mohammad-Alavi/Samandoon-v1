@@ -15,18 +15,17 @@ use Illuminate\Support\Facades\App;
  */
 class FindUserByEmailTask extends Task
 {
-    /**
-     * @param string $email
-     *
-     * @return User
-     * @throws NotFoundException
-     */
+    private $repository;
+
+    public function __construct(UserRepository $repository)
+    {
+        return $this->repository = $repository;
+    }
+
     public function run(string $email): User
     {
-        try {
-            return App::make(UserRepository::class)->findByField('email', $email)->first();
-        } catch (Exception $e) {
-            throw new NotFoundException();
-        }
+        $user = $this->repository->findByField('email', $email)->first();
+        throw_unless($user, new NotFoundException('User not found'));
+        return $user;
     }
 }

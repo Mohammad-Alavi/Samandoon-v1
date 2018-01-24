@@ -2,7 +2,6 @@
 
 namespace App\Containers\Event\Actions;
 
-use App\Containers\Event\Tasks\ListEventsTask;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
 

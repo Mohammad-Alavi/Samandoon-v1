@@ -47,7 +47,7 @@ class FindUserByIdRequest extends Request
     public function rules()
     {
         return [
-            'id' => 'required|exists:users,id'
+//            'id' => 'required'
         ];
     }
 

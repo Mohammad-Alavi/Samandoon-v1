@@ -4,10 +4,16 @@ namespace App\Containers\NGO\Tasks;
 
 use App\Containers\NGO\Data\Repositories\NGORepository;
 use App\Ship\Parents\Tasks\Task;
-use Illuminate\Support\Facades\App;
 
 class ListNgosTask extends Task
 {
+    private $repository;
+
+    public function __construct(NGORepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      *
      */
@@ -15,10 +21,8 @@ class ListNgosTask extends Task
     // for reference look at "ListUsersTask" in
     // App\Containers\User\Tasks
     // Todo Add criteria and parameters
-    public function run()
+    public function run($data)
     {
-        $ngoRepository = App::make(NgoRepository::class);
-
-        return $ngoRepository->paginate();
+        return $this->repository->paginate();
     }
 }

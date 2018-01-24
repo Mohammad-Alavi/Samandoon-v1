@@ -44,7 +44,7 @@ class GetArticleRequest extends Request
     public function rules()
     {
         return [
-             'id' => 'required',
+//             'id' => 'required',
         ];
     }
 

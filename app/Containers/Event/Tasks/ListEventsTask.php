@@ -21,8 +21,8 @@ class ListEventsTask extends Task
     // for reference look at "ListUsersTask" in
     // App\Containers\User\Tasks
     // Todo Add criteria and parameters
-    public function run()
+    public function run($data)
     {
-        return $this->repository->paginate(null, '*');
+        return $this->repository->paginate();
     }
 }

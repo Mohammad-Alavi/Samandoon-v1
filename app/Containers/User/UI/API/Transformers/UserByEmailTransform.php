@@ -31,7 +31,9 @@ class UserByEmailTransformer extends Transformer
                 'first_name' => $user->first_name,
                 'last_name' => $user->last_name,
                 'email' => $user->email,
-                'avatar' => $user->avatar,
+                'avatar' => empty($user->getFirstMediaUrl('avatar')) ?
+                    'http://api.' . str_replace('http://', '' , config('app.url')) . '/v1' . config('samandoon.default.avatar') :
+                    'http://api.' . str_replace('http://', '' , config('app.url')) . '/v1' . str_replace(str_replace('http://', '' , config('app.url')), '', $user->getFirstMediaUrl('avatar')),
             ],
             'view_user' => [
                 'href' => 'v1/user/' . $user->getHashedKey(),
