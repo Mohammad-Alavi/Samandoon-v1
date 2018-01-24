@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Containers\NGO\UI\API\Requests;
+namespace App\Containers\Article\UI\API\Requests;
 
 use App\Ship\Parents\Requests\Request;
 
 /**
- * Class CreateArticleRequest.
+ * Class GetArticleRequest.
  */
-class CreateArticleRequest extends Request
+class GetArticleRequest extends Request
 {
     /**
      * Define which Roles and/or Permissions has access to this request.
@@ -25,7 +25,7 @@ class CreateArticleRequest extends Request
      * @var  array
      */
     protected $decode = [
-        // 'id',
+         'id',
     ];
 
     /**
@@ -35,7 +35,7 @@ class CreateArticleRequest extends Request
      * @var  array
      */
     protected $urlParameters = [
-        // 'id',
+         'id',
     ];
 
     /**
@@ -44,9 +44,7 @@ class CreateArticleRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required|max:255',
-            'text' => 'required',
-            'article_image' => 'image'
+//             'id' => 'required',
         ];
     }
 

@@ -2,16 +2,14 @@
 
 namespace App\Containers\Event\Actions;
 
-use App\Containers\Event\Tasks\FindEventByIdTask;
+use App\Containers\Event\Models\Event;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
 
 class GetEventAction extends Action
 {
-    public function run(Request $request)
+    public function run(Request $request): Event
     {
-        $event = $this->call('Event@FindEventByIdTask', [$request->id]);
-
-        return $event;
+        return $this->call('Event@FindEventByIdTask', [$request->id]);
     }
 }

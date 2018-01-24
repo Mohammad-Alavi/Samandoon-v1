@@ -3,6 +3,7 @@
 namespace App\Containers\Event\Tasks;
 
 use App\Containers\Event\Data\Repositories\EventRepository;
+use App\Containers\Event\Models\Event;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Tasks\Task;
 use Exception;
@@ -16,7 +17,7 @@ class CreateEventTask extends Task
         $this->repository = $repository;
     }
 
-    public function run(array $data)
+    public function run(array $data): Event
     {
         try {
             $event = $this->repository->create($data);

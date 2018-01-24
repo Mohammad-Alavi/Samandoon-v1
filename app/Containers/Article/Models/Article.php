@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Containers\NGO\Models;
+namespace App\Containers\Article\Models;
 
+use App\Containers\NGO\Models\Ngo;
 use App\Ship\Parents\Models\Model;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;

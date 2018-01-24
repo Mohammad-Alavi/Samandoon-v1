@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Containers\NGO\Tasks;
+namespace App\Containers\Article\Tasks;
 
-use App\Containers\NGO\Data\Repositories\ArticleRepository;
+use App\Containers\Article\Data\Repositories\ArticleRepository;
 use App\Ship\Parents\Tasks\Task;
 
 class DeleteArticleTask extends Task

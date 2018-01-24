@@ -1,5 +1,184 @@
 define({ "api": [
   {
+    "group": "Article",
+    "name": "createArticle",
+    "type": "POST",
+    "url": "/v1/ngo/article",
+    "title": "Create Article",
+    "description": "<p>Create an article</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>(required) max:255</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "text",
+            "optional": false,
+            "field": "text",
+            "description": "<p>(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "image",
+            "optional": false,
+            "field": "article_image",
+            "description": "<p>(optional)</p>"
+          }
+        ]
+      }
+    },
+    "filename": "app/Containers/Article/UI/API/Routes/CreateArticle.v1.private.php",
+    "groupTitle": "Article",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n        \"object\": \"Article\",\n            \"id\": \"3mjzyg5dp5a0vwp6\",\n            \"title\": \"This is an Article\",\n            \"text\": \"Some random texts and description for nealy created Article\",\n            \"article_image\": \"http://api.samandoon.local/v1/storage/1/50762ff31f0d03520cd26dbb54d37443.jpg\",\n            \"ngo_id\": \"kjeonp5eordqzvb8\",\n            \"created_at\": {\n            \"date\": \"2017-12-11 10:00:19.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-12-11 10:00:19.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"view_article\": {\n            \"href\": \"v1/ngo/article/3mjzyg5dp5a0vwp6\",\n                \"method\": \"GET\"\n            }\n        },\n        \"NGO\": {\n        \"data\": {\n            \"msg\": null,\n                \"object\": {\n                \"object\": \"NGO\",\n                    \"id\": \"kjeonp5eordqzvb8\",\n                    \"name\": \"مهرگان كرشته\",\n                    \"description\": null,\n                    \"subjects\": [],\n                    \"area_of_activity\": null,\n                    \"address\": \"----\",\n                    \"zip_code\": \"0\",\n                    \"type\": \"شركت سهامي خاص\",\n                    \"confirmed\": false,\n                    \"logo_photo\": \"\",\n                    \"banner_photo\": \"\",\n                    \"user_id\": \"3mjzyg5dp5a0vwp6\",\n                    \"Registration specification\": {\n                    \"national_number\": \"10100000006\",\n                        \"registration_number\": \"17\",\n                        \"registration_date\": \"1350/01/23\",\n                        \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n                    },\n                    \"view_ngo\": {\n                    \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                        \"method\": \"GET\"\n                    }\n                }\n            }\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"ngo\",\n        \"user\"\n    ],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "group": "Article",
+    "name": "deleteArticle",
+    "type": "DELETE",
+    "url": "/v1/ngo/article/{id}",
+    "title": "Delete Article",
+    "description": "<p>Delete an Article</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated User / Owner"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 204 No Content\n{\n\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/Article/UI/API/Routes/DeleteArticle.v1.private.php",
+    "groupTitle": "Article"
+  },
+  {
+    "group": "Article",
+    "name": "getArticle",
+    "type": "GET",
+    "url": "/v1/ngo/article/{id}",
+    "title": "Find Article by id",
+    "description": "<p>Find an Article by id</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "filename": "app/Containers/Article/UI/API/Routes/GetArticle.v1.private.php",
+    "groupTitle": "Article",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n        \"object\": \"Article\",\n            \"id\": \"3mjzyg5dp5a0vwp6\",\n            \"title\": \"This is an Article\",\n            \"text\": \"Some random texts and description for nealy created Article\",\n            \"article_image\": \"http://api.samandoon.local/v1/storage/1/50762ff31f0d03520cd26dbb54d37443.jpg\",\n            \"ngo_id\": \"kjeonp5eordqzvb8\",\n            \"created_at\": {\n            \"date\": \"2017-12-11 10:00:19.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-12-11 10:00:19.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"view_article\": {\n            \"href\": \"v1/ngo/article/3mjzyg5dp5a0vwp6\",\n                \"method\": \"GET\"\n            }\n        },\n        \"NGO\": {\n        \"data\": {\n            \"msg\": null,\n                \"object\": {\n                \"object\": \"NGO\",\n                    \"id\": \"kjeonp5eordqzvb8\",\n                    \"name\": \"مهرگان كرشته\",\n                    \"description\": null,\n                    \"subjects\": [],\n                    \"area_of_activity\": null,\n                    \"address\": \"----\",\n                    \"zip_code\": \"0\",\n                    \"type\": \"شركت سهامي خاص\",\n                    \"confirmed\": false,\n                    \"logo_photo\": \"\",\n                    \"banner_photo\": \"\",\n                    \"user_id\": \"3mjzyg5dp5a0vwp6\",\n                    \"Registration specification\": {\n                    \"national_number\": \"10100000006\",\n                        \"registration_number\": \"17\",\n                        \"registration_date\": \"1350/01/23\",\n                        \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n                    },\n                    \"view_ngo\": {\n                    \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                        \"method\": \"GET\"\n                    }\n                }\n            }\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"ngo\",\n        \"user\"\n    ],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "group": "Article",
+    "name": "listAllArticles",
+    "type": "GET",
+    "url": "/v1/ngo/article",
+    "title": "List all Articles",
+    "description": "<p>Lists all Articles (if no query parameter is given)</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "filename": "app/Containers/Article/UI/API/Routes/ListAllArticles.v1.private.php",
+    "groupTitle": "Article",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"ُSome informative msg here or Null\",\n        \"object\": {\n        \"object\": \"NGO\",\n            \"id\": \"e8dz0jl84rngaxv3\",\n            \"name\": \"مهرگان كرشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"address\": \"----\",\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت سهامي خاص\",\n            \"confirmed\": false,\n            \"ngo_logo\": \"http://api.samandoon.local/v1/storage/21/6cf4b3e93caef896b27dd9140f7171a5.jpg\",\n            \"ngo_banner\": \"http://api.samandoon.local/v1/default_images/ngo_banner.png\",\n            \"user_id\": \"Je\",\n            \"Registration specification\": {\n            \"national_number\": \"10100000006\",\n                \"registration_number\": \"17\",\n                \"registration_date\": \"1350/01/23\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n            \"date\": \"2018-01-20 06:41:17.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2018-01-20 09:02:47.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"2 hours ago\",\n            \"readable_updated_at\": \"24 minutes ago\",\n            \"view_ngo\": {\n            \"href\": \"v1/ngo/Je\",\n                \"method\": \"GET\"\n            }\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"user\",\n        \"articles\"\n    ],\n        \"custom\": []\n    }",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "group": "Article",
+    "name": "updateArticle",
+    "type": "PUT",
+    "url": "/v1/ngo/article/{id}",
+    "title": "Update Article",
+    "description": "<p>Update and Article</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>(optional) max:255</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "text",
+            "optional": false,
+            "field": "text",
+            "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "image",
+            "optional": false,
+            "field": "article_image",
+            "description": "<p>(optional)</p>"
+          }
+        ]
+      }
+    },
+    "filename": "app/Containers/Article/UI/API/Routes/UpdateArticle.v1.private.php",
+    "groupTitle": "Article",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n        \"object\": \"Article\",\n            \"id\": \"3mjzyg5dp5a0vwp6\",\n            \"title\": \"This is an Article\",\n            \"text\": \"Some random texts and description for nealy created Article\",\n            \"article_image\": \"http://api.samandoon.local/v1/storage/1/50762ff31f0d03520cd26dbb54d37443.jpg\",\n            \"ngo_id\": \"kjeonp5eordqzvb8\",\n            \"created_at\": {\n            \"date\": \"2017-12-11 10:00:19.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-12-11 10:00:19.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"view_article\": {\n            \"href\": \"v1/ngo/article/3mjzyg5dp5a0vwp6\",\n                \"method\": \"GET\"\n            }\n        },\n        \"NGO\": {\n        \"data\": {\n            \"msg\": null,\n                \"object\": {\n                \"object\": \"NGO\",\n                    \"id\": \"kjeonp5eordqzvb8\",\n                    \"name\": \"مهرگان كرشته\",\n                    \"description\": null,\n                    \"subjects\": [],\n                    \"area_of_activity\": null,\n                    \"address\": \"----\",\n                    \"zip_code\": \"0\",\n                    \"type\": \"شركت سهامي خاص\",\n                    \"confirmed\": false,\n                    \"logo_photo\": \"\",\n                    \"banner_photo\": \"\",\n                    \"user_id\": \"3mjzyg5dp5a0vwp6\",\n                    \"Registration specification\": {\n                    \"national_number\": \"10100000006\",\n                        \"registration_number\": \"17\",\n                        \"registration_date\": \"1350/01/23\",\n                        \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n                    },\n                    \"view_ngo\": {\n                    \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                        \"method\": \"GET\"\n                    }\n                }\n            }\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"ngo\",\n        \"user\"\n    ],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
     "group": "Event",
     "name": "CreateEvent",
     "type": "post",
@@ -407,83 +586,6 @@ define({ "api": [
   },
   {
     "group": "NGO",
-    "name": "createArticle",
-    "type": "POST",
-    "url": "/v1/ngo/article",
-    "title": "Create Article",
-    "description": "<p>Create an article</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "Authenticated"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "title",
-            "description": "<p>(required) max:255</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "text",
-            "optional": false,
-            "field": "text",
-            "description": "<p>(required)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "image",
-            "optional": false,
-            "field": "article_image",
-            "description": "<p>(optional)</p>"
-          }
-        ]
-      }
-    },
-    "filename": "app/Containers/NGO/UI/API/Routes/CreateArticle.v1.private.php",
-    "groupTitle": "NGO",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n        \"object\": \"Article\",\n            \"id\": \"3mjzyg5dp5a0vwp6\",\n            \"title\": \"This is an Article\",\n            \"text\": \"Some random texts and description for nealy created Article\",\n            \"article_image\": \"http://api.samandoon.local/v1/storage/1/50762ff31f0d03520cd26dbb54d37443.jpg\",\n            \"ngo_id\": \"kjeonp5eordqzvb8\",\n            \"created_at\": {\n            \"date\": \"2017-12-11 10:00:19.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-12-11 10:00:19.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"view_article\": {\n            \"href\": \"v1/ngo/article/3mjzyg5dp5a0vwp6\",\n                \"method\": \"GET\"\n            }\n        },\n        \"NGO\": {\n        \"data\": {\n            \"msg\": null,\n                \"object\": {\n                \"object\": \"NGO\",\n                    \"id\": \"kjeonp5eordqzvb8\",\n                    \"name\": \"مهرگان كرشته\",\n                    \"description\": null,\n                    \"subjects\": [],\n                    \"area_of_activity\": null,\n                    \"address\": \"----\",\n                    \"zip_code\": \"0\",\n                    \"type\": \"شركت سهامي خاص\",\n                    \"confirmed\": false,\n                    \"logo_photo\": \"\",\n                    \"banner_photo\": \"\",\n                    \"user_id\": \"3mjzyg5dp5a0vwp6\",\n                    \"Registration specification\": {\n                    \"national_number\": \"10100000006\",\n                        \"registration_number\": \"17\",\n                        \"registration_date\": \"1350/01/23\",\n                        \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n                    },\n                    \"view_ngo\": {\n                    \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                        \"method\": \"GET\"\n                    }\n                }\n            }\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"ngo\",\n        \"user\"\n    ],\n        \"custom\": []\n    }\n}",
-          "type": "json"
-        }
-      ]
-    }
-  },
-  {
-    "group": "NGO",
-    "name": "deleteArticle",
-    "type": "DELETE",
-    "url": "/v1/ngo/article/{id}",
-    "title": "Delete Article",
-    "description": "<p>Delete an Article</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "Authenticated User / Owner"
-      }
-    ],
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 204 No Content\n{\n\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "app/Containers/NGO/UI/API/Routes/DeleteArticle.v1.private.php",
-    "groupTitle": "NGO"
-  },
-  {
-    "group": "NGO",
     "name": "findNgoByNationalId",
     "type": "GET",
     "url": "/v1/ngo/find/{national_id}",
@@ -506,31 +608,6 @@ define({ "api": [
     },
     "filename": "app/Containers/NGO/UI/API/Routes/FindNgoByNationalId.v1.private.php",
     "groupTitle": "NGO"
-  },
-  {
-    "group": "NGO",
-    "name": "getArticle",
-    "type": "GET",
-    "url": "/v1/ngo/article/{id}",
-    "title": "Find Article by id",
-    "description": "<p>Find an Article by id</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "none"
-      }
-    ],
-    "filename": "app/Containers/NGO/UI/API/Routes/GetArticle.v1.private.php",
-    "groupTitle": "NGO",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n        \"object\": \"Article\",\n            \"id\": \"3mjzyg5dp5a0vwp6\",\n            \"title\": \"This is an Article\",\n            \"text\": \"Some random texts and description for nealy created Article\",\n            \"article_image\": \"http://api.samandoon.local/v1/storage/1/50762ff31f0d03520cd26dbb54d37443.jpg\",\n            \"ngo_id\": \"kjeonp5eordqzvb8\",\n            \"created_at\": {\n            \"date\": \"2017-12-11 10:00:19.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-12-11 10:00:19.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"view_article\": {\n            \"href\": \"v1/ngo/article/3mjzyg5dp5a0vwp6\",\n                \"method\": \"GET\"\n            }\n        },\n        \"NGO\": {\n        \"data\": {\n            \"msg\": null,\n                \"object\": {\n                \"object\": \"NGO\",\n                    \"id\": \"kjeonp5eordqzvb8\",\n                    \"name\": \"مهرگان كرشته\",\n                    \"description\": null,\n                    \"subjects\": [],\n                    \"area_of_activity\": null,\n                    \"address\": \"----\",\n                    \"zip_code\": \"0\",\n                    \"type\": \"شركت سهامي خاص\",\n                    \"confirmed\": false,\n                    \"logo_photo\": \"\",\n                    \"banner_photo\": \"\",\n                    \"user_id\": \"3mjzyg5dp5a0vwp6\",\n                    \"Registration specification\": {\n                    \"national_number\": \"10100000006\",\n                        \"registration_number\": \"17\",\n                        \"registration_date\": \"1350/01/23\",\n                        \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n                    },\n                    \"view_ngo\": {\n                    \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                        \"method\": \"GET\"\n                    }\n                }\n            }\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"ngo\",\n        \"user\"\n    ],\n        \"custom\": []\n    }\n}",
-          "type": "json"
-        }
-      ]
-    }
   },
   {
     "group": "NGO",
@@ -562,7 +639,7 @@ define({ "api": [
     "name": "listAllNGOs",
     "type": "GET",
     "url": "/v1/ngo",
-    "title": "List NGOs",
+    "title": "List all NGOs",
     "description": "<p>Lists all NGOs (if no query parameter is given)</p>",
     "version": "1.0.0",
     "permission": [
@@ -577,58 +654,6 @@ define({ "api": [
         {
           "title": "Success-Response:",
           "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"ُSome informative msg here or Null\",\n        \"object\": {\n        \"object\": \"NGO\",\n            \"id\": \"e8dz0jl84rngaxv3\",\n            \"name\": \"مهرگان كرشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"address\": \"----\",\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت سهامي خاص\",\n            \"confirmed\": false,\n            \"ngo_logo\": \"http://api.samandoon.local/v1/storage/21/6cf4b3e93caef896b27dd9140f7171a5.jpg\",\n            \"ngo_banner\": \"http://api.samandoon.local/v1/default_images/ngo_banner.png\",\n            \"user_id\": \"Je\",\n            \"Registration specification\": {\n            \"national_number\": \"10100000006\",\n                \"registration_number\": \"17\",\n                \"registration_date\": \"1350/01/23\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n            \"date\": \"2018-01-20 06:41:17.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2018-01-20 09:02:47.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"2 hours ago\",\n            \"readable_updated_at\": \"24 minutes ago\",\n            \"view_ngo\": {\n            \"href\": \"v1/ngo/Je\",\n                \"method\": \"GET\"\n            }\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"user\",\n        \"articles\"\n    ],\n        \"custom\": []\n    }",
-          "type": "json"
-        }
-      ]
-    }
-  },
-  {
-    "group": "NGO",
-    "name": "updateArticle",
-    "type": "PUT",
-    "url": "/v1/ngo/article/{id}",
-    "title": "Update Article",
-    "description": "<p>Update and Article</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "Authenticated"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "title",
-            "description": "<p>(optional) max:255</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "text",
-            "optional": false,
-            "field": "text",
-            "description": "<p>(optional)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "image",
-            "optional": false,
-            "field": "article_image",
-            "description": "<p>(optional)</p>"
-          }
-        ]
-      }
-    },
-    "filename": "app/Containers/NGO/UI/API/Routes/UpdateArticle.v1.private.php",
-    "groupTitle": "NGO",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n        \"object\": \"Article\",\n            \"id\": \"3mjzyg5dp5a0vwp6\",\n            \"title\": \"This is an Article\",\n            \"text\": \"Some random texts and description for nealy created Article\",\n            \"article_image\": \"http://api.samandoon.local/v1/storage/1/50762ff31f0d03520cd26dbb54d37443.jpg\",\n            \"ngo_id\": \"kjeonp5eordqzvb8\",\n            \"created_at\": {\n            \"date\": \"2017-12-11 10:00:19.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-12-11 10:00:19.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"view_article\": {\n            \"href\": \"v1/ngo/article/3mjzyg5dp5a0vwp6\",\n                \"method\": \"GET\"\n            }\n        },\n        \"NGO\": {\n        \"data\": {\n            \"msg\": null,\n                \"object\": {\n                \"object\": \"NGO\",\n                    \"id\": \"kjeonp5eordqzvb8\",\n                    \"name\": \"مهرگان كرشته\",\n                    \"description\": null,\n                    \"subjects\": [],\n                    \"area_of_activity\": null,\n                    \"address\": \"----\",\n                    \"zip_code\": \"0\",\n                    \"type\": \"شركت سهامي خاص\",\n                    \"confirmed\": false,\n                    \"logo_photo\": \"\",\n                    \"banner_photo\": \"\",\n                    \"user_id\": \"3mjzyg5dp5a0vwp6\",\n                    \"Registration specification\": {\n                    \"national_number\": \"10100000006\",\n                        \"registration_number\": \"17\",\n                        \"registration_date\": \"1350/01/23\",\n                        \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n                    },\n                    \"view_ngo\": {\n                    \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                        \"method\": \"GET\"\n                    }\n                }\n            }\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"ngo\",\n        \"user\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]

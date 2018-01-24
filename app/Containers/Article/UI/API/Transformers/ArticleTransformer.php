@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Containers\NGO\UI\API\Transformers;
+namespace App\Containers\Article\UI\API\Transformers;
 
-use App\Containers\NGO\Models\Article;
+use App\Containers\Article\Models\Article;
+use App\Containers\NGO\UI\API\Transformers\NgoTransformer;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Transformers\Transformer;
 

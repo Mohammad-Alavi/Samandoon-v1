@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @apiGroup           NGO
+ * @apiGroup           Article
  * @apiName            getArticle
  *
  * @api                {GET} /v1/ngo/article/{id} Find Article by id
@@ -16,6 +16,6 @@
 
 /** @var Route $router */
 $router->get('ngo/article/{id}', [
-    'as' => 'api_ngo_get_article',
+    'as' => 'api_article_get_article',
     'uses'  => 'Controller@getArticle',
 ]);

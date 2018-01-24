@@ -3,18 +3,15 @@
 namespace App\Containers\Event\Actions;
 
 use App\Containers\Event\Models\Event;
-use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
 use Carbon\Carbon;
 
 class UpdateEventAction extends Action
 {
-    public function run(Request $request)
+    public function run(Request $request): Event
     {
-        // throw exception if event is not found
-        $event = Event::find($request->id);
-        throw_unless(count($event) > 0 ? true : false, new NotFoundException('Event not found.'));
+        $this->call('Event@FindEventByIdTask', [$request->id]);
 
         $request->input('event_date') ?
             $event_date = Carbon::createFromFormat('YmdHiT', $request->input('event_date')) :
@@ -37,8 +34,6 @@ class UpdateEventAction extends Action
             'location',
         ]);
 
-        $event = $this->call('Event@UpdateEventTask', [$request->id, $data]);
-
-        return $event;
+        return $this->call('Event@UpdateEventTask', [$request->id, $data]);
     }
 }

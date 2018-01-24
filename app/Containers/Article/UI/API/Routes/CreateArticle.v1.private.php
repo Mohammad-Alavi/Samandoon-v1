@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @apiGroup           NGO
+ * @apiGroup           Article
  * @apiName            createArticle
  *
  * @api                {POST} /v1/ngo/article Create Article
@@ -19,7 +19,7 @@
 
 /** @var Route $router */
 $router->post('ngo/article', [
-    'as' => 'api_ngo_create_article',
+    'as' => 'api_article_create_article',
     'uses'  => 'Controller@createArticle',
     'middleware' => [
       'auth:api',

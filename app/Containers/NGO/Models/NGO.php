@@ -2,6 +2,7 @@
 
 namespace App\Containers\NGO\Models;
 
+use App\Containers\Article\Models\Article;
 use App\Containers\Event\Models\Event;
 use App\Containers\User\Models\User;
 use App\Ship\Parents\Models\Model;

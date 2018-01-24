@@ -3,6 +3,7 @@
 namespace App\Containers\NGO\Tasks;
 
 use App\Containers\NGO\Data\Repositories\NGORepository;
+use App\Containers\NGO\Models\Ngo;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Exceptions\Exception;
 use App\Ship\Parents\Tasks\Task;
@@ -16,7 +17,7 @@ class CreateNgoTask extends Task
         $this->repository = $repository;
     }
 
-    public function run($ngo_data, $authenticated_user)
+    public function run($ngo_data, $authenticated_user): Ngo
     {
         throw_if($authenticated_user->ngo, new CreateResourceFailedException('User already have a NGO.'));
 

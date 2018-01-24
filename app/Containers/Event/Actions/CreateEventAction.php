@@ -2,7 +2,7 @@
 
 namespace App\Containers\Event\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use App\Containers\Event\Models\Event;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
@@ -10,12 +10,11 @@ use Carbon\Carbon;
 
 class CreateEventAction extends Action
 {
-    public function run(Request $request)
+    public function run(Request $request): Event
     {
-        $ngo = Apiato::call('Authentication@GetAuthenticatedUserTask')->ngo;
-        if (!$ngo) {
-            throw new NotFoundException('User don\'t have a NGO.');
-        }
+        // throw 404 exception if user doesn't have a ngo
+        $ngo = $this->call('Authentication@GetAuthenticatedUserTask')->ngo;
+        throw_unless($ngo, new NotFoundException('User don\'t have a NGO.'));
 
         // manipulated data of request
         $fixedData = [
@@ -35,8 +34,6 @@ class CreateEventAction extends Action
             'ngo_id'
         ]);
 
-        $event = Apiato::call('Event@CreateEventTask', [$data]);
-
-        return $event;
+        return $this->call('Event@CreateEventTask', [$data]);
     }
 }

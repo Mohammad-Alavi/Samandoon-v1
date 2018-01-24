@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @apiGroup           NGO
+ * @apiGroup           Article
  * @apiName            deleteArticle
  *
  * @api                {DELETE} /v1/ngo/article/{id} Delete Article
@@ -19,7 +19,7 @@
 
 /** @var Route $router */
 $router->delete('ngo/article/{id}', [
-    'as' => 'api_ngo_delete_article',
+    'as' => 'api_article_delete_article',
     'uses'  => 'Controller@deleteArticle',
     'middleware' => [
       'auth:api',

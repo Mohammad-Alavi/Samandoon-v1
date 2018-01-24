@@ -3,6 +3,7 @@
 namespace App\Containers\Event\Tasks;
 
 use App\Containers\Event\Data\Repositories\EventRepository;
+use App\Containers\Event\Models\Event;
 use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Tasks\Task;
 
@@ -15,7 +16,7 @@ class UpdateEventTask extends Task
         $this->repository = $repository;
     }
 
-    public function run($id, array $data)
+    public function run($id, array $data): Event
     {
         if (empty($data)) {
             throw new UpdateResourceFailedException('Inputs are empty.');

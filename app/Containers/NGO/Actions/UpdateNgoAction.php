@@ -2,12 +2,13 @@
 
 namespace App\Containers\NGO\Actions;
 
+use App\Containers\NGO\Models\Ngo;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
 
 class UpdateNgoAction extends Action
 {
-    public function run(Request $request)
+    public function run(Request $request): Ngo
     {
         $ngo = $this->call('NGO@FindNgoByIdTask', [$request->id]);
         $this->call('NGO@CheckHasAccessToNgoTask', [$request]);
@@ -22,7 +23,6 @@ class UpdateNgoAction extends Action
             'ngo_banner'
         ]);
 
-        $ngo = $this->call('NGO@UpdateNgoTask', [$ngo, $data]);
-        return $ngo;
+        return $this->call('NGO@UpdateNgoTask', [$ngo, $data]);
     }
 }

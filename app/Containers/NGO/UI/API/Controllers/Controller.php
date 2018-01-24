@@ -21,7 +21,6 @@ use App\Containers\NGO\UI\API\Transformers\NGOFromSiteTransformer;
 use App\Containers\NGO\UI\API\Transformers\NgoTransformer;
 use App\Containers\NGO\UI\API\Transformers\SubjectTransformer;
 use App\Ship\Parents\Controllers\ApiController;
-use Cartalyst\Stripe\Api\Api;
 
 class Controller extends ApiController
 {
@@ -69,32 +68,5 @@ class Controller extends ApiController
         $ngo = Apiato::call('NGO@FindNgoByNationalIdAction', [$request]);
         $ngo->msg = 'NGO Found';
         return $this->transform($ngo, NGOTransformer::class);
-    }
-
-    public function createArticle(CreateArticleRequest $request)
-    {
-        $article = Apiato::call('NGO@CreateArticleAction', [$request]);
-        $article->msg = 'Article Created';
-        return $this->transform($article, ArticleTransformer::class);
-    }
-
-    public function deleteArticle(DeleteArticleRequest $request)
-    {
-        Apiato::call('NGO@DeleteArticleAction', [$request]);
-        return $this->noContent();
-    }
-
-    public function getArticle(GetArticleRequest $request)
-    {
-        $article = Apiato::call('NGO@FindArticleByIdAction', [$request]);
-        $article->msg = 'Article Found';
-        return $this->transform($article, ArticleTransformer::class);
-    }
-
-    public function updateArticle(UpdateArticleRequest $request)
-    {
-        $article = Apiato::call('NGO@UpdateArticleAction', [$request]);
-        $article->msg = 'Article Updated';
-        return $this->transform($article, ArticleTransformer::class);
     }
 }

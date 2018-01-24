@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @apiGroup           NGO
+ * @apiGroup           Article
  * @apiName            updateArticle
  *
  * @api                {PUT} /v1/ngo/article/{id} Update Article
@@ -19,7 +19,7 @@
 
 /** @var Route $router */
 $router->put('ngo/article/{id}', [
-    'as' => 'api_ngo_update_article',
+    'as' => 'api_article_update_article',
     'uses'  => 'Controller@updateArticle',
     'middleware' => [
       'auth:api',

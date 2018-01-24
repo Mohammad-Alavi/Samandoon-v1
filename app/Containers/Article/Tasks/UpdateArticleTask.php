@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Containers\NGO\Tasks;
+namespace App\Containers\Article\Tasks;
 
-use App\Containers\NGO\Data\Repositories\ArticleRepository;
+use App\Containers\Article\Data\Repositories\ArticleRepository;
+use App\Containers\Article\Models\Article;
 use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Tasks\Task;
 use Exception;
@@ -16,7 +17,7 @@ class UpdateArticleTask extends Task
         $this->repository = $repository;
     }
 
-    public function run($id, array $data)
+    public function run($id, array $data): Article
     {
         if (empty($data)) {
             throw new UpdateResourceFailedException('Inputs are empty.');

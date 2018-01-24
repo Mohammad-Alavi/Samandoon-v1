@@ -2,7 +2,6 @@
 
 namespace App\Containers\User\Tasks;
 
-use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\User\Data\Repositories\UserRepository;
 use App\Containers\User\Models\User;
 use App\Ship\Exceptions\InternalErrorException;
@@ -41,7 +40,7 @@ class UpdateUserTask extends Task
         }
 
         if (array_key_exists('avatar', $data)) {
-            $user = Apiato::call('User@FindUserByIdTask', [$userId]);
+            $user = $this->call('User@FindUserByIdTask', [$userId]);
             $user->clearMediaCollection('avatar');
             $user->addMediaFromRequest('avatar')->toMediaCollection('avatar');
         }

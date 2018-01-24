@@ -17,7 +17,7 @@ class UpdateNgoTask extends Task
         $this->repository = $repository;
     }
 
-    public function run(Ngo $ngo, array $data)
+    public function run(Ngo $ngo, array $data): Ngo
     {
         if (empty($data)) {
             throw new UpdateResourceFailedException('Inputs are empty.');

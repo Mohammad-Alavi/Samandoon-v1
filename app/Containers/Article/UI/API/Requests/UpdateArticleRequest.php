@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Containers\NGO\UI\API\Requests;
+namespace App\Containers\Article\UI\API\Requests;
 
 use App\Ship\Parents\Requests\Request;
 
@@ -44,7 +44,7 @@ class UpdateArticleRequest extends Request
     public function rules()
     {
         return [
-            'id' => 'required',
+//            'id' => 'required',
             'title' => 'max:255',
             'article_image' => 'image'
         ];
