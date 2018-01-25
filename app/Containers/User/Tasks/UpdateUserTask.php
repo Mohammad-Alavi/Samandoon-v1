@@ -29,24 +29,24 @@ class UpdateUserTask extends Task
 
     /**
      * @param DataTransporter $data
-     * @param $userId
+     * @param $id
      * @return User|mixed
      * @internal param $userData
      */
-    public function run($data, $userId): User
+    public function run($data, $id): User
     {
         if (empty($data)) {
             throw new UpdateResourceFailedException('Inputs are empty.');
         }
 
+        $user = $this->repository->update($data, $id);
         if (array_key_exists('avatar', $data)) {
-            $user = $this->call('User@FindUserByIdTask', [$userId]);
             $user->clearMediaCollection('avatar');
             $user->addMediaFromRequest('avatar')->toMediaCollection('avatar');
         }
 
         try {
-            return $this->repository->update($data, $userId);
+            return $this->repository->update($data, $id);
         } catch (ModelNotFoundException $exception) {
             throw new NotFoundException('User Not Found.');
         } catch (Exception $exception) {
