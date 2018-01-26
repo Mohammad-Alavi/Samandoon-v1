@@ -26,6 +26,7 @@ class Event extends Model implements HasMedia
     protected $dates = [
         'created_at',
         'updated_at',
+        'event_date'
     ];
 
     public function ngo(){

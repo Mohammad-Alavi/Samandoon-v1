@@ -12,9 +12,8 @@ class DeleteFileAction extends Action
     public function run(Request $request)
     {
         $media = Media::find($request->id);
-        info($media);
         throw_unless($media, new NotFoundException('Media not found.'));
 
-        return $this->call('Storage@DeleteFileTask', [$request, $media]);
+        return $this->call('Storage@DeleteFileTask', [$media]);
     }
 }

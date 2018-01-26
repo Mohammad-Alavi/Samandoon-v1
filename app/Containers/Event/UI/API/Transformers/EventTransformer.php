@@ -5,6 +5,7 @@ namespace App\Containers\Event\UI\API\Transformers;
 use App\Containers\Event\Models\Event;
 use App\Containers\NGO\UI\API\Transformers\NgoTransformer;
 use App\Ship\Parents\Transformers\Transformer;
+use Illuminate\Support\Carbon;
 
 class EventTransformer extends Transformer
 {
@@ -23,6 +24,8 @@ class EventTransformer extends Transformer
 
     public function transform(Event $event)
     {
+//        info();
+        info($event->created_at);
         $response = [
             'msg' => $event->msg,
             'object' => [
@@ -32,8 +35,8 @@ class EventTransformer extends Transformer
                 'description' => $event->description,
                 'event_image' => empty($event->getFirstMediaUrl('event_image')) ? null :
                     'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $event->getFirstMediaUrl('event_image')),
-                'event_date' => $event->event_date,
                 'location' => $event->location,
+                'event_date' => $event->event_date,
                 'created_at' => $event->created_at,
                 'updated_at' => $event->updated_at,
                 'readable_created_at' => $event->created_at->diffForHumans(),

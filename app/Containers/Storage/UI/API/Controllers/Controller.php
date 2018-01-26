@@ -13,6 +13,7 @@ class Controller extends ApiController
         return response()->download($file);
     }
     public function deleteFile(deleteFileRequest $request){
-        return $this->call('Storage@DeleteFileAction', [$request]);
+        $this->call('Storage@DeleteFileAction', [$request]);
+        return $this->noContent();
     }
 }

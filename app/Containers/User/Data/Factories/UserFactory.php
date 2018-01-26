@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Hash;
+//$factory = app('Illuminate\Database\Eloquent\Factory');
 
-$factory->define(App\Containers\User\Models\User::class, function (Faker\Generator $faker) {
+$factory->define(\App\Containers\User\Models\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -13,13 +14,11 @@ $factory->define(App\Containers\User\Models\User::class, function (Faker\Generat
         'gender'     => $faker->randomElement(['male', 'female']),
         'birth'     => $faker->date($format = 'Y-m-d', $max = 'now'),
         'is_client'      => false,
-        'province' => $faker->city,
-        'city' => $faker->city,
         'remember_token' => str_random(10),
     ];
 });
 
-$factory->state(App\Containers\User\Models\User::class, 'client', function (Faker\Generator $faker) {
+$factory->state(\App\Containers\User\Models\User::class, 'client', function (Faker\Generator $faker) {
     return [
         'is_client' => true,
     ];

@@ -9,11 +9,11 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class DeleteFileTask extends Task
 {
-    public function run($request, $media)
+    public function run($media)
     {
         try {
             $media->delete();
-            return new JsonResponse('Media (' . $request->resource_name . ') deleted.', 200);
+//            return new JsonResponse('Media (' . $request->resource_name . ') deleted.', 200);
         }
         catch (Exception $exception)
         {
