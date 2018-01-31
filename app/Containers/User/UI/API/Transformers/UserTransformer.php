@@ -3,9 +3,10 @@
 namespace App\Containers\User\UI\API\Transformers;
 
 use App\Containers\Authorization\UI\API\Transformers\RoleTransformer;
+use App\Containers\NGO\Models\Ngo;
+use App\Containers\NGO\UI\API\Transformers\NgoTransformer;
 use App\Containers\User\Models\User;
 use App\Ship\Parents\Transformers\Transformer;
-use Vinkla\Hashids\Facades\Hashids;
 
 /**
  * Class UserTransformer.
@@ -20,6 +21,7 @@ class UserTransformer extends Transformer
      */
     protected $availableIncludes = [
         'roles',
+        'ngo'
     ];
 
     /**
@@ -45,8 +47,8 @@ class UserTransformer extends Transformer
                 'last_name' => $user->last_name,
                 'email' => $user->email,
                 'avatar' => empty($user->getFirstMediaUrl('avatar')) ?
-                    'http://api.' . str_replace('http://', '' , config('app.url')) . '/v1/storage' . config('samandoon.default.avatar') :
-                    'http://api.' . str_replace('http://', '' , config('app.url')) . '/v1' . str_replace(str_replace('http://', '' , config('app.url')), '', $user->getFirstMediaUrl('avatar')),
+                    'http://api.' . str_replace('http://', '', config('app.url')) . '/v1/storage' . config('samandoon.default.avatar') :
+                    'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $user->getFirstMediaUrl('avatar')),
                 'confirmed' => $user->confirmed,
                 'gender' => $user->gender,
                 'birth' => $user->birth,
@@ -63,10 +65,10 @@ class UserTransformer extends Transformer
                 'updated_at' => $user->updated_at,
                 'readable_created_at' => $user->created_at->diffForHumans(),
                 'readable_updated_at' => $user->updated_at->diffForHumans(),
-            ],
-            'view_user' => [
-                'href' => 'v1/user/' . $user->getHashedKey(),
-                'method' => 'GET'
+                'view_user' => [
+                    'href' => 'v1/user/' . $user->getHashedKey(),
+                    'method' => 'GET'
+                ],
             ],
         ];
 
@@ -81,5 +83,10 @@ class UserTransformer extends Transformer
     public function includeRoles(User $user)
     {
         return $this->collection($user->roles, new RoleTransformer());
+    }
+
+    public function includeNgo(User $user)
+    {
+        return $this->item($user->ngo, new NgoTransformer());
     }
 }
