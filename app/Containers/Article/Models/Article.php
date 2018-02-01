@@ -4,12 +4,15 @@ namespace App\Containers\Article\Models;
 
 use App\Containers\NGO\Models\Ngo;
 use App\Ship\Parents\Models\Model;
+use Overtrue\LaravelFollow\Traits\CanBeFavorited;
+use Overtrue\LaravelFollow\Traits\CanBeLiked;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
 class Article extends Model implements HasMedia
 {
     use HasMediaTrait;
+    use CanBeLiked, CanBeFavorited;
 
     protected $fillable = [
         'title',

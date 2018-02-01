@@ -20,6 +20,7 @@ class CreateEventTask extends Task
     public function run(array $data): Event
     {
         try {
+            info($data);
             $event = $this->repository->create($data);
             if (array_key_exists('event_image', $data)) {
                 $event->addMediaFromRequest('event_image')->toMediaCollection('event_image');

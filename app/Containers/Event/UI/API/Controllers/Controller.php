@@ -7,12 +7,14 @@ use App\Containers\Event\UI\API\Requests\CreateEventRequest;
 use App\Containers\Event\UI\API\Requests\DeleteEventRequest;
 use App\Containers\Event\UI\API\Requests\GetEventRequest;
 use App\Containers\Event\UI\API\Requests\ListAllEventsRequest;
+use App\Containers\Event\UI\API\Requests\SearchEventsRequest;
 use App\Containers\Event\UI\API\Requests\UpdateEventRequest;
 use App\Containers\Event\UI\API\Transformers\CreateEventTransformer;
 use App\Containers\Event\UI\API\Transformers\EventTransformer;
 use App\Containers\Event\UI\API\Transformers\ImageTransformer;
 use App\Containers\Event\UI\API\Transformers\UpdateEventTransformer;
 use App\Ship\Parents\Controllers\ApiController;
+use App\Ship\Transporters\DataTransporter;
 
 class Controller extends ApiController
 {
@@ -47,5 +49,12 @@ class Controller extends ApiController
     {
         $this->call('Event@DeleteEventAction', [$request]);
         return $this->noContent();
+    }
+
+    public function searchEvents(SearchEventsRequest $request)
+    {
+        $events = $this->call('Event@SearchEventsAction', [new DataTransporter($request)]);
+        $events->msg = 'Events found';
+        return $this->transform($events, EventTransformer::class);
     }
 }

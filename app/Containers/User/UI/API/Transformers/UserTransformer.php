@@ -69,6 +69,9 @@ class UserTransformer extends Transformer
                     'href' => 'v1/user/' . $user->getHashedKey(),
                     'method' => 'GET'
                 ],
+                'stats' => [
+                    'ngo_subscriptions_count' => $user->subscriptions(Ngo::class)->get()->count(),
+                ],
             ],
         ];
 

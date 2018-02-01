@@ -21,7 +21,7 @@ HTTP/1.1 200 OK
             "ngo_logo": "http://api.samandoon.local/v1/storage/21/6cf4b3e93caef896b27dd9140f7171a5.jpg",
             "ngo_banner": "http://api.samandoon.local/v1/default_images/ngo_banner.png",
             "user_id": "Je",
-            "Registration specification": {
+            "registration_specification": {
             "national_number": "10100000006",
                 "registration_number": "17",
                 "registration_date": "1350/01/23",
@@ -42,6 +42,10 @@ HTTP/1.1 200 OK
             "view_ngo": {
             "href": "v1/ngo/Je",
                 "method": "GET"
+            },
+            "stats": {
+            "is_subscribed": true,
+            "subscribers_count": 2
             }
         }
     },

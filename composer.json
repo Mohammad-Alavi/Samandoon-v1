@@ -37,6 +37,7 @@
     "laravel/framework": "5.5.*",
     "laravel/tinker": "~1.0",
     "league/glide": "^1.2",
+    "overtrue/laravel-follow": "^1.1",
     "rtconner/laravel-tagging": "~2.2",
     "spatie/laravel-medialibrary": "^6.0.0",
     "teamtnt/laravel-scout-tntsearch-driver": "^3.0",

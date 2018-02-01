@@ -3,16 +3,22 @@
 namespace App\Containers\User\UI\API\Controllers;
 
 use Apiato\Core\Foundation\Facades\Apiato;
+use App\Containers\NGO\UI\API\Transformers\NgoTransformer;
 use App\Containers\User\UI\API\Requests\CreateAdminRequest;
 use App\Containers\User\UI\API\Requests\DeleteUserRequest;
 use App\Containers\User\UI\API\Requests\FallowNgoRequest;
 use App\Containers\User\UI\API\Requests\FindUserByEmailRequest;
+use App\Containers\User\UI\API\Requests\GetSubscriptionsRequest;
+use App\Containers\User\UI\API\Requests\HasSubscribedRequest;
+use App\Containers\User\UI\API\Requests\SubscribeRequest;
 use App\Containers\User\UI\API\Requests\GetAuthenticatedUserRequest;
 use App\Containers\User\UI\API\Requests\FindUserByIdRequest;
 use App\Containers\User\UI\API\Requests\ForgotPasswordRequest;
 use App\Containers\User\UI\API\Requests\GetAllUsersRequest;
 use App\Containers\User\UI\API\Requests\RegisterUserRequest;
 use App\Containers\User\UI\API\Requests\ResetPasswordRequest;
+use App\Containers\User\UI\API\Requests\ToggleSubscribeRequest;
+use App\Containers\User\UI\API\Requests\UnsubscribeRequest;
 use App\Containers\User\UI\API\Requests\UpdateUserRequest;
 use App\Containers\User\UI\API\Transformers\UserByEmailTransformer;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
@@ -119,7 +125,24 @@ class Controller extends ApiController
         return $this->transform($user, UserByEmailTransformer::class);
     }
 
-    public function fallowNgo(FallowNgoRequest $request){
-        //TODO Code
+    public function subscribe(SubscribeRequest $request)
+    {
+        return $this->call('User@SubscribeAction', [new DataTransporter($request)]);
+    }
+
+    public function unsubscribe(UnsubscribeRequest $request)
+    {
+        return $this->call('User@UnsubscribeAction', [new DataTransporter($request)]);
+    }
+
+    public function toggleSubscribe(ToggleSubscribeRequest $request)
+    {
+        return $this->call('User@ToggleSubscribeAction', [new DataTransporter($request)]);
+    }
+
+    public function getSubscriptions(GetSubscriptionsRequest $request)
+    {
+        $users = $this->call('User@GetSubscriptionsAction');
+        return $this->transform($users, NgoTransformer::class);
     }
 }

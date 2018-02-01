@@ -18,6 +18,7 @@ class NgoTransformer extends Transformer
 
     public function transform(Ngo $ngo)
     {
+        $currentUser = auth('api')->user();
         $response = [
             'msg' => $ngo->msg,
             'object' => [
@@ -38,21 +39,24 @@ class NgoTransformer extends Transformer
                     'http://api.' . str_replace('http://', '' , config('app.url')) . '/v1/storage' . config('samandoon.default.ngo_banner') :
                     'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_banner')),
                 'user_id' => $ngo->user ? $ngo->user->getHashedKey() : null,
-                'Registration specification' => [
+                'registration_specification' => [
                     'national_number' => $ngo->national_number,
                     'registration_number' => $ngo->registration_number,
                     'registration_date' => $ngo->registration_date,
                     'registration_unit' => $ngo->registration_unit,
                 ],
-
                 'created_at' => $ngo->created_at,
                 'updated_at' => $ngo->updated_at,
                 'readable_created_at' => $ngo->created_at ? $ngo->created_at->diffForHumans() : null,
                 'readable_updated_at' => $ngo->updated_at ? $ngo->updated_at->diffForHumans() : null,
-
                 'view_ngo' => [
                     'href' => $ngo->id ? 'v1/ngo/' . $ngo->getHashedKey() : null,
                     'method' => 'GET'
+                ],
+                'stats' => [
+                    'is_subscribed' => empty($currentUser) ? null : $ngo->isSubscribedBy($currentUser),
+                    'subscribers_count' => $ngo->subscribers()->get()->count()
+                        //->makeHidden(['ngo_id', 'pivot', 'confirmed', 'gender','birth', 'is_client', 'created_at', 'updated_at', 'deleted_at', 'social_token', 'social_token_secret', 'social_refresh_token', 'social_expires_in'])->toArray()
                 ],
             ]
         ];

@@ -8,6 +8,10 @@ use App\Containers\Payment\Contracts\ChargeableInterface;
 use App\Containers\Payment\Models\PaymentAccount;
 use App\Containers\Payment\Traits\ChargeableTrait;
 use App\Ship\Parents\Models\UserModel;
+use Overtrue\LaravelFollow\Traits\CanFollow;
+use Overtrue\LaravelFollow\Traits\CanLike;
+use Overtrue\LaravelFollow\Traits\CanFavorite;
+use Overtrue\LaravelFollow\Traits\CanSubscribe;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
@@ -22,6 +26,7 @@ class User extends UserModel implements ChargeableInterface, HasMedia
     use ChargeableTrait;
     use AuthorizationTrait;
     use HasMediaTrait;
+    use CanFollow, CanLike, CanFavorite, CanSubscribe;
 
 
     /**
@@ -93,10 +98,6 @@ class User extends UserModel implements ChargeableInterface, HasMedia
 
     public function ngo(){
         return $this->hasOne(NGO::class);
-    }
-
-    public function follow(){
-        return $this->hasMany(user_fallow::class);
     }
 
     public function delete()

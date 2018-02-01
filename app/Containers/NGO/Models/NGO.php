@@ -9,6 +9,8 @@ use App\Ship\Parents\Models\Model;
 use Conner\Tagging\Taggable;
 use Illuminate\Support\Facades\DB;
 use Laravel\Scout\Searchable;
+use Overtrue\LaravelFollow\Traits\CanBeFavorited;
+use Overtrue\LaravelFollow\Traits\CanBeSubscribed;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
@@ -17,6 +19,7 @@ class Ngo extends Model implements HasMedia
     use Taggable;
     use Searchable;
     use HasMediaTrait;
+    use CanBeFavorited, CanBeSubscribed;
 
     public $asYouType = true;
 

@@ -20,6 +20,7 @@ use App\Containers\NGO\UI\API\Transformers\ArticleTransformer;
 use App\Containers\NGO\UI\API\Transformers\NGOFromSiteTransformer;
 use App\Containers\NGO\UI\API\Transformers\NgoTransformer;
 use App\Containers\NGO\UI\API\Transformers\SubjectTransformer;
+use App\Containers\User\Models\User;
 use App\Ship\Parents\Controllers\ApiController;
 
 class Controller extends ApiController
