@@ -142,7 +142,7 @@ class Controller extends ApiController
 
     public function getSubscriptions(GetSubscriptionsRequest $request)
     {
-        $users = $this->call('User@GetSubscriptionsAction');
+        $users = $this->call('User@GetSubscriptionsAction', [new DataTransporter($request)]);
         return $this->transform($users, NgoTransformer::class);
     }
 }

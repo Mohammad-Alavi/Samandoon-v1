@@ -2314,9 +2314,9 @@ define({ "api": [
     "group": "User",
     "name": "getSubscriptions",
     "type": "GET",
-    "url": "/v1/user/subscriptions/all",
-    "title": "Get Subscriptions",
-    "description": "<p>Get all user subscriptions</p>",
+    "url": "/v1/user/subscriptions/{user_id}",
+    "title": "Get Subscriptions of User",
+    "description": "<p>Get all subscriptions of a specific user</p>",
     "version": "1.0.0",
     "permission": [
       {
