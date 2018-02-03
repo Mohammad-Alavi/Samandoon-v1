@@ -12,9 +12,7 @@ class CreateArticleAction extends Action
     public function run(DataTransporter $data): Article
     {
         $ngo = $this->call('Authentication@GetAuthenticatedUserTask')->ngo;
-        if (!$ngo) {
-            throw new NotFoundException('User don\'t have a NGO.');
-        }
+        throw_unless($ngo->id, new NotFoundException('User don\'t have a NGO.'));
 
         $data->ngo_id = $ngo->id;
 
