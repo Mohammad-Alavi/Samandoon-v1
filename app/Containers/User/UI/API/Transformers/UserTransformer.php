@@ -52,7 +52,7 @@ class UserTransformer extends Transformer
                 'confirmed' => $user->confirmed,
                 'gender' => $user->gender,
                 'birth' => $user->birth,
-                'ngo_id' => $user->ngo ? $user->ngo->getHashedKey() : null,
+                'ngo_id' => $user->ngo->id ? $user->ngo->getHashedKey() : null,
 
                 'social_auth_provider' => $user->social_provider,
                 'social_nickname' => $user->social_nickname,

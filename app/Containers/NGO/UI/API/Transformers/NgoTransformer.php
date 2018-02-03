@@ -2,6 +2,7 @@
 
 namespace App\Containers\NGO\UI\API\Transformers;
 
+use App\Containers\Article\UI\API\Transformers\ArticleTransformer;
 use App\Containers\NGO\Models\Ngo;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Transformers\Transformer;
@@ -78,6 +79,6 @@ class NgoTransformer extends Transformer
     public function includeArticles(Ngo $ngo)
     {
         // use `item` with single relationship
-        return $this->collection($ngo->article, new ArticleTransformer());
+        return $this->collection($ngo->articles, new ArticleTransformer());
     }
 }
