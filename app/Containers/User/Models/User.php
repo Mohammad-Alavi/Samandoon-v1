@@ -8,6 +8,7 @@ use App\Containers\Payment\Contracts\ChargeableInterface;
 use App\Containers\Payment\Models\PaymentAccount;
 use App\Containers\Payment\Traits\ChargeableTrait;
 use App\Ship\Parents\Models\UserModel;
+use Illuminate\Support\Facades\DB;
 use Overtrue\LaravelFollow\Traits\CanFollow;
 use Overtrue\LaravelFollow\Traits\CanLike;
 use Overtrue\LaravelFollow\Traits\CanFavorite;
@@ -97,7 +98,7 @@ class User extends UserModel implements ChargeableInterface, HasMedia
     }
 
     public function ngo(){
-        return $this->hasOne(NGO::class);
+        return $this->hasOne(NGO::class)->withDefault();
     }
 
     public function delete()
