@@ -25,7 +25,7 @@ class ListAllEventsRequest extends Request
      * @var  array
      */
     protected $decode = [
-         'ngoId',
+         'ngo_id',
     ];
 
     /**

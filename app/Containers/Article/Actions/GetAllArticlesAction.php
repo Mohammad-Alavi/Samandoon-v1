@@ -9,7 +9,7 @@ class GetAllArticlesAction extends Action
 {
     public function run(Request $request)
     {
-        $ngoIdmethodWithParams = $request->has('ngoId') ? ['ngoId' => [$request->ngoId]] : null;
+        $ngoIdmethodWithParams = $request->has('ngo_id') ? ['ngo_id' => [$request->ngo_id]] : null;
 
         is_null($ngoIdmethodWithParams) ?
             $articles = $this->call('Article@GetAllArticlesTask', [], [

@@ -25,7 +25,7 @@ class GetAllArticlesRequest extends Request
      * @var  array
      */
     protected $decode = [
-        'ngoId',
+        'ngo_id',
     ];
 
     /**

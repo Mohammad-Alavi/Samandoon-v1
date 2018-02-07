@@ -26,8 +26,8 @@ class ListEventsTask extends Task
         $this->repository->pushCriteria(new OrderByFieldCriteria($orderBy, $sortedBy));
     }
 
-    public function ngoId($ngoId)
+    public function ngo_id($ngo_id)
     {
-        $this->repository->pushCriteria(new ThisEqualThatCriteria('ngo_id', $ngoId));
+        $this->repository->pushCriteria(new ThisEqualThatCriteria('ngo_id', $ngo_id));
     }
 }
