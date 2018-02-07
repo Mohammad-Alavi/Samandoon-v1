@@ -51,6 +51,11 @@ class Event extends Model implements HasMedia
         'event_date'
     ];
 
+    /**
+     * A resource key to be used by the the JSON API Serializer responses.
+     */
+    protected $resourceKey = 'events';
+
     public function ngo(){
         return $this->belongsTo(NGO::class);
     }

@@ -9,6 +9,8 @@ class GetAllArticlesAction extends Action
 {
     public function run(Request $request)
     {
-        return $this->call('Article@GetAllArticlesTask');
+        return $this->call('Article@GetAllArticlesTask', [], [
+            ['orderBy' => [$request->orderBy, $request->sortedBy]],
+        ]);
     }
 }

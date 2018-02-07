@@ -9,7 +9,8 @@ class ListNgosAction extends Action
 {
     public function run(Request $request)
     {
-        return $this->call('NGO@ListNgosTask', [$request]);
-
+        return $this->call('NGO@ListNgosTask', [], [
+            ['orderBy' => [$request->orderBy, $request->sortedBy]],
+        ]);
     }
 }

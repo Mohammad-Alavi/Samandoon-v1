@@ -3,6 +3,7 @@
 namespace App\Containers\Article\Tasks;
 
 use App\Containers\Article\Data\Repositories\ArticleRepository;
+use App\Ship\Criterias\Eloquent\OrderByFieldCriteria;
 use App\Ship\Parents\Tasks\Task;
 
 class GetAllArticlesTask extends Task
@@ -18,5 +19,10 @@ class GetAllArticlesTask extends Task
     public function run()
     {
         return $this->repository->paginate();
+    }
+
+    public function orderBy($orderBy, $sortedBy)
+    {
+        $this->repository->pushCriteria(new OrderByFieldCriteria($orderBy, $sortedBy));
     }
 }

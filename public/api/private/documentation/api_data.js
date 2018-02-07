@@ -2267,6 +2267,71 @@ define({ "api": [
   },
   {
     "group": "User",
+    "name": "followFeed",
+    "type": "POST",
+    "url": "/v1/user/feed/follow",
+    "title": "Follow Feed",
+    "description": "<p>Follow the specified feed</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"user,ngo,timeline,notification,timeline_aggregated\""
+            ],
+            "optional": false,
+            "field": "feed",
+            "description": "<p>(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "target_id",
+            "description": "<p>(required)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"user,ngo,timeline,notification,timeline_aggregated\""
+            ],
+            "optional": false,
+            "field": "target_feed",
+            "description": "<p>(required)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  // Insert the response of the request here...\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/User/UI/API/Routes/FollowFeed.v1.private.php",
+    "groupTitle": "User"
+  },
+  {
+    "group": "User",
     "name": "forgotPassword",
     "type": "POST",
     "url": "/v1/password/forgot",
@@ -2334,6 +2399,44 @@ define({ "api": [
         }
       ]
     }
+  },
+  {
+    "group": "User",
+    "name": "getUserFeed",
+    "type": "GET",
+    "url": "/v1/user/activities/feed/user/:id",
+    "title": "Endpoint title here..",
+    "description": "<p>Endpoint description here..</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parameters",
+            "description": "<p>here..</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  // Insert the response of the request here...\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/User/UI/API/Routes/GetUserFeed.v1.private.php",
+    "groupTitle": "User"
   },
   {
     "group": "User",

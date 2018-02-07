@@ -24,8 +24,6 @@ class EventTransformer extends Transformer
 
     public function transform(Event $event)
     {
-//        info();
-        info($event->created_at);
         $response = [
             'msg' => $event->msg,
             'object' => [

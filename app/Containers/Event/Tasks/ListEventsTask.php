@@ -3,6 +3,7 @@
 namespace App\Containers\Event\Tasks;
 
 use App\Containers\Event\Data\Repositories\EventRepository;
+use App\Ship\Criterias\Eloquent\OrderByFieldCriteria;
 use App\Ship\Parents\Tasks\Task;
 
 class ListEventsTask extends Task
@@ -14,15 +15,13 @@ class ListEventsTask extends Task
         $this->repository = $repository;
     }
 
-    /**
-     *
-     */
-    // You can add criteria and parameters to sort and limit the results
-    // for reference look at "ListUsersTask" in
-    // App\Containers\User\Tasks
-    // Todo Add criteria and parameters
-    public function run($data)
+    public function run()
     {
         return $this->repository->paginate();
+    }
+
+    public function orderBy($orderBy, $sortedBy)
+    {
+        $this->repository->pushCriteria(new OrderByFieldCriteria($orderBy, $sortedBy));
     }
 }
