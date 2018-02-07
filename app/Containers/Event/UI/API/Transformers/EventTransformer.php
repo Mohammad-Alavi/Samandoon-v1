@@ -34,6 +34,7 @@ class EventTransformer extends Transformer
                 'event_image' => empty($event->getFirstMediaUrl('event_image')) ? null :
                     'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $event->getFirstMediaUrl('event_image')),
                 'location' => $event->location,
+                'ngo_id' => $event->ngo->getHashedKey(),
                 'event_date' => $event->event_date,
                 'created_at' => $event->created_at,
                 'updated_at' => $event->updated_at,

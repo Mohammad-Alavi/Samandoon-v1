@@ -30,7 +30,6 @@ class ArticleTransformer extends Transformer
                 'article_image' => empty($article->getFirstMediaUrl('article_image')) ? null :
                     'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $article->getFirstMediaUrl('article_image')),
                 'ngo_id' => $article->ngo->getHashedKey(),
-
                 'created_at' => $article->created_at,
                 'updated_at' => $article->updated_at,
                 'readable_created_at' => $article->created_at->diffForHumans(),

@@ -9,8 +9,16 @@ class GetAllArticlesAction extends Action
 {
     public function run(Request $request)
     {
-        return $this->call('Article@GetAllArticlesTask', [], [
-            ['orderBy' => [$request->orderBy, $request->sortedBy]],
-        ]);
+        $ngoIdmethodWithParams = $request->has('ngoId') ? ['ngoId' => [$request->ngoId]] : null;
+
+        is_null($ngoIdmethodWithParams) ?
+            $articles = $this->call('Article@GetAllArticlesTask', [], [
+                ['orderBy' => [$request->orderBy, $request->sortedBy]]
+            ]) :
+            $articles = $this->call('Article@GetAllArticlesTask', [], [
+                ['orderBy' => [$request->orderBy, $request->sortedBy]],
+                $ngoIdmethodWithParams
+            ]);
+        return $articles;
     }
 }

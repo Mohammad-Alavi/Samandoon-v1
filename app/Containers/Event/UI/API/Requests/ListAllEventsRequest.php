@@ -25,7 +25,7 @@ class ListAllEventsRequest extends Request
      * @var  array
      */
     protected $decode = [
-        // 'id',
+         'ngoId',
     ];
 
     /**
@@ -35,7 +35,7 @@ class ListAllEventsRequest extends Request
      * @var  array
      */
     protected $urlParameters = [
-        //'id',
+//        'ngoId',
     ];
 
     /**

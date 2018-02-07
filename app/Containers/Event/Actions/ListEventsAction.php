@@ -9,8 +9,16 @@ class ListEventsAction extends Action
 {
     public function run(Request $request)
     {
-        return $this->call('Event@ListEventsTask', [], [
-            ['orderBy' => [$request->orderBy, $request->sortedBy]],
-        ]);
+        $ngoIdmethodWithParams = $request->has('ngoId') ? ['ngoId' => [$request->ngoId]] : null;
+
+        is_null($ngoIdmethodWithParams) ?
+            $events = $this->call('Event@ListEventsTask', [], [
+                ['orderBy' => [$request->orderBy, $request->sortedBy]]
+            ]) :
+            $events = $this->call('Event@ListEventsTask', [], [
+                ['orderBy' => [$request->orderBy, $request->sortedBy]],
+                $ngoIdmethodWithParams
+            ]);
+        return $events;
     }
 }
