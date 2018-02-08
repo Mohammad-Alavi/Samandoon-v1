@@ -6,6 +6,7 @@ use App\Containers\Article\UI\API\Requests\CreateArticleRequest;
 use App\Containers\Article\UI\API\Requests\DeleteArticleRequest;
 use App\Containers\Article\UI\API\Requests\GetArticleRequest;
 use App\Containers\Article\UI\API\Requests\GetAllArticlesRequest;
+use App\Containers\Article\UI\API\Requests\SearchArticlesRequest;
 use App\Containers\Article\UI\API\Requests\UpdateArticleRequest;
 use App\Containers\Article\UI\API\Transformers\ArticleTransformer;
 use App\Ship\Parents\Controllers\ApiController;
@@ -43,6 +44,13 @@ class Controller extends ApiController
     public function listAllArticles(GetAllArticlesRequest $request)
     {
         $articles = $this->call('Article@GetAllArticlesAction', [$request]);
+        return $this->transform($articles, ArticleTransformer::class);
+    }
+
+    public function searchArticles(SearchArticlesRequest $request)
+    {
+        $articles = $this->call('Article@SearchArticlesAction', [new DataTransporter($request)]);
+        $articles->msg = 'Articles found';
         return $this->transform($articles, ArticleTransformer::class);
     }
 }
