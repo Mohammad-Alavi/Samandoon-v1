@@ -30,4 +30,9 @@ class ListEventsTask extends Task
     {
         $this->repository->pushCriteria(new ThisEqualThatCriteria('ngo_id', $ngo_id));
     }
+
+    public function where_in($field, $value)
+    {
+        $this->repository->pushCriteria(new ThisEqualThatCriteria($field, $value));
+    }
 }

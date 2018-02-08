@@ -9,16 +9,15 @@ class GetAllArticlesAction extends Action
 {
     public function run(Request $request)
     {
-        $ngoIdmethodWithParams = $request->has('ngo_id') ? ['ngo_id' => [$request->ngo_id]] : null;
+        $whereInMethod = $request->has('field') && $request->has('value') ? ['where_in' => [$request->field, $request->value]] : [''];
+        $withNgoIdMethod = $request->has('ngo_id') ? ['ngo_id' => [$request->ngo_id]] : [''];
 
-        is_null($ngoIdmethodWithParams) ?
-            $articles = $this->call('Article@GetAllArticlesTask', [], [
-                ['orderBy' => [$request->orderBy, $request->sortedBy]]
-            ]) :
-            $articles = $this->call('Article@GetAllArticlesTask', [], [
-                ['orderBy' => [$request->orderBy, $request->sortedBy]],
-                $ngoIdmethodWithParams
-            ]);
+        $articles = $this->call('Article@GetAllArticlesTask', [], [
+            ['orderBy' => [$request->orderBy, $request->sortedBy]],
+            $withNgoIdMethod,
+            $whereInMethod
+        ]);
+
         return $articles;
     }
 }

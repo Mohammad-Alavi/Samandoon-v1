@@ -10,7 +10,6 @@
  * @apiVersion         1.0.0
  * @apiPermission      none
  *
- *
  * @apiUse             EventSuccessSingleResponse
 */
 
