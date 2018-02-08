@@ -24,8 +24,6 @@ class Event extends Model implements HasMedia
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
-            'location' => $this->location,
-            'event_date' => $this->event_date,
         ];
 
         // Customize array...

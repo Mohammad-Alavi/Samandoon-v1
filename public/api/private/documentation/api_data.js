@@ -17,13 +17,6 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "title",
-            "description": "<p>(required) max:255</p>"
-          },
-          {
-            "group": "Parameter",
             "type": "text",
             "optional": false,
             "field": "text",
@@ -144,17 +137,10 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "title",
-            "description": "<p>(optional) max:255</p>"
-          },
-          {
-            "group": "Parameter",
             "type": "text",
             "optional": false,
             "field": "text",
-            "description": "<p>(optional)</p>"
+            "description": "<p>(required)</p>"
           },
           {
             "group": "Parameter",
@@ -338,35 +324,35 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "string",
-            "optional": false,
+            "optional": true,
             "field": "title",
             "description": "<p>(optional)</p>"
           },
           {
             "group": "Parameter",
             "type": "text",
-            "optional": false,
+            "optional": true,
             "field": "description",
             "description": "<p>(optional)</p>"
           },
           {
             "group": "Parameter",
             "type": "dateTime",
-            "optional": false,
+            "optional": true,
             "field": "event_date",
             "description": "<p>(optional) date_format:YmdHiT</p>"
           },
           {
             "group": "Parameter",
             "type": "image",
-            "optional": false,
+            "optional": true,
             "field": "event_image",
             "description": "<p>(optional)</p>"
           },
           {
             "group": "Parameter",
             "type": "text",
-            "optional": false,
+            "optional": true,
             "field": "location",
             "description": "<p>(optional)</p>"
           }

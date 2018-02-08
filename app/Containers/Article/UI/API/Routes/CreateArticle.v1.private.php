@@ -10,7 +10,6 @@
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated
  *
- * @apiParam           {String}  title (required) max:255
  * @apiParam           {text}  text (required)
  * @apiParam           {image}  article_image (optional)
  *

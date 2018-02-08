@@ -43,7 +43,7 @@ class SearchEventsRequest extends Request
      * @var  array
      */
     protected $urlParameters = [
-         'keyword',
+//         'keyword',
     ];
 
     /**
