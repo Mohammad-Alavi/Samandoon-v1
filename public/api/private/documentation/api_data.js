@@ -121,6 +121,31 @@ define({ "api": [
   },
   {
     "group": "Article",
+    "name": "searchArticles",
+    "type": "GET",
+    "url": "/v1/search/ngo/article?q=",
+    "title": "Search Articles",
+    "description": "<p>Search the value of q parameter in articles</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "filename": "app/Containers/Article/UI/API/Routes/SearchArticles.v1.private.php",
+    "groupTitle": "Article",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n        \"object\": \"Article\",\n            \"id\": \"3mjzyg5dp5a0vwp6\",\n            \"title\": \"This is an Article\",\n            \"text\": \"Some random texts and description for nealy created Article\",\n            \"article_image\": \"http://api.samandoon.local/v1/storage/1/50762ff31f0d03520cd26dbb54d37443.jpg\",\n            \"ngo_id\": \"kjeonp5eordqzvb8\",\n            \"created_at\": {\n            \"date\": \"2017-12-11 10:00:19.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-12-11 10:00:19.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"view_article\": {\n            \"href\": \"v1/ngo/article/3mjzyg5dp5a0vwp6\",\n                \"method\": \"GET\"\n            }\n        },\n        \"NGO\": {\n        \"data\": {\n            \"msg\": null,\n                \"object\": {\n                \"object\": \"NGO\",\n                    \"id\": \"kjeonp5eordqzvb8\",\n                    \"name\": \"مهرگان كرشته\",\n                    \"description\": null,\n                    \"subjects\": [],\n                    \"area_of_activity\": null,\n                    \"address\": \"----\",\n                    \"zip_code\": \"0\",\n                    \"type\": \"شركت سهامي خاص\",\n                    \"confirmed\": false,\n                    \"logo_photo\": \"\",\n                    \"banner_photo\": \"\",\n                    \"user_id\": \"3mjzyg5dp5a0vwp6\",\n                    \"Registration specification\": {\n                    \"national_number\": \"10100000006\",\n                        \"registration_number\": \"17\",\n                        \"registration_date\": \"1350/01/23\",\n                        \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n                    },\n                    \"view_ngo\": {\n                    \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                        \"method\": \"GET\"\n                    }\n                }\n            }\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"ngo\",\n        \"user\"\n    ],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "group": "Article",
     "name": "updateArticle",
     "type": "PUT",
     "url": "/v1/ngo/article/{id}",
@@ -376,7 +401,7 @@ define({ "api": [
     "name": "searchEvent",
     "type": "GET",
     "url": "/v1/search/ngo/event?q=",
-    "title": "Search Event",
+    "title": "Search Events",
     "description": "<p>Search the value of q parameter in events</p>",
     "version": "1.0.0",
     "permission": [
