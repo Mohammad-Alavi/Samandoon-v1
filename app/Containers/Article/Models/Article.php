@@ -15,7 +15,6 @@ class Article extends Model implements HasMedia
     use CanBeLiked, CanBeFavorited;
 
     protected $fillable = [
-        'title',
         'text',
         'ngo_id'
     ];

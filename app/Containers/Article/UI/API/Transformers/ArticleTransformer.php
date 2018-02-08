@@ -25,7 +25,6 @@ class ArticleTransformer extends Transformer
             'object' => [
                 'object' => 'Article',
                 'id' => $article->getHashedKey(),
-                'title' => $article->title,
                 'text' => $article->text,
                 'article_image' => empty($article->getFirstMediaUrl('article_image')) ? null :
                     'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $article->getFirstMediaUrl('article_image')),

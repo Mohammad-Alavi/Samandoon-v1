@@ -13,7 +13,6 @@ class UpdateArticleAction extends Action
         $this->call('Article@FindArticleByIdTask', [$request->id]);
 
         $sanitizedData = $request->sanitizeInput([
-            'title',
             'text',
             'article_image'
         ]);

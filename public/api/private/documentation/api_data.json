@@ -389,26 +389,26 @@
     "group": "Event",
     "name": "searchEvent",
     "type": "GET",
-    "url": "/v1/ngo/event/search/{keyword}",
+    "url": "/v1/search/ngo/event?q=",
     "title": "Search Event",
-    "description": "<p>Search the keyword in events</p>",
+    "description": "<p>Search the value of q parameter in events</p>",
     "version": "1.0.0",
     "permission": [
       {
         "name": "none"
       }
     ],
+    "filename": "app/Containers/Event/UI/API/Routes/SearchEvents.v1.private.php",
+    "groupTitle": "Event",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  // Insert the response of the request here...\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n        \"object\": \"Event\",\n            \"id\": \"pm8njbr9jl9eko4w\",\n            \"title\": \"Some event title\",\n            \"description\": \"Some event description\",\n            \"event_image\": \"http://api.samandoon.local/v1/storage/10/43c4\",\n            \"event_date\": {\n            \"date\": \"2016-12-08 13:16:00.000000\",\n                \"timezone_type\": 2,\n                \"timezone\": \"GMT\"\n            },\n            \"location\": null,\n            \"created_at\": {\n            \"date\": \"2018-01-23 07:19:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2018-01-23 07:19:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_event\": {\n        \"href\": \"v1/ngo/event/dj\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"ngo\"\n    ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
-    },
-    "filename": "app/Containers/Event/UI/API/Routes/SearchEvents.v1.private.php",
-    "groupTitle": "Event"
+    }
   },
   {
     "group": "Localization",

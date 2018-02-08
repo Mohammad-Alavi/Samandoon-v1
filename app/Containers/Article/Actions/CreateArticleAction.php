@@ -18,7 +18,6 @@ class CreateArticleAction extends Action
         $data->ngo_id = $ngo->id;
 
         $sanitizedData = $data->sanitizeInput([
-            'title',
             'text',
             'article_image',
             'ngo_id'

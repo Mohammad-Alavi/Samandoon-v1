@@ -45,7 +45,6 @@ class UpdateArticleRequest extends Request
     {
         return [
 //            'id' => 'required',
-            'title' => 'max:255',
             'article_image' => 'image'
         ];
     }

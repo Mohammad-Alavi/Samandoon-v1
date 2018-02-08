@@ -15,7 +15,6 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
 
             $table->increments('id');
-            $table->string('title')->nullable();
             $table->text('text')->nullable();
             $table->integer('ngo_id');
             $table->timestamps();
