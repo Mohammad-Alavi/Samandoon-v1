@@ -28,6 +28,7 @@ class Ngo extends Model implements HasMedia
         $array = [
             'id' => $this->id,
             'name' => $this->name,
+            'national_number' => $this->national_number,
         ];
 
         // Customize array...

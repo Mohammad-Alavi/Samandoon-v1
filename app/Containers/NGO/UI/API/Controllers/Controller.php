@@ -14,6 +14,7 @@ use App\Containers\NGO\UI\API\Requests\GetArticleRequest;
 use App\Containers\NGO\UI\API\Requests\GetAuthenticatedUserNgoRequest;
 use App\Containers\NGO\UI\API\Requests\GetNgoRequest;
 use App\Containers\NGO\UI\API\Requests\ListAllNgosRequest;
+use App\Containers\NGO\UI\API\Requests\SearchNgosRequest;
 use App\Containers\NGO\UI\API\Requests\UpdateArticleRequest;
 use App\Containers\NGO\UI\API\Requests\UpdateNgoRequest;
 use App\Containers\NGO\UI\API\Transformers\ArticleTransformer;
@@ -22,6 +23,7 @@ use App\Containers\NGO\UI\API\Transformers\NgoTransformer;
 use App\Containers\NGO\UI\API\Transformers\SubjectTransformer;
 use App\Containers\User\Models\User;
 use App\Ship\Parents\Controllers\ApiController;
+use App\Ship\Transporters\DataTransporter;
 
 class Controller extends ApiController
 {
@@ -69,5 +71,12 @@ class Controller extends ApiController
         $ngo = Apiato::call('NGO@FindNgoByNationalIdAction', [$request]);
         $ngo->msg = 'NGO Found';
         return $this->transform($ngo, NGOTransformer::class);
+    }
+
+    public function searchNgos(SearchNgosRequest $request)
+    {
+        $ngos = $this->call('NGO@SearchNgosAction', [new DataTransporter($request)]);
+        $ngos->msg = 'NGOs found';
+        return $this->transform($ngos, NgoTransformer::class);
     }
 }
