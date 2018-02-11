@@ -2,7 +2,7 @@
 
 /**
  * @apiGroup           Event
- * @apiName            searchEvent
+ * @apiName            searchEvents
  *
  * @api                {GET} /v1/search/ngo/event?q= Search Events
  * @apiDescription     Search the value of q parameter in events

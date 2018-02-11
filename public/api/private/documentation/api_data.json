@@ -210,35 +210,49 @@
             "type": "string",
             "optional": false,
             "field": "title",
-            "description": "<p>(required) max:255</p>"
+            "description": "<p>max:255</p>"
           },
           {
             "group": "Parameter",
             "type": "text",
-            "optional": false,
+            "optional": true,
             "field": "description",
-            "description": "<p>(optional)</p>"
+            "description": ""
           },
           {
             "group": "Parameter",
             "type": "image",
-            "optional": false,
+            "optional": true,
             "field": "event_image",
-            "description": "<p>(optional)</p>"
+            "description": ""
           },
           {
             "group": "Parameter",
             "type": "dateTime",
             "optional": false,
             "field": "event_date",
-            "description": "<p>(required) date_format:YmdHiT</p>"
+            "description": "<p>date_format:YmdHiT</p>"
           },
           {
             "group": "Parameter",
-            "type": "text",
+            "type": "string",
             "optional": false,
-            "field": "location",
-            "description": "<p>(optional)</p>"
+            "field": "city",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "province",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "address",
+            "description": ""
           }
         ]
       }
@@ -398,7 +412,7 @@
   },
   {
     "group": "Event",
-    "name": "searchEvent",
+    "name": "searchEvents",
     "type": "GET",
     "url": "/v1/search/ngo/event?q=",
     "title": "Search Events",
@@ -458,6 +472,31 @@
     },
     "filename": "app/Containers/Localization/UI/API/Routes/GetAllLocalizations.v1.private.php",
     "groupTitle": "Localization"
+  },
+  {
+    "group": "Location",
+    "name": "getAllLocations",
+    "type": "GET",
+    "url": "/v1/location",
+    "title": "List All Locations",
+    "description": "<p>Lists all locations (cities and province) in a convincing manner</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": [\n        {\n            \"province\": \"آذربایجان شرقی\",\n            \"cities\": [\n            \"اهر\",\n            \"هوراند\",\n            \"باسمنج\",\n            \"تبريز\",\n            \"سردرود\",\n            \"خسروشاه\",\n            \"سراب\",\n            .\n            .\n            .\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/Location/UI/API/Routes/GetAllLocations.v1.private.php",
+    "groupTitle": "Location"
   },
   {
     "group": "NGO",
@@ -684,6 +723,31 @@
       }
     ],
     "filename": "app/Containers/NGO/UI/API/Routes/ListAllNgos.v1.private.php",
+    "groupTitle": "NGO",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"ُSome informative msg here or Null\",\n        \"object\": {\n        \"object\": \"NGO\",\n            \"id\": \"e8dz0jl84rngaxv3\",\n            \"name\": \"مهرگان كرشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"address\": \"----\",\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت سهامي خاص\",\n            \"confirmed\": false,\n            \"ngo_logo\": \"http://api.samandoon.local/v1/storage/21/6cf4b3e93caef896b27dd9140f7171a5.jpg\",\n            \"ngo_banner\": \"http://api.samandoon.local/v1/default_images/ngo_banner.png\",\n            \"user_id\": \"Je\",\n            \"registration_specification\": {\n            \"national_number\": \"10100000006\",\n                \"registration_number\": \"17\",\n                \"registration_date\": \"1350/01/23\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n            \"date\": \"2018-01-20 06:41:17.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2018-01-20 09:02:47.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"2 hours ago\",\n            \"readable_updated_at\": \"24 minutes ago\",\n            \"view_ngo\": {\n            \"href\": \"v1/ngo/Je\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n            \"is_subscribed\": true,\n            \"subscribers_count\": 2\n            }\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"user\",\n        \"articles\"\n    ],\n        \"custom\": []\n    }",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "group": "NGO",
+    "name": "searchNgos",
+    "type": "GET",
+    "url": "/v1/search/ngo?q=",
+    "title": "Search NGOs",
+    "description": "<p>Search the value of q parameter in NGOs</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "filename": "app/Containers/NGO/UI/API/Routes/SearchNgos.v1.private.php",
     "groupTitle": "NGO",
     "success": {
       "examples": [
@@ -2390,7 +2454,7 @@
     "group": "User",
     "name": "getSubscriptions",
     "type": "GET",
-    "url": "/v1/user/subscriptions/{user_id}",
+    "url": "/v1/user/{user_id}/subscriptions",
     "title": "Get Subscriptions of User",
     "description": "<p>Get all subscriptions of a specific user</p>",
     "version": "1.0.0",
