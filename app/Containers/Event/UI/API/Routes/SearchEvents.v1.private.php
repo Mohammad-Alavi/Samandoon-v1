@@ -10,6 +10,8 @@
  * @apiVersion         1.0.0
  * @apiPermission      none
  *
+ * @apiExample         {url} Example usage:
+ * api.samandoon.ngo/v1/search/ngo/event?q=تست
  * @apiUse             EventSuccessSingleResponse
 */
 

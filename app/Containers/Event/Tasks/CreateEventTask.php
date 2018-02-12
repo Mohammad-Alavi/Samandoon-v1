@@ -6,6 +6,7 @@ use App\Containers\Event\Data\Repositories\EventRepository;
 use App\Containers\Event\Models\Event;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Tasks\Task;
+//use DateTime;
 use Exception;
 //use GetStream\Stream\Client;
 
@@ -25,17 +26,20 @@ class CreateEventTask extends Task
             if (array_key_exists('event_image', $data)) {
                 $event->addMediaFromRequest('event_image')->toMediaCollection('event_image');
             }
-//            $client = new Client('d4kxkrumnn73', 'jxjgfdpv3dw7fqq8brsfznsfkf7ty78gmpuj4stdsgeu4duem5wn9e9e242qx3fa');
-//            $client->setLocation('us-east');
+
+            // Add activity
+//            $client = new Client(env('STREAM_API_KEY'), env('STREAM_API_SECRET'));
 //            $userFeed = $client->feed('ngo', $event->ngo->id);
+//            $now = new DateTime();
 //            $feedData = [
-//                "actor" => 'App\Containers\NGO\Models\NGO:' . $event->ngo->id,
-//                "verb" => "created event",
-//                "object" => 'App\Containers\Event\Models\Event:' . $event->id,
-//                "foreign_id" => 'App\Containers\Event\Models\Event:' . $event->id,
+//                'actor' => 'App\Containers\NGO\Models\NGO:' . $event->ngo->getHashedKey(),
+//                'verb' => "created event",
+//                'object' => 'App\Containers\Event\Models\Event:' . $event->getHashedKey(),
+//                'foreign_id' => 'App\Containers\Event\Models\Event:' . $event->getHashedKey(),
+//                'time' => $now->format(DATE_ISO8601)
 //            ];
 //            $userFeed->addActivity($feedData);
-//            info($userFeed->getActivities());
+
             return $event;
         } catch (Exception $exception) {
             throw new CreateResourceFailedException('Failed to create new Event');

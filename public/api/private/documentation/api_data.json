@@ -107,6 +107,13 @@
         "name": "none"
       }
     ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "api.samandoon.ngo/v1/ngo/article?filter=title;created_at&orderBy=title&sortedBy=asc&field=title&value=v&ngo_id=3mjzyg5dp5a0vwp6",
+        "type": "url"
+      }
+    ],
     "filename": "app/Containers/Article/UI/API/Routes/ListAllArticles.v1.private.php",
     "groupTitle": "Article",
     "success": {
@@ -130,6 +137,13 @@
     "permission": [
       {
         "name": "none"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "api.samandoon.ngo/v1/search/ngo/article?q=تست",
+        "type": "url"
       }
     ],
     "filename": "app/Containers/Article/UI/API/Routes/SearchArticles.v1.private.php",
@@ -332,6 +346,13 @@
         "name": "none"
       }
     ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "api.samandoon.ngo/v1/ngo/event?filter=title;created_at&orderBy=title&sortedBy=asc&field=title&value=v&ngo_id=3mjzyg5dp5a0vwp6",
+        "type": "url"
+      }
+    ],
     "filename": "app/Containers/Event/UI/API/Routes/ListAllEvents.v1.private.php",
     "groupTitle": "Event",
     "success": {
@@ -423,6 +444,13 @@
         "name": "none"
       }
     ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "api.samandoon.ngo/v1/search/ngo/event?q=تست",
+        "type": "url"
+      }
+    ],
     "filename": "app/Containers/Event/UI/API/Routes/SearchEvents.v1.private.php",
     "groupTitle": "Event",
     "success": {
@@ -478,7 +506,7 @@
     "name": "getAllLocations",
     "type": "GET",
     "url": "/v1/location",
-    "title": "List All Locations",
+    "title": "Lists All Locations",
     "description": "<p>Lists all locations (cities and province) in a convincing manner</p>",
     "version": "1.0.0",
     "permission": [
@@ -722,6 +750,13 @@
         "name": "none"
       }
     ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "api.samandoon.ngo/v1/ngo?filter=title;created_at&orderBy=title&sortedBy=asc",
+        "type": "url"
+      }
+    ],
     "filename": "app/Containers/NGO/UI/API/Routes/ListAllNgos.v1.private.php",
     "groupTitle": "NGO",
     "success": {
@@ -745,6 +780,13 @@
     "permission": [
       {
         "name": "none"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "api.samandoon.ngo/v1/search/ngo?q=تست",
+        "type": "url"
       }
     ],
     "filename": "app/Containers/NGO/UI/API/Routes/SearchNgos.v1.private.php",
@@ -2361,7 +2403,7 @@
             "type": "String",
             "optional": false,
             "field": "id",
-            "description": "<p>(required)</p>"
+            "description": ""
           },
           {
             "group": "Parameter",
@@ -2371,14 +2413,14 @@
             ],
             "optional": false,
             "field": "feed",
-            "description": "<p>(required)</p>"
+            "description": ""
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "target_id",
-            "description": "<p>(required)</p>"
+            "description": ""
           },
           {
             "group": "Parameter",
@@ -2388,7 +2430,7 @@
             ],
             "optional": false,
             "field": "target_feed",
-            "description": "<p>(required)</p>"
+            "description": ""
           }
         ]
       }
@@ -2448,6 +2490,31 @@
       ]
     },
     "filename": "app/Containers/User/UI/API/Routes/ForgotPassword.v1.public.php",
+    "groupTitle": "User"
+  },
+  {
+    "group": "User",
+    "name": "getFeedFollowers",
+    "type": "GET",
+    "url": "/v1/user/{id}/feed/followers",
+    "title": "Get Feed Followers",
+    "description": "<p>Get specified user's feed followers</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  // Insert the response of the request here...\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/User/UI/API/Routes/GetFeedFollowers.v1.private.php",
     "groupTitle": "User"
   },
   {

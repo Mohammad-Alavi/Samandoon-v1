@@ -33,7 +33,11 @@ class EventTransformer extends Transformer
                 'description' => $event->description,
                 'event_image' => empty($event->getFirstMediaUrl('event_image')) ? null :
                     'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $event->getFirstMediaUrl('event_image')),
-                'location' => $event->location,
+                'location' => [
+                    'city' => $event->city,
+                    'province' => $event->province,
+                    'address' => $event->address
+                ],
                 'ngo_id' => $event->ngo->getHashedKey(),
                 'event_date' => $event->event_date,
                 'created_at' => $event->created_at,

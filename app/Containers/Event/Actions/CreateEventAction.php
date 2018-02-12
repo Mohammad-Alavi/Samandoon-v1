@@ -28,7 +28,9 @@ class CreateEventAction extends Action
         $data = $request->sanitizeInput([
             'title',
             'description',
-            'location',
+            'city',
+            'province',
+            'address',
             'event_image',
             'event_date',
             'ngo_id'

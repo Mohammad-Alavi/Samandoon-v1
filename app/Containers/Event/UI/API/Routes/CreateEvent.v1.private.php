@@ -10,11 +10,13 @@
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated User / Owner
  *
- * @apiParam           {string} title (required) max:255
- * @apiParam           {text} description (optional)
- * @apiParam           {image} event_image (optional)
- * @apiParam           {dateTime} event_date (required) date_format:YmdHiT
- * @apiParam           {text} location (optional)
+ * @apiParam           {string} title max:255
+ * @apiParam           {text} [description]
+ * @apiParam           {image} [event_image]
+ * @apiParam           {dateTime} event_date date_format:YmdHiT
+ * @apiParam           {string} city
+ * @apiParam           {string} province
+ * @apiParam           {string} [address]
  *
  * @apiUse             EventSuccessSingleResponse
 */

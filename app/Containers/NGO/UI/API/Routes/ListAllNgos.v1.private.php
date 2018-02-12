@@ -9,7 +9,8 @@
  *
  * @apiVersion         1.0.0
  * @apiPermission      none
- *
+ * @apiExample         {url} Example usage:
+ * api.samandoon.ngo/v1/ngo?filter=title;created_at&orderBy=title&sortedBy=asc
  * @apiUse             NGOSuccessSingleResponse
 */
 

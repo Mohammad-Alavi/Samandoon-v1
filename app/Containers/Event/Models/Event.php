@@ -36,7 +36,9 @@ class Event extends Model implements HasMedia
         'description',
         'event_date',
         'event_image',
-        'location',
+        'city',
+        'province',
+        'address',
         'ngo_id',
     ];
     //protected $hidden = ['created_at', 'updated_at'];

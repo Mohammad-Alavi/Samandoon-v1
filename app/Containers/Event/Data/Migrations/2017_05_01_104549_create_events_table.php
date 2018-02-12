@@ -18,7 +18,9 @@ class CreateEventsTable extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->timestampTz('event_date');
-            $table->text('location')->nullable();
+            $table->string('city');
+            $table->string('province');
+            $table->string('address')->nullable();
             $table->integer('ngo_id');
             $table->timestamps();
         });

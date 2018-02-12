@@ -9,7 +9,8 @@
  *
  * @apiVersion         1.0.0
  * @apiPermission      none
- *
+ * @apiExample         {url} Example usage:
+ * api.samandoon.ngo/v1/ngo/event?filter=title;created_at&orderBy=title&sortedBy=asc&field=title&value=v&ngo_id=3mjzyg5dp5a0vwp6
  * @apiUse             EventSuccessSingleResponse
 */
 

@@ -1,22 +1,30 @@
 <?php
 
-namespace App\Containers\Event\UI\API\Requests;
+namespace App\Containers\Location\UI\API\Requests;
 
 use App\Ship\Parents\Requests\Request;
 
 /**
- * Class UpdateEventRequest.
+ * Class GetAllLocationsRequest.
  */
-class UpdateEventRequest extends Request
+class GetAllLocationsRequest extends Request
 {
+
+    /**
+     * The assigned Transporter for this Request
+     *
+     * @var string
+     */
+    protected $transporter = \App\Containers\Location\Data\Transporters\GetAllLocationsTransporter::class;
+
     /**
      * Define which Roles and/or Permissions has access to this request.
      *
      * @var  array
      */
     protected $access = [
-        'permissions' => 'manage-event',
-        'roles'       => 'admin',
+        'permissions' => '',
+        'roles'       => '',
     ];
 
     /**
@@ -25,7 +33,7 @@ class UpdateEventRequest extends Request
      * @var  array
      */
     protected $decode = [
-         'id',
+        // 'id',
     ];
 
     /**
@@ -35,7 +43,7 @@ class UpdateEventRequest extends Request
      * @var  array
      */
     protected $urlParameters = [
-        'id',
+        // 'id',
     ];
 
     /**
@@ -44,11 +52,8 @@ class UpdateEventRequest extends Request
     public function rules()
     {
         return [
-//            'id' => 'required|exists:events,id',
-            'title' => 'max:255',
-            'address' => 'max:255',
-            'event_date'    =>  'date_format:YmdHiT',
-            'event_image'    =>  'image',
+            // 'id' => 'required',
+            // '{user-input}' => 'required|max:255',
         ];
     }
 
@@ -58,7 +63,7 @@ class UpdateEventRequest extends Request
     public function authorize()
     {
         return $this->check([
-            'hasAccess|isOwner',
+            'hasAccess',
         ]);
     }
 }

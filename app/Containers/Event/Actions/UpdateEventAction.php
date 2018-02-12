@@ -29,9 +29,11 @@ class UpdateEventAction extends Action
         $data = $request->sanitizeInput([
             'title',
             'description',
+            'city',
+            'province',
+            'address',
             'event_image',
             'event_date',
-            'location',
         ]);
 
         return $this->call('Event@UpdateEventTask', [$request->id, $data]);
