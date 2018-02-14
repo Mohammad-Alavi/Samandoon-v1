@@ -10,6 +10,6 @@ class SearchNgosTask extends Task
 {
     public function run(DataTransporter $data)
     {
-        return Ngo::Search($data->q)->paginate();
+        return Ngo::Search($data->q)->paginate($data->limit);
     }
 }

@@ -10,6 +10,6 @@ class SearchArticlesTask extends Task
 {
     public function run(DataTransporter $data)
     {
-        return Article::Search($data->q)->paginate();
+        return Article::Search($data->q)->paginate($data->limit);
     }
 }

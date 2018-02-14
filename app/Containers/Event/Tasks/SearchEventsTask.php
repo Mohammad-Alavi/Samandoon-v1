@@ -10,6 +10,6 @@ class SearchEventsTask extends Task
 {
     public function run(DataTransporter $data)
     {
-        return Event::Search($data->q)->paginate();
+        return Event::Search($data->q)->paginate($data->limit);
     }
 }
