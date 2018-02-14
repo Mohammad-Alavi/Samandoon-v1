@@ -25,9 +25,7 @@ class FindUserByIdAction extends Action
     {
         $user = Apiato::call('User@FindUserByIdTask', [$data->id]);
 
-        if (!$user) {
-            throw new NotFoundException();
-        }
+        throw_if(empty($user->id), new NotFoundException('User not found.'));
 
         return $user;
     }

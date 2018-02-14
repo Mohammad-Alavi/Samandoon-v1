@@ -10,6 +10,10 @@ class GetNgoAction extends Action
 {
     public function run(Request $request): Ngo
     {
-        return $this->call('NGO@FindNgoByIdTask', [$request->id]);
+        $ngo = $this->call('NGO@FindNgoByIdTask', [$request->id]);
+
+        throw_if(empty($ngo->id), new NotFoundException('NGO not found.'));
+
+        return $ngo;
     }
 }

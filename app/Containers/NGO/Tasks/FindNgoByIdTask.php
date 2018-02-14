@@ -19,7 +19,6 @@ class FindNgoByIdTask extends Task
     public function run($id): Ngo
     {
         $ngo = $this->repository->find($id);
-        throw_if(empty($ngo->id), new NotFoundException('NGO not found.'));
         return $ngo;
     }
 }

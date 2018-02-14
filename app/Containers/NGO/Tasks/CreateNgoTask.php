@@ -7,7 +7,7 @@ use App\Containers\NGO\Models\Ngo;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Exceptions\Exception;
 use App\Ship\Parents\Tasks\Task;
-//use GetStream\Stream\Client;
+use GetStream\Stream\Client;
 
 class CreateNgoTask extends Task
 {

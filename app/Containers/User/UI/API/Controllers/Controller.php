@@ -8,7 +8,10 @@ use App\Containers\User\UI\API\Requests\CreateAdminRequest;
 use App\Containers\User\UI\API\Requests\DeleteUserRequest;
 use App\Containers\User\UI\API\Requests\FallowNgoRequest;
 use App\Containers\User\UI\API\Requests\FindUserByEmailRequest;
+use App\Containers\User\UI\API\Requests\FollowFeedRequest;
+use App\Containers\User\UI\API\Requests\GetFeedFollowersRequest;
 use App\Containers\User\UI\API\Requests\GetSubscriptionsRequest;
+use App\Containers\User\UI\API\Requests\GetUserFeedRequest;
 use App\Containers\User\UI\API\Requests\HasSubscribedRequest;
 use App\Containers\User\UI\API\Requests\SubscribeRequest;
 use App\Containers\User\UI\API\Requests\GetAuthenticatedUserRequest;
@@ -18,12 +21,15 @@ use App\Containers\User\UI\API\Requests\GetAllUsersRequest;
 use App\Containers\User\UI\API\Requests\RegisterUserRequest;
 use App\Containers\User\UI\API\Requests\ResetPasswordRequest;
 use App\Containers\User\UI\API\Requests\ToggleSubscribeRequest;
+use App\Containers\User\UI\API\Requests\UnfollowFeedRequest;
 use App\Containers\User\UI\API\Requests\UnsubscribeRequest;
 use App\Containers\User\UI\API\Requests\UpdateUserRequest;
 use App\Containers\User\UI\API\Transformers\UserByEmailTransformer;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Controllers\ApiController;
 use App\Ship\Transporters\DataTransporter;
+use GetStream\StreamLaravel\Enrich;
+use Illuminate\Support\Facades\View;
 
 /**
  * Class Controller.
@@ -144,5 +150,27 @@ class Controller extends ApiController
     {
         $users = $this->call('User@GetSubscriptionsAction', [new DataTransporter($request)]);
         return $this->transform($users, NgoTransformer::class);
+    }
+
+    public function followFeed(FollowFeedRequest $request)
+    {
+        return $this->call('User@FollowFeedAction', [new DataTransporter($request)]);
+    }
+
+    public function unfollowFeed(UnfollowFeedRequest $request)
+    {
+        return $this->call('User@UnfollowFeedAction', [new DataTransporter($request)]);
+    }
+
+    public function getFeedFollowers(GetFeedFollowersRequest $request)
+    {
+        return $this->call('User@GetFeedFollowersAction', [$request]);
+    }
+
+    public function getUserFeed(GetUserFeedRequest $request)
+    {
+        $x = $this->call('User@GetUserFeedAction', [new DataTransporter($request)]);
+        info(var_dump($x));
+        return 'ok';
     }
 }
