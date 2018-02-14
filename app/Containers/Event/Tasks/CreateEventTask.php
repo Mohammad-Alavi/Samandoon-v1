@@ -6,9 +6,9 @@ use App\Containers\Event\Data\Repositories\EventRepository;
 use App\Containers\Event\Models\Event;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Tasks\Task;
-//use DateTime;
+use DateTime;
 use Exception;
-//use GetStream\Stream\Client;
+use GetStream\Stream\Client;
 
 class CreateEventTask extends Task
 {
@@ -28,17 +28,17 @@ class CreateEventTask extends Task
             }
 
             // Add activity
-//            $client = new Client(env('STREAM_API_KEY'), env('STREAM_API_SECRET'));
-//            $userFeed = $client->feed('ngo', $event->ngo->id);
-//            $now = new DateTime();
-//            $feedData = [
-//                'actor' => 'App\Containers\NGO\Models\NGO:' . $event->ngo->getHashedKey(),
-//                'verb' => "created event",
-//                'object' => 'App\Containers\Event\Models\Event:' . $event->getHashedKey(),
-//                'foreign_id' => 'App\Containers\Event\Models\Event:' . $event->getHashedKey(),
-//                'time' => $now->format(DATE_ISO8601)
-//            ];
-//            $userFeed->addActivity($feedData);
+            $client = new Client(env('STREAM_API_KEY'), env('STREAM_API_SECRET'));
+            $userFeed = $client->feed('ngo', $event->ngo->getHashedKey());
+            $now = new DateTime();
+            $feedData = [
+                'actor' => 'App\Containers\NGO\Models\NGO:' . $event->ngo->getHashedKey(),
+                'verb' => "created event",
+                'object' => 'App\Containers\Event\Models\Event:' . $event->getHashedKey(),
+                'foreign_id' => 'App\Containers\Event\Models\Event:' . $event->getHashedKey(),
+                'time' => $now->format(DATE_ISO8601)
+            ];
+            $userFeed->addActivity($feedData);
 
             return $event;
         } catch (Exception $exception) {

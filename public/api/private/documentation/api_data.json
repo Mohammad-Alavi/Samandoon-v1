@@ -2439,7 +2439,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  // Insert the response of the request here...\n}",
+          "content": "HTTP/1.1 200 OK\n{\n\n}",
           "type": "json"
         }
       ]
@@ -2509,7 +2509,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  // Insert the response of the request here...\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"results\": [\n        {\n            \"feed_id\": \"user:3mjzyg5dp5a0vwp6\",\n            \"target_id\": \"ngo:kjeonp5eordqzvb8\",\n            \"created_at\": \"2018-02-14T08:30:27.297125Z\",\n            \"updated_at\": null\n        },\n        {\n            \"feed_id\": \"user:oj64bp5zjl8ywzn0\",\n            \"target_id\": \"ngo:kjeonp5eordqzvb8\",\n            \"created_at\": \"2018-02-11T13:50:38.373069Z\",\n            \"updated_at\": null\n        },\n        {\n            \"feed_id\": \"user:kjeonp5eordqzvb8\",\n            \"target_id\": \"ngo:kjeonp5eordqzvb8\",\n            \"created_at\": \"2018-02-11T13:50:15.903338Z\",\n            \"updated_at\": null\n        }\n    ],\n    \"duration\": \"2.60ms\"\n}",
           "type": "json"
         }
       ]
@@ -2785,6 +2785,71 @@
       ]
     },
     "filename": "app/Containers/User/UI/API/Routes/ToggleSubscribe.v1.private.php",
+    "groupTitle": "User"
+  },
+  {
+    "group": "User",
+    "name": "unfollowFeed",
+    "type": "POST",
+    "url": "/v1/user/feed/unfollow",
+    "title": "Unfollow Feed",
+    "description": "<p>Unfollow the specified feed</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"user,ngo,timeline,notification,timeline_aggregated\""
+            ],
+            "optional": false,
+            "field": "feed",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "target_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"user,ngo,timeline,notification,timeline_aggregated\""
+            ],
+            "optional": false,
+            "field": "target_feed",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/User/UI/API/Routes/UnfollowFeed.v1.private.php",
     "groupTitle": "User"
   },
   {

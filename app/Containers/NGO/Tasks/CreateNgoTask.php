@@ -7,7 +7,6 @@ use App\Containers\NGO\Models\Ngo;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Exceptions\Exception;
 use App\Ship\Parents\Tasks\Task;
-use GetStream\Stream\Client;
 
 class CreateNgoTask extends Task
 {
@@ -43,19 +42,6 @@ class CreateNgoTask extends Task
             // add ngo id to user who created it
             $authenticated_user->ngo_id = $ngo->id;
             $authenticated_user->save();
-
-//            $client = new Client('d4kxkrumnn73', 'jxjgfdpv3dw7fqq8brsfznsfkf7ty78gmpuj4stdsgeu4duem5wn9e9e242qx3fa');
-//            $client->setLocation('us-east');
-//            $userFeed = $client->feed('user', $authenticated_user->id);
-//            $feedData = [
-//                "actor"=> $authenticated_user->id,
-//                "verb"=> "created",
-//                "object"=> $ngo->id,
-//                'to' => ['notification:' . $authenticated_user->id],
-////                "foreign_id"=>$ngo->id
-//            ];
-//            $userFeed->addActivities($feedData);
-//            info($userFeed->getActivities());
 
             return $ngo;
         } catch (Exception $e) {
