@@ -2519,6 +2519,31 @@ define({ "api": [
   },
   {
     "group": "User",
+    "name": "getFeedFollowings",
+    "type": "GET",
+    "url": "/v1/user/{id}/feed/followings",
+    "title": "Get Feed Followings",
+    "description": "<p>Get specified user's feed followings</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"results\": [\n        {\n            \"feed_id\": \"user:oj64bp5zjl8ywzn0\",\n            \"target_id\": \"ngo:kjeonp5eordqzvb8\",\n            \"created_at\": \"2018-02-11T13:50:38.373069Z\",\n            \"updated_at\": null\n        }\n    ],\n    \"duration\": \"1.77ms\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/User/UI/API/Routes/GetFeedFollowings.v1.private.php",
+    "groupTitle": "User"
+  },
+  {
+    "group": "User",
     "name": "getSubscriptions",
     "type": "GET",
     "url": "/v1/user/{user_id}/subscriptions",

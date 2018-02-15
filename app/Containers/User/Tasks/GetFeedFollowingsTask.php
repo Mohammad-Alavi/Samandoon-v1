@@ -6,15 +6,14 @@ use App\Containers\User\Models\User;
 use App\Ship\Parents\Tasks\Task;
 use GetStream\Stream\Client;
 
-class GetFeedFollowersTask extends Task
+class GetFeedFollowingsTask extends Task
 {
     public function run(User $user)
     {
         // create feed
         $client = new Client(env('STREAM_API_KEY'), env('STREAM_API_SECRET'));
-        // return who followed this user's ngo
-        $userFeed = $client->feed('ngo', $user->ngo->getHashedKey());
+        $userFeed = $client->feed('user', $user->getHashedKey());
 
-        return $userFeed->followers();
+        return $userFeed->following();
     }
 }

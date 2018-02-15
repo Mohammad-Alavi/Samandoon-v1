@@ -10,6 +10,7 @@ use App\Containers\User\UI\API\Requests\FallowNgoRequest;
 use App\Containers\User\UI\API\Requests\FindUserByEmailRequest;
 use App\Containers\User\UI\API\Requests\FollowFeedRequest;
 use App\Containers\User\UI\API\Requests\GetFeedFollowersRequest;
+use App\Containers\User\UI\API\Requests\GetFeedFollowingsRequest;
 use App\Containers\User\UI\API\Requests\GetSubscriptionsRequest;
 use App\Containers\User\UI\API\Requests\GetUserFeedRequest;
 use App\Containers\User\UI\API\Requests\HasSubscribedRequest;
@@ -165,6 +166,11 @@ class Controller extends ApiController
     public function getFeedFollowers(GetFeedFollowersRequest $request)
     {
         return $this->call('User@GetFeedFollowersAction', [$request]);
+    }
+
+    public function getFeedFollowings(GetFeedFollowingsRequest $request)
+    {
+        return $this->call('User@GetFeedFollowingsAction', [$request]);
     }
 
     public function getUserFeed(GetUserFeedRequest $request)
