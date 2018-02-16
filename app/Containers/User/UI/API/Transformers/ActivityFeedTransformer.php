@@ -9,7 +9,7 @@
 namespace App\Containers\User\UI\API\Transformers;
 
 
-class ActivityTransformer
+class ActivityFeedTransformer
 {
     public function transformer($activities)
     {

@@ -25,7 +25,7 @@ use App\Containers\User\UI\API\Requests\ToggleSubscribeRequest;
 use App\Containers\User\UI\API\Requests\UnfollowFeedRequest;
 use App\Containers\User\UI\API\Requests\UnsubscribeRequest;
 use App\Containers\User\UI\API\Requests\UpdateUserRequest;
-use App\Containers\User\UI\API\Transformers\ActivityTransformer;
+use App\Containers\User\UI\API\Transformers\ActivityFeedTransformer;
 use App\Containers\User\UI\API\Transformers\UserByEmailTransformer;
 use App\Containers\User\UI\API\Transformers\UserFeedTransformer;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
@@ -178,7 +178,7 @@ class Controller extends ApiController
     public function getUserFeed(GetUserFeedRequest $request)
     {
         $activities = $this->call('User@GetUserFeedAction', [new DataTransporter($request)]);
-        $activityTransformer = new ActivityTransformer();
+        $activityTransformer = new ActivityFeedTransformer();
         return $activityTransformer->transformer($activities);
     }
 }
