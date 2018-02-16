@@ -33,7 +33,7 @@ class CreateEventTask extends Task
             $now = new DateTime();
             $feedData = [
                 'actor' => 'App\Containers\NGO\Models\NGO:' . $event->ngo->getHashedKey(),
-                'verb' => "created event",
+                'verb' => "create",
                 'object' => 'App\Containers\Event\Models\Event:' . $event->getHashedKey(),
                 'foreign_id' => 'App\Containers\Event\Models\Event:' . $event->getHashedKey(),
                 'time' => $now->format(DATE_ISO8601)
