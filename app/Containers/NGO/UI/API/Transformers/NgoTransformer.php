@@ -14,7 +14,6 @@ class NgoTransformer extends Transformer
 
     protected $availableIncludes = [
         'user',
-        'articles'
     ];
 
     public function transform(Ngo $ngo)
@@ -74,11 +73,5 @@ class NgoTransformer extends Transformer
     {
         // use `item` with single relationship
         return $this->item($ngo->user, new UserTransformer());
-    }
-
-    public function includeArticles(Ngo $ngo)
-    {
-        // use `item` with single relationship
-        return $this->collection($ngo->articles, new ArticleTransformer());
     }
 }

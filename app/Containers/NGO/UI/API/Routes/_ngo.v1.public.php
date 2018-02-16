@@ -51,8 +51,7 @@ HTTP/1.1 200 OK
     },
     "meta": {
     "include": [
-        "user",
-        "articles"
+        "user"
     ],
         "custom": []
     }
