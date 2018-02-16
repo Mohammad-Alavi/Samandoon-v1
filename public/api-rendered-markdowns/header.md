@@ -41,7 +41,7 @@ While the Refresh Token lives for `3650 days, 0 hours, 0 minutes and 0 seconds`.
 
 ## **Pagination**
 
-By default, all fetch requests return the first `15` items in the list. Check the **Query Parameters** for how to control the pagination.
+By default, all fetch requests return the first `10` items in the list. Check the **Query Parameters** for how to control the pagination.
 
 ## **Limit:** 
 

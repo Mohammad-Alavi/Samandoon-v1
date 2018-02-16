@@ -2,7 +2,7 @@
 
 namespace App\Containers\User\Tasks;
 
-use App\Containers\NGO\Data\Repositories\NGORepository;
+use App\Containers\NGO\Models\Ngo;
 use App\Containers\User\Models\User;
 use App\Ship\Parents\Tasks\Task;
 use GetStream\Stream\Client;
@@ -10,14 +10,7 @@ use Vinkla\Hashids\Facades\Hashids;
 
 class GetFeedFollowingsTask extends Task
 {
-    private $repository;
-
-    public function __construct(NGORepository $repository)
-    {
-        $this->repository = $repository;
-    }
-
-    public function run(User $user)
+    public function run($request, User $user)
     {
         // create feed
         $client = new Client(env('STREAM_API_KEY'), env('STREAM_API_SECRET'));
@@ -29,6 +22,6 @@ class GetFeedFollowingsTask extends Task
             array_push($followingsIdArray, Hashids::decode(str_replace('ngo:', '', $followings['target_id'])));
         }
 
-        return $this->repository->findWhereIn('id', $followingsIdArray);
+        return Ngo::whereIn('id', $followingsIdArray)->paginate($request->limit ? $request->limit : env('PAGINATION_LIMIT'));
     }
 }

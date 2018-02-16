@@ -15,6 +15,6 @@ class GetFeedFollowersAction extends Action
         throw_if(empty($user->id), new NotFoundException('User not found.'));
         throw_if(empty($user->ngo->id), new NotFoundException('User don\'t have a NGO.'));
 
-        return Apiato::call('User@GetFeedFollowersTask', [$user]);
+        return Apiato::call('User@GetFeedFollowersTask', [$request, $user]);
     }
 }

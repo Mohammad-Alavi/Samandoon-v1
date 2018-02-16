@@ -14,6 +14,6 @@ class GetFeedFollowingsAction extends Action
         $user = Apiato::call('User@FindUserByIdTask', [$request->id]);
         throw_if(empty($user->id), new NotFoundException('User not found.'));
 
-        return Apiato::call('User@GetFeedFollowingsTask', [$user]);
+        return Apiato::call('User@GetFeedFollowingsTask', [$request, $user]);
     }
 }
