@@ -2,52 +2,33 @@
 
 namespace App\Containers\Location\UI\API\Transformers;
 
-use App\Containers\Location\Models\Location;
-use App\Ship\Parents\Transformers\Transformer;
-
-class LocationTransformer extends Transformer
+class LocationTransformer
 {
-    /**
-     * @var  array
-     */
-    protected $defaultIncludes = [
-
-    ];
-
-    /**
-     * @var  array
-     */
-    protected $availableIncludes = [
-
-    ];
-
-    /**
-     * @param Location $entity
-     *
-     * @return array
-     */
-    public function transform(Location $entity)
+    public function transform($entities)
     {
-        $response = [
-            'object' => 'Location',
-            'id' => $entity->getHashedKey(),
-            'name' => $entity->name,
-            'globalCode' => $entity->globalCode,
-            'lft' => $entity->lft,
-            'rgt' => $entity->rgt,
-            'lvl' => $entity->lvl,
-            'parent' => $entity->parent,
-            'published' => $entity->published,
-            'created_at' => $entity->created_at,
-            'updated_at' => $entity->updated_at,
+        // get all provinces
+        $provinces = [];
+        foreach ($entities as $locations) {
+            if ($locations['lvl'] == 1) {
+                array_push($provinces, $locations);
+            }
+        }
 
-        ];
-
-        $response = $this->ifAdmin([
-            'real_id'    => $entity->id,
-            // 'deleted_at' => $entity->deleted_at,
-        ], $response);
-
-        return $response;
+        // put all cities in their respective province
+        $provincesAndCities = [];
+        foreach ($provinces as $province) {
+            $cities = [];
+            foreach ($entities as $locations) {
+                if ($locations['parent'] === $province['id'] && $locations['lvl'] !== 1) {
+                    array_push($cities, $locations['name']);
+                }
+            }
+            array_push($provincesAndCities, [
+                'province' => $province['name'],
+                'cities' => $cities
+            ]);
+            $data = ['data' => $provincesAndCities];
+        }
+        return $data;
     }
 }
