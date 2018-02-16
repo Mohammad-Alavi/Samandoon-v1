@@ -4,11 +4,11 @@
  * @apiGroup           User
  * @apiName            getUserFeed
  *
- * @api                {GET} /v1/user/activities/feed/user/:id Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {GET} /v1/user/{id}/feed Get User's Feed
+ * @apiDescription     Return the user activity feed
  *
  * @apiVersion         1.0.0
- * @apiPermission      none
+ * @apiPermission      Authenticated
  *
  * @apiParam           {String}  parameters here..
  *
@@ -20,8 +20,10 @@
  */
 
 /** @var Route $router */
-//$router->get('feed/user/{id}', [
-//    'as' => 'api_user_get_user_feed',
-//    'uses'  => 'Controller@getUserFeed',
-//
-//]);
+$router->get('user/{id}/feed', [
+    'as' => 'api_user_get_user_feed',
+    'uses'  => 'Controller@getUserFeed',
+    'middleware' => [
+        'auth:api',
+    ],
+]);

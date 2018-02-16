@@ -52,7 +52,7 @@ class GetUserFeedRequest extends Request
     public function rules()
     {
         return [
-            // 'id' => 'required',
+             'id' => 'required',
             // '{user-input}' => 'required|max:255',
         ];
     }
