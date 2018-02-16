@@ -92,6 +92,8 @@ class User extends UserModel implements ChargeableInterface, HasMedia
         'remember_token',
     ];
 
+    protected $resourceKey = 'users';
+
     public function paymentAccounts()
     {
         return $this->hasMany(PaymentAccount::class);

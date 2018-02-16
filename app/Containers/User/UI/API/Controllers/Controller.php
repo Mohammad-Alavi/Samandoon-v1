@@ -165,12 +165,14 @@ class Controller extends ApiController
 
     public function getFeedFollowers(GetFeedFollowersRequest $request)
     {
-        return $this->call('User@GetFeedFollowersAction', [$request]);
+        $followers = $this->call('User@GetFeedFollowersAction', [$request]);
+        return $this->transform($followers, UserTransformer::class);
     }
 
     public function getFeedFollowings(GetFeedFollowingsRequest $request)
     {
-        return $this->call('User@GetFeedFollowingsAction', [$request]);
+        $followings = $this->call('User@GetFeedFollowingsAction', [$request]);
+        return $this->transform($followings, NgoTransformer::class);
     }
 
     public function getUserFeed(GetUserFeedRequest $request)
