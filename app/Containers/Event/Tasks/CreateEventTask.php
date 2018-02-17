@@ -9,6 +9,7 @@ use App\Ship\Parents\Tasks\Task;
 use DateTime;
 use Exception;
 use GetStream\Stream\Client;
+use Illuminate\Support\Carbon;
 
 class CreateEventTask extends Task
 {
@@ -30,13 +31,12 @@ class CreateEventTask extends Task
             // Add activity
             $client = new Client(env('STREAM_API_KEY'), env('STREAM_API_SECRET'));
             $userFeed = $client->feed('ngo', $event->ngo->getHashedKey());
-            $now = new DateTime();
             $feedData = [
                 'actor' => 'App\Containers\NGO\Models\NGO:' . $event->ngo->getHashedKey(),
                 'verb' => "create",
                 'object' => 'App\Containers\Event\Models\Event:' . $event->getHashedKey(),
                 'foreign_id' => 'App\Containers\Event\Models\Event:' . $event->getHashedKey(),
-                'time' => $now->format(DATE_ISO8601)
+                'time' => Carbon::now()->toIso8601String()
             ];
             $userFeed->addActivity($feedData);
 
