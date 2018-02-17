@@ -7,6 +7,8 @@ use App\Containers\Article\Models\Article;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Tasks\Task;
 use Exception;
+use GetStream\Stream\Client;
+use Illuminate\Support\Carbon;
 
 class CreateArticleTask extends Task
 {
@@ -24,6 +26,19 @@ class CreateArticleTask extends Task
             if (array_key_exists('article_image', $data)) {
                 $article->addMediaFromRequest('article_image')->toMediaCollection('article_image');
             }
+
+            // Add activity
+            $client = new Client(env('STREAM_API_KEY'), env('STREAM_API_SECRET'));
+            $userFeed = $client->feed('ngo', $article->ngo->getHashedKey());
+            $feedData = [
+                'actor' => 'NGO:' . $article->ngo->getHashedKey(),
+                'verb' => "create",
+                'object' => 'Article:' . $article->getHashedKey(),
+                'foreign_id' => 'Article:' . $article->getHashedKey(),
+                'time' => Carbon::now()->toIso8601String()
+            ];
+            $userFeed->addActivity($feedData);
+
             return $article;
         } catch (Exception $exception) {
             throw new CreateResourceFailedException('Failed to create new Article');
