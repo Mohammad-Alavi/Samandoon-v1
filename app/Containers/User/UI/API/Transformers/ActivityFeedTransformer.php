@@ -9,6 +9,8 @@
 namespace App\Containers\User\UI\API\Transformers;
 
 
+use Illuminate\Support\Carbon;
+
 class ActivityFeedTransformer
 {
     public function transformer($activities)
@@ -29,7 +31,8 @@ class ActivityFeedTransformer
             } elseif (stripos($activityArray['object'], 'article:') !== false) {
                 $objectType = 'article';
             }
-
+            
+            $carbon = new Carbon();
             $activityTransformer = [
                 'activityId' => $activityArray['id'],
                 'actorType' => $actorType,
@@ -39,7 +42,7 @@ class ActivityFeedTransformer
                 'targetType' => null,
                 'targetId' => null,
                 'verb' => $activityArray['verb'],
-                'time' => $activityArray['time']
+                'time' => $carbon->jsonSerialize($activityArray['time'])
             ];
             array_push($activity, $activityTransformer);
         }
