@@ -31,7 +31,7 @@ class ActivityFeedTransformer
             } elseif (stripos($activityArray['object'], 'article:') !== false) {
                 $objectType = 'article';
             }
-            
+
             $carbon = new Carbon();
             $activityTransformer = [
                 'activityId' => $activityArray['id'],
