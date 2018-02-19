@@ -17,7 +17,7 @@
 $router->get('ngo/article', [
     'as' => 'api_article_list_all_articles',
     'uses'  => 'Controller@listAllArticles',
-    'middleware' => [
-      'auth:api',
-    ],
+//    'middleware' => [
+//      'auth:api',
+//    ],
 ]);
