@@ -12,6 +12,6 @@ class FollowFeedTask extends Task
     {
         $client = new Client(env('STREAM_API_KEY'), env('STREAM_API_SECRET'));
         $feed = $client->feed($dataTransporter->feed, $dataTransporter->id);
-        $feed->follow($dataTransporter->target_feed, $dataTransporter->target_id);
+        $feed->follow($dataTransporter->target_feed, $dataTransporter->target_id, 0);
     }
 }
