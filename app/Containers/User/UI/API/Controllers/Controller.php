@@ -6,28 +6,25 @@ use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\NGO\UI\API\Transformers\NgoTransformer;
 use App\Containers\User\UI\API\Requests\CreateAdminRequest;
 use App\Containers\User\UI\API\Requests\DeleteUserRequest;
-use App\Containers\User\UI\API\Requests\FallowNgoRequest;
 use App\Containers\User\UI\API\Requests\FindUserByEmailRequest;
 use App\Containers\User\UI\API\Requests\FollowFeedRequest;
 use App\Containers\User\UI\API\Requests\GetFeedFollowersRequest;
 use App\Containers\User\UI\API\Requests\GetFeedFollowingsRequest;
-use App\Containers\User\UI\API\Requests\GetSubscriptionsRequest;
+use App\Containers\User\UI\API\Requests\GetLikesRequest;
 use App\Containers\User\UI\API\Requests\GetUserFeedRequest;
-use App\Containers\User\UI\API\Requests\HasSubscribedRequest;
-use App\Containers\User\UI\API\Requests\SubscribeRequest;
+use App\Containers\User\UI\API\Requests\LikeRequest;
 use App\Containers\User\UI\API\Requests\GetAuthenticatedUserRequest;
 use App\Containers\User\UI\API\Requests\FindUserByIdRequest;
 use App\Containers\User\UI\API\Requests\ForgotPasswordRequest;
 use App\Containers\User\UI\API\Requests\GetAllUsersRequest;
 use App\Containers\User\UI\API\Requests\RegisterUserRequest;
 use App\Containers\User\UI\API\Requests\ResetPasswordRequest;
-use App\Containers\User\UI\API\Requests\ToggleSubscribeRequest;
+use App\Containers\User\UI\API\Requests\ToggleLikeRequest;
 use App\Containers\User\UI\API\Requests\UnfollowFeedRequest;
-use App\Containers\User\UI\API\Requests\UnsubscribeRequest;
+use App\Containers\User\UI\API\Requests\UnlikeRequest;
 use App\Containers\User\UI\API\Requests\UpdateUserRequest;
 use App\Containers\User\UI\API\Transformers\ActivityFeedTransformer;
 use App\Containers\User\UI\API\Transformers\UserByEmailTransformer;
-use App\Containers\User\UI\API\Transformers\UserFeedTransformer;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Controllers\ApiController;
 use App\Ship\Transporters\DataTransporter;
@@ -127,57 +124,57 @@ class Controller extends ApiController
 
     public function findUserByEmail(FindUserByEmailRequest $request)
     {
-        $user = $this->call('User@FindUserByEmailAction', [$request]);
+        $user = Apiato::call('User@FindUserByEmailAction', [$request]);
         $user->msg = 'User Found';
         return $this->transform($user, UserByEmailTransformer::class);
     }
 
-    public function subscribe(SubscribeRequest $request)
+    public function like(LikeRequest $request)
     {
-        return $this->call('User@SubscribeAction', [new DataTransporter($request)]);
+        return Apiato::call('User@LikeAction', [new DataTransporter($request)]);
     }
 
-    public function unsubscribe(UnsubscribeRequest $request)
+    public function unlike(UnlikeRequest $request)
     {
-        return $this->call('User@UnsubscribeAction', [new DataTransporter($request)]);
+        return Apiato::call('User@UnlikeAction', [new DataTransporter($request)]);
     }
 
-    public function toggleSubscribe(ToggleSubscribeRequest $request)
+    public function toggleLike(ToggleLikeRequest $request)
     {
-        return $this->call('User@ToggleSubscribeAction', [new DataTransporter($request)]);
+        return Apiato::call('User@ToggleLikeAction', [new DataTransporter($request)]);
     }
 
-    public function getSubscriptions(GetSubscriptionsRequest $request)
+    public function getLikes(GetLikesRequest $request)
     {
-        $users = $this->call('User@GetSubscriptionsAction', [new DataTransporter($request)]);
-        return $this->transform($users, NgoTransformer::class);
+        $users = Apiato::call('User@GetLikesAction', [new DataTransporter($request)]);
+        return $this->transform($users, UserTransformer::class);
     }
 
     public function followFeed(FollowFeedRequest $request)
     {
-        return $this->call('User@FollowFeedAction', [new DataTransporter($request)]);
+        return Apiato::call('User@FollowFeedAction', [new DataTransporter($request)]);
     }
 
     public function unfollowFeed(UnfollowFeedRequest $request)
     {
-        return $this->call('User@UnfollowFeedAction', [new DataTransporter($request)]);
+        return Apiato::call('User@UnfollowFeedAction', [new DataTransporter($request)]);
     }
 
     public function getFeedFollowers(GetFeedFollowersRequest $request)
     {
-        $followers = $this->call('User@GetFeedFollowersAction', [$request]);
+        $followers = Apiato::call('User@GetFeedFollowersAction', [$request]);
         return $this->transform($followers, UserTransformer::class);
     }
 
     public function getFeedFollowings(GetFeedFollowingsRequest $request)
     {
-        $followings = $this->call('User@GetFeedFollowingsAction', [$request]);
+        $followings = Apiato::call('User@GetFeedFollowingsAction', [$request]);
         return $this->transform($followings, NgoTransformer::class);
     }
 
     public function getUserFeed(GetUserFeedRequest $request)
     {
-        $activities = $this->call('User@GetUserFeedAction', [new DataTransporter($request)]);
+        $activities = Apiato::call('User@GetUserFeedAction', [new DataTransporter($request)]);
         $activityTransformer = new ActivityFeedTransformer();
         return $activityTransformer->transformer($activities);
     }
