@@ -32,7 +32,7 @@
         "activityId": "d547f200-137a-11e8-8080-800075e3481e",
         "actorType": "ngo",
         "actorId": "kjeonp5eordqzvb8",
-        "objectType": "event",
+        "objectType": "article",
         "objectId": "qv4jdwrw30lanm6x",
         "targetType": null,
         "targetId": null,
