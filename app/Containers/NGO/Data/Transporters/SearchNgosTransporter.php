@@ -17,6 +17,8 @@ class SearchNgosTransporter extends Transporter
             'name',
             'description',
             'area_of_activity',
+            'city',
+            'province',
             'address',
             'zip_code',
             'type',

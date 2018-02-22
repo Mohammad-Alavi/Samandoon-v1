@@ -14,7 +14,11 @@ HTTP/1.1 200 OK
             "description": null,
             "subjects": [],
             "area_of_activity": null,
-            "address": "----",
+            "location": {
+                "city": "آبادان",
+                "province": "خوزستان",
+                "address": "----"
+            },
             "zip_code": "6316713649",
             "type": "شركت سهامي خاص",
             "confirmed": false,

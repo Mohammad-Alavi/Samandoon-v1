@@ -17,6 +17,8 @@ class UpdateNgoAction extends Action
             'description',
             'area_of_activity',
             'subjects',
+            'city',
+            'province',
             'address',
             'zip_code',
             'ngo_logo',

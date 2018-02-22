@@ -10,12 +10,14 @@
  * @apiVersion         1.0.0
  * @apiPermission      Owner | Admin
  *
- * @apiParam           {text}  description (optional)
- * @apiParam           {String}  area_of_activity (optional) max:255
- * @apiParam           {text}  address (optional) (optional)
- * @apiParam           {String}  zip_code (optional) (optional) max:255
- * @apiParam           {image}  ngo_logo (optional)
- * @apiParam           {image}  ngo_banner (optional)
+ * @apiParam           {text}  [description]
+ * @apiParam           {String}  [area_of_activity] max:255
+ * @apiParam           {String}  [city]
+ * @apiParam           {String}  [province]
+ * @apiParam           {text}  [address]
+ * @apiParam           {String}  [zip_code] max:255
+ * @apiParam           {image}  [ngo_logo]
+ * @apiParam           {image}  [ngo_banner]
  *
  * @apiUse             NGOSuccessSingleResponse
 */

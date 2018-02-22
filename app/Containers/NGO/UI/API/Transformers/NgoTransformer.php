@@ -28,7 +28,11 @@ class NgoTransformer extends Transformer
                 'description' => $ngo->description,
                 'subjects' => $ngo->tags,
                 'area_of_activity' => $ngo->area_of_activity,
-                'address' => $ngo->address,
+                'location' => [
+                    'city' => $ngo->city,
+                    'province' => $ngo->province,
+                    'address' => $ngo->address
+                ],
                 'zip_code' => $ngo->zip_code,
                 'type' => $ngo->type,
                 'confirmed' => $ngo->confirmed,

@@ -18,6 +18,8 @@ class CreateNgosTable extends Migration
             $table->string('name')->unique()->nullable();
             $table->text('description')->nullable();
             $table->string('area_of_activity')->nullable();
+            $table->string('city')->nullable();
+            $table->string('province')->nullable();
             $table->text('address')->nullable();
             $table->string('zip_code')->nullable();
             $table->string('type')->nullable();

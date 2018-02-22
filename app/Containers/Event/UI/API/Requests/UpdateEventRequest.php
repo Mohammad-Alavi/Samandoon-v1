@@ -46,6 +46,8 @@ class UpdateEventRequest extends Request
         return [
 //            'id' => 'required|exists:events,id',
             'title' => 'max:255',
+            'city' => 'exists:locations,name',
+            'province' => 'exists:locations,name',
             'address' => 'max:255',
             'event_date'    =>  'date_format:YmdHiT',
             'event_image'    =>  'image',

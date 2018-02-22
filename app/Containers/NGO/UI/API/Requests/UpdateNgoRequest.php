@@ -46,6 +46,8 @@ class UpdateNgoRequest extends Request
         return [
 //            'id'    => 'required|exists:ngos,id',
             'area_of_activity' => 'max:255',
+            'city' => 'exists:locations,name',
+            'province' => 'exists:locations,name',
             'zip_code' => 'max:255',
             'ngo_logo' => 'image',
             'ngo_banner' => 'image',
