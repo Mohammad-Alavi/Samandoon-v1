@@ -35,7 +35,6 @@ class Event extends Model implements HasMedia
         'title',
         'description',
         'event_date',
-        'event_image',
         'city',
         'province',
         'address',
