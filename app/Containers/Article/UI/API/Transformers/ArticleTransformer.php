@@ -33,6 +33,7 @@ class ArticleTransformer extends Transformer
                 'updated_at' => $article->updated_at,
                 'readable_created_at' => $article->created_at->diffForHumans(),
                 'readable_updated_at' => $article->updated_at->diffForHumans(),
+                'like_count' => $article->likers()->count(),
 
                 'view_article' => [
                     'href' => 'v1/ngo/article/' . $article->getHashedKey(),

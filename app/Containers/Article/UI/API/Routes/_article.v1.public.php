@@ -24,6 +24,7 @@ HTTP/1.1 200 OK
                 "timezone_type": 3,
                 "timezone": "UTC"
             },
+            "like_count": 2,
             "view_article": {
             "href": "v1/ngo/article/3mjzyg5dp5a0vwp6",
                 "method": "GET"
