@@ -28,7 +28,7 @@ class CreateArticleTask extends Task
             }
 
             // Add activity
-            $client = new Client(env('STREAM_API_KEY'), env('STREAM_API_SECRET'));
+            $client = new Client(config('getStream.stream_api_key'), config('getStream.stream_api_secret'));
             $userFeed = $client->feed('ngo', $article->ngo->getHashedKey());
             $feedData = [
                 'actor' => 'NGO:' . $article->ngo->getHashedKey(),
