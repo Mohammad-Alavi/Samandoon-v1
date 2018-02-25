@@ -6,6 +6,7 @@ use App\Containers\Event\Data\Repositories\EventRepository;
 use App\Containers\Event\Models\Event;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Tasks\Task;
+//use Berkayk\OneSignal\OneSignalClient;
 use Exception;
 use GetStream\Stream\Client;
 use Illuminate\Support\Carbon;
@@ -28,7 +29,7 @@ class CreateEventTask extends Task
             }
 
             // Add activity
-            $client = new Client(env('STREAM_API_KEY'), env('STREAM_API_SECRET'));
+            $client = new Client(config('getStream.stream_api_key'), config('getStream.stream_api_secret'));
             $userFeed = $client->feed('ngo', $event->ngo->getHashedKey());
             $feedData = [
                 'actor' => 'NGO:' . $event->ngo->getHashedKey(),
@@ -38,6 +39,15 @@ class CreateEventTask extends Task
                 'time' => Carbon::now()->toIso8601String()
             ];
             $userFeed->addActivity($feedData);
+
+//            $OneSignalClient = new OneSignalClient(
+//                config('onesignal.app_id'),
+//                config('onesignal.rest_api_key'),
+//                config('onesignal.user_auth_key'));
+//
+//            $OneSignalClient->sendNotificationUsingTags(
+//                'Ngo Created Event',
+//                array(["field" => "email", "relation" => "=", "value" => "m.alavi1989@gmail.com"]), 'www.samandoon.ngo/event/' . $event->id);
 
             return $event;
         } catch (Exception $exception) {
