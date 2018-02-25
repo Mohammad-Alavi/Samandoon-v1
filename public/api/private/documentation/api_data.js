@@ -2442,7 +2442,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "id",
-            "description": ""
+            "description": "<p>user id</p>"
           },
           {
             "group": "Parameter",
@@ -2459,7 +2459,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "target_id",
-            "description": ""
+            "description": "<p>target entity id</p>"
           },
           {
             "group": "Parameter",

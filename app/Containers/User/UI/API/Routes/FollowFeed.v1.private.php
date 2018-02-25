@@ -10,9 +10,9 @@
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated
  *
- * @apiParam           {String} id
+ * @apiParam           {String} id user id
  * @apiParam           {String="user,ngo,timeline,notification,timeline_aggregated"} feed
- * @apiParam           {String} target_id
+ * @apiParam           {String} target_id target entity id
  * @apiParam           {String="user,ngo,timeline,notification,timeline_aggregated"} target_feed
  *
  * @apiSuccessExample  {json}  Success-Response:
