@@ -20,5 +20,6 @@ class DatabaseSeeder extends LaravelSeeder
     public function run()
     {
         $this->runLoadingSeeders();
+        $this->call(LocationsTableSeeder::class);
     }
 }
