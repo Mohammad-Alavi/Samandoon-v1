@@ -13,7 +13,7 @@ class GetFeedFollowingsTask extends Task
     public function run($request, User $user)
     {
         // create feed
-        $client = new Client(env('STREAM_API_KEY'), env('STREAM_API_SECRET'));
+        $client = new Client(config('getStream.stream_api_key'), config('getStream.stream_api_secret'));
         $userFeed = $client->feed('user', $user->getHashedKey());
 
         $results = $userFeed->following();

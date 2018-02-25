@@ -12,7 +12,7 @@ class GetFeedFollowersTask extends Task
     public function run($request, User $user)
     {
         // create feed
-        $client = new Client(env('STREAM_API_KEY'), env('STREAM_API_SECRET'));
+        $client = new Client(config('getStream.stream_api_key'), config('getStream.stream_api_secret'));
         // return who followed this user's ngo
         $userFeed = $client->feed('ngo', $user->ngo->getHashedKey());
 
