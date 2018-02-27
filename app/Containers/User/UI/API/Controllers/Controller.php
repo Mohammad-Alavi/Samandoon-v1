@@ -24,6 +24,7 @@ use App\Containers\User\UI\API\Requests\UnfollowFeedRequest;
 use App\Containers\User\UI\API\Requests\UnlikeRequest;
 use App\Containers\User\UI\API\Requests\UpdateUserRequest;
 use App\Containers\User\UI\API\Transformers\ActivityFeedTransformer;
+use App\Containers\User\UI\API\Transformers\LikeTransformer;
 use App\Containers\User\UI\API\Transformers\UserByEmailTransformer;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Controllers\ApiController;
@@ -98,11 +99,6 @@ class Controller extends ApiController
 //        return $this->transform($user, UserPrivateProfileTransformer::class);
     }
 
-    /**
-     * @param \App\Containers\User\UI\API\Requests\ResetPasswordRequest $request
-     *
-     * @return  \Illuminate\Http\JsonResponse
-     */
     public function resetPassword(ResetPasswordRequest $request)
     {
         Apiato::call('User@ResetPasswordAction', [new DataTransporter($request)]);
@@ -110,11 +106,6 @@ class Controller extends ApiController
         return $this->noContent(204);
     }
 
-    /**
-     * @param \App\Containers\User\UI\API\Requests\ForgotPasswordRequest $request
-     *
-     * @return  \Illuminate\Http\JsonResponse
-     */
     public function forgotPassword(ForgotPasswordRequest $request)
     {
         Apiato::call('User@ForgotPasswordAction', [new DataTransporter($request)]);
@@ -131,17 +122,23 @@ class Controller extends ApiController
 
     public function like(LikeRequest $request)
     {
-        return Apiato::call('User@LikeAction', [new DataTransporter($request)]);
+        $likePayload = Apiato::call('User@LikeAction', [new DataTransporter($request)]);
+        $likeTransformer = new LikeTransformer();
+        return $likeTransformer->transform($likePayload);
     }
 
     public function unlike(UnlikeRequest $request)
     {
-        return Apiato::call('User@UnlikeAction', [new DataTransporter($request)]);
+        $likePayload = Apiato::call('User@UnlikeAction', [new DataTransporter($request)]);
+        $likeTransformer = new LikeTransformer();
+        return $likeTransformer->transform($likePayload);
     }
 
     public function toggleLike(ToggleLikeRequest $request)
     {
-        return Apiato::call('User@ToggleLikeAction', [new DataTransporter($request)]);
+        $likePayload = Apiato::call('User@ToggleLikeAction', [new DataTransporter($request)]);
+        $likeTransformer = new LikeTransformer();
+        return $likeTransformer->transform($likePayload);
     }
 
     public function getLikes(GetLikesRequest $request)

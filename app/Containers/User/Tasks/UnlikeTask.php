@@ -7,7 +7,6 @@ use App\Containers\User\Models\User;
 use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Exceptions\Exception;
 use App\Ship\Parents\Tasks\Task;
-use Illuminate\Http\JsonResponse;
 
 class UnlikeTask extends Task
 {
@@ -19,6 +18,6 @@ class UnlikeTask extends Task
             throw new UpdateResourceFailedException('Failed to like the specified resource.');
         }
 
-        return new JsonResponse(class_basename($user) . ' (' . $user->getHashedKey() . ') unliked ' . class_basename($target) . ' (' . $target->getHashedKey() . ').', 200);
+        return ['user' => $user, 'target' => $target, 'is_liked' => false];
     }
 }
