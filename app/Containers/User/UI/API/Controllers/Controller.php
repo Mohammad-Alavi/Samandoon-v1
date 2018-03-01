@@ -3,6 +3,7 @@
 namespace App\Containers\User\UI\API\Controllers;
 
 use Apiato\Core\Foundation\Facades\Apiato;
+use App\Containers\Article\UI\API\Transformers\ArticleTransformer;
 use App\Containers\NGO\UI\API\Transformers\NgoTransformer;
 use App\Containers\User\UI\API\Requests\CreateAdminRequest;
 use App\Containers\User\UI\API\Requests\DeleteUserRequest;
@@ -173,6 +174,9 @@ class Controller extends ApiController
     {
         $activities = Apiato::call('User@GetUserFeedAction', [new DataTransporter($request)]);
         $activityTransformer = new ActivityFeedTransformer();
-        return $activityTransformer->transformer($activities);
+        $transformedActivities = $activityTransformer->transformer($activities);
+        $articles = Apiato::call('User@GetArticlesFromFeedAction', [$transformedActivities]);
+        return $this->transform($articles, ArticleTransformer::class);
+
     }
 }
