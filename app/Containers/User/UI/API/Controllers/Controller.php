@@ -12,6 +12,7 @@ use App\Containers\User\UI\API\Requests\FollowFeedRequest;
 use App\Containers\User\UI\API\Requests\GetFeedFollowersRequest;
 use App\Containers\User\UI\API\Requests\GetFeedFollowingsRequest;
 use App\Containers\User\UI\API\Requests\GetLikesRequest;
+use App\Containers\User\UI\API\Requests\GetSubscriptionsRequest;
 use App\Containers\User\UI\API\Requests\GetUserFeedRequest;
 use App\Containers\User\UI\API\Requests\LikeRequest;
 use App\Containers\User\UI\API\Requests\GetAuthenticatedUserRequest;
@@ -20,9 +21,12 @@ use App\Containers\User\UI\API\Requests\ForgotPasswordRequest;
 use App\Containers\User\UI\API\Requests\GetAllUsersRequest;
 use App\Containers\User\UI\API\Requests\RegisterUserRequest;
 use App\Containers\User\UI\API\Requests\ResetPasswordRequest;
+use App\Containers\User\UI\API\Requests\SubscribeRequest;
 use App\Containers\User\UI\API\Requests\ToggleLikeRequest;
+use App\Containers\User\UI\API\Requests\ToggleSubscribeRequest;
 use App\Containers\User\UI\API\Requests\UnfollowFeedRequest;
 use App\Containers\User\UI\API\Requests\UnlikeRequest;
+use App\Containers\User\UI\API\Requests\UnsubscribeRequest;
 use App\Containers\User\UI\API\Requests\UpdateUserRequest;
 use App\Containers\User\UI\API\Transformers\ActivityFeedTransformer;
 use App\Containers\User\UI\API\Transformers\LikeTransformer;
@@ -177,6 +181,26 @@ class Controller extends ApiController
         $transformedActivities = $activityTransformer->transformer($activities);
         $articles = Apiato::call('User@GetArticlesFromFeedAction', [$transformedActivities]);
         return $this->transform($articles, ArticleTransformer::class);
+    }
 
+    public function subscribe(SubscribeRequest $request)
+    {
+        return Apiato::call('User@SubscribeAction', [new DataTransporter($request)]);
+    }
+
+    public function unsubscribe(UnsubscribeRequest $request)
+    {
+        return Apiato::call('User@UnsubscribeAction', [new DataTransporter($request)]);
+    }
+
+    public function toggleSubscribe(ToggleSubscribeRequest $request)
+    {
+        return Apiato::call('User@ToggleSubscribeAction', [new DataTransporter($request)]);
+    }
+
+    public function getSubscriptions(GetSubscriptionsRequest $request)
+    {
+        $users = Apiato::call('User@GetSubscriptionsAction', [new DataTransporter($request)]);
+        return $this->transform($users, NgoTransformer::class);
     }
 }
