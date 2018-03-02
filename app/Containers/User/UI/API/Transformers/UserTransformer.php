@@ -70,7 +70,7 @@ class UserTransformer extends Transformer
                     'method' => 'GET'
                 ],
                 'stats' => [
-                    'ngo_subscriptions_count' => $user->subscriptions(Ngo::class)->get()->count(),
+                    'ngo_followings_count' => $user->subscriptions(Ngo::class)->get()->count(),
                 ],
             ],
         ];

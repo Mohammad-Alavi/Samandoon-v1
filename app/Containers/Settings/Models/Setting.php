@@ -7,7 +7,14 @@ use App\Ship\Parents\Models\Model;
 /**
  * Class Setting
  *
- * @author  Mahmoud Zalt  <mahmoud@zalt.me>
+ * @author Mahmoud Zalt  <mahmoud@zalt.me>
+ * @property int $id
+ * @property string $key
+ * @property string $value
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Settings\Models\Setting whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Settings\Models\Setting whereKey($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Settings\Models\Setting whereValue($value)
+ * @mixin \Eloquent
  */
 class Setting extends Model
 {

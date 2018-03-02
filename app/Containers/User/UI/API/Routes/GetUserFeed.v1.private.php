@@ -5,47 +5,89 @@
  * @apiName            getUserFeed
  *
  * @api                {GET} /v1/user/{id}/feed Get User's Feed
- * @apiDescription     Return the user activity feed
+ * @apiDescription     Return the user's activity feed
  *
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated
  *
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK
-[
-    {
-        "activityId": "1c35e780-137b-11e8-8080-80000819dd20",
-        "actorType": "ngo",
-        "actorId": "kjeonp5eordqzvb8",
-        "objectType": "event",
-        "objectId": "9knz73rywnlpdx0v",
-        "targetType": null,
-        "targetId": null,
-        "verb": "create",
-        "time": {
-        "date": "2018-02-17 00:41:02.329987",
-            "timezone_type": 3,
-            "timezone": "UTC"
+{
+    "data": [
+        {
+            "msg": null,
+            "object": {
+            "object": "Article",
+                "id": "9knz73rynlpdx0vy",
+                "text": "Article Text 2",
+                "article_image": null,
+                "ngo_id": "3mjzyg5dp5a0vwp6",
+                "created_at": {
+                "date": "2018-02-26 05:42:54.000000",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                },
+                "updated_at": {
+                "date": "2018-02-26 05:42:54.000000",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                },
+                "readable_created_at": "3 days ago",
+                "readable_updated_at": "3 days ago",
+                "like_count": 0,
+                "liked_by_current_user": false,
+                "view_article": {
+                "href": "v1/ngo/article/9knz73rynlpdx0vy",
+                    "method": "GET"
+                }
+            }
+        },
+        {
+            "msg": null,
+            "object": {
+            "object": "Article",
+                "id": "qv4jdwrw0lanm6xg",
+                "text": "Article Text 1",
+                "article_image": null,
+                "ngo_id": "3mjzyg5dp5a0vwp6",
+                "created_at": {
+                "date": "2018-02-26 05:42:47.000000",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                },
+                "updated_at": {
+                "date": "2018-02-26 05:42:47.000000",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                },
+                "readable_created_at": "3 days ago",
+                "readable_updated_at": "3 days ago",
+                "like_count": 0,
+                "liked_by_current_user": false,
+                "view_article": {
+                "href": "v1/ngo/article/qv4jdwrw0lanm6xg",
+                    "method": "GET"
+                }
+            }
         }
-    },
-    {
-        "activityId": "d547f200-137a-11e8-8080-800075e3481e",
-        "actorType": "ngo",
-        "actorId": "kjeonp5eordqzvb8",
-        "objectType": "article",
-        "objectId": "qv4jdwrw30lanm6x",
-        "targetType": null,
-        "targetId": null,
-        "verb": "create",
-        "time": {
-        "date": "2018-02-17 00:41:02.330020",
-            "timezone_type": 3,
-            "timezone": "UTC"
+    ],
+    "meta": {
+    "include": [
+        "ngo",
+        "user"
+    ],
+        "custom": [],
+        "pagination": {
+        "total": 5,
+            "count": 5,
+            "per_page": 15,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": []
         }
     }
-]
-*/
-
+}
+/*
 /** @var Route $router */
 $router->get('user/{id}/feed', [
     'as' => 'api_user_get_user_feed',

@@ -22,6 +22,6 @@ class GetFeedFollowersTask extends Task
             array_push($followersIdArray, Hashids::decode(str_replace('user:', '', $followers['feed_id'])));
         }
 
-        return User::whereIn('id', $followersIdArray)->paginate($request->limit ? $request->limit : env('PAGINATION_LIMIT'));
+        return User::whereIn('id', $followersIdArray)->paginate($request->limit ? $request->limit : 10);
     }
 }

@@ -8,8 +8,8 @@ use App\Ship\Parents\Tasks\Task;
 
 class GetSubscriptionsTask extends Task
 {
-    public function run(User $user)
+    public function run(User $user, $limit = 10)
     {
-        return $user->subscriptions(Ngo::class)->get();
+        return $user->subscriptions(Ngo::class)->paginate($limit);
     }
 }

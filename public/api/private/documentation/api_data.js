@@ -2448,7 +2448,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "allowedValues": [
-              "\"user,ngo,timeline,notification,timeline_aggregated\""
+              "\"user\""
             ],
             "optional": false,
             "field": "feed",
@@ -2465,7 +2465,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "allowedValues": [
-              "\"user,ngo,timeline,notification,timeline_aggregated\""
+              "\"ngo\""
             ],
             "optional": false,
             "field": "target_feed",
@@ -2628,7 +2628,7 @@ define({ "api": [
     "type": "GET",
     "url": "/v1/user/{id}/feed",
     "title": "Get User's Feed",
-    "description": "<p>Return the user activity feed</p>",
+    "description": "<p>Return the user's activity feed</p>",
     "version": "1.0.0",
     "permission": [
       {
@@ -2639,7 +2639,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n[\n    {\n        \"activityId\": \"1c35e780-137b-11e8-8080-80000819dd20\",\n        \"actorType\": \"ngo\",\n        \"actorId\": \"kjeonp5eordqzvb8\",\n        \"objectType\": \"event\",\n        \"objectId\": \"9knz73rywnlpdx0v\",\n        \"targetType\": null,\n        \"targetId\": null,\n        \"verb\": \"create\",\n        \"time\": {\n        \"date\": \"2018-02-17 00:41:02.329987\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        }\n    },\n    {\n        \"activityId\": \"d547f200-137a-11e8-8080-800075e3481e\",\n        \"actorType\": \"ngo\",\n        \"actorId\": \"kjeonp5eordqzvb8\",\n        \"objectType\": \"article\",\n        \"objectId\": \"qv4jdwrw30lanm6x\",\n        \"targetType\": null,\n        \"targetId\": null,\n        \"verb\": \"create\",\n        \"time\": {\n        \"date\": \"2018-02-17 00:41:02.330020\",\n            \"timezone_type\": 3,\n            \"timezone\": \"UTC\"\n        }\n    }\n]",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": [\n        {\n            \"msg\": null,\n            \"object\": {\n            \"object\": \"Article\",\n                \"id\": \"9knz73rynlpdx0vy\",\n                \"text\": \"Article Text 2\",\n                \"article_image\": null,\n                \"ngo_id\": \"3mjzyg5dp5a0vwp6\",\n                \"created_at\": {\n                \"date\": \"2018-02-26 05:42:54.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"updated_at\": {\n                \"date\": \"2018-02-26 05:42:54.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"readable_created_at\": \"3 days ago\",\n                \"readable_updated_at\": \"3 days ago\",\n                \"like_count\": 0,\n                \"liked_by_current_user\": false,\n                \"view_article\": {\n                \"href\": \"v1/ngo/article/9knz73rynlpdx0vy\",\n                    \"method\": \"GET\"\n                }\n            }\n        },\n        {\n            \"msg\": null,\n            \"object\": {\n            \"object\": \"Article\",\n                \"id\": \"qv4jdwrw0lanm6xg\",\n                \"text\": \"Article Text 1\",\n                \"article_image\": null,\n                \"ngo_id\": \"3mjzyg5dp5a0vwp6\",\n                \"created_at\": {\n                \"date\": \"2018-02-26 05:42:47.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"updated_at\": {\n                \"date\": \"2018-02-26 05:42:47.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"readable_created_at\": \"3 days ago\",\n                \"readable_updated_at\": \"3 days ago\",\n                \"like_count\": 0,\n                \"liked_by_current_user\": false,\n                \"view_article\": {\n                \"href\": \"v1/ngo/article/qv4jdwrw0lanm6xg\",\n                    \"method\": \"GET\"\n                }\n            }\n        }\n    ],\n    \"meta\": {\n    \"include\": [\n        \"ngo\",\n        \"user\"\n    ],\n        \"custom\": [],\n        \"pagination\": {\n        \"total\": 5,\n            \"count\": 5,\n            \"per_page\": 15,\n            \"current_page\": 1,\n            \"total_pages\": 1,\n            \"links\": []\n        }\n    }\n}\n/*\n/** @var Route $router",
           "type": "json"
         }
       ]
@@ -2870,47 +2870,6 @@ define({ "api": [
   },
   {
     "group": "User",
-    "name": "toggleSubscribe",
-    "type": "POST",
-    "url": "/v1/user/togglesubscribe/{id}",
-    "title": "Toggle Subscription",
-    "description": "<p>Toggle Subscription to the specified resource</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "Authenticated"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "allowedValues": [
-              "\"ngo\""
-            ],
-            "optional": false,
-            "field": "resource_name",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"User (3mjzyg5dp5a0vwp6) unsubscribed from resource (kjeonp5eordqzvb8).\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "app/Containers/User/UI/API/Routes/ToggleSubscribe.v1.private.php",
-    "groupTitle": "User"
-  },
-  {
-    "group": "User",
     "name": "unfollowFeed",
     "type": "POST",
     "url": "/v1/user/feed/unfollow",
@@ -2936,7 +2895,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "allowedValues": [
-              "\"user,ngo,timeline,notification,timeline_aggregated\""
+              "\"user\""
             ],
             "optional": false,
             "field": "feed",
@@ -2953,7 +2912,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "allowedValues": [
-              "\"user,ngo,timeline,notification,timeline_aggregated\""
+              "\"ngo\""
             ],
             "optional": false,
             "field": "target_feed",

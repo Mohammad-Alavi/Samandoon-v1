@@ -11,9 +11,9 @@
  * @apiPermission      Authenticated
  *
  * @apiParam           {String} id
- * @apiParam           {String="user,ngo,timeline,notification,timeline_aggregated"} feed
+ * @apiParam           {String="user"} feed
  * @apiParam           {String} target_id
- * @apiParam           {String="user,ngo,timeline,notification,timeline_aggregated"} target_feed
+ * @apiParam           {String="ngo"} target_feed
  *
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK

@@ -2,7 +2,6 @@
 
 namespace App\Containers\NGO\UI\API\Transformers;
 
-use App\Containers\Article\UI\API\Transformers\ArticleTransformer;
 use App\Containers\NGO\Models\Ngo;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Transformers\Transformer;
@@ -58,8 +57,8 @@ class NgoTransformer extends Transformer
                     'method' => 'GET'
                 ],
                 'stats' => [
-                    'is_subscribed' => empty($currentUser) ? null : $ngo->isSubscribedBy($currentUser),
-                    'subscribers_count' => $ngo->subscribers()->get()->count()
+                    'is_following' => empty($currentUser) ? null : $ngo->isSubscribedBy($currentUser),
+                    'followers_count' => $ngo->subscribers()->get()->count()
                         //->makeHidden(['ngo_id', 'pivot', 'confirmed', 'gender','birth', 'is_client', 'created_at', 'updated_at', 'deleted_at', 'social_token', 'social_token_secret', 'social_refresh_token', 'social_expires_in'])->toArray()
                 ],
             ]

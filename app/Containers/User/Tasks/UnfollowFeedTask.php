@@ -12,6 +12,6 @@ class UnfollowFeedTask extends Task
     {
         $client = new Client(config('getStream.stream_api_key'), config('getStream.stream_api_secret'));
         $feed = $client->feed($dataTransporter->feed, $dataTransporter->id);
-        $feed->unfollow($dataTransporter->target_feed, $dataTransporter->target_id);
+        return $feed->unfollow($dataTransporter->target_feed, $dataTransporter->target_id);
     }
 }

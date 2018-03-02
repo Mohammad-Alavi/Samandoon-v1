@@ -69,6 +69,11 @@ return [
         'app/Containers/Stripe',
         'app/Containers/User',
         'app/Containers/Wepay',
+        'app/Containers/NGO',
+        'app/Containers/Event',
+        'app/Containers/Article',
+        'app/Containers/Location',
+        'app/Containers/Storage',
     ],
 
 

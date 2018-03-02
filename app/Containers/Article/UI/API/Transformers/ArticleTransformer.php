@@ -20,6 +20,7 @@ class ArticleTransformer extends Transformer
 
     public function transform(Article $article)
     {
+        $currentUser = auth('api')->user();
         $response = [
             'msg' => $article->msg,
             'object' => [
@@ -34,6 +35,7 @@ class ArticleTransformer extends Transformer
                 'readable_created_at' => $article->created_at->diffForHumans(),
                 'readable_updated_at' => $article->updated_at->diffForHumans(),
                 'like_count' => $article->likers()->count(),
+                'liked_by_current_user' => empty($currentUser) ? null : $article->isLikedBy($currentUser),
 
                 'view_article' => [
                     'href' => 'v1/ngo/article/' . $article->getHashedKey(),

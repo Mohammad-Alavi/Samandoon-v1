@@ -55,8 +55,8 @@ class FollowFeedRequest extends Request
         return [
             'id' => 'required',
             'target_id' => 'required',
-            'feed' => 'required|in:user,ngo,timeline,notification,timeline_aggregated',
-            'target_feed' => 'required',
+            'feed' => 'required|in:user',
+            'target_feed' => 'required|in:ngo',
         ];
     }
 

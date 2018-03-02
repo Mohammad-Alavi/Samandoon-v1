@@ -10,7 +10,7 @@ use Vinkla\Hashids\Facades\Hashids;
 
 class GetFeedFollowingsTask extends Task
 {
-    public function run($request, User $user)
+    public function run($perPageLimit, User $user)
     {
         // create feed
         $client = new Client(config('getStream.stream_api_key'), config('getStream.stream_api_secret'));
@@ -22,6 +22,6 @@ class GetFeedFollowingsTask extends Task
             array_push($followingsIdArray, Hashids::decode(str_replace('ngo:', '', $followings['target_id'])));
         }
 
-        return Ngo::whereIn('id', $followingsIdArray)->paginate($request->limit ? $request->limit : env('PAGINATION_LIMIT'));
+        return Ngo::whereIn('id', $followingsIdArray)->paginate($perPageLimit ? $perPageLimit : 10);
     }
 }
