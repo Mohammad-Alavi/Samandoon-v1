@@ -30,6 +30,8 @@ class Controller extends ApiController
     public function listAllNgos(ListAllNgosRequest $request)
     {
         $ngos = Apiato::call('NGO@ListNgosAction', [$request]);
+        foreach ($ngos as $ngo){
+        $ngo->authedUser = auth('api')->user();}
         return $this->transform($ngos, NgoTransformer::class);
     }
 
@@ -37,6 +39,7 @@ class Controller extends ApiController
     {
         $ngo = Apiato::call('NGO@GetNgoAction', [$request]);
         $ngo->msg = 'Found NGO';
+        $ngo->authedUser = auth('api')->user();
         return $this->transform($ngo, NgoTransformer::class);
     }
 
