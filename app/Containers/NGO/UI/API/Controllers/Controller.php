@@ -30,8 +30,6 @@ class Controller extends ApiController
     public function listAllNgos(ListAllNgosRequest $request)
     {
         $ngos = Apiato::call('NGO@ListNgosAction', [$request]);
-        foreach ($ngos as $ngo){
-        $ngo->authedUser = auth('api')->user();}
         return $this->transform($ngos, NgoTransformer::class);
     }
 

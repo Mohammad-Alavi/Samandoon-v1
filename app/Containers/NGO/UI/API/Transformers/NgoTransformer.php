@@ -17,7 +17,7 @@ class NgoTransformer extends Transformer
 
     public function transform(Ngo $ngo)
     {
-        $currentUser = $ngo->authedUser;
+        $currentUser = auth('api')->user();
         $response = [
             'msg' => $ngo->msg,
             'object' => [
