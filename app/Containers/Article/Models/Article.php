@@ -4,6 +4,7 @@ namespace App\Containers\Article\Models;
 
 use App\Containers\NGO\Models\Ngo;
 use App\Ship\Parents\Models\Model;
+use BrianFaust\Commentable\Traits\HasComments;
 use Laravel\Scout\Searchable;
 use Overtrue\LaravelFollow\Traits\CanBeFavorited;
 use Overtrue\LaravelFollow\Traits\CanBeLiked;
@@ -15,6 +16,7 @@ class Article extends Model implements HasMedia
     use Searchable;
     use HasMediaTrait;
     use CanBeLiked, CanBeFavorited;
+    use HasComments;
 
     public $asYouType = true;
 

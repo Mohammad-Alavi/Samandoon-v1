@@ -36,6 +36,7 @@ class ArticleTransformer extends Transformer
                 'readable_updated_at' => $article->updated_at->diffForHumans(),
                 'like_count' => $article->likers()->count(),
                 'liked_by_current_user' => empty($currentUser) ? null : $article->isLikedBy($currentUser),
+                'comment_count' => $article->commentCount(),
 
                 'view_article' => [
                     'href' => 'v1/ngo/article/' . $article->getHashedKey(),

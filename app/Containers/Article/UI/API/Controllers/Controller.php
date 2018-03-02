@@ -4,13 +4,18 @@ namespace App\Containers\Article\UI\API\Controllers;
 
 use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\Article\UI\API\Requests\CreateArticleRequest;
+use App\Containers\Article\UI\API\Requests\CreateCommentRequest;
 use App\Containers\Article\UI\API\Requests\DeleteArticleRequest;
+use App\Containers\Article\UI\API\Requests\DeleteCommentRequest;
+use App\Containers\Article\UI\API\Requests\GetAllCommentsRequest;
 use App\Containers\Article\UI\API\Requests\GetArticleRequest;
 use App\Containers\Article\UI\API\Requests\GetAllArticlesRequest;
 use App\Containers\Article\UI\API\Requests\GetLikersReqeust;
 use App\Containers\Article\UI\API\Requests\SearchArticlesRequest;
 use App\Containers\Article\UI\API\Requests\UpdateArticleRequest;
+use App\Containers\Article\UI\API\Requests\UpdateCommentRequest;
 use App\Containers\Article\UI\API\Transformers\ArticleTransformer;
+use App\Containers\Article\UI\API\Transformers\CommentTransformer;
 use App\Containers\Article\UI\API\Transformers\LikersTransformer;
 use App\Ship\Parents\Controllers\ApiController;
 use App\Ship\Transporters\DataTransporter;
@@ -62,5 +67,32 @@ class Controller extends ApiController
         $articles = Apiato::call('Article@SearchArticlesAction', [new DataTransporter($request)]);
         $articles->msg = 'Articles found';
         return $this->transform($articles, ArticleTransformer::class);
+    }
+
+    public function createComment(CreateCommentRequest $request)
+    {
+        $comment = Apiato::call('Article@CreateCommentAction', [new DataTransporter($request)]);
+        $commentTransformer = new CommentTransformer();
+        return $commentTransformer->transform($comment);
+    }
+
+    public function getAllComments(GetAllCommentsRequest $request)
+    {
+        $comments = Apiato::call('Article@GetAllCommentsAction', [new DataTransporter($request)]);
+        $commentTransformer = new CommentTransformer();
+        return $commentTransformer->transform($comments);
+    }
+
+    public function deleteComment(DeleteCommentRequest $request)
+    {
+        Apiato::call('Article@DeleteCommentAction', [new DataTransporter($request)]);
+        return $this->noContent();
+    }
+
+    public function updateComment(UpdateCommentRequest $request)
+    {
+        $comment = Apiato::call('Article@UpdateCommentAction', [new DataTransporter($request)]);
+        $commentTransformer = new CommentTransformer();
+        return $commentTransformer->transform($comment);
     }
 }
