@@ -5,6 +5,7 @@ namespace App\Containers\NGO\UI\API\Transformers;
 use App\Containers\NGO\Models\Ngo;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Transformers\Transformer;
+use Auth;
 
 class NgoTransformer extends Transformer
 {
@@ -17,7 +18,7 @@ class NgoTransformer extends Transformer
 
     public function transform(Ngo $ngo)
     {
-        $currentUser = auth('api')->user();
+        $currentUser = Auth::guard('api')->user();
         $response = [
             'msg' => $ngo->msg,
             'object' => [
