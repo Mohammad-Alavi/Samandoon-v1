@@ -16,7 +16,9 @@
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK
 {
-    "User (qv4jdwrw0lanm6xg) unliked Article (kjeonp5eordqzvb8)."
+    "msg": "User (qv4jdwrw0lanm6xg) unliked Article (kjeonp5eordqzvb8).",
+    "like_count": 0, //this is the current like count of the liked target e.g. Article
+    "is_liked": false
 }
  */
 
