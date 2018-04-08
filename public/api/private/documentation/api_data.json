@@ -2820,7 +2820,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"User (qv4jdwrw0lanm6xg) liked Article (kjeonp5eordqzvb8).\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"msg\": \"User (3mjzyg5dp5a0vwp6) liked Article (kjeonp5eordqzvb8).\",\n    \"like_count\": 1, //this is the current like count of the liked target e.g. Article\n    \"is_liked\": true\n}",
           "type": "json"
         }
       ]

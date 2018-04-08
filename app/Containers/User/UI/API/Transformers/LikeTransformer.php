@@ -14,6 +14,7 @@ class LikeTransformer
                 }
             $response = [
                 'msg' => $msg,
+                'like_count' => $likePayload['target']->likers()->count(),
                 'is_liked' => $likePayload['is_liked'],
             ];
         return $response;
