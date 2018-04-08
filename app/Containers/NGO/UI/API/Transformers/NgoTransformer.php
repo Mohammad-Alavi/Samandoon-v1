@@ -57,7 +57,7 @@ class NgoTransformer extends Transformer
                     'method' => 'GET'
                 ],
                 'stats' => [
-                    'is_following' => is_null($currentUser) ? null : $ngo->isSubscribedBy($currentUser),
+                    'is_following' => is_null($currentUser) ? false : $ngo->isSubscribedBy($currentUser),
                     'followers_count' => $ngo->subscribers()->get()->count()
                         //->makeHidden(['ngo_id', 'pivot', 'confirmed', 'gender','birth', 'is_client', 'created_at', 'updated_at', 'deleted_at', 'social_token', 'social_token_secret', 'social_refresh_token', 'social_expires_in'])->toArray()
                 ],

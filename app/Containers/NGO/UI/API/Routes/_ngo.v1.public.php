@@ -6,11 +6,11 @@
 HTTP/1.1 200 OK
 {
     "data": {
-    "msg": "ُSome informative msg here or Null",
+    "msg": "NGO Updated",
         "object": {
-        "object": "NGO",
-            "id": "e8dz0jl84rngaxv3",
-            "name": "مهرگان كرشته",
+            "object": "NGO",
+            "id": "kjeonp5eordqzvb8",
+            "name": "روستائي راشته",
             "description": null,
             "subjects": [],
             "area_of_activity": null,
@@ -20,43 +20,44 @@ HTTP/1.1 200 OK
                 "address": "----"
             },
             "zip_code": "6316713649",
-            "type": "شركت سهامي خاص",
+            "type": "شركت تعاوني",
             "confirmed": false,
-            "ngo_logo": "http://api.samandoon.local/v1/storage/21/6cf4b3e93caef896b27dd9140f7171a5.jpg",
-            "ngo_banner": "http://api.samandoon.local/v1/default_images/ngo_banner.png",
-            "user_id": "Je",
+            "ngo_logo": "http://api.samandoon.local/v1/storage/default_images/ngo_logo.png",
+            "ngo_banner": "http://api.samandoon.local/v1/storage/default_images/ngo_banner.png",
+            "user_id": "3mjzyg5dp5a0vwp6",
             "registration_specification": {
-            "national_number": "10100000006",
-                "registration_number": "17",
-                "registration_date": "1350/01/23",
+                "national_number": "10100000010",
+                "registration_number": "13",
+                "registration_date": "1345/12/25",
                 "registration_unit": "مرجع ثبت شركت ها و موسسات غيرتجاري شهريار"
             },
             "created_at": {
-            "date": "2018-01-20 06:41:17.000000",
+                "date": "2018-04-07 19:40:26.000000",
                 "timezone_type": 3,
                 "timezone": "UTC"
             },
             "updated_at": {
-            "date": "2018-01-20 09:02:47.000000",
+                "date": "2018-04-07 20:20:26.000000",
                 "timezone_type": 3,
                 "timezone": "UTC"
             },
-            "readable_created_at": "2 hours ago",
-            "readable_updated_at": "24 minutes ago",
+            "readable_created_at": "40 minutes ago",
+            "readable_updated_at": "1 second ago",
             "view_ngo": {
-            "href": "v1/ngo/Je",
+                "href": "v1/ngo/kjeonp5eordqzvb8",
                 "method": "GET"
             },
             "stats": {
-            "is_subscribed": true,
-            "subscribers_count": 2
+                "is_following": false,
+                "followers_count": 0
             }
         }
     },
     "meta": {
-    "include": [
-        "user"
-    ],
+        "include": [
+            "user"
+        ],
         "custom": []
     }
+}
 */
