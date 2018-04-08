@@ -4,7 +4,9 @@ namespace App\Containers\NGO\Tasks;
 
 use App\Containers\NGO\Data\Repositories\NGORepository;
 use App\Containers\NGO\Models\Ngo;
+use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Tasks\Task;
+use Exception;
 
 class FindNgoByIdTask extends Task
 {
@@ -17,6 +19,11 @@ class FindNgoByIdTask extends Task
 
     public function run($id): Ngo
     {
-        return $this->repository->find($id);
+        try {
+            $ngo = $this->repository->find($id);
+        } catch (Exception $exception) {
+        }
+        throw_if(empty($ngo->id), NotFoundException::class, 'NGO not found.');
+        return $ngo;
     }
 }

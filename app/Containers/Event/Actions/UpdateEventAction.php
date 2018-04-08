@@ -2,6 +2,7 @@
 
 namespace App\Containers\Event\Actions;
 
+use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\Event\Models\Event;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
@@ -11,7 +12,7 @@ class UpdateEventAction extends Action
 {
     public function run(Request $request): Event
     {
-        $this->call('Event@FindEventByIdTask', [$request->id]);
+        Apiato::call('Event@FindEventByIdTask', [$request->id]);
 
         $request->input('event_date') ?
             $event_date = Carbon::createFromFormat('YmdHiT', $request->input('event_date')) :
@@ -36,6 +37,6 @@ class UpdateEventAction extends Action
             'event_date',
         ]);
 
-        return $this->call('Event@UpdateEventTask', [$request->id, $data]);
+        return Apiato::call('Event@UpdateEventTask', [$request->id, $data]);
     }
 }

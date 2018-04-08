@@ -12,9 +12,6 @@ class GetLikersAction extends Action
     public function run(DataTransporter $dataTransporter)
     {
         $article = Apiato::call('Article@FindArticleByIdTask', [$dataTransporter->id]);
-
-        throw_if(empty($article->id), new NotFoundException('Article not found.'));
-
         return Apiato::call('Article@GetLikersTask', [$article]);
     }
 }

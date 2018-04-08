@@ -13,9 +13,6 @@ class GetEventAction extends Action
     public function run(Request $request): Event
     {
         $event = Apiato::call('Event@FindEventByIdTask', [$request->id]);
-
-        throw_if(empty($event->id), new NotFoundException('Event not found.'));
-
         return $event;
     }
 }

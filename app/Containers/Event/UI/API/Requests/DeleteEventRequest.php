@@ -44,7 +44,7 @@ class DeleteEventRequest extends Request
     public function rules()
     {
         return [
-            'id' => 'required|exists:events,id',
+            'id' => 'required',
         ];
     }
 

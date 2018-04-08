@@ -4,7 +4,9 @@ namespace App\Containers\Article\Tasks;
 
 use App\Containers\Article\Data\Repositories\ArticleRepository;
 use App\Containers\Article\Models\Article;
+use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Tasks\Task;
+use Exception;
 
 class FindArticleByIdTask extends Task
 {
@@ -17,6 +19,13 @@ class FindArticleByIdTask extends Task
 
     public function run($id): Article
     {
-        return $this->repository->find($id);
+        {
+            try {
+                $article = $this->repository->find($id);;
+            } catch (Exception $exception) {
+            }
+            throw_if(empty($article->id), NotFoundException::class, 'Article not found.');
+            return $article;
+        }
     }
 }

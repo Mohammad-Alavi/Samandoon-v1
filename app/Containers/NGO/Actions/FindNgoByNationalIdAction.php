@@ -11,7 +11,7 @@ class FindNgoByNationalIdAction extends Action
 {
     public function run(Request $request): Ngo
     {
-        $ngo_data = $this->call('NGO@FindNgoByNationalIdTask', [$request->national_id]);
+        $ngo_data = Apiato::call('NGO@FindNgoByNationalIdTask', [$request->national_id]);
         $ngo = new Ngo();
         $ngo->name = $ngo_data['ResultList']['0']['Name'];
         $ngo->address = $ngo_data['ResultList']['0']['Address'];
