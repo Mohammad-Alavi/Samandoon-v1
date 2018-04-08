@@ -17,6 +17,8 @@
  * @apiParam           {string} city
  * @apiParam           {string} province
  * @apiParam           {string} [address]
+ * @apiParam           {numeric} [lat] latitude
+ * @apiParam           {numeric} [long] longitude
  *
  * @apiUse             EventSuccessSingleResponse
 */

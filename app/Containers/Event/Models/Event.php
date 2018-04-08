@@ -37,6 +37,8 @@ class Event extends Model implements HasMedia
         'event_date',
         'city',
         'province',
+        'lat',
+        'long',
         'address',
         'ngo_id',
     ];

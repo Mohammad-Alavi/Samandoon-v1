@@ -51,6 +51,8 @@ class UpdateEventRequest extends Request
             'address' => 'max:255',
             'event_date'    =>  'date_format:YmdHiT',
             'event_image'    =>  'image',
+            'lat'    =>  'numeric',
+            'long'    =>  'numeric',
         ];
     }
 

@@ -33,6 +33,8 @@ class UpdateEventAction extends Action
             'city',
             'province',
             'address',
+            'lat',
+            'long',
             'event_image',
             'event_date',
         ]);

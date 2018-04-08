@@ -23,6 +23,8 @@ class CreateEventsTable extends Migration
             $table->string('address')->nullable();
             $table->integer('ngo_id');
             $table->timestamps();
+            $table->decimal('lat',10,8)->nullable();
+            $table->decimal('long',11,8)->nullable();
         });
     }
 

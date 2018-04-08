@@ -425,6 +425,20 @@
             "optional": true,
             "field": "address",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "numeric",
+            "optional": true,
+            "field": "lat",
+            "description": "<p>latitude</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "numeric",
+            "optional": true,
+            "field": "long",
+            "description": "<p>longitude</p>"
           }
         ]
       }
@@ -435,7 +449,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n        \"object\": \"Event\",\n            \"id\": \"pm8njbr9jl9eko4w\",\n            \"title\": \"Some event title\",\n            \"description\": \"Some event description\",\n            \"event_image\": \"http://api.samandoon.local/v1/storage/10/43c4\",\n            \"event_date\": {\n            \"date\": \"2016-12-08 13:16:00.000000\",\n                \"timezone_type\": 2,\n                \"timezone\": \"GMT\"\n            },\n            \"location\": null,\n            \"created_at\": {\n            \"date\": \"2018-01-23 07:19:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2018-01-23 07:19:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_event\": {\n        \"href\": \"v1/ngo/event/dj\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"ngo\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n            \"object\": \"Event\",\n            \"id\": \"oj64bp5zjl8ywzn0\",\n            \"title\": \"پشم تست\",\n            \"description\": \"Some event description\",\n            \"event_image\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": null,\n                \"lat\": \"57.098554\",\n                \"long\": \"-1.822060\"\n            },\n            \"ngo_id\": \"kjeonp5eordqzvb8\",\n            \"event_date\": {\n                \"date\": \"2029-12-08 13:16:00.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-08 01:00:50.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-08 01:00:50.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"2 seconds ago\",\n            \"readable_updated_at\": \"2 seconds ago\"\n        },\n        \"view_event\": {\n            \"href\": \"v1/ngo/event/oj64bp5zjl8ywzn0\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"ngo\"\n        ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -485,7 +499,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n        \"object\": \"Event\",\n            \"id\": \"pm8njbr9jl9eko4w\",\n            \"title\": \"Some event title\",\n            \"description\": \"Some event description\",\n            \"event_image\": \"http://api.samandoon.local/v1/storage/10/43c4\",\n            \"event_date\": {\n            \"date\": \"2016-12-08 13:16:00.000000\",\n                \"timezone_type\": 2,\n                \"timezone\": \"GMT\"\n            },\n            \"location\": null,\n            \"created_at\": {\n            \"date\": \"2018-01-23 07:19:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2018-01-23 07:19:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_event\": {\n        \"href\": \"v1/ngo/event/dj\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"ngo\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n            \"object\": \"Event\",\n            \"id\": \"oj64bp5zjl8ywzn0\",\n            \"title\": \"پشم تست\",\n            \"description\": \"Some event description\",\n            \"event_image\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": null,\n                \"lat\": \"57.098554\",\n                \"long\": \"-1.822060\"\n            },\n            \"ngo_id\": \"kjeonp5eordqzvb8\",\n            \"event_date\": {\n                \"date\": \"2029-12-08 13:16:00.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-08 01:00:50.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-08 01:00:50.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"2 seconds ago\",\n            \"readable_updated_at\": \"2 seconds ago\"\n        },\n        \"view_event\": {\n            \"href\": \"v1/ngo/event/oj64bp5zjl8ywzn0\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"ngo\"\n        ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -517,7 +531,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n        \"object\": \"Event\",\n            \"id\": \"pm8njbr9jl9eko4w\",\n            \"title\": \"Some event title\",\n            \"description\": \"Some event description\",\n            \"event_image\": \"http://api.samandoon.local/v1/storage/10/43c4\",\n            \"event_date\": {\n            \"date\": \"2016-12-08 13:16:00.000000\",\n                \"timezone_type\": 2,\n                \"timezone\": \"GMT\"\n            },\n            \"location\": null,\n            \"created_at\": {\n            \"date\": \"2018-01-23 07:19:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2018-01-23 07:19:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_event\": {\n        \"href\": \"v1/ngo/event/dj\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"ngo\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n            \"object\": \"Event\",\n            \"id\": \"oj64bp5zjl8ywzn0\",\n            \"title\": \"پشم تست\",\n            \"description\": \"Some event description\",\n            \"event_image\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": null,\n                \"lat\": \"57.098554\",\n                \"long\": \"-1.822060\"\n            },\n            \"ngo_id\": \"kjeonp5eordqzvb8\",\n            \"event_date\": {\n                \"date\": \"2029-12-08 13:16:00.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-08 01:00:50.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-08 01:00:50.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"2 seconds ago\",\n            \"readable_updated_at\": \"2 seconds ago\"\n        },\n        \"view_event\": {\n            \"href\": \"v1/ngo/event/oj64bp5zjl8ywzn0\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"ngo\"\n        ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -573,6 +587,20 @@
             "optional": true,
             "field": "location",
             "description": "<p>(optional)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "numeric",
+            "optional": true,
+            "field": "lat",
+            "description": "<p>latitude</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "numeric",
+            "optional": true,
+            "field": "long",
+            "description": "<p>longitude</p>"
           }
         ]
       }
@@ -583,7 +611,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n        \"object\": \"Event\",\n            \"id\": \"pm8njbr9jl9eko4w\",\n            \"title\": \"Some event title\",\n            \"description\": \"Some event description\",\n            \"event_image\": \"http://api.samandoon.local/v1/storage/10/43c4\",\n            \"event_date\": {\n            \"date\": \"2016-12-08 13:16:00.000000\",\n                \"timezone_type\": 2,\n                \"timezone\": \"GMT\"\n            },\n            \"location\": null,\n            \"created_at\": {\n            \"date\": \"2018-01-23 07:19:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2018-01-23 07:19:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_event\": {\n        \"href\": \"v1/ngo/event/dj\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"ngo\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n            \"object\": \"Event\",\n            \"id\": \"oj64bp5zjl8ywzn0\",\n            \"title\": \"پشم تست\",\n            \"description\": \"Some event description\",\n            \"event_image\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": null,\n                \"lat\": \"57.098554\",\n                \"long\": \"-1.822060\"\n            },\n            \"ngo_id\": \"kjeonp5eordqzvb8\",\n            \"event_date\": {\n                \"date\": \"2029-12-08 13:16:00.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-08 01:00:50.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-08 01:00:50.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"2 seconds ago\",\n            \"readable_updated_at\": \"2 seconds ago\"\n        },\n        \"view_event\": {\n            \"href\": \"v1/ngo/event/oj64bp5zjl8ywzn0\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"ngo\"\n        ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -615,7 +643,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n        \"object\": \"Event\",\n            \"id\": \"pm8njbr9jl9eko4w\",\n            \"title\": \"Some event title\",\n            \"description\": \"Some event description\",\n            \"event_image\": \"http://api.samandoon.local/v1/storage/10/43c4\",\n            \"event_date\": {\n            \"date\": \"2016-12-08 13:16:00.000000\",\n                \"timezone_type\": 2,\n                \"timezone\": \"GMT\"\n            },\n            \"location\": null,\n            \"created_at\": {\n            \"date\": \"2018-01-23 07:19:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2018-01-23 07:19:41.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        \"view_event\": {\n        \"href\": \"v1/ngo/event/dj\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"ngo\"\n    ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"Some informative msg here or null\",\n        \"object\": {\n            \"object\": \"Event\",\n            \"id\": \"oj64bp5zjl8ywzn0\",\n            \"title\": \"پشم تست\",\n            \"description\": \"Some event description\",\n            \"event_image\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": null,\n                \"lat\": \"57.098554\",\n                \"long\": \"-1.822060\"\n            },\n            \"ngo_id\": \"kjeonp5eordqzvb8\",\n            \"event_date\": {\n                \"date\": \"2029-12-08 13:16:00.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-08 01:00:50.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-08 01:00:50.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"2 seconds ago\",\n            \"readable_updated_at\": \"2 seconds ago\"\n        },\n        \"view_event\": {\n            \"href\": \"v1/ngo/event/oj64bp5zjl8ywzn0\",\n            \"method\": \"GET\"\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"ngo\"\n        ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]

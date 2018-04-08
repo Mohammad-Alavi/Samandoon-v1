@@ -31,6 +31,8 @@ class CreateEventAction extends Action
             'city',
             'province',
             'address',
+            'lat',
+            'long',
             'event_image',
             'event_date',
             'ngo_id'

@@ -36,7 +36,9 @@ class EventTransformer extends Transformer
                 'location' => [
                     'city' => $event->city,
                     'province' => $event->province,
-                    'address' => $event->address
+                    'address' => $event->address,
+                    'lat' => $event->lat,
+                    'long' => $event->long
                 ],
                 'ngo_id' => $event->ngo->getHashedKey(),
                 'event_date' => $event->event_date,

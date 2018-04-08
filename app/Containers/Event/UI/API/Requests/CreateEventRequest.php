@@ -50,6 +50,8 @@ class CreateEventRequest extends Request
             'address' => 'max:255',
             'event_date'    =>  'required|date_format:YmdHiT',
             'event_image'    =>  'image',
+            'lat'    =>  'numeric',
+            'long'    =>  'numeric',
         ];
     }
 
