@@ -17,7 +17,7 @@
  * @apiParam           {text} [location] (optional)
  * @apiParam           {numeric} [lat] latitude
  * @apiParam           {numeric} [long] longitude
- * 
+ *
  * @apiUse             EventSuccessSingleResponse
  */
 

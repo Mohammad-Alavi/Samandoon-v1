@@ -4,9 +4,11 @@ namespace App\Containers\NGO\Tasks;
 
 use App\Containers\NGO\Data\Repositories\NGORepository;
 use App\Containers\NGO\Models\Ngo;
+use App\Containers\NGO\Models\Phone;
 use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Exceptions\Exception;
 use App\Ship\Parents\Tasks\Task;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 class UpdateNgoTask extends Task
 {
@@ -32,9 +34,27 @@ class UpdateNgoTask extends Task
                 $ngo->clearMediaCollection('ngo_banner');
                 $ngo->addMediaFromRequest('ngo_banner')->toMediaCollection('ngo_banner');
             }
+            if (array_key_exists('phone', $data)) {
+                $phoneArray = json_decode($data['phone'], true);
+                foreach ($phoneArray as $phone) {
+                    try {
+                        $phoneExist = Phone::find($phone['id']);
+                    } catch (Exception $exception) {
+                    }
+                    if (!empty($phoneExist))
+                        throw_unless($phoneExist->ngo_id == $ngo->id, AccessDeniedException::class, 'You don\'t have access to this resource.');
+                    Phone::updateOrCreate(
+                        ['id' => $phone['id'], 'ngo_id' => $ngo->id],
+                        [
+                            'phone_number' => $phone['phone_number'],
+                            'label' => $phone['label'],
+                            'ngo_id' => $ngo->id
+                        ]
+                    );
+                }
+            }
             return $this->repository->update($data, $ngo->id);
-        }
-        catch (Exception $exception) {
+        } catch (Exception $exception) {
             throw new UpdateResourceFailedException('Updating NGO failed');
         }
     }

@@ -4,6 +4,11 @@ namespace App\Containers\Location\Models;
 
 use App\Ship\Parents\Models\Model;
 
+/**
+ * App\Containers\Location\Models\Location
+ *
+ * @mixin \Eloquent
+ */
 class Location extends Model
 {
     protected $fillable = [

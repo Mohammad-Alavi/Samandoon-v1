@@ -51,6 +51,7 @@ class UpdateNgoRequest extends Request
             'zip_code' => 'max:255',
             'ngo_logo' => 'image',
             'ngo_banner' => 'image',
+            'phone' => 'json',
         ];
     }
 

@@ -11,6 +11,16 @@ use Overtrue\LaravelFollow\Traits\CanBeLiked;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
+/**
+ * App\Containers\Article\Models\Article
+ *
+ * @property-read \Kalnoy\Nestedset\Collection|\BrianFaust\Commentable\Models\Comment[] $comments
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\User\Models\User[] $favoriters
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\User\Models\User[] $likers
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\MediaLibrary\Media[] $media
+ * @property-read \App\Containers\NGO\Models\Ngo $ngo
+ * @mixin \Eloquent
+ */
 class Article extends Model implements HasMedia
 {
     use Searchable;

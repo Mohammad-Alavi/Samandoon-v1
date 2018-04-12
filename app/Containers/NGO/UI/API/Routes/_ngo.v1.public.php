@@ -19,6 +19,18 @@ HTTP/1.1 200 OK
                 "province": "خوزستان",
                 "address": "----"
             },
+            "phone": [
+                {
+                    "id": 1,
+                    "label": "testLabel",
+                    "phone_number": "06153224745"
+                },
+                    {
+                    "id": 2,
+                    "label": "testLabel",
+                    "phone_number": "06153224745"
+                }
+            ]
             "zip_code": "6316713649",
             "type": "شركت تعاوني",
             "confirmed": false,

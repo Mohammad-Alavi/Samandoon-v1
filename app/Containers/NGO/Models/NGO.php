@@ -11,10 +11,32 @@ use Illuminate\Support\Facades\DB;
 use Laravel\Scout\Searchable;
 use Overtrue\LaravelFollow\Traits\CanBeFavorited;
 use Overtrue\LaravelFollow\Traits\CanBeSubscribed;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\MediaLibrary\Media;
 
-class Ngo extends Model implements HasMedia
+/**
+ * App\Containers\NGO\Models\Ngo
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\Article\Models\Article[] $articles
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\Event\Models\Event[] $events
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\User\Models\User[] $favoriters
+ * @property mixed $tag_names
+ * @property-read \Illuminate\Database\Eloquent\Collection $tags
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\MediaLibrary\Media[] $media
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\Event\Models\Event[] $phones
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\NGO\Models\Subject[] $subjects
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\User\Models\User[] $subscribers
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Conner\Tagging\Model\Tagged[] $tagged
+ * @property-read \App\Containers\User\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo withAllTags($tagNames)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo withAnyTag($tagNames)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo withoutTags($tagNames)
+ * @mixin \Eloquent
+ */
+class Ngo extends Model implements HasMediaConversions
 {
     use Taggable;
     use Searchable;
@@ -81,6 +103,16 @@ class Ngo extends Model implements HasMedia
     public function subjects()
     {
         return $this->belongsToMany(Subject::class);
+    }
+
+    public function phones()
+    {
+        return $this->hasMany(Phone::class);
+    }
+
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->addMediaConversion('thumb')->crop(Manipulations::CROP_CENTER,10,10)->keepOriginalImageFormat();
     }
 
     // this is a recommended way to declare event handlers

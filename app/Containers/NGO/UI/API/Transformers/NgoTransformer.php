@@ -32,6 +32,7 @@ class NgoTransformer extends Transformer
                     'province' => $ngo->province,
                     'address' => $ngo->address
                 ],
+                'phone' => $ngo->phones()->get(),
                 'zip_code' => $ngo->zip_code,
                 'type' => $ngo->type,
                 'confirmed' => $ngo->confirmed,

@@ -5,15 +5,17 @@ namespace App\Containers\NGO\Models;
 use App\Ship\Parents\Models\Model;
 
 /**
- * App\Containers\NGO\Models\Subject
+ * App\Containers\NGO\Models\Phone
  *
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\NGO\Models\Ngo[] $ngos
  * @mixin \Eloquent
+ * @property-read \App\Containers\NGO\Models\Ngo $ngo
  */
-class Subject extends Model
+class Phone extends Model
 {
     protected $fillable = [
-        'subject'
+        'label',
+        'phone_number',
+        'ngo_id'
     ];
 
     protected $attributes = [
@@ -21,9 +23,9 @@ class Subject extends Model
     ];
 
     protected $hidden = [
+        'ngo_id',
         'created_at',
-        'updated_at',
-        'pivot',
+        'updated_at'
     ];
 
     protected $casts = [
@@ -38,9 +40,9 @@ class Subject extends Model
     /**
      * A resource key to be used by the the JSON API Serializer responses.
      */
-    protected $resourceKey = 'subjects';
+    protected $resourceKey = 'phones';
 
-    public function ngos(){
-        return $this->belongsToMany(Ngo::class);
+    public function ngo(){
+        return $this->belongsTo(NGO::class);
     }
 }
