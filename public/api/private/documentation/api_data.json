@@ -903,6 +903,31 @@
   },
   {
     "group": "NGO",
+    "name": "deletePhoneNumber",
+    "type": "DELETE",
+    "url": "/v1/ngo/resources/phone/{id}",
+    "title": "Delete Phone Number",
+    "description": "<p>Deletes the given phone number by id</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated | Owner"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 204 No Content\n{\n\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/NGO/UI/API/Routes/DeletePhoneNumber.v1.private.php",
+    "groupTitle": "NGO"
+  },
+  {
+    "group": "NGO",
     "name": "findNgoByNationalId",
     "type": "GET",
     "url": "/v1/ngo/find/{national_id}",

@@ -131,6 +131,8 @@ class Ngo extends Model implements HasMediaConversions
         {
             $this->articles()->delete();
             $this->events()->delete();
+            $this->subjects()->detach();
+            $this->phones()->delete();
 
             // revoke user's permission to manage events and articles
             $this->user->revokePermissionTo('manage-event');

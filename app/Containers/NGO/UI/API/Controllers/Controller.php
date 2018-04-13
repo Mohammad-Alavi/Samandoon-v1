@@ -9,6 +9,7 @@ use App\Containers\NGO\UI\API\Requests\CreateArticleRequest;
 use App\Containers\NGO\UI\API\Requests\CreateNgoRequest;
 use App\Containers\NGO\UI\API\Requests\DeleteArticleRequest;
 use App\Containers\NGO\UI\API\Requests\DeleteNgoRequest;
+use App\Containers\NGO\UI\API\Requests\DeletePhoneNumberRequest;
 use App\Containers\NGO\UI\API\Requests\FindNgoByNationalIdRequest;
 use App\Containers\NGO\UI\API\Requests\GetArticleRequest;
 use App\Containers\NGO\UI\API\Requests\GetAuthenticatedUserNgoRequest;
@@ -78,5 +79,11 @@ class Controller extends ApiController
         $ngos = $this->call('NGO@SearchNgosAction', [new DataTransporter($request)]);
         $ngos->msg = 'NGOs found';
         return $this->transform($ngos, NgoTransformer::class);
+    }
+
+    public function deletePhoneNumber(DeletePhoneNumberRequest $request)
+    {
+        Apiato::call('NGO@DeletePhoneNumberAction', [$request]);
+        return $this->noContent();
     }
 }

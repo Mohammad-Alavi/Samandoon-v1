@@ -11,6 +11,12 @@ class PhoneRepository extends Repository
 {
 
     /**
+     * The Container Name.
+     * Must be set when the model has a different name than the container
+     */
+    protected $container = 'NGO';
+
+    /**
      * @var array
      */
     protected $fieldSearchable = [
