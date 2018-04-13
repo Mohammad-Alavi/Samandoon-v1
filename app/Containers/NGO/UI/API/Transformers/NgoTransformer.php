@@ -25,13 +25,13 @@ class NgoTransformer extends Transformer
                 'id' => $ngo->id ? $ngo->getHashedKey() : null,
                 'name' => $ngo->name,
                 'description' => $ngo->description,
-                'subjects' => $ngo->tags,
                 'area_of_activity' => $ngo->area_of_activity,
                 'location' => [
                     'city' => $ngo->city,
                     'province' => $ngo->province,
                     'address' => $ngo->address
                 ],
+                'subject' => $ngo->subjects()->get(),
                 'phone' => $ngo->phones()->get(),
                 'zip_code' => $ngo->zip_code,
                 'type' => $ngo->type,

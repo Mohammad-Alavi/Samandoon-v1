@@ -17,7 +17,7 @@ class UpdateNgoAction extends Action
         $data = $request->sanitizeInput([
             'description',
             'area_of_activity',
-            'subjects',
+            'subject',
             'city',
             'province',
             'address',

@@ -17,35 +17,27 @@ HTTP/1.1 200 OK
         {
             "msg": "Found Subject",
             "object": {
-            "object": "Subject",
+                "object": "Subject",
                 "id": 1,
-                "subject": "test1"
+                "subject": "علمی"
             }
         },
         {
             "msg": "Found Subject",
             "object": {
-            "object": "Subject",
+                "object": "Subject",
                 "id": 2,
-                "subject": "test2"
+                "subject": "فرهنگی"
             }
         },
         {
             "msg": "Found Subject",
             "object": {
-            "object": "Subject",
+                "object": "Subject",
                 "id": 3,
-                "subject": "test3"
+                "subject": "اجتماعی"
             }
         },
-        {
-            "msg": "Found Subject",
-            "object": {
-            "object": "Subject",
-                "id": 4,
-                "subject": "test4"
-            }
-        }
     ],
     "meta": {
     "include": [],

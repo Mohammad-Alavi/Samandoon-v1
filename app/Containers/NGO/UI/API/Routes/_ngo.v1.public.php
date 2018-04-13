@@ -19,6 +19,16 @@ HTTP/1.1 200 OK
                 "province": "خوزستان",
                 "address": "----"
             },
+            "subject": [
+                {
+                    "id": 1,
+                    "subject": "علمی"
+                },
+                {
+                    "id": 3,
+                    "subject": "اجتماعی"
+                }
+            ],
             "phone": [
                 {
                     "id": 1,

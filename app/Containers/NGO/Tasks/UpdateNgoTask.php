@@ -5,6 +5,8 @@ namespace App\Containers\NGO\Tasks;
 use App\Containers\NGO\Data\Repositories\NGORepository;
 use App\Containers\NGO\Models\Ngo;
 use App\Containers\NGO\Models\Phone;
+use App\Containers\NGO\Models\Subject;
+use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Exceptions\Exception;
 use App\Ship\Parents\Tasks\Task;
@@ -30,10 +32,12 @@ class UpdateNgoTask extends Task
                 $ngo->clearMediaCollection('ngo_logo');
                 $ngo->addMediaFromRequest('ngo_logo')->toMediaCollection('ngo_logo');
             }
+
             if (array_key_exists('ngo_banner', $data)) {
                 $ngo->clearMediaCollection('ngo_banner');
                 $ngo->addMediaFromRequest('ngo_banner')->toMediaCollection('ngo_banner');
             }
+
             if (array_key_exists('phone', $data)) {
                 $phoneArray = json_decode($data['phone'], true);
                 foreach ($phoneArray as $phone) {
@@ -42,7 +46,7 @@ class UpdateNgoTask extends Task
                     } catch (Exception $exception) {
                     }
                     if (!empty($phoneExist))
-                        throw_unless($phoneExist->ngo_id == $ngo->id, AccessDeniedException::class, 'You don\'t have access to this resource.');
+                        abort_unless($phoneExist->ngo_id == $ngo->id, 401, 'You don\'t have access to this resource.');
                     Phone::updateOrCreate(
                         ['id' => $phone['id'], 'ngo_id' => $ngo->id],
                         [
@@ -53,9 +57,21 @@ class UpdateNgoTask extends Task
                     );
                 }
             }
+
+            if (array_key_exists('subject', $data)) {
+                $ngo->subjects()->detach();
+                $subjectIdArray = json_decode($data['subject'], true);
+                if (nonEmptyArray())
+                    foreach ($subjectIdArray as $subjectId) {
+                        $subjectExist = Subject::find($subjectId);
+                        abort_if(empty($subjectExist), 404, 'Subject with id: ' . $subjectId . ' not found.');
+                        $ngo->subjects()->attach($subjectId);
+                    }
+            }
+
             return $this->repository->update($data, $ngo->id);
         } catch (Exception $exception) {
-            throw new UpdateResourceFailedException('Updating NGO failed');
+            throw new UpdateResourceFailedException('Updating NGO failed' . $exception->getMessage());
         }
     }
 }

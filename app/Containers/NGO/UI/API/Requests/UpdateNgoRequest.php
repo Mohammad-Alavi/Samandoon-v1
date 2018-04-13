@@ -52,6 +52,7 @@ class UpdateNgoRequest extends Request
             'ngo_logo' => 'image',
             'ngo_banner' => 'image',
             'phone' => 'json',
+            'subject' => 'json',
         ];
     }
 
