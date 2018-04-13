@@ -21,6 +21,7 @@ class CreateNgosTable extends Migration
             $table->string('city')->nullable();
             $table->string('province')->nullable();
             $table->text('address')->nullable();
+            $table->string('status')->nullable();
             $table->string('zip_code')->nullable();
             $table->string('type')->nullable();
             $table->boolean('confirmed')->default(false);

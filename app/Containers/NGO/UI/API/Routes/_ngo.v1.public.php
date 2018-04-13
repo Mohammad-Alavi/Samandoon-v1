@@ -19,6 +19,7 @@ HTTP/1.1 200 OK
                 "province": "خوزستان",
                 "address": "----"
             },
+            "status": "ابطال شده",
             "subject": [
                 {
                     "id": 1,

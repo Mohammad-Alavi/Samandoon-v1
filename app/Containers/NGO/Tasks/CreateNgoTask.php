@@ -19,13 +19,14 @@ class CreateNgoTask extends Task
 
     public function run($ngo_data, $authenticated_user): Ngo
     {
+        info($ngo_data);
         throw_if($authenticated_user->ngo->id, new CreateResourceFailedException('User already have a NGO.'));
-
         try {
             // create a new ngo
             $ngo = $this->repository->create([
                 'name' => $ngo_data['ResultList']['0']['Name'],
                 'address' => $ngo_data['ResultList']['0']['Address'],
+                'status' => $ngo_data['ResultList']['0']['ObjectStateTitle'],
                 'zip_code' => $ngo_data['ResultList']['0']['PostCode'],
                 'type' => $ngo_data['ResultList']['0']['CompanyType'],
                 'national_number' => $ngo_data['ResultList']['0']['NationalCode'],

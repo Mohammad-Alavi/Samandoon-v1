@@ -65,6 +65,7 @@ class Ngo extends Model implements HasMediaConversions
         'city',
         'province',
         'address',
+        'status',
         'zip_code',
         'type',
         'user_id',
