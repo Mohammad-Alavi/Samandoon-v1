@@ -45,8 +45,12 @@ HTTP/1.1 200 OK
             "zip_code": "6316713649",
             "type": "شركت تعاوني",
             "confirmed": false,
-            "ngo_logo": "http://api.samandoon.local/v1/storage/default_images/ngo_logo.png",
-            "ngo_banner": "http://api.samandoon.local/v1/storage/default_images/ngo_banner.png",
+            "images": {
+                "ngo_logo": "http://api.samandoon.local/v1/storage/28/pepeWallpepeR.jpg",
+                "ngo_logo_thumb": "http://api.samandoon.local/v1/storage/28/conversions/thumb.jpg",
+                "ngo_banner": "http://api.samandoon.local/v1/storage/default_images/ngo_banner.png",
+                "ngo_banner_thumb": "http://api.samandoon.local/v1/storage/default_images/ngo_banner.png"
+            },
             "user_id": "3mjzyg5dp5a0vwp6",
             "registration_specification": {
                 "national_number": "10100000010",
