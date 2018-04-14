@@ -113,7 +113,7 @@ class Ngo extends Model implements HasMediaConversions
 
     public function registerMediaConversions(Media $media = null)
     {
-        $this->addMediaConversion('thumb')->crop(Manipulations::CROP_CENTER,10,10)->keepOriginalImageFormat();
+        $this->addMediaConversion('thumb')->width(200)->height(112.5)->keepOriginalImageFormat();
     }
 
     // this is a recommended way to declare event handlers
@@ -128,8 +128,7 @@ class Ngo extends Model implements HasMediaConversions
 
     public function delete()
     {
-        DB::transaction(function()
-        {
+        DB::transaction(function () {
             $this->articles()->delete();
             $this->events()->delete();
             $this->subjects()->detach();

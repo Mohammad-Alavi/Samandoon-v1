@@ -37,12 +37,20 @@ class NgoTransformer extends Transformer
                 'zip_code' => $ngo->zip_code,
                 'type' => $ngo->type,
                 'confirmed' => $ngo->confirmed,
-                'ngo_logo' => empty($ngo->getFirstMediaUrl('ngo_logo')) ?
-                    'http://api.' . str_replace('http://', '' , config('app.url')) . '/v1/storage' . config('samandoon.default.ngo_logo') :
-                    'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_logo')),
-                'ngo_banner' => empty($ngo->getFirstMediaUrl('ngo_banner')) ?
-                    'http://api.' . str_replace('http://', '' , config('app.url')) . '/v1/storage' . config('samandoon.default.ngo_banner') :
-                    'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_banner')),
+                'images' => [
+                    'ngo_logo' => empty($ngo->getFirstMediaUrl('ngo_logo')) ?
+                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1/storage' . config('samandoon.default.ngo_logo') :
+                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_logo')),
+                    'ngo_logo_thumb' => empty($ngo->getFirstMedia('ngo_logo')) ?
+                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1/storage' . config('samandoon.default.ngo_logo') :
+                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMedia('ngo_logo')->getUrl('thumb')),
+                    'ngo_banner' => empty($ngo->getFirstMediaUrl('ngo_banner')) ?
+                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1/storage' . config('samandoon.default.ngo_banner') :
+                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_banner')),
+                    'ngo_banner_thumb' => empty($ngo->getFirstMedia('ngo_banner')) ?
+                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1/storage' . config('samandoon.default.ngo_banner') :
+                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMedia('ngo_banner')->getUrl('thumb')),
+                ],
                 'user_id' => $ngo->user ? $ngo->user->getHashedKey() : null,
                 'registration_specification' => [
                     'national_number' => $ngo->national_number,
@@ -61,7 +69,7 @@ class NgoTransformer extends Transformer
                 'stats' => [
                     'is_following' => is_null($currentUser) ? false : $ngo->isSubscribedBy($currentUser),
                     'followers_count' => $ngo->subscribers()->get()->count()
-                        //->makeHidden(['ngo_id', 'pivot', 'confirmed', 'gender','birth', 'is_client', 'created_at', 'updated_at', 'deleted_at', 'social_token', 'social_token_secret', 'social_refresh_token', 'social_expires_in'])->toArray()
+                    //->makeHidden(['ngo_id', 'pivot', 'confirmed', 'gender','birth', 'is_client', 'created_at', 'updated_at', 'deleted_at', 'social_token', 'social_token_secret', 'social_refresh_token', 'social_expires_in'])->toArray()
                 ],
             ]
         ];
