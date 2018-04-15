@@ -29,11 +29,9 @@ class SubjectTransformer extends Transformer
     public function transform(Subject $entity)
     {
         $response = [
-            'object' => [
-                'object' => 'Subject',
-                'id' => $entity->id,
-                'subject' => $entity->subject,
-            ]
+            'object' => 'Subject',
+            'id' => $entity->id,
+            'subject' => $entity->subject,
         ];
         return $response;
     }
