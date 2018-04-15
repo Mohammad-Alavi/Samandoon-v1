@@ -61,7 +61,7 @@ class UpdateNgoTask extends Task
             if (array_key_exists('subject', $data)) {
                 $ngo->subjects()->detach();
                 $subjectIdArray = json_decode($data['subject'], true);
-                if (nonEmptyArray())
+                if (empty($subjectIdArray))
                     foreach ($subjectIdArray as $subjectId) {
                         $subjectExist = Subject::find($subjectId);
                         abort_if(empty($subjectExist), 404, 'Subject with id: ' . $subjectId . ' not found.');
