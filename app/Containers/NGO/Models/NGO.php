@@ -35,6 +35,42 @@ use Spatie\MediaLibrary\Media;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo withAnyTag($tagNames)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo withoutTags($tagNames)
  * @mixin \Eloquent
+ * @property int $id
+ * @property string|null $name
+ * @property string|null $description
+ * @property string|null $area_of_activity
+ * @property string|null $city
+ * @property string|null $province
+ * @property string|null $address
+ * @property string|null $status
+ * @property string|null $zip_code
+ * @property string|null $type
+ * @property bool $confirmed
+ * @property int $user_id
+ * @property string|null $national_number
+ * @property string|null $registration_number
+ * @property string|null $registration_date
+ * @property string|null $registration_unit
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereAreaOfActivity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereConfirmed($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereNationalNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereProvince($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereRegistrationDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereRegistrationNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereRegistrationUnit($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereZipCode($value)
  */
 class Ngo extends Model implements HasMediaConversions
 {

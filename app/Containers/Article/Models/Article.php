@@ -5,6 +5,7 @@ namespace App\Containers\Article\Models;
 use App\Containers\NGO\Models\Ngo;
 use App\Ship\Parents\Models\Model;
 use BrianFaust\Commentable\Traits\HasComments;
+use CyrildeWit\PageViewCounter\Traits\HasPageViewCounter;
 use Laravel\Scout\Searchable;
 use Overtrue\LaravelFollow\Traits\CanBeFavorited;
 use Overtrue\LaravelFollow\Traits\CanBeLiked;
@@ -20,6 +21,16 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
  * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\MediaLibrary\Media[] $media
  * @property-read \App\Containers\NGO\Models\Ngo $ngo
  * @mixin \Eloquent
+ * @property int $id
+ * @property string|null $text
+ * @property int $ngo_id
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article whereNgoId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article whereText($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article whereUpdatedAt($value)
  */
 class Article extends Model implements HasMedia
 {
@@ -27,6 +38,7 @@ class Article extends Model implements HasMedia
     use HasMediaTrait;
     use CanBeLiked, CanBeFavorited;
     use HasComments;
+    use HasPageViewCounter;
 
     public $asYouType = true;
 

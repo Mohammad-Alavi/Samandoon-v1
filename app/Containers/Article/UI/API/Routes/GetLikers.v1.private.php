@@ -15,7 +15,6 @@
 {
     "data": [
         {
-            "object": {
             "object": "User",
                 "id": "3mjzyg5dp5a0vwp6",
                 "first_name": "Mohammad",
@@ -30,10 +29,8 @@
                 "href": "v1/user/3mjzyg5dp5a0vwp6",
                     "method": "GET"
                 }
-            }
         },
         {
-            "object": {
             "object": "User",
                 "id": "qv4jdwrw0lanm6xg",
                 "first_name": "Mohammad",
@@ -48,7 +45,6 @@
                 "href": "v1/user/qv4jdwrw0lanm6xg",
                     "method": "GET"
                 }
-            }
         }
     ],
     "meta": {

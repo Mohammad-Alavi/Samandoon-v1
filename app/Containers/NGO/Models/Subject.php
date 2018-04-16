@@ -9,6 +9,14 @@ use App\Ship\Parents\Models\Model;
  *
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\NGO\Models\Ngo[] $ngos
  * @mixin \Eloquent
+ * @property int $id
+ * @property string $subject
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Subject whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Subject whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Subject whereSubject($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Subject whereUpdatedAt($value)
  */
 class Subject extends Model
 {

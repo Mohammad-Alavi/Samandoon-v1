@@ -18,6 +18,30 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
  * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\MediaLibrary\Media[] $media
  * @property-read \App\Containers\NGO\Models\Ngo $ngo
  * @mixin \Eloquent
+ * @property int $id
+ * @property string $title
+ * @property string|null $description
+ * @property \Carbon\Carbon $event_date
+ * @property string $city
+ * @property string $province
+ * @property string|null $address
+ * @property int $ngo_id
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property float|null $lat
+ * @property float|null $long
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereEventDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereLat($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereLong($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereNgoId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereProvince($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereUpdatedAt($value)
  */
 class Event extends Model implements HasMedia
 {

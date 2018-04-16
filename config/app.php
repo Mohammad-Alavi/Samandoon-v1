@@ -172,6 +172,9 @@ return [
         GetStream\StreamLaravel\StreamLaravelServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         BrianFaust\Commentable\CommentableServiceProvider::class,
+//        CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
+        CyrildeWit\PageViewCounter\PageViewCounterServiceProvider::class,
+
 
         /*
          * Application Service Providers...

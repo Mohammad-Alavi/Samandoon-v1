@@ -28,6 +28,7 @@ use Spatie\Permission\Models\Role as SpatieRole;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Authorization\Models\Role whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Authorization\Models\Role whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|\Spatie\Permission\Models\Role permission($permissions)
  */
 class Role extends SpatieRole
 {
