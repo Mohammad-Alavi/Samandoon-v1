@@ -4,7 +4,7 @@
  * @apiGroup           Article
  * @apiName            getLikers
  *
- * @api                {GET} /v1/article/{article_id}/likers Get Likers
+ * @api                {GET} /v1/ngo/article/{article_id}/likers Get Likers
  * @apiDescription     Get the likers of the specified article
  *
  * @apiVersion         1.0.0

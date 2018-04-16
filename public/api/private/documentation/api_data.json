@@ -193,7 +193,7 @@
     "group": "Article",
     "name": "getLikers",
     "type": "GET",
-    "url": "/v1/article/{article_id}/likers",
+    "url": "/v1/ngo/article/{article_id}/likers",
     "title": "Get Likers",
     "description": "<p>Get the likers of the specified article</p>",
     "version": "1.0.0",
