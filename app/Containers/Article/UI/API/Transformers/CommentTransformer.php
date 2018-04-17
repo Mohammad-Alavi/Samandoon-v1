@@ -16,7 +16,6 @@ class CommentTransformer
                 }
 
                 $response = [
-                    'object' => [
                         'object' => 'Comment',
                         'id' => Hashids::encode($comment->id),
                         'body' => $comment->body,
@@ -34,7 +33,6 @@ class CommentTransformer
                             'href' => 'v1/ngo/article/comment/' . Hashids::encode($comment->id),
                             'method' => 'GET'
                         ]
-                    ],
                 ];
 
                 array_push($tempArray, $response);
