@@ -43,7 +43,7 @@ class CreateEventTask extends Task
             OneSignal::sendNotificationUsingTags(
                 $event->ngo->name . 'یک رخداد جدید ساخت',
                 array(["field" => "email", "relation" => "=", "value" => "m.alavi1989@gmail.com"]), 'www.samandoon.ngo/event/' . $event->id);
-                array(["field" => "tag", 'key' => 'gender', "relation" => "=", "value" => "male"]), 'www.samandoon.ngo/event/' . $event->id);
+//                array(["field" => "tag", 'key' => 'gender', "relation" => "=", "value" => "male"]), 'www.samandoon.ngo/event/' . $event->id);
 
 
             return $event;
