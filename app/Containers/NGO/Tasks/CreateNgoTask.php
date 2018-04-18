@@ -17,24 +17,11 @@ class CreateNgoTask extends Task
         $this->repository = $repository;
     }
 
-    public function run($ngo_data, $authenticated_user): Ngo
+    public function run($ngoData, $authenticated_user): Ngo
     {
-        info($ngo_data);
-        throw_if($authenticated_user->ngo->id, new CreateResourceFailedException('User already have a NGO.'));
         try {
             // create a new ngo
-            $ngo = $this->repository->create([
-                'name' => $ngo_data['ResultList']['0']['Name'],
-                'address' => $ngo_data['ResultList']['0']['Address'],
-                'status' => $ngo_data['ResultList']['0']['ObjectStateTitle'],
-                'zip_code' => $ngo_data['ResultList']['0']['PostCode'],
-                'type' => $ngo_data['ResultList']['0']['CompanyType'],
-                'national_number' => $ngo_data['ResultList']['0']['NationalCode'],
-                'registration_number' => $ngo_data['ResultList']['0']['RegisterNumber'],
-                'registration_date' => $ngo_data['ResultList']['0']['RegisterDate'],
-                'registration_unit' => $ngo_data['ResultList']['0']['UnitName'],
-                'user_id' => $authenticated_user->id,
-            ]);
+            $ngo = $this->repository->create($ngoData);
 
             // give manage-event permission to authenticated user
             $authenticated_user->givePermissionTo('manage-event');
