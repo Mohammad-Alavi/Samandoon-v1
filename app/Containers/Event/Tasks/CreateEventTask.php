@@ -6,10 +6,10 @@ use App\Containers\Event\Data\Repositories\EventRepository;
 use App\Containers\Event\Models\Event;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Tasks\Task;
-//use Berkayk\OneSignal\OneSignalClient;
 use Exception;
 use GetStream\Stream\Client;
 use Illuminate\Support\Carbon;
+use OneSignal;
 
 class CreateEventTask extends Task
 {
@@ -39,19 +39,16 @@ class CreateEventTask extends Task
                 'time' => Carbon::now()->toIso8601String()
             ];
             $userFeed->addActivity($feedData);
+//            $followersChunk = $event->ngo->subscribers()->get()->chunk(1);
+            OneSignal::sendNotificationUsingTags(
+                $event->ngo->name . 'یک رخداد جدید ساخت',
+                array(["field" => "email", "relation" => "=", "value" => "m.alavi1989@gmail.com"]), 'www.samandoon.ngo/event/' . $event->id);
+                array(["field" => "tag", 'key' => 'gender', "relation" => "=", "value" => "male"]), 'www.samandoon.ngo/event/' . $event->id);
 
-//            $OneSignalClient = new OneSignalClient(
-//                config('onesignal.app_id'),
-//                config('onesignal.rest_api_key'),
-//                config('onesignal.user_auth_key'));
-//
-//            $OneSignalClient->sendNotificationUsingTags(
-//                'Ngo Created Event',
-//                array(["field" => "email", "relation" => "=", "value" => "m.alavi1989@gmail.com"]), 'www.samandoon.ngo/event/' . $event->id);
 
             return $event;
         } catch (Exception $exception) {
-            throw new CreateResourceFailedException('Failed to create new Event');
+            throw new CreateResourceFailedException('Failed to create new Event' . $exception->getMessage());
         }
     }
 }

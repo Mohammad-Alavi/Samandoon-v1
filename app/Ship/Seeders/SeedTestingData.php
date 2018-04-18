@@ -2,10 +2,14 @@
 
 namespace App\Ship\Seeders;
 
+use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\Event\Models\Event;
 use App\Containers\NGO\Models\NGO;
+use App\Containers\NGO\Models\Subject;
 use \App\Containers\User\Models\User;
 use App\Ship\Parents\Seeders\Seeder;
+use Faker\Generator as Faker;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Class SeedTestingData
@@ -20,18 +24,90 @@ class SeedTestingData extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        factory(User::class, 50)->create()->each(function ($user) {
-            $user->ngo()->save(factory(NGO::class)->make());
-//                    ->each(function ($events){
-//                        $events->events()->saveMany(factory(Event::class, 5)->make());
-//                    });
-            });
-
-        $ngos = NGO::all();
-        foreach ($ngos as $ngo) {
-            factory(Event::class, rand(0, 50))->create(['ngo_id' => $ngo->id]);
+        $x = 0;
+        $userArray = [];
+        // Generate Fake Users
+        while ($x < 50) {
+            $generatedUser = Apiato::call('User@CreateUserByCredentialsTask', [
+                $isClient = false,
+                $faker->unique()->safeEmail,
+                Hash::make('testing-password'),
+                $faker->firstName,
+                $faker->lastName,
+                $faker->randomElement(['male', 'female']),
+                $faker->date($format = 'Y-m-d', $max = 'now')
+            ])->assignRole(Apiato::call('Authorization@FindRoleTask', ['User']));
+            array_push($userArray, $generatedUser);
+            $x++;
         }
+
+        $fakeNNumber = 1654915498;
+        $fakeRNumber = 1654915498;
+        $ngoArray = [];
+        // Generate Fake NGO's for Fake Users
+        foreach ($userArray as $user) {
+            $ngoData = [
+                'name' => $faker->company,
+                'address' => $faker->address,
+                'status' => $faker->randomElement(['فعال', 'غیر فعال']),
+                'confirmed' => $faker->boolean(),
+                'zip_code' => $faker->postcode,
+                'type' => $faker->randomElement(['نوع یک', 'نوع دو', 'نوع سه', 'نوع چهار']),
+                'national_number' => $fakeNNumber--,
+                'registration_number' => $fakeRNumber++,
+                'registration_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
+                'registration_unit' => $faker->randomElement(['واحد ثبت چهار', 'واحد ثبت دو', 'واحد ثبت سه', 'واحد ثبت یک']),
+                'user_id' => $user->id,
+                'description' => $faker->text(),
+                'area_of_activity' => $faker->randomElement(['شهرستان', 'استان', 'فرااستان و استان های هم جوار', 'کشوری']),
+                'city' => $faker->city,
+                'province' => $faker->city,
+            ];
+            array_push($ngoArray, Apiato::call('NGO@CreateNgoTask', [$ngoData, $user]));
+        }
+
+        $eventArray = [];
+        // Generate Fake Events for Fake NGO's
+        foreach ($ngoArray as $ngo) {
+            $y = 0;
+            while ($y < 20) {
+                $eventData = [
+                    'title' => $faker->title(),
+                    'description' => $faker->realText(),
+                    'city' => 'آبادان',
+                    'province' => 'خوزستان',
+                    'address' => $faker->address,
+                    'lat' => $faker->latitude,
+                    'long' => $faker->longitude,
+//                    'event_date' => $faker->date('YmdHiT'),
+                    'ngo_id' => $ngo->id
+                ];
+                Apiato::call('Event@CreateEventTask', [$eventData]);
+                $y++;
+            }
+        }
+            //TODO
+//        foreach ($ngoArray as $ngo) {
+//            $z = 0;
+//            while ($z < 25) {
+//                $articleData = [
+//                    'text' => $faker->text(),
+//                    'ngo_id' => $ngo->id
+//                ];
+//            }
+//        }
+//        factory(User::class, 50)->create()->each(function ($user) {
+//            $user->ngo()->save(factory(NGO::class)->make());
+////                    ->each(function ($events){
+////                        $events->events()->saveMany(factory(Event::class, 5)->make());
+////                    });
+//            });
+//
+//        $ngos = NGO::all();
+//        foreach ($ngos as $ngo) {
+//            factory(Event::class, rand(0, 50))->create(['ngo_id' => $ngo->id]);
+//        }
     }
 }
