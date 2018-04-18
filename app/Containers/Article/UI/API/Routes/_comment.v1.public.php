@@ -15,6 +15,16 @@ HTTP/1.1 200 OK
                 "commentable_type": "Article",
                 "creator_id": "3mjzyg5dp5a0vwp6",
                 "creator_type": "User",
+                "creator_data": {
+                    "first_name": "Mohammad",
+                    "last_name": "Alavi",
+                    "avatar": "http://api.samandoon.local/v1/storage/default_images/avatar.png",
+                    "ngo_data": {
+                        "ngo_id": "kjeonp5eordqzvb8",
+                        "name": "روستائي راشته",
+                        "confirmed": false
+                    }
+                },
                 "_lft": 36,
                 "_rgt": 37,
                 "parent_id": "dxwgmb50mrk340yo",
