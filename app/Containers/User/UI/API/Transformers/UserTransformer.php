@@ -48,11 +48,11 @@ class UserTransformer extends Transformer
                 'email' => $user->email,
                 'images' => [
                     'avatar' => empty($user->getFirstMediaUrl('avatar')) ?
-                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1/storage' . config('samandoon.default.avatar') :
-                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $user->getFirstMediaUrl('avatar')),
+                        config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.avatar') :
+                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $user->getFirstMediaUrl('avatar')),
                     'avatar_thumb' => empty($user->getFirstMediaUrl('avatar')) ?
-                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1/storage' . config('samandoon.default.avatar_thumb') :
-                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $user->getFirstMedia('avatar')->getUrl('thumb')),
+                        config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.avatar_thumb') :
+                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $user->getFirstMedia('avatar')->getUrl('thumb')),
                 ],
                 'confirmed' => $user->confirmed,
                 'gender' => $user->gender,
