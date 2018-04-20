@@ -13,7 +13,10 @@ HTTP/1.1 200 OK
             "first_name": "Mohammad",
             "last_name": "Alavi",
             "email": "m.alavi1989@gmail.com",
-            "avatar": "http://api.samandoon.local/v1/storage/21/6cf4b3e93caef896b27dd9140f7171a5.jpg",
+            "images": {
+                "avatar": "http://api.samandoon.local/v1/storage/5/pepeWallpepeR.jpg",
+                "avatar_thumb": "http://api.samandoon.local/v1/storage/5/conversions/thumb.jpg"
+            },
             "confirmed": false,
             "gender": null,
             "birth": null,

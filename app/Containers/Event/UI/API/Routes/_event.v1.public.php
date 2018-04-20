@@ -12,7 +12,10 @@ HTTP/1.1 200 OK
             "id": "oj64bp5zjl8ywzn0",
             "title": "پشم تست",
             "description": "Some event description",
-            "event_image": null,
+            "image": {
+                "event_image": "http://api.samandoon.local/v1/storage/7/pepeWallpepeR.jpg",
+                "event_image_thumb": "http://api.samandoon.local/v1/storage/7/conversions/thumb.jpg"
+            },
             "location": {
                 "city": "آبادان",
                 "province": "خوزستان",

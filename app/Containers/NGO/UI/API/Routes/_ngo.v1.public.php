@@ -46,10 +46,10 @@ HTTP/1.1 200 OK
             "type": "شركت تعاوني",
             "confirmed": false,
             "images": {
-                "ngo_logo": "http://api.samandoon.local/v1/storage/28/pepeWallpepeR.jpg",
-                "ngo_logo_thumb": "http://api.samandoon.local/v1/storage/28/conversions/thumb.jpg",
-                "ngo_banner": "http://api.samandoon.local/v1/storage/default_images/ngo_banner.png",
-                "ngo_banner_thumb": "http://api.samandoon.local/v1/storage/default_images/ngo_banner.png"
+                "ngo_logo": "http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg",
+                "ngo_logo_thumb": "http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg",
+                "ngo_banner": "http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png",
+                "ngo_banner_thumb": "http://api.samandoon.local/v1/storage/3/conversions/thumb.png"
             },
             "user_id": "3mjzyg5dp5a0vwp6",
             "registration_specification": {
