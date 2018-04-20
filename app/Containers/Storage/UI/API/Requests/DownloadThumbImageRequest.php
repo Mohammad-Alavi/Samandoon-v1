@@ -53,8 +53,8 @@ class DownloadThumbImageRequest extends Request
     public function rules()
     {
         return [
-            'id' => 'required',
-            'resource_name' => 'required',
+//            'id' => 'required',
+//            'resource_name' => 'required',
         ];
     }
 
