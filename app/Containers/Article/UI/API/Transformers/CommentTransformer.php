@@ -25,7 +25,18 @@ class CommentTransformer
                     'commentable_type' => $comment->commentable_type,
                     'creator_id' => Hashids::encode($comment->creator_id),
                     'creator_type' => 'User',
-                    'creator_data' => $creator_data,
+                    'creator_data' => [
+                        'first_name' => $creator_data->first_name,
+                        'last_name' => $creator_data->last_name,
+                        'avatar' => empty($creator_data->getFirstMediaUrl('avatar')) ?
+                            'http://api.' . str_replace('http://', '', config('app.url')) . '/v1/storage' . config('samandoon.default.avatar_thumb') :
+                            'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $creator_data->getFirstMedia('avatar')->getUrl('thumb')),
+                        'ngo_data' => [
+                            'ngo_id' => $creator_data->ngo->id ? $creator_data->ngo->getHashedKey() : null,
+                            'name' => $creator_data->ngo->id ? $creator_data->ngo->name : null,
+                            'confirmed' => $creator_data->ngo->id ? $creator_data->ngo->confirmed : null,
+                        ]
+                    ],
                     '_lft' => $comment->_lft,
                     '_rgt' => $comment->_rgt,
                     'parent_id' => is_null($comment->parent_id) ? null : Hashids::encode($comment->parent_id),
@@ -71,8 +82,8 @@ class CommentTransformer
                         'first_name' => $creator_data->first_name,
                         'last_name' => $creator_data->last_name,
                         'avatar' => empty($creator_data->getFirstMediaUrl('avatar')) ?
-                            'http://api.' . str_replace('http://', '', config('app.url')) . '/v1/storage' . config('samandoon.default.avatar') :
-                            'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $creator_data->getFirstMediaUrl('avatar')),
+                            'http://api.' . str_replace('http://', '', config('app.url')) . '/v1/storage' . config('samandoon.default.avatar_thumb') :
+                            'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $creator_data->getFirstMedia('avatar')->getUrl('thumb')),
                         'ngo_data' => [
                             'ngo_id' => $creator_data->ngo->id ? $creator_data->ngo->getHashedKey() : null,
                             'name' => $creator_data->ngo->id ? $creator_data->ngo->name : null,
