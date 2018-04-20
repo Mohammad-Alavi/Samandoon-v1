@@ -42,13 +42,13 @@ class NgoTransformer extends Transformer
                         'http://api.' . str_replace('http://', '', config('app.url')) . '/v1/storage' . config('samandoon.default.ngo_logo') :
                         'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_logo')),
                     'ngo_logo_thumb' => empty($ngo->getFirstMedia('ngo_logo')) ?
-                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1/storage' . config('samandoon.default.ngo_logo') :
+                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1/storage' . config('samandoon.default.ngo_logo_thumb') :
                         'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMedia('ngo_logo')->getUrl('thumb')),
                     'ngo_banner' => empty($ngo->getFirstMediaUrl('ngo_banner')) ?
                         'http://api.' . str_replace('http://', '', config('app.url')) . '/v1/storage' . config('samandoon.default.ngo_banner') :
                         'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_banner')),
                     'ngo_banner_thumb' => empty($ngo->getFirstMedia('ngo_banner')) ?
-                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1/storage' . config('samandoon.default.ngo_banner') :
+                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1/storage' . config('samandoon.default.ngo_banner_thumb') :
                         'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMedia('ngo_banner')->getUrl('thumb')),
                 ],
                 'user_id' => $ngo->user ? $ngo->user->getHashedKey() : null,
