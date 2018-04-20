@@ -14,7 +14,8 @@ use Overtrue\LaravelFollow\Traits\CanLike;
 use Overtrue\LaravelFollow\Traits\CanFavorite;
 use Overtrue\LaravelFollow\Traits\CanSubscribe;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\MediaLibrary\Media;
 
 /**
  * Class User.
@@ -80,7 +81,7 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\User\Models\User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class User extends UserModel implements ChargeableInterface, HasMedia
+class User extends UserModel implements ChargeableInterface, HasMediaConversions
 {
 
     use ChargeableTrait;
@@ -160,6 +161,11 @@ class User extends UserModel implements ChargeableInterface, HasMedia
 
     public function ngo(){
         return $this->hasOne(NGO::class)->withDefault();
+    }
+
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->addMediaConversion('thumb')->width(200)->height(200)->keepOriginalImageFormat();
     }
 
     public function delete()
