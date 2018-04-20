@@ -9,4 +9,6 @@ return [
         'ngo_banner'    =>  '/default_images/ngo_banner.png',
         'ngo_banner_thumb'    =>  '/default_images/ngo_banner_thumb.png',
     ],
+
+    'api_url' => env('API_URL', 'http://localhost'),
 ];
