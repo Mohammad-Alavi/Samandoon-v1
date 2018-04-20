@@ -10,6 +10,7 @@ use App\Containers\Article\UI\API\Requests\DeleteCommentRequest;
 use App\Containers\Article\UI\API\Requests\GetAllCommentsRequest;
 use App\Containers\Article\UI\API\Requests\GetArticleRequest;
 use App\Containers\Article\UI\API\Requests\GetAllArticlesRequest;
+use App\Containers\Article\UI\API\Requests\GetCommentRequest;
 use App\Containers\Article\UI\API\Requests\GetLikersReqeust;
 use App\Containers\Article\UI\API\Requests\SearchArticlesRequest;
 use App\Containers\Article\UI\API\Requests\UpdateArticleRequest;
@@ -81,6 +82,13 @@ class Controller extends ApiController
         $comments = Apiato::call('Article@GetAllCommentsAction', [new DataTransporter($request)]);
         $commentTransformer = new CommentTransformer();
         return $commentTransformer->transform($comments);
+    }
+
+    public function getComment(GetCommentRequest $request)
+    {
+        $comment = Apiato::call('Article@GetCommentAction', [new DataTransporter($request)]);
+        $commentTransformer = new CommentTransformer();
+        return $commentTransformer->transform($comment);
     }
 
     public function deleteComment(DeleteCommentRequest $request)

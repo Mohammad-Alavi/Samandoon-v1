@@ -57,9 +57,9 @@ class CommentTransformer
                 'data' => $tempArray,
                 'meta' => [
                     'pagination' => [
-                        'per_page' => $paginatedDataArray['per_page'],
-                        'current_page' => $paginatedDataArray['current_page'],
-                        'total_pages' => $paginatedDataArray['last_page'],
+                        'per_page' => array_key_exists('per_page', $paginatedDataArray) ? $paginatedDataArray['per_page'] : null,
+                        'current_page' => array_key_exists('current_page', $paginatedDataArray) ? $paginatedDataArray['current_page'] : null,
+                        'total_pages' => array_key_exists('last_page', $paginatedDataArray) ? $paginatedDataArray['last_page'] : null,
                     ]
                 ]
             ];
