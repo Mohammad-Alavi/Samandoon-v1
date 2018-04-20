@@ -11,6 +11,10 @@ HTTP/1.1 200 OK
         "object": "Article",
             "id": "3mjzyg5dp5a0vwp6",
             "text": "Some random texts and description for nealy created Article",
+            "image": {
+                "article_image": "http://api.samandoon.local/v1/storage/8/pepeWallpepeR.jpg",
+                "article_image_thumb": "http://api.samandoon.local/v1/storage/8/conversions/thumb.jpg"
+            },
             "ngo_id": "kjeonp5eordqzvb8",
             "created_at": {
             "date": "2017-12-11 10:00:19.000000",

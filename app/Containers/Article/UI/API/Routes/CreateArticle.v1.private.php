@@ -11,6 +11,7 @@
  * @apiPermission      Authenticated
  *
  * @apiParam           {text}  text (required)
+ * @apiParam           {image}  article_image (optional)
  *
  * @apiUse             ArticleSuccessSingleResponse
 */
