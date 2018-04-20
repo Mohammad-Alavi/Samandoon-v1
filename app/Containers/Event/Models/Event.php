@@ -8,7 +8,8 @@ use Laravel\Scout\Searchable;
 use Overtrue\LaravelFollow\Traits\CanBeFavorited;
 use Overtrue\LaravelFollow\Traits\CanBeLiked;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\MediaLibrary\Media;
 
 /**
  * App\Containers\Event\Models\Event
@@ -43,7 +44,7 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereUpdatedAt($value)
  */
-class Event extends Model implements HasMedia
+class Event extends Model implements HasMediaConversions
 {
     use Searchable;
     use HasMediaTrait;
@@ -92,5 +93,10 @@ class Event extends Model implements HasMedia
 
     public function ngo(){
         return $this->belongsTo(NGO::class);
+    }
+
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->addMediaConversion('thumb')->width(200)->height(112.5)->keepOriginalImageFormat();
     }
 }

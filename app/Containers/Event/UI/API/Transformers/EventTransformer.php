@@ -31,8 +31,12 @@ class EventTransformer extends Transformer
                 'id' => $event->getHashedKey(),
                 'title' => $event->title,
                 'description' => $event->description,
-                'event_image' => empty($event->getFirstMediaUrl('event_image')) ? null :
-                    'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $event->getFirstMediaUrl('event_image')),
+                'image' => [
+                    'event_image' => empty($event->getFirstMediaUrl('event_image')) ? null :
+                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $event->getFirstMediaUrl('event_image')),
+                    'event_image_thumb' => empty($event->getFirstMediaUrl('event_image')) ? null :
+                        'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $event->getFirstMedia('event_image')->getUrl('thumb')),
+                    ],
                 'location' => [
                     'city' => $event->city,
                     'province' => $event->province,
