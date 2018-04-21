@@ -84,7 +84,7 @@ class Article extends Model implements HasMediaConversions
 
     public function registerMediaConversions(Media $media = null)
     {
-        $this->addMediaConversion('thumb')->width(200)->height(112.5)->keepOriginalImageFormat();
+        $this->addMediaConversion('thumb')->width(600)->height(337.5)->keepOriginalImageFormat();
     }
 
     public function ngo()

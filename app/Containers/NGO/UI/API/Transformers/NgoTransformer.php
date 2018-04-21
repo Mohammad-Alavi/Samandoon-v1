@@ -43,13 +43,13 @@ class NgoTransformer extends Transformer
                         config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_logo')),
                     'ngo_logo_thumb' => empty($ngo->getFirstMedia('ngo_logo')) ?
                         config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.ngo_logo_thumb') :
-                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMedia('ngo_logo')->getUrl('thumb')),
+                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMedia('ngo_logo')->getUrl('logo_thumb')),
                     'ngo_banner' => empty($ngo->getFirstMediaUrl('ngo_banner')) ?
                         config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.ngo_banner') :
                         config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_banner')),
                     'ngo_banner_thumb' => empty($ngo->getFirstMedia('ngo_banner')) ?
                         config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.ngo_banner_thumb') :
-                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMedia('ngo_banner')->getUrl('thumb')),
+                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMedia('ngo_banner')->getUrl('banner_thumb')),
                 ],
                 'user_id' => $ngo->user ? $ngo->user->getHashedKey() : null,
                 'registration_specification' => [

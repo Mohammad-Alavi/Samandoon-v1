@@ -149,7 +149,8 @@ class Ngo extends Model implements HasMediaConversions
 
     public function registerMediaConversions(Media $media = null)
     {
-        $this->addMediaConversion('thumb')->width(200)->height(112.5)->keepOriginalImageFormat();
+        $this->addMediaConversion('logo_thumb')->width(200)->height(200)->keepOriginalImageFormat()->performOnCollections('ngo_logo');
+        $this->addMediaConversion('banner_thumb')->width(600)->height(337.5)->keepOriginalImageFormat()->performOnCollections('ngo_banner');
     }
 
     // this is a recommended way to declare event handlers
