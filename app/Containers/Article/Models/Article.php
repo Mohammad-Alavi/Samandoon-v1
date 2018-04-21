@@ -55,6 +55,8 @@ class Article extends Model implements HasMediaConversions
         return $array;
     }
 
+    protected $appends = ['page_views'];
+
     protected $fillable = [
         'text',
         'ngo_id'
@@ -85,6 +87,11 @@ class Article extends Model implements HasMediaConversions
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')->width(600)->height(337.5)->keepOriginalImageFormat();
+    }
+
+    public function getPageViewsAttribute()
+    {
+        return $this->getPageViews();
     }
 
     public function ngo()

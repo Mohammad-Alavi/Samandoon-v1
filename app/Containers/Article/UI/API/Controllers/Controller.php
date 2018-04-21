@@ -20,6 +20,7 @@ use App\Containers\Article\UI\API\Transformers\CommentTransformer;
 use App\Containers\Article\UI\API\Transformers\LikersTransformer;
 use App\Ship\Parents\Controllers\ApiController;
 use App\Ship\Transporters\DataTransporter;
+use Illuminate\Support\Carbon;
 
 class Controller extends ApiController
 {
@@ -40,6 +41,7 @@ class Controller extends ApiController
     {
         $article = Apiato::call('Article@GetArticleAction', [$request]);
         $article->msg = 'Article Found';
+        $article->addPageViewThatExpiresAt(Carbon::now()->addHours(24));
         return $this->transform($article, ArticleTransformer::class);
     }
 
