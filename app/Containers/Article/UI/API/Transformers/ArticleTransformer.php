@@ -41,7 +41,7 @@ class ArticleTransformer extends Transformer
                 'like_count' => $article->likers()->count(),
                 'liked_by_current_user' => empty($currentUser) ? null : $article->isLikedBy($currentUser),
                 'comment_count' => $article->commentCount(),
-                'unique_page_view_count' => $article->getUniquePageViews(),
+                'seen_count' => $article->getUniquePageViews(),
 
                 'view_article' => [
                     'href' => 'v1/ngo/article/' . $article->getHashedKey(),
