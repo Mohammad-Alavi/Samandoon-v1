@@ -20,7 +20,9 @@
                 "first_name": "Mohammad",
                 "last_name": "Alavi",
                 "email": "m.alavi1989@gmail.com",
-                "avatar": "http://api.samandoon.local/v1/storage/default_images/avatar.png",
+                "images": {
+                    "avatar_thumb": "http://api.samandoon.local/v1/storage/1/conversions/thumb.jpg"
+                },
                 "confirmed": false,
                 "gender": null,
                 "birth": null,
@@ -36,7 +38,9 @@
                 "first_name": "Mohammad",
                 "last_name": "Alavi",
                 "email": "m.alavi1992@gmail.com",
-                "avatar": "http://api.samandoon.local/v1/storage/default_images/avatar.png",
+                "images": {
+                    "avatar_thumb": "http://api.samandoon.local/v1/storage/1/conversions/thumb.jpg"
+                },
                 "confirmed": false,
                 "gender": null,
                 "birth": null,

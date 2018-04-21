@@ -18,7 +18,9 @@ HTTP/1.1 200 OK
                 "creator_data": {
                     "first_name": "Mohammad",
                     "last_name": "Alavi",
-                    "avatar": "http://api.samandoon.local/v1/storage/default_images/avatar.png",
+                    "images": {
+                        "avatar_thumb": "http://api.samandoon.local/v1/storage/1/conversions/thumb.jpg"
+                    },
                     "ngo_data": {
                         "ngo_id": "kjeonp5eordqzvb8",
                         "name": "روستائي راشته",

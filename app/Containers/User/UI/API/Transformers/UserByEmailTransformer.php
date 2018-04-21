@@ -31,9 +31,14 @@ class UserByEmailTransformer extends Transformer
                 'first_name' => $user->first_name,
                 'last_name' => $user->last_name,
                 'email' => $user->email,
-                'avatar' => empty($user->getFirstMediaUrl('avatar')) ?
-                    'http://api.' . str_replace('http://', '', config('app.url')) . '/v1/storage' . config('samandoon.default.avatar') :
-                    'http://api.' . str_replace('http://', '', config('app.url')) . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $user->getFirstMediaUrl('avatar')),
+                'images' => [
+                    'avatar' => empty($user->getFirstMediaUrl('avatar')) ?
+                        config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.avatar') :
+                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $user->getFirstMediaUrl('avatar')),
+                    'avatar_thumb' => empty($user->getFirstMediaUrl('avatar')) ?
+                        config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.avatar_thumb') :
+                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $user->getFirstMedia('avatar')->getUrl('thumb')),
+                ],
             ],
             'view_user' => [
                 'href' => 'v1/user/' . $user->getHashedKey(),
