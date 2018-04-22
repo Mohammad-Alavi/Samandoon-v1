@@ -13,8 +13,6 @@ class GetCommentAction extends Action
     {
         $article = Apiato::call('Article@FindArticleByIdTask', [$dataTransporter->id]);
 
-        throw_if(empty($article->id), new NotFoundException('Article not found.'));
-
         return Apiato::call('Article@GetCommentTask', [$article, $dataTransporter->comment_id]);
     }
 }
