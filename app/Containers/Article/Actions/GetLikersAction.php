@@ -11,7 +11,17 @@ class GetLikersAction extends Action
 {
     public function run(DataTransporter $dataTransporter)
     {
+        $field = '';
+        $value = '';
+        if($dataTransporter->exists('orderBy') && $dataTransporter->exists('sortedBy')) {
+            $field = $dataTransporter->orderBy;
+            $value = $dataTransporter->sortedBy;
+        }
+
         $article = Apiato::call('Article@FindArticleByIdTask', [$dataTransporter->id]);
-        return Apiato::call('Article@GetLikersTask', [$article]);
+
+        $likers = Apiato::call('Article@GetLikersTask', [$article, $field, $value]);
+
+        return $likers;
     }
 }
