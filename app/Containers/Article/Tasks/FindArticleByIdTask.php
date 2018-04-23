@@ -24,7 +24,7 @@ class FindArticleByIdTask extends Task
                 $article = $this->repository->find($id);;
             } catch (Exception $exception) {
             }
-            throw_if(empty($article->id), NotFoundException::class, 'Article not found.');
+            throw_if(empty($article->id), NotFoundException::class, 'Article not found');
             return $article;
         }
     }
