@@ -1012,6 +1012,31 @@
   },
   {
     "group": "NGO",
+    "name": "getProofPhotos",
+    "type": "GET",
+    "url": "/v1/ngo/{id}/proofphotos",
+    "title": "Get Proof Photos",
+    "description": "<p>Get Proof Photos of the given NGO</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated | Owner"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  // Insert the response of the request here...\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/NGO/UI/API/Routes/GetProofPhotos.v1.private.php",
+    "groupTitle": "NGO"
+  },
+  {
+    "group": "NGO",
     "name": "listAllNGOs",
     "type": "GET",
     "url": "/v1/ngo",
@@ -1073,6 +1098,44 @@
         }
       ]
     }
+  },
+  {
+    "group": "NGO",
+    "name": "sendProofPhoto",
+    "type": "POST",
+    "url": "/v1/ngo/{id}/proofphoto",
+    "title": "Send Proof Photo",
+    "description": "<p>Send a Proof Photo to be added to the given NGO</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated | Owner"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "image",
+            "optional": false,
+            "field": "image",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  // Insert the response of the request here...\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/NGO/UI/API/Routes/SendProofPhoto.v1.private.php",
+    "groupTitle": "NGO"
   },
   {
     "group": "OAuth2",
