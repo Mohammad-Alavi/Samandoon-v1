@@ -7,10 +7,12 @@ use App\Containers\User\Events\UserRegisteredEvent;
 use App\Containers\User\Mails\UserRegisteredMail;
 use App\Containers\User\Models\User;
 use App\Containers\User\Notifications\UserRegisteredNotification;
+use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
 use Illuminate\Contracts\Bus\Dispatcher;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 
@@ -29,22 +31,31 @@ class RegisterUserAction extends Action
      */
     public function run(DataTransporter $data): User
     {
-        // create user record in the database and return it.
-        $user = Apiato::call('User@CreateUserByCredentialsTask', [
-            $isClient = true,
-            $data->email,
-            $data->password,
-            $data->first_name,
-            $data->last_name,
-            $data->gender,
-            $data->birth
-        ]);
+        try {
+            DB::beginTransaction();
+            // create user record in the database and return it.
+            $user = Apiato::call('User@CreateUserByCredentialsTask', [
+                $isClient = true,
+                $data->email,
+                $data->password,
+                $data->first_name,
+                $data->last_name,
+                $data->gender,
+                $data->birth
+            ]);
 
-        Mail::send(new UserRegisteredMail($user));
-        Notification::send($user, new UserRegisteredNotification($user));
+            Mail::send(new UserRegisteredMail($user));
+            Notification::send($user, new UserRegisteredNotification($user));
 
-        App::make(Dispatcher::class)->dispatch(New UserRegisteredEvent($user));
+            App::make(Dispatcher::class)->dispatch(New UserRegisteredEvent($user));
 
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            throw (new CreateResourceFailedException())->debug($exception);
+
+        } finally {
+            DB::commit();
+        }
         return $user;
     }
 }
