@@ -20,12 +20,14 @@ class FollowFeedAction extends Action
         $AuthenticatedUser = Apiato::call('Authentication@GetAuthenticatedUserTask');
         try {
             throw_if($AuthenticatedUser->getHashedKey() == $targetNgo->user->getHashedKey(), ValidationFailedException::class, 'Both Following user id and Follower id\'s are the same. User cannot follow her own ngo!');
-            $result = Apiato::call('User@FollowFeedTask', [$dataTransporter]);
+            Apiato::call('User@FollowFeedTask', [$dataTransporter]);
         } catch (Exception $exception) {
             return $exception->getMessage();
         }
 
+        // add follow data to local server as well
         Apiato::call('User@SubscribeTask', [$user, $targetNgo]);
-        return $result;
+        $followData = ['followers_count' => $targetNgo->subscribers()->get()->count()];
+        return $followData;
     }
 }
