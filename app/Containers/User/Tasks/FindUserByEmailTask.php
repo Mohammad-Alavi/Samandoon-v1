@@ -25,7 +25,7 @@ class FindUserByEmailTask extends Task
     public function run(string $email): User
     {
         $user = $this->repository->findByField('email', $email)->first();
-        throw_unless($user, new NotFoundException('User not found'));
+        throw_unless($user, NotFoundException::class , 'User not found');
         return $user;
     }
 }
