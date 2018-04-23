@@ -2,10 +2,10 @@
 
 /**
  * @apiGroup           User
- * @apiName            getFeedFollowers
+ * @apiName            getFollowers
  *
- * @api                {GET} /v1/user/{id}/feed/followers Get Feed Followers
- * @apiDescription     Get specified user's feed followers
+ * @api                {GET} /v1/user/{id}/feed/followers Get Followers
+ * @apiDescription     Get the specified NGO followers
  *
  * @apiVersion         1.0.0
  * @apiPermission      none

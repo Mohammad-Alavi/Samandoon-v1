@@ -2,10 +2,10 @@
 
 /**
  * @apiGroup           User
- * @apiName            unfollowFeed
+ * @apiName            unfollow
  *
- * @api                {POST} /v1/user/feed/unfollow Unfollow Feed
- * @apiDescription     Unfollow the specified feed
+ * @api                {POST} /v1/user/feed/unfollow Unfollow
+ * @apiDescription     Unfollow the specified NGO
  *
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated

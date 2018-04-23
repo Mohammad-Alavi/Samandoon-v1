@@ -2,10 +2,10 @@
 
 /**
  * @apiGroup           User
- * @apiName            followFeed
+ * @apiName            follow
  *
- * @api                {POST} /v1/user/feed/follow Follow Feed
- * @apiDescription     Follow the specified feed
+ * @api                {POST} /v1/user/feed/follow Follow
+ * @apiDescription     Follow the specified NGO
  *
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated

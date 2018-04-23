@@ -2745,11 +2745,11 @@
   },
   {
     "group": "User",
-    "name": "followFeed",
+    "name": "follow",
     "type": "POST",
     "url": "/v1/user/feed/follow",
-    "title": "Follow Feed",
-    "description": "<p>Follow the specified feed</p>",
+    "title": "Follow",
+    "description": "<p>Follow the specified NGO</p>",
     "version": "1.0.0",
     "permission": [
       {
@@ -2855,11 +2855,11 @@
   },
   {
     "group": "User",
-    "name": "getFeedFollowers",
+    "name": "getFollowers",
     "type": "GET",
     "url": "/v1/user/{id}/feed/followers",
-    "title": "Get Feed Followers",
-    "description": "<p>Get specified user's feed followers</p>",
+    "title": "Get Followers",
+    "description": "<p>Get the specified NGO followers</p>",
     "version": "1.0.0",
     "permission": [
       {
@@ -2880,11 +2880,11 @@
   },
   {
     "group": "User",
-    "name": "getFeedFollowings",
+    "name": "getFollowings",
     "type": "GET",
     "url": "/v1/user/{id}/feed/followings",
-    "title": "Get Feed Followings",
-    "description": "<p>Get specified user's feed followings</p>",
+    "title": "Get Followings",
+    "description": "<p>Returns NGO's that this user is followings</p>",
     "version": "1.0.0",
     "permission": [
       {
@@ -3192,11 +3192,11 @@
   },
   {
     "group": "User",
-    "name": "unfollowFeed",
+    "name": "unfollow",
     "type": "POST",
     "url": "/v1/user/feed/unfollow",
-    "title": "Unfollow Feed",
-    "description": "<p>Unfollow the specified feed</p>",
+    "title": "Unfollow",
+    "description": "<p>Unfollow the specified NGO</p>",
     "version": "1.0.0",
     "permission": [
       {
