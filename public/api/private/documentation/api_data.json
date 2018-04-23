@@ -147,9 +147,11 @@
     "title": "Get All Comments",
     "description": "<p>Get all comments of the specified article</p>",
     "version": "1.0.0",
-    "permission": [
+    "examples": [
       {
-        "name": "none"
+        "title": "Example usage:",
+        "content": "api.samandoon.ngo/v1/ngo/article/kjeonp5eordqzvb8/comment?orderBy=created_at&sortedBy=desc",
+        "type": "url"
       }
     ],
     "filename": "app/Containers/Article/UI/API/Routes/GetAllComments.v1.private.php",
@@ -225,6 +227,13 @@
     "permission": [
       {
         "name": "none"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "api.samandoon.ngo/v1/ngo/article/kjeonp5eordqzvb8/likers?orderBy=created_at&sortedBy=desc",
+        "type": "url"
       }
     ],
     "success": {
