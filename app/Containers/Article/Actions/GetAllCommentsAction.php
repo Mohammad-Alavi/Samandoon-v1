@@ -11,10 +11,17 @@ class GetAllCommentsAction extends Action
 {
     public function run(DataTransporter $dataTransporter)
     {
+        $field = '';
+        $value = '';
+        if($dataTransporter->exists('orderBy') && $dataTransporter->exists('sortedBy')) {
+            $field = $dataTransporter->orderBy;
+            $value = $dataTransporter->sortedBy;
+        }
+
         $article = Apiato::call('Article@FindArticleByIdTask', [$dataTransporter->id]);
 
-        throw_if(empty($article->id), new NotFoundException('Article not found.'));
+        $comments = Apiato::call('Article@GetAllCommentsTask', [$article, $field, $value]);
 
-        return Apiato::call('Article@GetAllCommentsTask', [$article]);
+        return $comments;
     }
 }
