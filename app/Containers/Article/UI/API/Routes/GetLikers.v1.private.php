@@ -9,7 +9,8 @@
  *
  * @apiVersion         1.0.0
  * @apiPermission      none
- *
+ * @apiExample         {url} Example usage:
+ * api.samandoon.ngo/v1/ngo/article/kjeonp5eordqzvb8/likers?orderBy=created_at&sortedBy=desc
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK
 {
