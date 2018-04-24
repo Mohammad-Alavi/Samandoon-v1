@@ -15,9 +15,9 @@ class GetFeedFollowingsAction extends Action
         try {
             $user = Apiato::call('User@FindUserByIdTask', [$request->id]);
             throw_if(empty($user->id), NotFoundException::class, 'User not found');
-            // get data from GetStream servers
+//             get data from GetStream servers
 //            return Apiato::call('User@GetFeedFollowingsTask', [$request->limit, $user]);
-            // get data from local server
+//             get data from local server
             return Apiato::call('User@GetSubscriptionsTask', [$user, $request->limit]);
 
         } catch (Exception $exception) {

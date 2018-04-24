@@ -27,7 +27,10 @@ class FollowFeedAction extends Action
 
         // add follow data to local server as well
         Apiato::call('User@SubscribeTask', [$user, $targetNgo]);
-        $followData = ['followers_count' => $targetNgo->subscribers()->get()->count()];
+        $followData = [
+            'followers_count' => $targetNgo->subscribers()->get()->count(),
+            'is_following' => $targetNgo->isSubscribedBy($user)
+            ];
         return $followData;
     }
 }

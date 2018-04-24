@@ -27,7 +27,10 @@ class UnfollowFeedAction extends Action
 
         // add follow data to local server as well
         Apiato::call('User@UnsubscribeTask', [$user, $targetNgo]);
-        $unfollowData = ['followers_count' => $targetNgo->subscribers()->get()->count()];
+        $unfollowData = [
+            'followers_count' => $targetNgo->subscribers()->get()->count(),
+            'is_following' => $targetNgo->isSubscribedBy($user)
+        ];
         return $unfollowData;
     }
 }

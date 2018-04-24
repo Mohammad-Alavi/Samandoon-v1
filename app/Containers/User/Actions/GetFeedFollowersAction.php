@@ -14,15 +14,15 @@ class GetFeedFollowersAction extends Action
     {
         try {
             $user = Apiato::call('User@FindUserByIdTask', [$request->id]);
-            throw_if(empty($user->id), new NotFoundException('User not found.'));
-            throw_if(empty($user->ngo->id), new NotFoundException('User don\'t have a NGO.'));
+            throw_if(empty($user->id), NotFoundException::class, 'User not found');
+            throw_if(empty($user->ngo->id), NotFoundException::class, 'User don\'t have a NGO');
+//         get data from GetStream servers
+//        return Apiato::call('User@GetFeedFollowersTask', [$request, $user]);
+//         get data from local server
+        return Apiato::call('NGO@GetSubscribersTask', [$user->ngo, $request->limit]);
         }
         catch (Exception $exception) {
             return $exception->getMessage();
         }
-        // get data from GetStream servers
-//        return Apiato::call('User@GetFeedFollowersTask', [$request, $user]);
-        // get data from local server
-        return Apiato::call('NGO@GetSubscribersTask', [$user->ngo, $request->limit]);
     }
 }
