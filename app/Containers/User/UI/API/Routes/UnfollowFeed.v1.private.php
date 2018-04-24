@@ -18,7 +18,8 @@
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK
 {
-
+    "followers_count": 1, // given ngo followers count
+    "is_following": false // returns true if user is following the given ngo and false otherwise
 }
  */
 

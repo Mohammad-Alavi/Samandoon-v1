@@ -2800,7 +2800,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"followers_count\": 1\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"followers_count\": 1, // given ngo followers count\n    \"is_following\": true // returns true if user is following the given ngo and false otherwise\n}",
           "type": "json"
         }
       ]
@@ -3247,7 +3247,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"followers_count\": 1\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"followers_count\": 1, // given ngo followers count\n    \"is_following\": false // returns true if user is following the given ngo and false otherwise\n}",
           "type": "json"
         }
       ]
