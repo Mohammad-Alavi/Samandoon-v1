@@ -152,6 +152,11 @@ class Controller extends ApiController
         return $this->transform($users, UserTransformer::class);
     }
 
+    public function subscribe(SubscribeRequest $request)
+    {
+        return Apiato::call('User@SubscribeAction', [new DataTransporter($request)]);
+    }
+    
     public function followFeed(FollowFeedRequest $request)
     {
         return Apiato::call('User@FollowFeedAction', [new DataTransporter($request)]);
@@ -176,10 +181,7 @@ class Controller extends ApiController
 
     public function getUserFeed(GetUserFeedRequest $request)
     {
-        $activities = Apiato::call('User@GetUserFeedAction', [new DataTransporter($request)]);
-        $activityTransformer = new ActivityFeedTransformer();
-        $transformedActivities = $activityTransformer->transformer($activities);
-        $articles = Apiato::call('User@GetArticlesFromFeedAction', [$transformedActivities]);
+        $articles = Apiato::call('User@GetUserFeedAction', [new DataTransporter($request)]);
         return $this->transform($articles, ArticleTransformer::class);
     }
 }
