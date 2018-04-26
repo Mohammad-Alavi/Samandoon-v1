@@ -10,7 +10,7 @@ return [
     */
     'pagination' => [
 
-        'limit' => env('PAGINATION_LIMIT_DEFAULT', 15),
+        'limit' => env('PAGINATION_LIMIT_DEFAULT', 10),
 
          // if enabled it allows users to skip pagination by passing `?limit=0`.
         'skip' => env('PAGINATION_SKIP', false),
