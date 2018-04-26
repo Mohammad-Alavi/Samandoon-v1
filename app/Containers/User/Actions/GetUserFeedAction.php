@@ -10,7 +10,7 @@ class GetUserFeedAction extends Action
 {
     public function run(DataTransporter $dataTransporter)
     {
-        $user = Apiato::call('User@FindUserByIdTask', [$dataTransporter->id]);
-        return Apiato::call('User@GetUserFeedTask', [$user]);
+        $authenticatedUser = Apiato::call('Authentication@GetAuthenticatedUserTask');
+        return Apiato::call('User@GetUserFeedTask', [$authenticatedUser, $dataTransporter->limit]);
     }
 }

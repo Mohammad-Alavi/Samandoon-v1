@@ -4,7 +4,7 @@
  * @apiGroup           User
  * @apiName            getUserFeed
  *
- * @api                {GET} /v1/user/{id}/feed Get User's Feed
+ * @api                {GET} /v1/user/feed/get Get User's Feed
  * @apiDescription     Return the user's activity feed
  *
  * @apiVersion         1.0.0
@@ -89,7 +89,7 @@
 }
 /*
 /** @var Route $router */
-$router->get('user/{id}/feed', [
+$router->get('user/feed/get', [
     'as' => 'api_user_get_user_feed',
     'uses'  => 'Controller@getUserFeed',
     'middleware' => [
