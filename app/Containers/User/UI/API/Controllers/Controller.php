@@ -156,11 +156,6 @@ class Controller extends ApiController
     {
         return Apiato::call('User@SubscribeAction', [new DataTransporter($request)]);
     }
-    
-    public function followFeed(FollowFeedRequest $request)
-    {
-        return Apiato::call('User@FollowFeedAction', [new DataTransporter($request)]);
-    }
 
     public function unfollowFeed(UnfollowFeedRequest $request)
     {
