@@ -12,7 +12,7 @@ class UpdateNgoAction extends Action
     public function run(Request $request): Ngo
     {
         $ngo = Apiato::call('NGO@FindNgoByIdTask', [$request->id]);
-        Apiato::call('NGO@CheckHasAccessToNgoTask', [$request]);
+        Apiato::call('NGO@CheckHasAccessToNgoTask', [$ngo]);
 
         $data = $request->sanitizeInput([
             'description',
@@ -27,6 +27,6 @@ class UpdateNgoAction extends Action
             'phone'
         ]);
 
-        return $this->call('NGO@UpdateNgoTask', [$ngo, $data]);
+        return Apiato::call('NGO@UpdateNgoTask', [$ngo, $data]);
     }
 }

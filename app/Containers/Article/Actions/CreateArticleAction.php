@@ -13,7 +13,7 @@ class CreateArticleAction extends Action
     {
         // throw 404 exception if user doesn't have a ngo
         $ngo = $this->call('Authentication@GetAuthenticatedUserTask')->ngo;
-        throw_unless($ngo->id, new NotFoundException('User don\'t have a NGO.'));
+        throw_unless($ngo->id, NotFoundException::class, 'User don\'t have a NGO');
 
         $data->ngo_id = $ngo->id;
 

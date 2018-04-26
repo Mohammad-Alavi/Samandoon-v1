@@ -10,6 +10,7 @@ use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Exceptions\Exception;
 use App\Ship\Parents\Tasks\Task;
+use Illuminate\Support\Facades\DB;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 class UpdateNgoTask extends Task
@@ -24,10 +25,12 @@ class UpdateNgoTask extends Task
     public function run(Ngo $ngo, array $data): Ngo
     {
         if (empty($data)) {
-            throw new UpdateResourceFailedException('Inputs are empty.');
+            throw new UpdateResourceFailedException('Inputs are empty');
         }
 
         try {
+            DB::beginTransaction();
+            $updatedNgo = $this->repository->update($data, $ngo->id);
             if (array_key_exists('ngo_logo', $data)) {
                 $ngo->clearMediaCollection('ngo_logo');
                 $ngo->addMediaFromRequest('ngo_logo')->toMediaCollection('ngo_logo');
@@ -46,7 +49,7 @@ class UpdateNgoTask extends Task
                     } catch (Exception $exception) {
                     }
                     if (!empty($phoneExist))
-                        abort_unless($phoneExist->ngo_id == $ngo->id, 401, 'You don\'t have access to this resource.');
+                        abort_unless($phoneExist->ngo_id == $ngo->id, 401, 'You don\'t have access to this resource');
                     Phone::updateOrCreate(
                         ['id' => $phone['id'], 'ngo_id' => $ngo->id],
                         [
@@ -64,14 +67,16 @@ class UpdateNgoTask extends Task
                 if (!empty($subjectIdArray))
                     foreach ($subjectIdArray as $subjectId) {
                         $subjectExist = Subject::find($subjectId);
-                        abort_if(empty($subjectExist), 404, 'Subject with id: ' . $subjectId . ' not found.');
+                        abort_if(empty($subjectExist), 404, 'Subject with id: ' . $subjectId . ' not found');
                         $ngo->subjects()->attach($subjectId);
                     }
             }
-
-            return $this->repository->update($data, $ngo->id);
         } catch (Exception $exception) {
+            DB::rollBack();
             throw new UpdateResourceFailedException('Updating NGO failed' . $exception->getMessage());
+        } finally {
+            DB::commit();
         }
+        return $updatedNgo;
     }
 }

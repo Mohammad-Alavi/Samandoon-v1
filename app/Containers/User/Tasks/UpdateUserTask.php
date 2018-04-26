@@ -11,6 +11,7 @@ use App\Ship\Parents\Tasks\Task;
 use App\Ship\Transporters\DataTransporter;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class UpdateUserTask.
@@ -36,21 +37,27 @@ class UpdateUserTask extends Task
     public function run($data, $id): User
     {
         if (empty($data)) {
-            throw new UpdateResourceFailedException('Inputs are empty.');
-        }
-
-        $user = $this->repository->update($data, $id);
-        if (array_key_exists('avatar', $data)) {
-            $user->clearMediaCollection('avatar');
-            $user->addMediaFromRequest('avatar')->toMediaCollection('avatar');
+            throw new UpdateResourceFailedException('Inputs are empty');
         }
 
         try {
-            return $this->repository->update($data, $id);
+            DB::beginTransaction();
+            $user = $this->repository->update($data, $id);
+            if (array_key_exists('avatar', $data)) {
+                $user->clearMediaCollection('avatar');
+                $user->addMediaFromRequest('avatar')->toMediaCollection('avatar');
+            }
+
         } catch (ModelNotFoundException $exception) {
-            throw new NotFoundException('User Not Found.');
+            DB::rollBack();
+            throw new NotFoundException('User Not Found');
         } catch (Exception $exception) {
+            DB::rollBack();
             throw new InternalErrorException();
+        } finally {
+            DB::commit();
         }
+
+        return $user;
     }
 }

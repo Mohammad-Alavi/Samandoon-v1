@@ -15,7 +15,7 @@ class CheckHasAccessToNgoTask extends Task
         if (!$authed_user->is_client || $authed_user->ngo->id == $ngo->id) {
             return true;
         } else {
-            throw new NotAuthorizedResourceException('You don\'t have access to manage this NGO.');
+            throw new NotAuthorizedResourceException('You don\'t have access to manage this NGO');
         }
     }
 }

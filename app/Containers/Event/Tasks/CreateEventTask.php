@@ -27,18 +27,6 @@ class CreateEventTask extends Task
             if (array_key_exists('event_image', $data)) {
                 $event->addMediaFromRequest('event_image')->toMediaCollection('event_image');
             }
-
-            // Add activity
-            $client = new Client(config('getStream.stream_api_key'), config('getStream.stream_api_secret'));
-            $userFeed = $client->feed('ngo', $event->ngo->getHashedKey());
-            $feedData = [
-                'actor' => 'NGO:' . $event->ngo->getHashedKey(),
-                'verb' => "create",
-                'object' => 'Event:' . $event->getHashedKey(),
-                'foreign_id' => 'Event:' . $event->getHashedKey(),
-                'time' => Carbon::now()->toIso8601String()
-            ];
-            $userFeed->addActivity($feedData);
 //            $followersChunk = $event->ngo->subscribers()->get()->chunk(1);
             OneSignal::sendNotificationUsingTags(
                 $event->ngo->name . 'یک رخداد جدید ساخت',
