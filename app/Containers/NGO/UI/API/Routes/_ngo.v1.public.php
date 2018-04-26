@@ -76,7 +76,9 @@ HTTP/1.1 200 OK
             },
             "stats": {
                 "is_following": false,
-                "followers_count": 0
+                "followers_count": 1,
+                "article_count": 6,
+                "event_count": 17
             }
         }
     },
