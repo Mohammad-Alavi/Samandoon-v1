@@ -2,22 +2,27 @@
 
 namespace App\Containers\User\Tasks;
 
-use Apiato\Core\Abstracts\Models\Model;
+use App\Containers\NGO\Models\Ngo;
 use App\Containers\User\Models\User;
 use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Exceptions\Exception;
 use App\Ship\Parents\Tasks\Task;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\DB;
 
 class UnsubscribeTask extends Task
 {
-    public function run(User $user, Model $target)
+    public function run(User $user, int $target)
     {
         try {
-            $user->unsubscribe($target);
-            return new JsonResponse('User (' . $user->getHashedKey() . ') unsubscribed from resource (' . $target->getHashedKey() . ').', 200);
+            DB::beginTransaction();
+            $user->unsubscribe($target, Ngo::class);
         } catch (Exception $exception) {
-            throw new UpdateResourceFailedException('Failed to unsubscribe from specified resource.');
+            DB::rollBack();
+            throw new UpdateResourceFailedException('Failed to unsubscribe from the specified resource');
+        } finally {
+            DB::commit();
+            return new JsonResponse('Unsubscribe successful', 200);
         }
     }
 }
