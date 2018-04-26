@@ -50,6 +50,9 @@ class NgoTransformer extends Transformer
                     'ngo_banner_thumb' => empty($ngo->getFirstMedia('ngo_banner')) ?
                         config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.ngo_banner_thumb') :
                         config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMedia('ngo_banner')->getUrl('banner_thumb')),
+//                    'proof_documents' => [
+//                        'test' => $ngo->getFirstMediaUrl('national_card_side_one')
+//                    ]
                 ],
                 'user_id' => $ngo->user ? $ngo->user->getHashedKey() : null,
                 'registration_specification' => [
@@ -68,7 +71,9 @@ class NgoTransformer extends Transformer
                 ],
                 'stats' => [
                     'is_following' => is_null($currentUser) ? false : $ngo->isSubscribedBy($currentUser),
-                    'followers_count' => $ngo->subscribers()->get()->count()
+                    'followers_count' => $ngo->subscribers()->get()->count(),
+                    'article_count' => $ngo->articles()->count(),
+                    'event_count' => $ngo->events()->count()
                     //->makeHidden(['ngo_id', 'pivot', 'confirmed', 'gender','birth', 'is_client', 'created_at', 'updated_at', 'deleted_at', 'social_token', 'social_token_secret', 'social_refresh_token', 'social_expires_in'])->toArray()
                 ],
             ]
