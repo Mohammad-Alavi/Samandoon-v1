@@ -162,6 +162,13 @@ class Controller extends ApiController
         return Apiato::call('User@UnsubscribeAction', [new DataTransporter($request)]);
     }
 
+    public function getSubscriptions(GetSubscriptionsRequest $request)
+    {
+        $subscriptions = Apiato::call('User@GetSubscriptionsAction', [new DataTransporter($request)]);
+        return $this->transform($subscriptions, NgoTransformer::class);
+
+    }
+
     public function getFeedFollowers(GetFeedFollowersRequest $request)
     {
         $followers = Apiato::call('User@GetFeedFollowersAction', [$request]);
