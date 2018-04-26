@@ -2,6 +2,7 @@
 
 namespace App\Containers\User\Tasks;
 
+use App\Containers\NGO\Models\Ngo;
 use App\Containers\User\Models\User;
 use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Exceptions\Exception;
@@ -15,7 +16,7 @@ class SubscribeTask extends Task
     {
         try {
             DB::beginTransaction();
-            $user->subscribe($target);
+            $user->subscribe($target, Ngo::class);
         } catch (Exception $exception) {
             DB::rollBack();
             throw new UpdateResourceFailedException('Failed to subscribe to the specified resource');
