@@ -18,7 +18,7 @@ class SubscribeTask extends Task
             $user->subscribe($target);
         } catch (Exception $exception) {
             DB::rollBack();
-            throw new UpdateResourceFailedException('Failed to subscribe to the specified resource.');
+            throw new UpdateResourceFailedException('Failed to subscribe to the specified resource');
         } finally {
             DB::commit();
             return new JsonResponse('Subscription successful', 200);
