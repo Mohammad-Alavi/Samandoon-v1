@@ -12,6 +12,7 @@ use App\Containers\User\UI\API\Requests\FollowFeedRequest;
 use App\Containers\User\UI\API\Requests\GetFeedFollowersRequest;
 use App\Containers\User\UI\API\Requests\GetFeedFollowingsRequest;
 use App\Containers\User\UI\API\Requests\GetLikesRequest;
+use App\Containers\User\UI\API\Requests\GetSubscribersRequest;
 use App\Containers\User\UI\API\Requests\GetSubscriptionsRequest;
 use App\Containers\User\UI\API\Requests\GetUserFeedRequest;
 use App\Containers\User\UI\API\Requests\LikeRequest;
@@ -166,6 +167,13 @@ class Controller extends ApiController
     {
         $subscriptions = Apiato::call('User@GetSubscriptionsAction', [new DataTransporter($request)]);
         return $this->transform($subscriptions, NgoTransformer::class);
+
+    }
+
+    public function getSubscribers(GetSubscribersRequest $request)
+    {
+        $subscribers = Apiato::call('User@GetSubscribersAction', [new DataTransporter($request)]);
+        return $this->transform($subscribers, UserTransformer::class);
 
     }
 
