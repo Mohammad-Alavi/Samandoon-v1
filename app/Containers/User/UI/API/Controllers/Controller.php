@@ -175,12 +175,6 @@ class Controller extends ApiController
         return $this->transform($followers, UserTransformer::class);
     }
 
-    public function getFeedFollowings(GetFeedFollowingsRequest $request)
-    {
-        $followings = Apiato::call('User@GetFeedFollowingsAction', [$request]);
-        return $this->transform($followings, NgoTransformer::class);
-    }
-
     public function getUserFeed(GetUserFeedRequest $request)
     {
         $articles = Apiato::call('User@GetUserFeedAction', [new DataTransporter($request)]);
