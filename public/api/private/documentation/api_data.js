@@ -3094,7 +3094,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"Subscription successful\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"followers_count\": 1,\n    \"is_following\": true\n}",
           "type": "json"
         }
       ]
@@ -3215,7 +3215,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"Unsubscribe successful\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"followers_count\": 0,\n    \"is_following\": false\n}",
           "type": "json"
         }
       ]
