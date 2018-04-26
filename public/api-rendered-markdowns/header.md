@@ -21,9 +21,9 @@ And to do that you must include the `Accept => application/json` HTTP header wit
 All REST API requests are throttled to prevent abuse and ensure stability. 
 The exact number of calls that your application can make per day varies based on the type of request you are making.
 
-The rate limit window is `1` minutes per endpoint, with most individual calls allowing for `30` requests in each window.
+The rate limit window is `1` minutes per endpoint, with most individual calls allowing for `200` requests in each window.
 
-*In other words, each user is allowed to make `30` calls per endpoint every `1` minutes. (For each unique access token).*
+*In other words, each user is allowed to make `200` calls per endpoint every `1` minutes. (For each unique access token).*
 
 For how many hits you can preform on an endpoint, you can always check the header:
 
@@ -34,7 +34,7 @@ X-RateLimit-Remaining → 29
 
 ## **Tokens**
 
-The Access Token lives for `1 days, 0 hours, 0 minutes and 0 seconds`. (equivalent to `1440` minutes).
+The Access Token lives for `30 days, 0 hours, 0 minutes and 0 seconds`. (equivalent to `43200` minutes).
 While the Refresh Token lives for `3650 days, 0 hours, 0 minutes and 0 seconds`. (equivalent to `5256000` minutes).
 
 *You will need to re-authenticate the user when the token expires.*
