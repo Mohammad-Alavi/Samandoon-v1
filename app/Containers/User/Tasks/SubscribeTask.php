@@ -22,7 +22,10 @@ class SubscribeTask extends Task
             throw new UpdateResourceFailedException('Failed to subscribe to the specified resource');
         } finally {
             DB::commit();
-            return new JsonResponse('Subscription successful', 200);
+            return new JsonResponse([
+                'followers_count' => Ngo::find($target)->subscribers()->count(),
+                'is_following' => $user->hasSubscribed($target, Ngo::class)
+            ], 200);
         }
     }
 }

@@ -13,7 +13,8 @@
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK
 {
-    "Unsubscribe successful"
+    "followers_count": 0,
+    "is_following": false
 }
  */
 

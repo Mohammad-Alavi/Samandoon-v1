@@ -13,7 +13,8 @@
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK
 {
-    "Subscription successful"
+    "followers_count": 1,
+    "is_following": true
 }
  */
 
