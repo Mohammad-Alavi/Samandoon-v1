@@ -274,7 +274,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"confirmed\": false,\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 0\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"confirmed\": false,\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 1,\n                \"article_count\": 6,\n                \"event_count\": 17\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -778,7 +778,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"confirmed\": false,\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 0\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"confirmed\": false,\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 1,\n                \"article_count\": 6,\n                \"event_count\": 17\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -828,7 +828,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"confirmed\": false,\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 0\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"confirmed\": false,\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 1,\n                \"article_count\": 6,\n                \"event_count\": 17\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -929,7 +929,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"confirmed\": false,\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 0\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"confirmed\": false,\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 1,\n                \"article_count\": 6,\n                \"event_count\": 17\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1061,7 +1061,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"confirmed\": false,\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 0\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"confirmed\": false,\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 1,\n                \"article_count\": 6,\n                \"event_count\": 17\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -1093,7 +1093,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"confirmed\": false,\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 0\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"confirmed\": false,\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 1,\n                \"article_count\": 6,\n                \"event_count\": 17\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -2745,71 +2745,6 @@ define({ "api": [
   },
   {
     "group": "User",
-    "name": "follow",
-    "type": "POST",
-    "url": "/v1/user/feed/follow",
-    "title": "Follow",
-    "description": "<p>Follow the specified NGO</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "Authenticated"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>user id</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "allowedValues": [
-              "\"user\""
-            ],
-            "optional": false,
-            "field": "feed",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "target_id",
-            "description": "<p>target entity id</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "allowedValues": [
-              "\"ngo\""
-            ],
-            "optional": false,
-            "field": "target_feed",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"followers_count\": 1, // given ngo followers count\n    \"is_following\": true // returns true if user is following the given ngo and false otherwise\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "app/Containers/User/UI/API/Routes/FollowFeed.v1.private.php",
-    "groupTitle": "User"
-  },
-  {
-    "group": "User",
     "name": "forgotPassword",
     "type": "POST",
     "url": "/v1/password/forgot",
@@ -2855,56 +2790,6 @@ define({ "api": [
   },
   {
     "group": "User",
-    "name": "getFollowers",
-    "type": "GET",
-    "url": "/v1/user/{id}/feed/followers",
-    "title": "Get Followers",
-    "description": "<p>Get the specified NGO followers</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "none"
-      }
-    ],
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": [\n        {\n            \"msg\": null,\n            \"object\": {\n            \"object\": \"User\",\n                \"id\": \"kjeonp5eordqzvb8\",\n                \"first_name\": \"Super\",\n                \"last_name\": \"Admin\",\n                \"email\": \"admin@admin.com\",\n                \"avatar\": \"http://api.samandoon.local/v1/storage/default_images/avatar.png\",\n                \"confirmed\": false,\n                \"gender\": null,\n                \"birth\": null,\n                \"ngo_id\": null,\n                \"social_auth_provider\": null,\n                \"social_nickname\": null,\n                \"social_id\": null,\n                \"social_avatar\": {\n                \"avatar\": null,\n                    \"original\": null\n                },\n                \"created_at\": {\n                \"date\": \"2018-02-10 11:22:40.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"updated_at\": {\n                \"date\": \"2018-02-10 11:22:40.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"readable_created_at\": \"1 week ago\",\n                \"readable_updated_at\": \"1 week ago\",\n                \"view_user\": {\n                \"href\": \"v1/user/kjeonp5eordqzvb8\",\n                    \"method\": \"GET\"\n                },\n                \"stats\": {\n                \"ngo_subscriptions_count\": 0\n                }\n            }\n        },\n        {\n            \"msg\": null,\n            \"object\": {\n            \"object\": \"User\",\n                \"id\": \"oj64bp5zjl8ywzn0\",\n                \"first_name\": \"Mohammad\",\n                \"last_name\": \"Alavi\",\n                \"email\": \"m.alavi1991@gmail.com\",\n                \"avatar\": \"http://api.samandoon.local/v1/storage/default_images/avatar.png\",\n                \"confirmed\": false,\n                \"gender\": null,\n                \"birth\": null,\n                \"ngo_id\": null,\n                \"social_auth_provider\": null,\n                \"social_nickname\": null,\n                \"social_id\": null,\n                \"social_avatar\": {\n                \"avatar\": null,\n                    \"original\": null\n                },\n                \"created_at\": {\n                \"date\": \"2018-02-11 11:45:43.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"updated_at\": {\n                \"date\": \"2018-02-11 11:45:43.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"readable_created_at\": \"1 week ago\",\n                \"readable_updated_at\": \"1 week ago\",\n                \"view_user\": {\n                \"href\": \"v1/user/oj64bp5zjl8ywzn0\",\n                    \"method\": \"GET\"\n                },\n                \"stats\": {\n                \"ngo_subscriptions_count\": 0\n                }\n            }\n        }\n    ],\n    \"meta\": {\n    \"include\": [\n        \"roles\",\n        \"ngo\"\n    ],\n        \"custom\": [],\n        \"pagination\": {\n        \"total\": 2,\n            \"count\": 2,\n            \"per_page\": 10,\n            \"current_page\": 1,\n            \"total_pages\": 1,\n            \"links\": []\n        }\n    }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "app/Containers/User/UI/API/Routes/GetFeedFollowers.v1.private.php",
-    "groupTitle": "User"
-  },
-  {
-    "group": "User",
-    "name": "getFollowings",
-    "type": "GET",
-    "url": "/v1/user/{id}/feed/followings",
-    "title": "Get Followings",
-    "description": "<p>Returns NGO's that this user is followings</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "none"
-      }
-    ],
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": [\n        {\n            \"msg\": null,\n            \"object\": {\n            \"object\": \"NGO\",\n                \"id\": \"kjeonp5eordqzvb8\",\n                \"name\": \"مهرگان كرشته\",\n                \"description\": null,\n                \"subjects\": [],\n                \"area_of_activity\": null,\n                \"address\": \"----\",\n                \"zip_code\": \"0\",\n                \"type\": \"شركت سهامي خاص\",\n                \"confirmed\": false,\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/default_images/ngo_logo.png\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/default_images/ngo_banner.png\",\n                \"user_id\": \"3mjzyg5dp5a0vwp6\",\n                \"registration_specification\": {\n                \"national_number\": \"10100000006\",\n                    \"registration_number\": \"17\",\n                    \"registration_date\": \"1350/01/23\",\n                    \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n                },\n                \"created_at\": {\n                \"date\": \"2018-02-10 11:24:13.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"updated_at\": {\n                \"date\": \"2018-02-10 11:24:13.000000\",\n                    \"timezone_type\": 3,\n                    \"timezone\": \"UTC\"\n                },\n                \"readable_created_at\": \"1 week ago\",\n                \"readable_updated_at\": \"1 week ago\",\n                \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                    \"method\": \"GET\"\n                },\n                \"stats\": {\n                \"is_subscribed\": false,\n                    \"subscribers_count\": 0\n                }\n            }\n        }\n    ],\n    \"meta\": {\n    \"include\": [\n        \"user\"\n    ],\n        \"custom\": [],\n        \"pagination\": {\n        \"total\": 1,\n            \"count\": 1,\n            \"per_page\": 10,\n            \"current_page\": 1,\n            \"total_pages\": 1,\n            \"links\": []\n        }\n    }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "app/Containers/User/UI/API/Routes/GetFeedFollowings.v1.private.php",
-    "groupTitle": "User"
-  },
-  {
-    "group": "User",
     "name": "getLikes",
     "type": "GET",
     "url": "/v1/user/{user_id}/likes",
@@ -2946,9 +2831,59 @@ define({ "api": [
   },
   {
     "group": "User",
+    "name": "getSubscribers",
+    "type": "GET",
+    "url": "/v1/user/subscribers/get",
+    "title": "Get Subscribers",
+    "description": "<p>Get the User's NGO subscribers</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated"
+      }
+    ],
+    "filename": "app/Containers/User/UI/API/Routes/GetSubscribers.v1.private.php",
+    "groupTitle": "User",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": 'Some informative msg here or null',\n        \"object\": {\n        \"object\": \"User\",\n            \"id\": \"qv4jdwrw0lanm6xg\",\n            \"first_name\": \"Mohammad\",\n            \"last_name\": \"Alavi\",\n            \"email\": \"m.alavi1989@gmail.com\",\n            \"images\": {\n                \"avatar\": \"http://api.samandoon.local/v1/storage/5/pepeWallpepeR.jpg\",\n                \"avatar_thumb\": \"http://api.samandoon.local/v1/storage/5/conversions/thumb.jpg\"\n            },\n            \"confirmed\": false,\n            \"gender\": null,\n            \"birth\": null,\n            \"province\": null,\n            \"city\": null,\n            \"ngo_id\": \"ndvm9yrj4rao0jkq\",\n            \"social_provider\": null,\n            \"social_nickname\": null,\n            \"social_id\": null,\n            \"social_avatar\": {\n            \"avatar\": null,\n                \"original\": null\n            },\n            \"created_at\": {\n            \"date\": \"2017-11-27 03:08:59.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2017-11-27 03:42:29.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"35 minutes ago\",\n            \"readable_updated_at\": \"2 minutes ago\"\n        },\n        \"view_user\": {\n        \"href\": \"v1/user/qv4jdwrw0lanm6xg\",\n            \"method\": \"GET\"\n        },\n        \"roles\": {\n        \"data\": [\n                {\n                    \"object\": \"Role\",\n                    \"id\": \"3mjzyg5dp5a0vwp6\",\n                    \"name\": \"user\",\n                    \"description\": \"User\",\n                    \"display_name\": null,\n                    \"permissions\": {\n                    \"data\": [\n                            {\n                                \"object\": \"Permission\",\n                                \"id\": \"qv4jdwrw0lanm6xg\",\n                                \"name\": \"manage-ngo\",\n                                \"description\": \"Create, Update, Delete, List NGOs\",\n                                \"display_name\": \"Manage NGO\"\n                            },\n                            {\n                                \"object\": \"Permission\",\n                                \"id\": \"9knz73rynlpdx0vy\",\n                                \"name\": \"manage-event\",\n                                \"description\": \"Create, Update, Delete, List Events\",\n                                \"display_name\": \"Manage Event\"\n                            }\n                        ]\n                    }\n                }\n            ]\n        }\n    },\n    \"meta\": {\n    \"include\": [\n        \"roles\"\n    ],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "group": "User",
+    "name": "getSubscriptions",
+    "type": "GET",
+    "url": "/v1/user/subscriptions/get",
+    "title": "Get Subscriptions",
+    "description": "<p>Get user subscriptions</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated"
+      }
+    ],
+    "filename": "app/Containers/User/UI/API/Routes/GetSubscriptions.v1.private.php",
+    "groupTitle": "User",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"confirmed\": false,\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 1,\n                \"article_count\": 6,\n                \"event_count\": 17\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "group": "User",
     "name": "getUserFeed",
     "type": "GET",
-    "url": "/v1/user/{id}/feed",
+    "url": "/v1/user/feed/get",
     "title": "Get User's Feed",
     "description": "<p>Return the user's activity feed</p>",
     "version": "1.0.0",
@@ -3144,6 +3079,31 @@ define({ "api": [
   },
   {
     "group": "User",
+    "name": "subscribe",
+    "type": "POST",
+    "url": "/v1/user/subscribe/{id}",
+    "title": "Subscribe",
+    "description": "<p>Subscribe to the given resource</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"Subscription successful\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/User/UI/API/Routes/Subscribe.v1.private.php",
+    "groupTitle": "User"
+  },
+  {
+    "group": "User",
     "name": "toggleLike",
     "type": "POST",
     "url": "/v1/user/togglelike",
@@ -3192,71 +3152,6 @@ define({ "api": [
   },
   {
     "group": "User",
-    "name": "unfollow",
-    "type": "POST",
-    "url": "/v1/user/feed/unfollow",
-    "title": "Unfollow",
-    "description": "<p>Unfollow the specified NGO</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "Authenticated"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "allowedValues": [
-              "\"user\""
-            ],
-            "optional": false,
-            "field": "feed",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "target_id",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "allowedValues": [
-              "\"ngo\""
-            ],
-            "optional": false,
-            "field": "target_feed",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"followers_count\": 1, // given ngo followers count\n    \"is_following\": false // returns true if user is following the given ngo and false otherwise\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "app/Containers/User/UI/API/Routes/UnfollowFeed.v1.private.php",
-    "groupTitle": "User"
-  },
-  {
-    "group": "User",
     "name": "unlike",
     "type": "POST",
     "url": "/v1/user/unlike",
@@ -3301,6 +3196,31 @@ define({ "api": [
       ]
     },
     "filename": "app/Containers/User/UI/API/Routes/Unlike.v1.private.php",
+    "groupTitle": "User"
+  },
+  {
+    "group": "User",
+    "name": "unsubscribe",
+    "type": "POST",
+    "url": "/v1/user/unsubscribe/{id}",
+    "title": "Unsubscribe",
+    "description": "<p>Unsubscribe from the given id</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"Unsubscribe successful\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Containers/User/UI/API/Routes/Unsubscribe.v1.private.php",
     "groupTitle": "User"
   },
   {
