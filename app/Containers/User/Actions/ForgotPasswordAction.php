@@ -32,9 +32,12 @@ class ForgotPasswordAction extends Action
         $resetUrl = $data->reseturl;
         $url = explode('/', $resetUrl);
         $lastSegment = $url[count($url) - 1];
-
         // validate the allowed endpoint is being used
-        if (!in_array($lastSegment, config('user-container.allowed-reset-password-urls'))) {
+//        if (!in_array($lastSegment, config('user-container.allowed-reset-password-urls'))) {
+//            throw new NotFoundException("The URL is not allowed ($resetUrl)");
+//        }
+//      written by Mohammad Alavi
+        if (!in_array($resetUrl, config('user-container.allowed-reset-password-urls'))) {
             throw new NotFoundException("The URL is not allowed ($resetUrl)");
         }
 

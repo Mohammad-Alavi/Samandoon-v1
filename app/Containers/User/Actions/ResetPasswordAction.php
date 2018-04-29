@@ -4,8 +4,8 @@ namespace App\Containers\User\Actions;
 
 use App\Ship\Exceptions\InternalErrorException;
 use App\Ship\Parents\Actions\Action;
-use App\Ship\Parents\Exceptions\Exception;
 use App\Ship\Transporters\DataTransporter;
+use Exception;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
@@ -17,11 +17,7 @@ use Illuminate\Support\Str;
  */
 class ResetPasswordAction extends Action
 {
-
-    /**
-     * @param \App\Ship\Transporters\DataTransporter $data
-     */
-    public function run(DataTransporter $data): void
+    public function run(DataTransporter $data)
     {
         $data = [
             'email'                 => $data->email,
@@ -31,9 +27,9 @@ class ResetPasswordAction extends Action
         ];
 
         try {
-            Password::broker()->reset(
+            return Password::broker()->reset(
                 $data,
-                function ($user, $password) {
+                function ($user, $password){
                     $user->forceFill([
                         'password'       => Hash::make($password),
                         'remember_token' => Str::random(60),

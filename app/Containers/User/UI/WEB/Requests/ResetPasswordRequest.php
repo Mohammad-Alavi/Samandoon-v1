@@ -1,14 +1,22 @@
 <?php
 
-namespace App\Containers\User\UI\API\Requests;
+namespace App\Containers\User\UI\WEB\Requests;
 
 use App\Ship\Parents\Requests\Request;
 
 /**
- * Class ResetPasswordRequest.
+ * Class resetPasswordRequest.
  */
 class ResetPasswordRequest extends Request
 {
+
+    /**
+     * The assigned Transporter for this Request
+     *
+     * @var string
+     */
+    // protected $transporter = \App\Ship\Transporters\DataTransporter::class;
+
     /**
      * Define which Roles and/or Permissions has access to this request.
      *
@@ -35,8 +43,8 @@ class ResetPasswordRequest extends Request
      * @var  array
      */
     protected $urlParameters = [
-         'token',
-         'email',
+//        'token',
+//        'email'
 //         'password',
     ];
 
@@ -46,9 +54,9 @@ class ResetPasswordRequest extends Request
     public function rules()
     {
         return [
-            'token' => 'required|max:255',
-            'email' => 'required|email|max:255',
-            'password' => 'required|min:6|max:255',
+//            'token' => 'required|max:255',
+//            'email' => 'required|email|max:255',
+//            'password' => 'required|min:6|max:255',
         ];
     }
 

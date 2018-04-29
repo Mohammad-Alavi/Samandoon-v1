@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
 </head>
-<body>
-<h3>Welcome {{$name}}</h3>
+<body dir="rtl">
+<h3>خوش آمدید {{$name}}</h3>
 <div>
-    Thank you for signing up.
+    برای ثبت نام در سمندون از شما متشکریم
 </div>
 </body>
 </html>

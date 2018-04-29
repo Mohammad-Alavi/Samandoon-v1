@@ -46,17 +46,16 @@
                         <li>
                             <ol>
                                 @foreach($ngo->events as $event)
-                                    <h3>Event</h3>
-                                        <li>
-                                            Location:
-                                            {{ $event->location }}
-                                        </li>
+                                <h3>Event</h3>
+                                    <li>
+                                        Location:
+                                        {{ $event->location }}
+                                    </li>
                                 @endforeach
                             </ol>
                         {{--{{ $ngo->user->last_name }}--}}
                         </li>
                     </ul>
-
             </div>
         </div>
     </body>
