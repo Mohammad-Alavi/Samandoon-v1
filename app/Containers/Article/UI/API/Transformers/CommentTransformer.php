@@ -49,7 +49,7 @@ class CommentTransformer
     {
         $tempArray = [];
         // only works for get all comments
-        if (is_iterable($comments) && count($comments) > 2) {
+        if (is_iterable($comments) && count($comments) > 1) {
             foreach ($comments as $comment) {
                 if (str_contains($comment->commentable_type, 'Article')) {
                     $comment->commentable_type = 'Article';
