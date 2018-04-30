@@ -2,6 +2,7 @@
 
 namespace App\Containers\User\Tasks;
 
+use App\Containers\Article\Models\Article;
 use App\Containers\NGO\Models\Ngo;
 use App\Containers\User\Models\Feed;
 use App\Containers\User\Models\User;
@@ -15,14 +16,16 @@ class GetUserFeedTask extends Task
     public function run(User $user, $limit)
     {
         // get feed
-        $articles = [];
+        $ngoIdArray = [];
         $ngos = $user->subscriptions(Ngo::class)->get();
         foreach ($ngos as $ngo) {
-            foreach ($ngo->articles()->orderBy('created_at', 'desc')->get() as $article) {
-                array_push($articles, $article);
-            }
+            $ngoIdArray[] = $ngo->id;
         }
-        return $this->paginate($articles, $limit ? $limit : 10);
+//            foreach ($ngo->articles()->orderBy('created_at', 'desc')->get() as $article) {
+//                array_push($articles, $article);
+//            }
+        $articles = Article::whereIn('ngo_id', $ngoIdArray)->orderBy('created_at', 'desc')->paginate($limit ? $limit : 10);
+        return $articles;//$this->paginate($articles, $limit ? $limit : 10);
     }
 
     public function paginate($items, $perPage = 10, $page = null, $options = [])
