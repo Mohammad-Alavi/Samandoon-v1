@@ -169,7 +169,6 @@ return [
         Overtrue\LaravelFollow\FollowServiceProvider::class,
         Berkayk\OneSignal\OneSignalServiceProvider::class,
         Orangehill\Iseed\IseedServiceProvider::class,
-        GetStream\StreamLaravel\StreamLaravelServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         BrianFaust\Commentable\CommentableServiceProvider::class,
 //        CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
@@ -233,7 +232,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'OneSignal' => Berkayk\OneSignal\OneSignalFacade::class,
-        'FeedManager' => GetStream\StreamLaravel\Facades\FeedManager::class,
         // NOTE: all packages aliases must be registered inside their containers service providers
     ],
 
