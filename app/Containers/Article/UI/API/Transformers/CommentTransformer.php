@@ -49,7 +49,7 @@ class CommentTransformer
     {
         $tempArray = [];
         // only works for get all comments
-        if (is_iterable($comments) && count($comments) > 1) {
+        if (is_iterable($comments)) {
             foreach ($comments as $comment) {
                 if (str_contains($comment->commentable_type, 'Article')) {
                     $comment->commentable_type = 'Article';
@@ -72,7 +72,7 @@ class CommentTransformer
             ];
         } else {
             // works for create comment and get single comment
-            !is_iterable($comments) ? $comment = $comments : $comment = $comments[0];
+            $comment = $comments;
             if (str_contains($comment->commentable_type, 'Article')) {
                 $comment->commentable_type = 'Article';
                 $creatorData = User::find($comment->creator_id);
