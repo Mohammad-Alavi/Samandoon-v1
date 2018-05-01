@@ -2296,6 +2296,22 @@ define({ "api": [
   },
   {
     "group": "Storage",
+    "name": "downloadPDF",
+    "type": "GET",
+    "url": "/v1/generate/pdf",
+    "title": "Generate Timeline PDF",
+    "description": "<p>Generate Timeline PDF and return as file to download</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "filename": "app/Containers/Storage/UI/API/Routes/DownloadPDF.v1.private.php",
+    "groupTitle": "Storage"
+  },
+  {
+    "group": "Storage",
     "name": "downloadThumbImage",
     "type": "GET",
     "url": "/v1/storage/{id}/conversions/{resource_name}",

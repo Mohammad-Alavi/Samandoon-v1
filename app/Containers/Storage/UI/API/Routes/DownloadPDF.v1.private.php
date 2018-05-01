@@ -4,19 +4,12 @@
  * @apiGroup           Storage
  * @apiName            downloadPDF
  *
- * @api                {GET} /v1/storage/generate/pdf Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {GET} /v1/generate/pdf Generate Timeline PDF
+ * @apiDescription     Generate Timeline PDF and return as file to download
  *
  * @apiVersion         1.0.0
  * @apiPermission      none
  *
- * @apiParam           {String}  parameters here..
- *
- * @apiSuccessExample  {json}  Success-Response:
- * HTTP/1.1 200 OK
-{
-  // Insert the response of the request here...
-}
  */
 
 /** @var Route $router */
