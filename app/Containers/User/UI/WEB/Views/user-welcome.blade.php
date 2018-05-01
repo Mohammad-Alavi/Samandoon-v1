@@ -43,8 +43,9 @@
                     <h1>{{ $ngo->name }}</h1>
                     <h2>"{{ $ngo->user->first_name }} {{ $ngo->user->last_name }}" مدیر عامل</h2>
                     <ol>
+                        <h3>لیست رخداد ها</h3>
                         @foreach($ngo->events as $event)
-                        <h3>{{  $event->title }}</h3>
+                        <h2>{{  $event->title }}</h2>
                             <li>
                                 {{ $event->description }}
                             </li>
