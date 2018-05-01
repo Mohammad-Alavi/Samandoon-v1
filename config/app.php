@@ -173,6 +173,7 @@ return [
         BrianFaust\Commentable\CommentableServiceProvider::class,
 //        CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         CyrildeWit\PageViewCounter\PageViewCounterServiceProvider::class,
+        Barryvdh\Snappy\ServiceProvider::class,
 
 
         /*
@@ -232,6 +233,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'OneSignal' => Berkayk\OneSignal\OneSignalFacade::class,
+        'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
+        'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
         // NOTE: all packages aliases must be registered inside their containers service providers
     ],
 
