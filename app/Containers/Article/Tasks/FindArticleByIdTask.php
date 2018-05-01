@@ -19,13 +19,11 @@ class FindArticleByIdTask extends Task
 
     public function run($id): Article
     {
-        {
-            try {
-                $article = $this->repository->find($id);;
-            } catch (Exception $exception) {
-            }
-            throw_if(empty($article->id), NotFoundException::class, 'Article not found');
-            return $article;
+        try {
+            $article = $this->repository->find($id);;
+        } catch (Exception $exception) {
         }
+        throw_if(empty($article->id), NotFoundException::class, 'Article not found');
+        return $article;
     }
 }
