@@ -33,9 +33,5 @@ class Controller extends ApiController
     {
         $file = Apiato::call('Storage@DownloadPDFAction', [$request]);
         return $file;
-//        response()->download($file, 'events',
-//            ['Content-Type'          => 'application/pdf'],
-//            ['Content-Disposition'   => 'attachment; filename="file.pdf"']
-//        );
     }
 }

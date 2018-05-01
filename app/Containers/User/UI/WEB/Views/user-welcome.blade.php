@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Laravel</title>
+        <title>Samandoon | سمندون</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -40,23 +40,16 @@
         <div class="container">
             <div class="content">
                 {{--<div class="title">Welcome Anonymous User :)</div>--}}
-
-                    <h1>NGO Name: {{ $ngo->name }}</h1>
-                    <h2>NGO Owner: {{ $ngo->user->first_name }} {{ $ngo->user->last_name }}</h2>
-                    <ul>
-                        <li>
-                            <ol>
-                                @foreach($ngo->events as $event)
-                                <h3>Event</h3>
-                                    <li>
-                                        Location:
-                                        {{ $event->location }}
-                                    </li>
-                                @endforeach
-                            </ol>
-                        {{--{{ $ngo->user->last_name }}--}}
-                        </li>
-                    </ul>
+                    <h1>{{ $ngo->name }}</h1>
+                    <h2>"{{ $ngo->user->first_name }} {{ $ngo->user->last_name }}" مدیر عامل</h2>
+                    <ol>
+                        @foreach($ngo->events as $event)
+                        <h3>{{  $event->title }}</h3>
+                            <li>
+                                {{ $event->description }}
+                            </li>
+                        @endforeach
+                    </ol>
             </div>
         </div>
     </body>
