@@ -20,7 +20,7 @@
  */
 
 /** @var Route $router */
-$router->get('storage/generate/pdf/test/rest', [
+$router->get('generate/pdf', [
     'as' => 'api_storage_download_p_d_f',
     'uses'  => 'Controller@downloadPDF',
 //    'middleware' => [

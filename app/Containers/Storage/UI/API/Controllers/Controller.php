@@ -32,6 +32,6 @@ class Controller extends ApiController
     public function downloadPDF(DownloadPDFRequest $request)
     {
         $file = Apiato::call('Storage@DownloadPDFAction', [$request]);
-        return $file;
+        return $file->download();
     }
 }

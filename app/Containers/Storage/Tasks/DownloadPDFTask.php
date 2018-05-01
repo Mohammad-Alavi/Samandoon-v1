@@ -12,6 +12,6 @@ class DownloadPDFTask extends Task
     {
         $ngo = User::find(2)->ngo()->first();
         $pdf = PDF::loadView('user::user-welcome', ['ngo' => $ngo]);
-        return $pdf->download();
+        return $pdf;
     }
 }
