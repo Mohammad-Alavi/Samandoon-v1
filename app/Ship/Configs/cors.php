@@ -13,7 +13,7 @@ return [
      |
      */
     'supportsCredentials' => false,
-    'allowedOrigins'      => ['api.outland.ir', 'admin.outland.ir', 'www.outland.ir', 'outland.ir'],
+    'allowedOrigins'      => ['*'],
     'allowedHeaders'      => ['*'],//['Content-Type', 'Authorization', 'Accept'],
     'allowedMethods'      => ['GET'],
     'exposedHeaders'      => [],
