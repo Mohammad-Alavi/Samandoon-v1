@@ -13,9 +13,9 @@ return [
      |
      */
     'supportsCredentials' => false,
-    'allowedOrigins'      => ['*'],
-    'allowedHeaders'      => ['Content-Type', 'Authorization', 'Accept'],
-    'allowedMethods'      => ['*'],
+    'allowedOrigins'      => ['api.outland.ir', 'admin.outland.ir', 'www.outland.ir', 'outland.ir'],
+    'allowedHeaders'      => ['*'],//['Content-Type', 'Authorization', 'Accept'],
+    'allowedMethods'      => ['GET'],
     'exposedHeaders'      => [],
     'maxAge'              => 0,
     'hosts'               => [],
