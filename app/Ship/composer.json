@@ -1,6 +1,6 @@
 {
   "require": {
-    "apiato/core": "2.2.2",
+    "apiato/core": "2.2.*",
     "barryvdh/laravel-debugbar": "3.*"
   },
   "require-dev": {
