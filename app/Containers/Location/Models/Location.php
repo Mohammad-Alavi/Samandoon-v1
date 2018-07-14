@@ -7,7 +7,6 @@ use App\Ship\Parents\Models\Model;
 /**
  * App\Containers\Location\Models\Location
  *
- * @mixin \Eloquent
  * @property int $id
  * @property string $name
  * @property string|null $globalCode
@@ -28,6 +27,7 @@ use App\Ship\Parents\Models\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Location\Models\Location wherePublished($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Location\Models\Location whereRgt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Location\Models\Location whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class Location extends Model
 {

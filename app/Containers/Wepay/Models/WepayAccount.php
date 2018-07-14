@@ -6,10 +6,8 @@ use App\Containers\Payment\Models\AbstractPaymentAccount;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class WepayAccount
+ * App\Containers\Wepay\Models\WepayAccount
  *
- * @author Rockers Technologies <jaimin.rockersinfo@gmail.com>
- * @author Mahmoud Zalt  <mahmoud@zalt.me>
  * @property int $id
  * @property string $name
  * @property string|null $description

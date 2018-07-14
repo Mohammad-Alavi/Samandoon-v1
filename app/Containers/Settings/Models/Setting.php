@@ -5,9 +5,8 @@ namespace App\Containers\Settings\Models;
 use App\Ship\Parents\Models\Model;
 
 /**
- * Class Setting
+ * App\Containers\Settings\Models\Setting
  *
- * @author Mahmoud Zalt  <mahmoud@zalt.me>
  * @property int $id
  * @property string $key
  * @property string $value

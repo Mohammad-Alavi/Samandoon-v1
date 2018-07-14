@@ -7,9 +7,8 @@ use Apiato\Core\Traits\HasResourceKeyTrait;
 use Spatie\Permission\Models\Role as SpatieRole;
 
 /**
- * Class Role
+ * App\Containers\Authorization\Models\Role
  *
- * @author Mahmoud Zalt  <mahmoud@zalt.me>
  * @property int $id
  * @property string $name
  * @property string $guard_name
@@ -19,6 +18,7 @@ use Spatie\Permission\Models\Role as SpatieRole;
  * @property \Carbon\Carbon|null $updated_at
  * @property int $level
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\Authorization\Models\Permission[] $permissions
+ * @method static \Illuminate\Database\Eloquent\Builder|\Spatie\Permission\Models\Role permission($permissions)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Authorization\Models\Role whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Authorization\Models\Role whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Authorization\Models\Role whereDisplayName($value)
@@ -28,7 +28,6 @@ use Spatie\Permission\Models\Role as SpatieRole;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Authorization\Models\Role whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Authorization\Models\Role whereUpdatedAt($value)
  * @mixin \Eloquent
- * @method static \Illuminate\Database\Eloquent\Builder|\Spatie\Permission\Models\Role permission($permissions)
  */
 class Role extends SpatieRole
 {

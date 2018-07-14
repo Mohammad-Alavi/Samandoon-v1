@@ -7,9 +7,8 @@ use Apiato\Core\Traits\HasResourceKeyTrait;
 use Spatie\Permission\Models\Permission as SpatiePermission;
 
 /**
- * Class Permission
+ * App\Containers\Authorization\Models\Permission
  *
- * @author Mahmoud Zalt  <mahmoud@zalt.me>
  * @property int $id
  * @property string $name
  * @property string $guard_name

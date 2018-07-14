@@ -3,25 +3,23 @@
 namespace App\Containers\NGO\UI\API\Controllers;
 
 use Apiato\Core\Foundation\Facades\Apiato;
-use App\Containers\NGO\Actions\FindArticleByIdAction;
-use App\Containers\NGO\Actions\GetAuthenticatedUserNgoAction;
-use App\Containers\NGO\UI\API\Requests\CreateArticleRequest;
 use App\Containers\NGO\UI\API\Requests\CreateNgoRequest;
-use App\Containers\NGO\UI\API\Requests\DeleteArticleRequest;
 use App\Containers\NGO\UI\API\Requests\DeleteNgoRequest;
 use App\Containers\NGO\UI\API\Requests\DeletePhoneNumberRequest;
 use App\Containers\NGO\UI\API\Requests\FindNgoByNationalIdRequest;
-use App\Containers\NGO\UI\API\Requests\GetArticleRequest;
-use App\Containers\NGO\UI\API\Requests\GetAuthenticatedUserNgoRequest;
+use App\Containers\NGO\UI\API\Requests\GetAllVerificationRequestsRequest;
+use App\Containers\NGO\UI\API\Requests\GetKYCPhotosRequest;
 use App\Containers\NGO\UI\API\Requests\GetNgoRequest;
-//use App\Containers\NGO\UI\API\Requests\GetProofPhotosRequest;
+use App\Containers\NGO\UI\API\Requests\KYCNgoAdminVerificationRequest;
+use App\Containers\NGO\UI\API\Requests\KYCPhotoAdminVerificationRequest;
+use App\Containers\NGO\UI\API\Requests\KYCPhotoVerifyRequestRequest;
+use App\Containers\NGO\UI\API\Requests\KYCVerifyRequestRequest;
 use App\Containers\NGO\UI\API\Requests\ListAllNgosRequest;
 use App\Containers\NGO\UI\API\Requests\SearchNgosRequest;
-//use App\Containers\NGO\UI\API\Requests\SendProofPhotoRequest;
-use App\Containers\NGO\UI\API\Requests\UpdateArticleRequest;
+use App\Containers\NGO\UI\API\Requests\SendKYCPhotoRequest;
 use App\Containers\NGO\UI\API\Requests\UpdateNgoRequest;
 use App\Containers\NGO\UI\API\Transformers\ArticleTransformer;
-use App\Containers\NGO\UI\API\Transformers\NGOFromSiteTransformer;
+use App\Containers\NGO\UI\API\Transformers\KYCPhotoTransformer;
 use App\Containers\NGO\UI\API\Transformers\NgoTransformer;
 use App\Containers\NGO\UI\API\Transformers\SubjectTransformer;
 use App\Ship\Parents\Controllers\ApiController;
@@ -87,16 +85,44 @@ class Controller extends ApiController
         Apiato::call('NGO@DeletePhoneNumberAction', [$request]);
         return $this->noContent();
     }
-//
-//    public function sendProofPhoto(SendProofPhotoRequest $request)
-//    {
-//        Apiato::call('NGO@SendProofPhotoAction', [new DataTransporter($request)]);
-//        return $this->json('Media updated');
-//    }
-//
-//    public function getProofPhotos(GetProofPhotosRequest $request)
-//    {
-//        $proofPhotos = Apiato::call('NGO@GetProofPhotosAction', [new DataTransporter($request)]);
-//        return $proofPhotos; // TODO
-//    }
+
+    public function sendKYCPhoto(SendKYCPhotoRequest $request)
+    {
+        $kycPhoto = Apiato::call('NGO@SendKYCPhotoAction', [$request]);
+        $kycPhoto->msg = 'Media created';
+        return $this->transform($kycPhoto, KYCPhotoTransformer::class);
+    }
+
+    public function getKYCPhotos(GetKYCPhotosRequest $request)
+    {
+        $kycPhotos = Apiato::call('NGO@GetKYCPhotosAction', [new DataTransporter($request)]);
+        return $this->transform($kycPhotos, KYCPhotoTransformer::class);
+    }
+
+    public function kycVerifyRequest(KYCVerifyRequestRequest $request)
+    {
+        $result = Apiato::call('NGO@KYCVerifyRequestAction', [new DataTransporter($request)]);
+        $result->msg = 'Photo verification request has been submitted';
+        return $this->json($result->msg);
+    }
+
+    public function getAllVerificationRequests(GetAllVerificationRequestsRequest $request)
+    {
+        $ngo = Apiato::call('NGO@GetAllVerificationRequestsAction', [new DataTransporter($request)]);
+        return $this->transform($ngo, NgoTransformer::class);
+    }
+
+        public function kycPhotoAdminVerification(KYCPhotoAdminVerificationRequest $request)
+    {
+        $kycPhoto = Apiato::call('NGO@KYCPhotoAdminVerificationAction', [new DataTransporter($request)]);
+        $kycPhoto->msg = 'Verification result has been submitted';
+        return $this->transform($kycPhoto, KYCPhotoTransformer::class);
+    }
+
+    public function kycNgoAdminVerification(KYCNgoAdminVerificationRequest $request)
+    {
+        $ngo = Apiato::call('NGO@KYCNgoAdminVerificationAction', [new DataTransporter($request)]);
+        $ngo->msg = 'Verification result has been submitted';
+        return $this->transform($ngo, NgoTransformer::class);
+    }
 }

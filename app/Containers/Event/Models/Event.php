@@ -14,11 +14,6 @@ use Spatie\MediaLibrary\Media;
 /**
  * App\Containers\Event\Models\Event
  *
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\User\Models\User[] $favoriters
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\User\Models\User[] $likers
- * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\MediaLibrary\Media[] $media
- * @property-read \App\Containers\NGO\Models\Ngo $ngo
- * @mixin \Eloquent
  * @property int $id
  * @property string $title
  * @property string|null $description
@@ -31,6 +26,10 @@ use Spatie\MediaLibrary\Media;
  * @property \Carbon\Carbon|null $updated_at
  * @property float|null $lat
  * @property float|null $long
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\User\Models\User[] $favoriters
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\User\Models\User[] $likers
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\MediaLibrary\Media[] $media
+ * @property-read \App\Containers\NGO\Models\Ngo $ngo
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereAddress($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereCity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereCreatedAt($value)
@@ -43,6 +42,7 @@ use Spatie\MediaLibrary\Media;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereProvince($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Event\Models\Event whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class Event extends Model implements HasMediaConversions
 {

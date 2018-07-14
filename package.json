@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "apidoc": "*",
-    "opencollective": "^1.0.3"
+    "opencollective": "^1.0.3",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "axios": "^0.16.2",

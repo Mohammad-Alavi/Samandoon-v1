@@ -7,20 +7,20 @@ use App\Ship\Parents\Models\Model;
 /**
  * App\Containers\NGO\Models\Phone
  *
- * @mixin \Eloquent
- * @property-read \App\Containers\NGO\Models\Ngo $ngo
  * @property int $id
  * @property string $label
  * @property string $phone_number
  * @property int $ngo_id
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
+ * @property-read \App\Containers\NGO\Models\Ngo $ngo
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Phone whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Phone whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Phone whereLabel($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Phone whereNgoId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Phone wherePhoneNumber($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Phone whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class Phone extends Model
 {

@@ -11,30 +11,13 @@ use Illuminate\Support\Facades\DB;
 use Laravel\Scout\Searchable;
 use Overtrue\LaravelFollow\Traits\CanBeFavorited;
 use Overtrue\LaravelFollow\Traits\CanBeSubscribed;
-use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 use Spatie\MediaLibrary\Media;
 
 /**
  * App\Containers\NGO\Models\Ngo
  *
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\Article\Models\Article[] $articles
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\Event\Models\Event[] $events
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\User\Models\User[] $favoriters
- * @property mixed $tag_names
- * @property-read \Illuminate\Database\Eloquent\Collection $tags
- * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\MediaLibrary\Media[] $media
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\Event\Models\Event[] $phones
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\NGO\Models\Subject[] $subjects
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\User\Models\User[] $subscribers
- * @property-read \Illuminate\Database\Eloquent\Collection|\Conner\Tagging\Model\Tagged[] $tagged
- * @property-read \App\Containers\User\Models\User $user
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo withAllTags($tagNames)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo withAnyTag($tagNames)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo withoutTags($tagNames)
- * @mixin \Eloquent
  * @property int $id
  * @property string|null $name
  * @property string|null $description
@@ -53,6 +36,18 @@ use Spatie\MediaLibrary\Media;
  * @property string|null $registration_unit
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\Article\Models\Article[] $articles
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\Event\Models\Event[] $events
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\User\Models\User[] $favoriters
+ * @property mixed $tag_names
+ * @property-read \Illuminate\Database\Eloquent\Collection $tags
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\NGO\Models\KYCPhoto[] $kycPhotos
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\MediaLibrary\Media[] $media
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\NGO\Models\Phone[] $phones
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\NGO\Models\Subject[] $subjects
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\User\Models\User[] $subscribers
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Conner\Tagging\Model\Tagged[] $tagged
+ * @property-read \App\Containers\User\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereAddress($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereAreaOfActivity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereCity($value)
@@ -71,6 +66,10 @@ use Spatie\MediaLibrary\Media;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereZipCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo withAllTags($tagNames)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo withAnyTag($tagNames)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo withoutTags($tagNames)
+ * @mixin \Eloquent
  */
 class Ngo extends Model implements HasMediaConversions
 {
@@ -102,6 +101,8 @@ class Ngo extends Model implements HasMediaConversions
         'province',
         'address',
         'status',
+        'verification_status',
+        'verification_admin_id',
         'zip_code',
         'type',
         'user_id',
@@ -147,6 +148,11 @@ class Ngo extends Model implements HasMediaConversions
         return $this->hasMany(Phone::class);
     }
 
+    public function kycPhotos()
+    {
+        return $this->hasMany(KYCPhoto::class);
+    }
+
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('logo_thumb')->width(200)->height(200)->keepOriginalImageFormat()->performOnCollections('ngo_logo');
@@ -168,8 +174,9 @@ class Ngo extends Model implements HasMediaConversions
         DB::transaction(function () {
             $this->articles()->delete();
             $this->events()->delete();
-            $this->subjects()->detach();
             $this->phones()->delete();
+            $this->kycPhotos()->delete();
+            $this->subjects()->detach();
 
             // revoke user's permission to manage events and articles
             $this->user->revokePermissionTo('manage-event');

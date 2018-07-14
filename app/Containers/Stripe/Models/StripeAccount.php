@@ -6,9 +6,8 @@ use App\Containers\Payment\Models\AbstractPaymentAccount;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class StripeAccount.
+ * App\Containers\Stripe\Models\StripeAccount
  *
- * @author Mahmoud Zalt <mahmoud@zalt.me>
  * @property int $id
  * @property string $customer_id
  * @property string|null $card_id

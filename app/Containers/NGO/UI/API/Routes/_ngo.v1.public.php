@@ -44,7 +44,8 @@ HTTP/1.1 200 OK
             ]
             "zip_code": "6316713649",
             "type": "شركت تعاوني",
-            "confirmed": false,
+            "verification_status": "requested",
+            "verification_admin_id": "3mjzyg5dp5a0vwp6",
             "images": {
                 "ngo_logo": "http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg",
                 "ngo_logo_thumb": "http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg",

@@ -18,9 +18,8 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 use Spatie\MediaLibrary\Media;
 
 /**
- * Class User.
+ * App\Containers\User\Models\User
  *
- * @author Mahmoud Zalt <mahmoud@zalt.me>
  * @property int $id
  * @property string|null $first_name
  * @property string|null $last_name

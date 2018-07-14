@@ -5,6 +5,7 @@ namespace App\Containers\NGO\UI\API\Transformers;
 use App\Containers\NGO\Models\Ngo;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Transformers\Transformer;
+use Vinkla\Hashids\Facades\Hashids;
 
 class NgoTransformer extends Transformer
 {
@@ -36,7 +37,10 @@ class NgoTransformer extends Transformer
                 'phone' => $ngo->phones()->get(),
                 'zip_code' => $ngo->zip_code,
                 'type' => $ngo->type,
-                'confirmed' => $ngo->confirmed,
+                'verification_status' => is_null($ngo->verification_status) ?
+                 config('samandoon.ngo_verification_status.unverified') :
+                $ngo->verification_status,
+                'verification_admin_id' => Hashids::encode($ngo->verification_admin_id),
                 'images' => [
                     'ngo_logo' => empty($ngo->getFirstMediaUrl('ngo_logo')) ?
                         config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.ngo_logo') :
@@ -49,10 +53,7 @@ class NgoTransformer extends Transformer
                         config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_banner')),
                     'ngo_banner_thumb' => empty($ngo->getFirstMedia('ngo_banner')) ?
                         config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.ngo_banner_thumb') :
-                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMedia('ngo_banner')->getUrl('banner_thumb')),
-//                    'proof_documents' => [
-//                        'test' => $ngo->getFirstMediaUrl('national_card_side_one')
-//                    ]
+                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMedia('ngo_banner')->getUrl('banner_thumb'))
                 ],
                 'user_id' => $ngo->user ? $ngo->user->getHashedKey() : null,
                 'registration_specification' => [

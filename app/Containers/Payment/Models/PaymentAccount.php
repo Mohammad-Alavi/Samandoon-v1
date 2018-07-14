@@ -6,10 +6,8 @@ use App\Ship\Parents\Models\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class PaymentAccount
+ * App\Containers\Payment\Models\PaymentAccount
  *
- * @author Johannes Schobel <johannes.schobel@googlemail.com>
- * @author Mahmoud Zalt  <mahmoud@zalt.me>
  * @property int $id
  * @property string|null $name
  * @property int $accountable_id

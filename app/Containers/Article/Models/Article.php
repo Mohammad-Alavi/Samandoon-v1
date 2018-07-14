@@ -16,22 +16,24 @@ use Spatie\MediaLibrary\Media;
 /**
  * App\Containers\Article\Models\Article
  *
- * @property-read \Kalnoy\Nestedset\Collection|\BrianFaust\Commentable\Models\Comment[] $comments
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\User\Models\User[] $favoriters
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\User\Models\User[] $likers
- * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\MediaLibrary\Media[] $media
- * @property-read \App\Containers\NGO\Models\Ngo $ngo
- * @mixin \Eloquent
  * @property int $id
  * @property string|null $text
  * @property int $ngo_id
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
+ * @property-read \Kalnoy\Nestedset\Collection|\BrianFaust\Commentable\Models\Comment[] $comments
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\User\Models\User[] $favoriters
+ * @property-read mixed $page_views
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\User\Models\User[] $likers
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\MediaLibrary\Media[] $media
+ * @property-read \App\Containers\NGO\Models\Ngo $ngo
+ * @property-read \Illuminate\Database\Eloquent\Collection|\CyrildeWit\PageViewCounter\Models\PageView[] $views
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article whereNgoId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article whereText($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class Article extends Model implements HasMediaConversions
 {
