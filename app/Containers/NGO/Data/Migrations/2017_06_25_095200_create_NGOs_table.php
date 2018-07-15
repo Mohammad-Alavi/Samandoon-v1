@@ -16,6 +16,7 @@ class CreateNgosTable extends Migration
         Schema::create('ngos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique()->nullable();
+            $table->string('public_name')->unique();
             $table->text('description')->nullable();
             $table->string('area_of_activity')->nullable();
             $table->string('city')->nullable();
@@ -28,7 +29,7 @@ class CreateNgosTable extends Migration
             $table->string('type')->nullable();
             $table->integer('user_id');
             $table->string('national_number')->unique()->nullable();
-            $table->string('registration_number')->unique()->nullable();
+            $table->string('registration_number')->nullable();
             $table->string('registration_date')->nullable();
             $table->string('registration_unit')->nullable();
             $table->timestamps();

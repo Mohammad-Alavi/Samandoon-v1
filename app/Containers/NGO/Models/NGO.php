@@ -95,6 +95,7 @@ class Ngo extends Model implements HasMediaConversions
 
     protected $fillable = [
         'name',
+        'public_name',
         'description',
         'area_of_activity',
         'city',

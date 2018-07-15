@@ -860,6 +860,9 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "String",
+            "allowedValues": [
+              "\"شهرستان,استان,فرااستان,ملی,بین المللی\""
+            ],
             "optional": true,
             "field": "area_of_activity",
             "description": "<p>max:255</p>"
@@ -984,6 +987,31 @@ define({ "api": [
     },
     "filename": "app/Containers/NGO/UI/API/Routes/FindNgoByNationalId.v1.private.php",
     "groupTitle": "NGO"
+  },
+  {
+    "group": "NGO",
+    "name": "findNgoByPublicName",
+    "type": "GET",
+    "url": "/v1/ngo/get/{public_name}",
+    "title": "Find NGO by Public Name",
+    "description": "<p>Search a NGO in local DB and return it's data if ngo is found</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "filename": "app/Containers/NGO/UI/API/Routes/FindNgoByPublicName.v1.private.php",
+    "groupTitle": "NGO",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"verification_status\": \"requested\",\n            \"verification_admin_id\": \"3mjzyg5dp5a0vwp6\",\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 1,\n                \"article_count\": 6,\n                \"event_count\": 17\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    }
   },
   {
     "group": "NGO",

@@ -18,6 +18,7 @@ class CreateNgoAction extends Action
         $ngoData = Apiato::call('NGO@FindNgoByNationalIdTask', [$request->national_id]);
         $fixedNgoData = [
             'name' => $ngoData['ResultList']['0']['Name'],
+            'public_name' => $ngoData['ResultList']['0']['NationalCode'],
             'address' => $ngoData['ResultList']['0']['Address'],
             'status' => $ngoData['ResultList']['0']['ObjectStateTitle'],
             'zip_code' => $ngoData['ResultList']['0']['PostCode'],

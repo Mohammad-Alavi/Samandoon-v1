@@ -5,18 +5,26 @@ namespace App\Containers\NGO\UI\API\Requests;
 use App\Ship\Parents\Requests\Request;
 
 /**
- * Class UpdateNgoRequest.
+ * Class FindNgoByPublicNameRequest.
  */
-class UpdateNgoRequest extends Request
+class FindNgoByPublicNameRequest extends Request
 {
+
+    /**
+     * The assigned Transporter for this Request
+     *
+     * @var string
+     */
+    // protected $transporter = \App\Ship\Transporters\DataTransporter::class;
+
     /**
      * Define which Roles and/or Permissions has access to this request.
      *
      * @var  array
      */
     protected $access = [
-        'permissions' => 'manage-ngo',
-        'roles'       => 'user|admin',
+        'permissions' => '',
+        'roles'       => '',
     ];
 
     /**
@@ -25,7 +33,7 @@ class UpdateNgoRequest extends Request
      * @var  array
      */
     protected $decode = [
-         'id',
+        // 'id',
     ];
 
     /**
@@ -35,7 +43,7 @@ class UpdateNgoRequest extends Request
      * @var  array
      */
     protected $urlParameters = [
-        'id',
+         'public_name',
     ];
 
     /**
@@ -44,16 +52,8 @@ class UpdateNgoRequest extends Request
     public function rules()
     {
         return [
-//            'id'    => 'required|exists:ngos,id',
-            'area_of_activity' => 'max:255',
-            'public_name' => 'bail|min:5|unique:ngos,public_name',
-            'city' => 'exists:locations,name',
-            'province' => 'exists:locations,name',
-            'zip_code' => 'max:255',
-            'ngo_logo' => 'image',
-            'ngo_banner' => 'image',
-            'phone' => 'json',
-            'subject' => 'json',
+            // 'id' => 'required',
+            // '{user-input}' => 'required|max:255',
         ];
     }
 

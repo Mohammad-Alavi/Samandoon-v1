@@ -25,6 +25,7 @@ class NgoTransformer extends Transformer
                 'object' => 'NGO',
                 'id' => $ngo->id ? $ngo->getHashedKey() : null,
                 'name' => $ngo->name,
+                'public_name' => $ngo->public_name,
                 'description' => $ngo->description,
                 'area_of_activity' => $ngo->area_of_activity,
                 'location' => [

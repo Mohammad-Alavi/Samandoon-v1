@@ -7,6 +7,7 @@ use App\Containers\NGO\UI\API\Requests\CreateNgoRequest;
 use App\Containers\NGO\UI\API\Requests\DeleteNgoRequest;
 use App\Containers\NGO\UI\API\Requests\DeletePhoneNumberRequest;
 use App\Containers\NGO\UI\API\Requests\FindNgoByNationalIdRequest;
+use App\Containers\NGO\UI\API\Requests\FindNgoByPublicNameRequest;
 use App\Containers\NGO\UI\API\Requests\GetAllVerificationRequestsRequest;
 use App\Containers\NGO\UI\API\Requests\GetKYCPhotosRequest;
 use App\Containers\NGO\UI\API\Requests\GetNgoRequest;
@@ -69,6 +70,13 @@ class Controller extends ApiController
     public function findNgoByNationalId(FindNgoByNationalIdRequest $request)
     {
         $ngo = Apiato::call('NGO@FindNgoByNationalIdAction', [$request]);
+        $ngo->msg = 'NGO Found';
+        return $this->transform($ngo, NGOTransformer::class);
+    }
+
+    public function findNgoByPublicName(FindNgoByPublicNameRequest $request)
+    {
+        $ngo = Apiato::call('NGO@FindNgoByPublicNameAction', [new DataTransporter($request)]);
         $ngo->msg = 'NGO Found';
         return $this->transform($ngo, NGOTransformer::class);
     }
