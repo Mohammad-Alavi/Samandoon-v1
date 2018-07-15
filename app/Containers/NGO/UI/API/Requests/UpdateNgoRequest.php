@@ -45,7 +45,7 @@ class UpdateNgoRequest extends Request
     {
         return [
 //            'id'    => 'required|exists:ngos,id',
-            'area_of_activity' => 'max:255',
+            'area_of_activity' => 'max:255|in:شهرستان,استان,ملی,بین المللی,فرااستان',
             'public_name' => 'bail|min:5|unique:ngos,public_name',
             'city' => 'exists:locations,name',
             'province' => 'exists:locations,name',

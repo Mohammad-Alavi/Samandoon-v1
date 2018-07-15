@@ -11,7 +11,7 @@
  * @apiPermission      Owner | Admin
  *
  * @apiParam           {text}  [description]
- * @apiParam           {String}  [area_of_activity] max:255
+ * @apiParam           {String="شهرستان,استان,فرااستان,ملی,بین المللی"}  [area_of_activity] max:255
  * @apiParam           {String}  [city]
  * @apiParam           {String}  [province]
  * @apiParam           {text}  [address]
