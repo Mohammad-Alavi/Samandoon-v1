@@ -7,6 +7,7 @@ use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Exceptions\Exception;
 use App\Ship\Parents\Models\Model;
 use App\Ship\Parents\Tasks\Task;
+use Illuminate\Support\Facades\DB;
 use OneSignal;
 
 class LikeTask extends Task
@@ -14,6 +15,7 @@ class LikeTask extends Task
     public function run(User $user, Model $target)
     {
         try {
+            DB::beginTransaction();
             if (!$is_liked = $user->hasLiked($target)) {
                 $user->like($target);
                 $is_liked = true;
@@ -29,10 +31,12 @@ class LikeTask extends Task
                 }
             }
         } catch (Exception $exception) {
+            DB::rollBack();
             throw new UpdateResourceFailedException('Failed to like the specified resource.');
-        }
-
-        return ['user' => $user, 'target' => $target, 'is_liked' => $is_liked];
+        } finally {
+            DB::commit();
+            return ['user' => $user, 'target' => $target, 'is_liked' => $is_liked];
 //        return new JsonResponse(class_basename($user) . ' (' . $user->getHashedKey() . ') liked ' . class_basename($target) . ' (' . $target->getHashedKey() . ').', 200);
+        }
     }
 }

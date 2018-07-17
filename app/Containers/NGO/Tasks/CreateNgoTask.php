@@ -5,8 +5,9 @@ namespace App\Containers\NGO\Tasks;
 use App\Containers\NGO\Data\Repositories\NGORepository;
 use App\Containers\NGO\Models\Ngo;
 use App\Ship\Exceptions\CreateResourceFailedException;
-use App\Ship\Parents\Exceptions\Exception;
 use App\Ship\Parents\Tasks\Task;
+use Exception;
+use Illuminate\Support\Facades\DB;
 
 class CreateNgoTask extends Task
 {
@@ -20,6 +21,7 @@ class CreateNgoTask extends Task
     public function run($ngoData, $authenticated_user): Ngo
     {
         try {
+            DB::beginTransaction();
             // create a new ngo
             $ngo = $this->repository->create($ngoData);
 
@@ -30,10 +32,12 @@ class CreateNgoTask extends Task
             // add ngo id to user who created it
             $authenticated_user->ngo_id = $ngo->id;
             $authenticated_user->save();
-
-            return $ngo;
         } catch (Exception $e) {
+            DB::rollBack();
             throw new CreateResourceFailedException('Failed to create new NGO.');
+        } finally {
+            DB::commit();
         }
+        return $ngo;
     }
 }

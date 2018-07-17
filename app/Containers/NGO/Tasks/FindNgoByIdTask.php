@@ -23,7 +23,7 @@ class FindNgoByIdTask extends Task
             $ngo = $this->repository->find($id);
         } catch (Exception $exception) {
         }
-        throw_if(empty($ngo->id), NotFoundException::class, 'NGO not found.');
+        throw_if(empty($ngo->id), NotFoundException::class, 'NGO not found');
         return $ngo;
     }
 }
