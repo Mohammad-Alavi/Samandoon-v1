@@ -14,7 +14,9 @@ class SendKYCPhotoAction extends Action
     {
         $ngo = Apiato::call('NGO@FindNgoByIdTask', [Auth::user()->ngo->id]);
         Apiato::call('NGO@CheckHasAccessToNgoTask', [$ngo]);
-        $KYCPhoto = Apiato::call('NGO@SendKYCPhotoTask', [$request, $ngo]);
-        return $KYCPhoto;
+        Apiato::call('NGO@SendKYCPhotoTask', [$request, $ngo]);
+        $kycPhotos = Apiato::call('NGO@GetKYCPhotosTask', [$ngo]);
+
+        return $kycPhotos;
     }
 }
