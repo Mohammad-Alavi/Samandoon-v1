@@ -37,7 +37,7 @@ class SettingsDefaultSettingsSeeder extends Seeder
 
         $settings = new Setting();
         $settings->key = 'in_maintance_mode_message';
-        $settings->value = 'Sorry! We will be back soon!';
+        $settings->value = 'برنامه نویسان مشغول کارند!';
         $settings->save();
 
         $settings = new Setting();
