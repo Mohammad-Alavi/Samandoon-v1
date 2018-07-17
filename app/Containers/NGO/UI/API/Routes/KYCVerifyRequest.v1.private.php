@@ -4,7 +4,7 @@
  * @apiGroup           NGO
  * @apiName            kycVerifyRequest
  *
- * @api                {PUT} /v1/ngo/kyc/verification/verify Send verification request
+ * @api                {PUT} /v1/ngo/kyc/verification/verify KYC: Send verification request
  * @apiDescription     Send verification request
  *
  * @apiVersion         1.0.0

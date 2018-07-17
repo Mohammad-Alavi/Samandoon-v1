@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @apiGroup           NGO
+ * @apiGroup           Admin
  * @apiName            kycNgoAdminVerification
  *
- * @api                {PUT} /v1/ngo/{ngo_id}/kyc KYC NGO Verification
+ * @api                {PUT} /v1/ngo/{ngo_id}/kyc KYC: NGO Verification
  * @apiDescription     KYC NGO Verification by Admin
  *
  * @apiVersion         1.0.0

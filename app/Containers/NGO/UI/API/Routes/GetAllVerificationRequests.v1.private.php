@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @apiGroup           NGO
+ * @apiGroup           Admin
  * @apiName            getAllVerificationRequests
  *
- * @api                {GET} /v1/ngo/kyc/verification/requests Get All verification requests
+ * @api                {GET} /v1/ngo/kyc/verification/requests KYC: Get All verification requests
  * @apiDescription     Get All verification requests sent by da users
  *
  * @apiVersion         1.0.0

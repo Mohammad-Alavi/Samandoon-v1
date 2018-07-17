@@ -1,5 +1,117 @@
 define({ "api": [
   {
+    "group": "Admin",
+    "name": "getAllVerificationRequests",
+    "type": "GET",
+    "url": "/v1/ngo/kyc/verification/requests",
+    "title": "KYC: Get All verification requests",
+    "description": "<p>Get All verification requests sent by da users</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated | Admin"
+      }
+    ],
+    "filename": "app/Containers/NGO/UI/API/Routes/GetAllVerificationRequests.v1.private.php",
+    "groupTitle": "Admin",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"verification_status\": \"requested\",\n            \"verification_admin_id\": \"3mjzyg5dp5a0vwp6\",\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 1,\n                \"article_count\": 6,\n                \"event_count\": 17\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "group": "Admin",
+    "name": "kycNgoAdminVerification",
+    "type": "PUT",
+    "url": "/v1/ngo/{ngo_id}/kyc",
+    "title": "KYC: NGO Verification",
+    "description": "<p>KYC NGO Verification by Admin</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authorized | Admin"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "\"requested\"",
+              "\"unverified\"",
+              "\"in_progress\"",
+              "\"verified\""
+            ],
+            "optional": false,
+            "field": "judgment",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "filename": "app/Containers/NGO/UI/API/Routes/KYCNgoAdminVerification.v1.private.php",
+    "groupTitle": "Admin",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"verification_status\": \"requested\",\n            \"verification_admin_id\": \"3mjzyg5dp5a0vwp6\",\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 1,\n                \"article_count\": 6,\n                \"event_count\": 17\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "group": "Admin",
+    "name": "kycPhotoAdminVerification",
+    "type": "PUT",
+    "url": "/v1/ngo/kyc/photo/{photo_id}",
+    "title": "KYC: Photo Verification",
+    "description": "<p>KYC Photo Verification by Admin</p>",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "Authenticated | Admin"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "\"invalid\"",
+              "\"verified\"",
+              "\"sent\""
+            ],
+            "optional": false,
+            "field": "judgment",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "filename": "app/Containers/NGO/UI/API/Routes/KYCPhotoAdminVerification.v1.private.php",
+    "groupTitle": "Admin",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"KYCPhoto\",\n        \"msg\": \"Media created\",\n        \"id\": \"kjeonp5eordqzvb8\",\n        \"file_name\": \"be6d4192b9e2e3a87a321a0eb52f49a9\",\n        \"image\": \"http://api.samandoon.local/v1/storage/1/be6d4192b9e2e3a87a321a0eb52f49a9.png\",\n        \"label\": \"national_card_side_two\",\n        \"status\": \"sent\",\n        \"text\": null,\n        \"ngo_id\": \"kjeonp5eordqzvb8\",\n        \"admin_id\": \"kjeonp5eordqzvb8\"\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
     "group": "Article",
     "name": "createArticle",
     "type": "POST",
@@ -1015,36 +1127,11 @@ define({ "api": [
   },
   {
     "group": "NGO",
-    "name": "getAllVerificationRequests",
-    "type": "GET",
-    "url": "/v1/ngo/kyc/verification/requests",
-    "title": "Get All verification requests",
-    "description": "<p>Get All verification requests sent by da users</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "Authenticated | Admin"
-      }
-    ],
-    "filename": "app/Containers/NGO/UI/API/Routes/GetAllVerificationRequests.v1.private.php",
-    "groupTitle": "NGO",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"verification_status\": \"requested\",\n            \"verification_admin_id\": \"3mjzyg5dp5a0vwp6\",\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 1,\n                \"article_count\": 6,\n                \"event_count\": 17\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
-          "type": "json"
-        }
-      ]
-    }
-  },
-  {
-    "group": "NGO",
     "name": "getKYCPhotos",
     "type": "GET",
     "url": "/v1/ngo/{ngo_id}/kyc/photo",
-    "title": "Get All KYC Photos",
-    "description": "<p>Get all KYC photos for the given NGO</p>",
+    "title": "KYC: Get All Photos",
+    "description": "<p>Get all KYC photos for the given NGO. The &quot;status&quot; values are as follow: &quot;sent&quot; = photo has been saved to the server. &quot;verified&quot; = photo has been verified by admins. &quot;invalid&quot; = photo is checked by admins and has NOT been verified.</p>",
     "version": "1.0.0",
     "permission": [
       {
@@ -1090,97 +1177,10 @@ define({ "api": [
   },
   {
     "group": "NGO",
-    "name": "kycNgoAdminVerification",
-    "type": "PUT",
-    "url": "/v1/ngo/{ngo_id}/kyc",
-    "title": "KYC NGO Verification",
-    "description": "<p>KYC NGO Verification by Admin</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "Authorized | Admin"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "allowedValues": [
-              "\"requested\"",
-              "\"unverified\"",
-              "\"in_progress\"",
-              "\"verified\""
-            ],
-            "optional": false,
-            "field": "judgment",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "filename": "app/Containers/NGO/UI/API/Routes/KYCNgoAdminVerification.v1.private.php",
-    "groupTitle": "NGO",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"msg\": \"NGO Updated\",\n        \"object\": {\n            \"object\": \"NGO\",\n            \"id\": \"kjeonp5eordqzvb8\",\n            \"name\": \"روستائي راشته\",\n            \"description\": null,\n            \"subjects\": [],\n            \"area_of_activity\": null,\n            \"location\": {\n                \"city\": \"آبادان\",\n                \"province\": \"خوزستان\",\n                \"address\": \"----\"\n            },\n            \"status\": \"ابطال شده\",\n            \"subject\": [\n                {\n                    \"id\": 1,\n                    \"subject\": \"علمی\"\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": \"اجتماعی\"\n                }\n            ],\n            \"phone\": [\n                {\n                    \"id\": 1,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                },\n                    {\n                    \"id\": 2,\n                    \"label\": \"testLabel\",\n                    \"phone_number\": \"06153224745\"\n                }\n            ]\n            \"zip_code\": \"6316713649\",\n            \"type\": \"شركت تعاوني\",\n            \"verification_status\": \"requested\",\n            \"verification_admin_id\": \"3mjzyg5dp5a0vwp6\",\n            \"images\": {\n                \"ngo_logo\": \"http://api.samandoon.local/v1/storage/2/pepeWallpepeR.jpg\",\n                \"ngo_logo_thumb\": \"http://api.samandoon.local/v1/storage/2/conversions/thumb.jpg\",\n                \"ngo_banner\": \"http://api.samandoon.local/v1/storage/3/Sketch%20%281%29.png\",\n                \"ngo_banner_thumb\": \"http://api.samandoon.local/v1/storage/3/conversions/thumb.png\"\n            },\n            \"user_id\": \"3mjzyg5dp5a0vwp6\",\n            \"registration_specification\": {\n                \"national_number\": \"10100000010\",\n                \"registration_number\": \"13\",\n                \"registration_date\": \"1345/12/25\",\n                \"registration_unit\": \"مرجع ثبت شركت ها و موسسات غيرتجاري شهريار\"\n            },\n            \"created_at\": {\n                \"date\": \"2018-04-07 19:40:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n                \"date\": \"2018-04-07 20:20:26.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"40 minutes ago\",\n            \"readable_updated_at\": \"1 second ago\",\n            \"view_ngo\": {\n                \"href\": \"v1/ngo/kjeonp5eordqzvb8\",\n                \"method\": \"GET\"\n            },\n            \"stats\": {\n                \"is_following\": false,\n                \"followers_count\": 1,\n                \"article_count\": 6,\n                \"event_count\": 17\n            }\n        }\n    },\n    \"meta\": {\n        \"include\": [\n            \"user\"\n        ],\n        \"custom\": []\n    }\n}",
-          "type": "json"
-        }
-      ]
-    }
-  },
-  {
-    "group": "NGO",
-    "name": "kycPhotoAdminVerification",
-    "type": "PUT",
-    "url": "/v1/ngo/kyc/photo/{photo_id}",
-    "title": "KYC Photo Verification",
-    "description": "<p>KYC Photo Verification by Admin</p>",
-    "version": "1.0.0",
-    "permission": [
-      {
-        "name": "Authenticated | Admin"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "allowedValues": [
-              "\"invalid\"",
-              "\"verified\"",
-              "\"sent\""
-            ],
-            "optional": false,
-            "field": "judgment",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "filename": "app/Containers/NGO/UI/API/Routes/KYCPhotoAdminVerification.v1.private.php",
-    "groupTitle": "NGO",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"KYCPhoto\",\n        \"msg\": \"Media created\",\n        \"id\": \"kjeonp5eordqzvb8\",\n        \"file_name\": \"be6d4192b9e2e3a87a321a0eb52f49a9\",\n        \"image\": \"http://api.samandoon.local/v1/storage/1/be6d4192b9e2e3a87a321a0eb52f49a9.png\",\n        \"label\": \"national_card_side_two\",\n        \"status\": \"sent\",\n        \"text\": null,\n        \"ngo_id\": \"kjeonp5eordqzvb8\",\n        \"admin_id\": \"kjeonp5eordqzvb8\"\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
-          "type": "json"
-        }
-      ]
-    }
-  },
-  {
-    "group": "NGO",
     "name": "kycVerifyRequest",
     "type": "PUT",
     "url": "/v1/ngo/kyc/verification/verify",
-    "title": "Send verification request",
+    "title": "KYC: Send verification request",
     "description": "<p>Send verification request</p>",
     "version": "1.0.0",
     "permission": [
@@ -1269,7 +1269,7 @@ define({ "api": [
     "name": "sendKYCPhoto",
     "type": "POST",
     "url": "/v1/ngo/kyc/photo",
-    "title": "Send KYC Photo",
+    "title": "KYC: Send Photo",
     "description": "<p>Send a KYC Photo to be added to the given NGO</p>",
     "version": "1.0.0",
     "permission": [

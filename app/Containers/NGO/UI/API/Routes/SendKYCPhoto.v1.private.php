@@ -4,7 +4,7 @@
  * @apiGroup           NGO
  * @apiName            sendKYCPhoto
  *
- * @api                {POST} /v1/ngo/kyc/photo Send KYC Photo
+ * @api                {POST} /v1/ngo/kyc/photo KYC: Send Photo
  * @apiDescription     Send a KYC Photo to be added to the given NGO
  *
  * @apiVersion         1.0.0
