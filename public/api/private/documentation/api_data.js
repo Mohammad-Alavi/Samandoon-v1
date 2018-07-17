@@ -1303,17 +1303,17 @@ define({ "api": [
         ]
       }
     },
-    "filename": "app/Containers/NGO/UI/API/Routes/SendKYCPhoto.v1.private.php",
-    "groupTitle": "NGO",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"data\": {\n    \"object\": \"KYCPhoto\",\n        \"msg\": \"Media created\",\n        \"id\": \"kjeonp5eordqzvb8\",\n        \"file_name\": \"be6d4192b9e2e3a87a321a0eb52f49a9\",\n        \"image\": \"http://api.samandoon.local/v1/storage/1/be6d4192b9e2e3a87a321a0eb52f49a9.png\",\n        \"label\": \"national_card_side_two\",\n        \"status\": \"sent\",\n        \"text\": null,\n        \"ngo_id\": \"kjeonp5eordqzvb8\",\n        \"admin_id\": \"kjeonp5eordqzvb8\"\n    },\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"data\": [\n        {\n            \"object\": \"KYCPhoto\",\n            \"msg\": null,\n            \"id\": \"9knz73rynlpdx0vy\",\n            \"image\": \"http://api.samandoon.local/v1/storage/6/cd60429972b7dc9a281b44a3f2289abf.png\",\n            \"label\": \"identity_paper\",\n            \"status\": \"sent\",\n            \"text\": \"\",\n            \"ngo_id\": \"kjeonp5eordqzvb8\",\n            \"admin_id\": \"\",\n            \"created_at\": {\n            \"date\": \"2018-07-17 19:03:54.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2018-07-17 19:03:54.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"1 second ago\",\n            \"readable_updated_at\": \"1 second ago\"\n        },\n        {\n            \"object\": \"KYCPhoto\",\n            \"msg\": null,\n            \"id\": \"qv4jdwrw0lanm6xg\",\n            \"image\": \"http://api.samandoon.local/v1/storage/5/29194079960e2607c39e35b191f1abbe.png\",\n            \"label\": \"national_card_side_one\",\n            \"status\": \"sent\",\n            \"text\": \"\",\n            \"ngo_id\": \"kjeonp5eordqzvb8\",\n            \"admin_id\": \"\",\n            \"created_at\": {\n            \"date\": \"2018-07-17 19:03:20.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2018-07-17 19:03:20.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"34 seconds ago\",\n            \"readable_updated_at\": \"34 seconds ago\"\n        },\n        {\n            \"object\": \"KYCPhoto\",\n            \"msg\": null,\n            \"id\": \"oj64bp5zjl8ywzn0\",\n            \"image\": \"http://api.samandoon.local/v1/storage/1/6efc42e741522db49a0de6eaa01b7f13.png\",\n            \"label\": \"national_card_side_two\",\n            \"status\": \"sent\",\n            \"text\": \"\",\n            \"ngo_id\": \"kjeonp5eordqzvb8\",\n            \"admin_id\": \"\",\n            \"created_at\": {\n            \"date\": \"2018-07-17 19:03:13.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"updated_at\": {\n            \"date\": \"2018-07-17 19:03:13.000000\",\n                \"timezone_type\": 3,\n                \"timezone\": \"UTC\"\n            },\n            \"readable_created_at\": \"41 seconds ago\",\n            \"readable_updated_at\": \"41 seconds ago\"\n        }\n    ],\n    \"meta\": {\n    \"include\": [],\n        \"custom\": []\n    }\n}",
           "type": "json"
         }
       ]
-    }
+    },
+    "filename": "app/Containers/NGO/UI/API/Routes/SendKYCPhoto.v1.private.php",
+    "groupTitle": "NGO"
   },
   {
     "group": "OAuth2",
