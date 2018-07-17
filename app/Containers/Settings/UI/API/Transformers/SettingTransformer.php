@@ -31,11 +31,11 @@ class SettingTransformer extends Transformer
             'id' => $entity->getHashedKey(),
 
             'key' => $entity->key,
-            'value' => $entity->value,
+            'value' => $entity->value === 'true' ? true : ($entity->value === 'false' ? false : $entity->value),
         ];
 
         $response = $this->ifAdmin([
-            'real_id'    => $entity->id,
+            'real_id' => $entity->id,
         ], $response);
 
         return $response;
