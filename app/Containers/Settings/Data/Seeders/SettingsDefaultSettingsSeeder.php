@@ -42,7 +42,32 @@ class SettingsDefaultSettingsSeeder extends Seeder
 
         $settings = new Setting();
         $settings->key = 'least_android_version';
-        $settings->value = '4.3';
+        $settings->value = 1000;
+        $settings->save();
+
+        $settings = new Setting();
+        $settings->key = 'current_android_version';
+        $settings->value = 500;
+        $settings->save();
+
+        $settings = new Setting();
+        $settings->key = 'least_ios_version';
+        $settings->value = 1000;
+        $settings->save();
+
+        $settings = new Setting();
+        $settings->key = 'current_ios_version';
+        $settings->value = 500;
+        $settings->save();
+
+        $settings = new Setting();
+        $settings->key = 'update_android_url';
+        $settings->value = 'www.google.com';
+        $settings->save();
+
+        $settings = new Setting();
+        $settings->key = 'update_ios_url';
+        $settings->value = 'www.google.com';
         $settings->save();
 
         $settings = new Setting();
