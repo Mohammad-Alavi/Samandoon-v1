@@ -24,6 +24,9 @@ use App\Ship\Parents\Models\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\KYCPhoto whereText($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\KYCPhoto whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int|null $admin_id
+ * @property-read \App\Containers\NGO\Models\Ngo $ngo
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\KYCPhoto whereAdminId($value)
  */
 class KYCPhoto extends Model
 {
