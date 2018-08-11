@@ -29,7 +29,13 @@ class GetAllSettingsTask extends Task
      */
     public function run()
     {
-        return $this->repository->paginate();
+        $setting_collection = $this->repository->all();
+        foreach ($setting_collection as $setting)
+        {
+            $setting_object[$setting->key] = $setting->value;
+        }
+
+        return $setting_object;
     }
 
     /**
