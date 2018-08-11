@@ -42,17 +42,12 @@ class UpdateNgoTask extends Task
             }
 
             if (array_key_exists('phone', $data)) {
+                Phone::whereNgoId($ngo->id)->delete();
                 $phoneArray = json_decode($data['phone'], true);
                 foreach ($phoneArray as $phone) {
-                    try {
-                        $phoneExist = Phone::find($phone['id']);
-                    } catch (Exception $exception) {
-                    }
-                    if (!empty($phoneExist))
-                        abort_unless($phoneExist->ngo_id == $ngo->id, 401, 'You don\'t have access to this resource');
-                    Phone::updateOrCreate(
-                        ['id' => $phone['id'], 'ngo_id' => $ngo->id],
+                    Phone::create(
                         [
+                            'ngo_id' => $ngo->id,
                             'phone_number' => $phone['phone_number'],
                             'label' => $phone['label'],
                             'ngo_id' => $ngo->id
