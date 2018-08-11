@@ -1026,7 +1026,7 @@
             "type": "json",
             "optional": true,
             "field": "phone",
-            "description": "<p>If you send an empty id -&gt; &quot;&quot; a new phone record will be created. But if you send an id, if you have access to it then it will be updated otherwise an exception will be thrown at yo bitch face :| Example: [{&quot;id&quot; : &quot;&quot;, &quot;label&quot; : &quot;testLabel&quot;, &quot;phone_number&quot; : &quot;06153224740&quot;}, {&quot;id&quot; : &quot;5&quot;, &quot;label&quot; : &quot;testLabel&quot;, &quot;phone_number&quot; : &quot;06153224746&quot;}]</p>"
+            "description": "<p>Example: [{&quot;label&quot; : &quot;خانه&quot;, &quot;phone_number&quot; : &quot;06153224740&quot;}, {&quot;label&quot; : &quot;دفتر&quot;, &quot;phone_number&quot; : &quot;06153224746&quot;}]</p>"
           },
           {
             "group": "Parameter",
