@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41ded99171542a85012ad97e14ff344c",
+    "content-hash": "97de39663c8209be31c463f4ae583840",
     "packages": [
         {
             "name": "apiato/containers-installer",
@@ -280,16 +280,16 @@
         },
         {
             "name": "berkayk/onesignal-laravel",
-            "version": "dev-master",
+            "version": "0.9.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/berkayk/laravel-onesignal.git",
-                "reference": "c2ae68f40859e77613addf7946b20d229eb82c9c"
+                "reference": "543f042a845569e26680b7204076240c8f61785a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/berkayk/laravel-onesignal/zipball/c2ae68f40859e77613addf7946b20d229eb82c9c",
-                "reference": "c2ae68f40859e77613addf7946b20d229eb82c9c",
+                "url": "https://api.github.com/repos/berkayk/laravel-onesignal/zipball/543f042a845569e26680b7204076240c8f61785a",
+                "reference": "543f042a845569e26680b7204076240c8f61785a",
                 "shasum": ""
             },
             "require": {
@@ -330,7 +330,7 @@
                 "onesignal",
                 "push"
             ],
-            "time": "2018-05-29T14:02:18+00:00"
+            "time": "2017-09-22T09:52:00+00:00"
         },
         {
             "name": "cartalyst/collections",
@@ -556,42 +556,56 @@
             "time": "2018-07-03T13:41:31+00:00"
         },
         {
-            "name": "cyrildewit/laravel-page-view-counter",
-            "version": "v1.0.5",
+            "name": "cyrildewit/eloquent-viewable",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/cyrildewit/laravel-page-view-counter.git",
-                "reference": "ffe9527b54bdb6b0005ed5f3b0537fbe34997c9c"
+                "url": "https://github.com/cyrildewit/eloquent-viewable.git",
+                "reference": "3dd30cb75976a1f5df520f985be4132cc1b99130"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cyrildewit/laravel-page-view-counter/zipball/ffe9527b54bdb6b0005ed5f3b0537fbe34997c9c",
-                "reference": "ffe9527b54bdb6b0005ed5f3b0537fbe34997c9c",
+                "url": "https://api.github.com/repos/cyrildewit/eloquent-viewable/zipball/3dd30cb75976a1f5df520f985be4132cc1b99130",
+                "reference": "3dd30cb75976a1f5df520f985be4132cc1b99130",
                 "shasum": ""
             },
             "require": {
-                "nesbot/carbon": "^1.22"
+                "illuminate/bus": "5.5.*|5.6.*",
+                "illuminate/cache": "5.5.*|5.6.*",
+                "illuminate/contracts": "5.5.*|5.6.*",
+                "illuminate/cookie": "5.5.*|5.6.*",
+                "illuminate/database": "5.5.*|5.6.*",
+                "illuminate/http": "5.5.*|5.6.*",
+                "illuminate/queue": "5.5.*|5.6.*",
+                "illuminate/routing": "5.5.*|5.6.*",
+                "illuminate/support": "5.5.*|5.6.*",
+                "jaybizzle/crawler-detect": "^1.0",
+                "nesbot/carbon": "^1.22",
+                "php": "^7.0"
             },
             "require-dev": {
+                "illuminate/config": "5.5.*|5.6.*",
+                "mockery/mockery": "^1.0",
+                "orchestra/database": "^3.5",
                 "orchestra/testbench": "^3.4",
-                "phpunit/phpunit": "~5.7.0"
+                "phpunit/phpunit": "^6.5"
             },
             "type": "library",
             "extra": {
                 "laravel": {
                     "providers": [
-                        "CyrildeWit\\PageViewCounter\\PageViewCounterServiceProvider"
+                        "CyrildeWit\\EloquentViewable\\EloquentViewableServiceProvider"
                     ]
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "CyrildeWit\\PageViewCounter\\": "src/PageViewCounter"
+                    "CyrildeWit\\EloquentViewable\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "Apache-2.0"
             ],
             "authors": [
                 {
@@ -601,18 +615,20 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Simple package for storing page views of Eloquent models into the database",
-            "homepage": "https://github.com/cyrildewit/laravel-page-view-counter",
+            "description": "Simple package that allows you to associate views with Eloquent models",
+            "homepage": "https://github.com/cyrildewit/eloquent-viewable",
             "keywords": [
+                "counter",
                 "cyrildewit",
+                "eloquent",
                 "hits",
                 "laravel",
-                "model",
-                "pageviews",
+                "viewable",
+                "views",
+                "visitable",
                 "visits"
             ],
-            "abandoned": "cyrildewit/eloquent-viewable",
-            "time": "2018-03-15T07:09:12+00:00"
+            "time": "2018-05-28T14:15:16+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -2412,6 +2428,74 @@
                 "wkhtmltopdf"
             ],
             "time": "2018-01-22T19:40:51+00:00"
+        },
+        {
+            "name": "laravel-notification-channels/onesignal",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-notification-channels/onesignal.git",
+                "reference": "aaae22ff27a8009ffe302105691b90f962ace5db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-notification-channels/onesignal/zipball/aaae22ff27a8009ffe302105691b90f962ace5db",
+                "reference": "aaae22ff27a8009ffe302105691b90f962ace5db",
+                "shasum": ""
+            },
+            "require": {
+                "berkayk/onesignal-laravel": "^0.9.3",
+                "illuminate/notifications": "5.*",
+                "illuminate/support": "5.*",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "^3.5",
+                "phpunit/phpunit": "^6.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NotificationChannels\\OneSignal\\OneSignalServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NotificationChannels\\OneSignal\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be"
+                },
+                {
+                    "name": "Marcel Pociot",
+                    "email": "hello@marcelpociot.com",
+                    "homepage": "http://marcelpociot.com"
+                },
+                {
+                    "name": "Lukas Kämmerling",
+                    "email": "kontakt@lukas-kaemmerling.de",
+                    "homepage": "https://lukas-kaemmerling.de"
+                },
+                {
+                    "name": "David Llop",
+                    "email": "hello@davidllop.com",
+                    "homepage": "http://davidllop.com"
+                }
+            ],
+            "description": "OneSignal Notifications driver",
+            "homepage": "https://github.com/laravel-notification-channels/onesignal",
+            "time": "2018-03-09T07:12:22+00:00"
         },
         {
             "name": "laravel/framework",
@@ -8501,7 +8585,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "berkayk/onesignal-laravel": 20,
         "orangehill/iseed": 20
     },
     "prefer-stable": true,
