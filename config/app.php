@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Tehran',
 
     /*
     |--------------------------------------------------------------------------
@@ -167,13 +167,13 @@ return [
         Laravel\Scout\ScoutServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         Overtrue\LaravelFollow\FollowServiceProvider::class,
-        Berkayk\OneSignal\OneSignalServiceProvider::class,
+//        Berkayk\OneSignal\OneSignalServiceProvider::class,
         Orangehill\Iseed\IseedServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         BrianFaust\Commentable\CommentableServiceProvider::class,
-//        CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
-        CyrildeWit\PageViewCounter\PageViewCounterServiceProvider::class,
+        CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
+        NotificationChannels\OneSignal\OneSignalServiceProvider::class,
 
 
         /*
