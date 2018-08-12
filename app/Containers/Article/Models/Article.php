@@ -5,7 +5,7 @@ namespace App\Containers\Article\Models;
 use App\Containers\NGO\Models\Ngo;
 use App\Ship\Parents\Models\Model;
 use BrianFaust\Commentable\Traits\HasComments;
-use CyrildeWit\PageViewCounter\Traits\HasPageViewCounter;
+use CyrildeWit\EloquentViewable\Viewable;
 use Laravel\Scout\Searchable;
 use Overtrue\LaravelFollow\Traits\CanBeFavorited;
 use Overtrue\LaravelFollow\Traits\CanBeLiked;
@@ -41,7 +41,7 @@ class Article extends Model implements HasMediaConversions
     use HasMediaTrait;
     use CanBeLiked, CanBeFavorited;
     use HasComments;
-    use HasPageViewCounter;
+    use Viewable;
 
     public $asYouType = true;
 
