@@ -41,7 +41,7 @@ class Controller extends ApiController
     {
         $article = Apiato::call('Article@GetArticleAction', [$request]);
         $article->msg = 'Article Found';
-        $article->addPageViewThatExpiresAt(Carbon::now()->addHours(24));
+        $article->addView(Carbon::now()->addHours(24));
         return $this->transform($article, ArticleTransformer::class);
     }
 
