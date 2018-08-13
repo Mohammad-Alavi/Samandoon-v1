@@ -167,14 +167,12 @@ return [
         Laravel\Scout\ScoutServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         Overtrue\LaravelFollow\FollowServiceProvider::class,
-//        Berkayk\OneSignal\OneSignalServiceProvider::class,
         Orangehill\Iseed\IseedServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         BrianFaust\Commentable\CommentableServiceProvider::class,
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
-        NotificationChannels\OneSignal\OneSignalServiceProvider::class,
-
+        LaravelFCM\FCMServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -232,9 +230,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'OneSignal' => Berkayk\OneSignal\OneSignalFacade::class,
         'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
+        'FCM'      => LaravelFCM\Facades\FCM::class,
+        'FCMGroup' => LaravelFCM\Facades\FCMGroup::class, // Optional
         // NOTE: all packages aliases must be registered inside their containers service providers
     ],
 
