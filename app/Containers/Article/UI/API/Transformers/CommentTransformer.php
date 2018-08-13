@@ -2,12 +2,37 @@
 
 namespace App\Containers\Article\UI\API\Transformers;
 
+use App\Containers\Article\Models\Article;
+use App\Containers\NGO\UI\API\Transformers\NgoTransformer;
 use App\Containers\User\Models\User;
 use Vinkla\Hashids\Facades\Hashids;
 
 class CommentTransformer
 {
-    private function responseCreator($comment, $creatorData) {
+    private function responseCreator($comment, $creatorData, $ngo)
+    {
+//
+//        $currentUser = auth('api')->user();
+//
+//        if ($comment->commentable_type === 'App\Containers\Article\Models\Article') {
+//            $article = Article::find($comment->commentable_id);
+//        }
+//
+//        if (!is_null($currentUser->ngo->id) || !is_null($currentUser))
+//            $can_delete = false;
+//        else {
+//            if (
+//                // True if user in not the creator of the comment
+//                $currentUser->id !== $comment->creator_id &&
+//                // True if user is not the article owner
+//                $currentUser->ngo()->id !== $article->ngo->id
+//            ) {
+//                $can_delete = false;
+//            } else {
+//                $can_delete = true;
+//            }
+//        }
+
         $response = [
             'object' => 'Comment',
             'id' => Hashids::encode($comment->id),
@@ -30,22 +55,23 @@ class CommentTransformer
                     'confirmed' => $creatorData->ngo->id ? $creatorData->ngo->confirmed : null,
                 ]
             ],
+//            'can_delete' => $can_delete,
             '_lft' => $comment->_lft,
             '_rgt' => $comment->_rgt,
             'parent_id' => is_null($comment->parent_id) ? null : Hashids::encode($comment->parent_id),
             'created_at' => $comment->created_at,
             'updated_at' => $comment->updated_at,
-
+            'commented_on_ngo' => $ngo,
             'view_comment' => [
                 'href' => 'v1/ngo/article/comment/' . Hashids::encode($comment->id),
                 'method' => 'GET'
             ]
         ];
 
-        return$response;
+        return $response;
     }
 
-    public function transform($comments)
+    public function transform($comments, $ngo)
     {
         $tempArray = [];
         // only works for get all comments
@@ -78,7 +104,7 @@ class CommentTransformer
                 $creatorData = User::find($comment->creator_id);
             }
 
-            $data = ['data' => $this->responseCreator($comment, $creatorData)];
+            $data = ['data' => $this->responseCreator($comment, $creatorData, $ngo)];
         }
 
         return $data;

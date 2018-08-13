@@ -28,7 +28,12 @@ class CreateCommentTask extends Task
 //            OneSignal::sendNotificationUsingTags(
 //                $user->first_name . ' برای نوشته شما دیدگاهی نوشت',
 //                array(["field" => "email", "relation" => "=", "value" => 'm.alavi1990@gmail.com']), 'www.samandoon.ngo/article/' . $article->getHashedKey());
-        return $comment;
+
+            $data = [
+                'comment' => $comment,
+                'ngo'   => $article->ngo
+            ];
+        return $data;
         }
     }
 }
