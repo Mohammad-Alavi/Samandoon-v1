@@ -15,6 +15,11 @@ class GetCommentTask extends Task
         } catch (Exception $exception) {
         }
         throw_if(empty($comment->id), NotFoundException::class, 'Comment not found');
-        return $comment;
+
+        $data = [
+            'comment' => $comment,
+            'ngo'   => $article->ngo
+        ];
+        return $data;
     }
 }

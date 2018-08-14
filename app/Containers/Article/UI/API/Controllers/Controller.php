@@ -3,6 +3,7 @@
 namespace App\Containers\Article\UI\API\Controllers;
 
 use Apiato\Core\Foundation\Facades\Apiato;
+use App\Containers\Article\Models\Article;
 use App\Containers\Article\UI\API\Requests\CreateArticleRequest;
 use App\Containers\Article\UI\API\Requests\CreateCommentRequest;
 use App\Containers\Article\UI\API\Requests\DeleteArticleRequest;
@@ -20,6 +21,7 @@ use App\Containers\Article\UI\API\Transformers\CommentTransformer;
 use App\Containers\Article\UI\API\Transformers\LikersTransformer;
 use App\Ship\Parents\Controllers\ApiController;
 use App\Ship\Transporters\DataTransporter;
+use CyrildeWit\EloquentViewable\Viewable;
 use Illuminate\Support\Carbon;
 
 class Controller extends ApiController
@@ -39,9 +41,11 @@ class Controller extends ApiController
 
     public function getArticle(GetArticleRequest $request)
     {
+        $article = new Article();
+        $article->addView();
         $article = Apiato::call('Article@GetArticleAction', [$request]);
         $article->msg = 'Article Found';
-        $article->addView(Carbon::now()->addHours(24));
+//        $article->addViewWithExpiryDate(Carbon::now()->addHours(24));
         return $this->transform($article, ArticleTransformer::class);
     }
 
@@ -76,21 +80,21 @@ class Controller extends ApiController
     {
         $comment = Apiato::call('Article@CreateCommentAction', [new DataTransporter($request)]);
         $commentTransformer = new CommentTransformer();
-        return $commentTransformer->transform($comment);
+        return $commentTransformer->transform($comment['comment'], $comment['ngo']);
     }
 
     public function getAllComments(GetAllCommentsRequest $request)
     {
         $comments = Apiato::call('Article@GetAllCommentsAction', [new DataTransporter($request)]);
         $commentTransformer = new CommentTransformer();
-        return $commentTransformer->transform($comments);
+        return $commentTransformer->transform($comments['comment'], $comments['ngo']);
     }
 
     public function getComment(GetCommentRequest $request)
     {
         $comment = Apiato::call('Article@GetCommentAction', [new DataTransporter($request)]);
         $commentTransformer = new CommentTransformer();
-        return $commentTransformer->transform($comment);
+        return $commentTransformer->transform($comment['comment'], $comment['ngo']);
     }
 
     public function deleteComment(DeleteCommentRequest $request)

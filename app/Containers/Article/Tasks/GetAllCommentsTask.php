@@ -17,6 +17,11 @@ class GetAllCommentsTask extends Task
         $sortOrder = Str::lower($sortOrder);
         empty($field) ? $this->field = 'created_at' : $this->field = $field;
         empty($sortOrder) ? $this->sortOrder = 'asc' : $this->sortOrder = $sortOrder;
-        return $article->comments()->orderBy($this->field, $this->sortOrder)->paginate(10);
+        $comments =  $article->comments()->orderBy($this->field, $this->sortOrder)->paginate(10);
+        $data = [
+            'comment' => $comments,
+            'ngo'   => $article->ngo
+        ];
+        return $data;
     }
 }

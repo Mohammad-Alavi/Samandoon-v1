@@ -40,6 +40,7 @@ HTTP/1.1 200 OK
                     "timezone_type": 3,
                     "timezone": "UTC"
                 },
+                "commented_on_ngo_id": "kjeonp5eordqzvb8",
                 "view_comment": {
                 "href": "v1/ngo/article/comment/9knz73rywnlpdx0v",
                     "method": "GET"

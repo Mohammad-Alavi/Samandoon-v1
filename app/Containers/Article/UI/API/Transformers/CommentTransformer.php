@@ -61,7 +61,7 @@ class CommentTransformer
             'parent_id' => is_null($comment->parent_id) ? null : Hashids::encode($comment->parent_id),
             'created_at' => $comment->created_at,
             'updated_at' => $comment->updated_at,
-            'commented_on_ngo' => $ngo,
+            'commented_on_ngo_id' => Hashids::encode($ngo->id),
             'view_comment' => [
                 'href' => 'v1/ngo/article/comment/' . Hashids::encode($comment->id),
                 'method' => 'GET'
@@ -81,7 +81,7 @@ class CommentTransformer
                     $comment->commentable_type = 'Article';
                     $creatorData = User::find($comment->creator_id);
                 }
-                array_push($tempArray, $this->responseCreator($comment, $creatorData));
+                array_push($tempArray, $this->responseCreator($comment, $creatorData, $ngo));
             }
 
             // turn comment to array just so i can get paginated data from it
