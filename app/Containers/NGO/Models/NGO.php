@@ -70,6 +70,12 @@ use Spatie\MediaLibrary\Media;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo withAnyTag($tagNames)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo withoutTags($tagNames)
  * @mixin \Eloquent
+ * @property string $public_name
+ * @property string $verification_status
+ * @property string|null $verification_admin_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo wherePublicName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereVerificationAdminId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\NGO\Models\Ngo whereVerificationStatus($value)
  */
 class Ngo extends Model implements HasMediaConversions
 {
