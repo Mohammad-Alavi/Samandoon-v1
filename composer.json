@@ -33,7 +33,7 @@
     "ext-pdo": "*",
     "ext-tokenizer": "*",
     "barryvdh/laravel-snappy": "^0.4.1",
-    "brozot/laravel-fcm": "1.2.*",
+    "enniel/laravel-fcm-notification-channel": "1.*",
     "cyrildewit/eloquent-viewable": "^2.1",
     "doctrine/dbal": "2.5.*",
     "faustbrian/laravel-commentable": "^3.1",

@@ -3,12 +3,12 @@
 namespace App\Containers\User\Tasks;
 
 use App\Containers\User\Models\User;
+use App\Containers\User\Notifications\LikedNotification;
 use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Exceptions\Exception;
 use App\Ship\Parents\Models\Model;
 use App\Ship\Parents\Tasks\Task;
 use Illuminate\Support\Facades\DB;
-use OneSignal;
 
 class LikeTask extends Task
 {
@@ -21,13 +21,7 @@ class LikeTask extends Task
                 $is_liked = true;
                 switch (class_basename($target)) {
                     case 'Article':
-                        OneSignal::sendNotificationUsingTags(
-                            $user->first_name . ' نوشته شما را پسندید',
-                            array(["field" => "email", "relation" => "=", "value" => $target->ngo->user->email]), 'www.samandoon.ngo/article/' . $target->getHashedKey());
-                        break;
-//            case 'Event':
-//                OneSignal::sendNotificationToUser($user->first_name . " رخداد شما را پسندید", 'e7d2b1fd-560b-48e5-a8bd-0790fe954fab', $url = null, $data = null, $buttons = null, $schedule = null);
-//                break;
+                        $user->notifyNow(new LikedNotification($target), ['database', 'fcm']);
                 }
             }
         } catch (Exception $exception) {

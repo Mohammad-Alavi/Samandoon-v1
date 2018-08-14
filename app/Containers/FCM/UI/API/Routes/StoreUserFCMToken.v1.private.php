@@ -16,8 +16,6 @@
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK
 {
-    "object": "UserFCMToken",
-    "id": "dxwgmb50mrk340yo",
     "user_id": "3mjzyg5dp5a0vwp6",
     "android_fcm_token": "123456",
     "apns_id": null
