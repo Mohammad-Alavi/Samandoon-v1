@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "33a48a686d30c1908494ef5b90f25df5",
+    "content-hash": "896c691ec4b8ebd1cc9bbb0960f4e099",
     "packages": [
         {
             "name": "apiato/containers-installer",
@@ -1292,6 +1292,62 @@
                 "validator"
             ],
             "time": "2018-04-10T10:11:19+00:00"
+        },
+        {
+            "name": "enniel/laravel-fcm-notification-channel",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/enniel/laravel-fcm-notification-channel.git",
+                "reference": "f2fd3c0829d054811fa134542631dbc438a5a1f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/enniel/laravel-fcm-notification-channel/zipball/f2fd3c0829d054811fa134542631dbc438a5a1f0",
+                "reference": "f2fd3c0829d054811fa134542631dbc438a5a1f0",
+                "shasum": ""
+            },
+            "require": {
+                "brozot/laravel-fcm": "~1.2.5",
+                "illuminate/notifications": "~5.3",
+                "illuminate/queue": "~5.1",
+                "illuminate/support": "~5.1",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~1.12.2",
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NotificationChannels\\FCM\\": "src",
+                    "NotificationChannels\\FCM\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeni Razumov",
+                    "email": "razumov.evgeni@gmail.com"
+                }
+            ],
+            "description": "Firebase Cloud Messages Notification Driver",
+            "homepage": "https://github.com/enniel/laravel-fcm-notification-channel",
+            "keywords": [
+                "FCM",
+                "firebase"
+            ],
+            "time": "2018-01-15T10:03:06+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -4841,16 +4897,16 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "2.13.0",
+            "version": "2.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "cbc7529dabdb7b6543e0d2b3f55b81f44bed9fa5"
+                "reference": "5a40d8ba8b7af83ff149d075351616027a0b771f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/cbc7529dabdb7b6543e0d2b3f55b81f44bed9fa5",
-                "reference": "cbc7529dabdb7b6543e0d2b3f55b81f44bed9fa5",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/5a40d8ba8b7af83ff149d075351616027a0b771f",
+                "reference": "5a40d8ba8b7af83ff149d075351616027a0b771f",
                 "shasum": ""
             },
             "require": {
@@ -4901,7 +4957,7 @@
                 "security",
                 "spatie"
             ],
-            "time": "2018-08-02T20:20:03+00:00"
+            "time": "2018-08-13T15:28:03+00:00"
         },
         {
             "name": "spatie/pdf-to-image",

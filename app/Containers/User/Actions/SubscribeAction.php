@@ -11,7 +11,8 @@ class SubscribeAction extends Action
     public function run(DataTransporter $dataTransporter)
     {
         $AuthenticatedUser = Apiato::call('Authentication@GetAuthenticatedUserTask');
-        $result = Apiato::call('User@SubscribeTask', [$AuthenticatedUser, $dataTransporter->id]);
+        $ngo = Apiato::call('NGO@FindNgoByIdTask', [$dataTransporter->id]);
+        $result = Apiato::call('User@SubscribeTask', [$AuthenticatedUser, $ngo]);
         return $result;
     }
 }

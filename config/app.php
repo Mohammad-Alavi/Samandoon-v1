@@ -172,7 +172,7 @@ return [
         BrianFaust\Commentable\CommentableServiceProvider::class,
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
-        LaravelFCM\FCMServiceProvider::class,
+        NotificationChannels\FCM\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -232,8 +232,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
-        'FCM'      => LaravelFCM\Facades\FCM::class,
-        'FCMGroup' => LaravelFCM\Facades\FCMGroup::class, // Optional
         // NOTE: all packages aliases must be registered inside their containers service providers
     ],
 

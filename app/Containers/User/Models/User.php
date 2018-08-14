@@ -2,6 +2,7 @@
 
 namespace App\Containers\User\Models;
 
+use App\Containers\FCM\Models\UserFCMToken;
 use App\Containers\NGO\Models\NGO;
 use App\Containers\Authorization\Traits\AuthorizationTrait;
 use App\Containers\Payment\Contracts\ChargeableInterface;
@@ -165,6 +166,16 @@ class User extends UserModel implements ChargeableInterface, HasMediaConversions
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')->width(200)->height(200)->keepOriginalImageFormat();
+    }
+
+    /**
+     * Route notifications for the FCM channel.
+     *
+     * @return string
+     */
+    public function routeNotificationForFcm()
+    {
+        return UserFCMToken::where('user_id', $this->id)->first()->android_fcm_token;
     }
 
     public function delete()

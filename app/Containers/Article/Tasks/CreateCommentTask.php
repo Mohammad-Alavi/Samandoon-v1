@@ -4,8 +4,8 @@ namespace App\Containers\Article\Tasks;
 
 use App\Containers\Article\Models\Article;
 use App\Containers\User\Models\User;
+use App\Containers\User\Notifications\CommentedNotification;
 use App\Ship\Exceptions\NotFoundException;
-use App\Ship\Parents\Exceptions\Exception;
 use App\Ship\Parents\Tasks\Task;
 use Illuminate\Support\Facades\DB;
 
@@ -24,11 +24,7 @@ class CreateCommentTask extends Task
             DB::rollBack();
             throw new NotFoundException('Parent id not found');
         } finally {
-            DB::commit();
-//            OneSignal::sendNotificationUsingTags(
-//                $user->first_name . ' برای نوشته شما دیدگاهی نوشت',
-//                array(["field" => "email", "relation" => "=", "value" => 'm.alavi1990@gmail.com']), 'www.samandoon.ngo/article/' . $article->getHashedKey());
-
+            $article->ngo->user->notifyNow(new CommentedNotification(['user' => $user, 'comment' => $comment]), ['database', 'fcm']);
             $data = [
                 'comment' => $comment,
                 'ngo'   => $article->ngo
