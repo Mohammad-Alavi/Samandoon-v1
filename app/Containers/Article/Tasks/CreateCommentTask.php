@@ -29,6 +29,7 @@ class CreateCommentTask extends Task
             DB::rollBack();
             throw new NotFoundException('Parent id not found');
         } finally {
+            DB::commit();
             $article->ngo->user->notifyNow(new CommentedNotification(['user' => $user, 'comment' => $comment]), ['database']);
 
             $optionBuilder = new OptionsBuilder();
