@@ -20,24 +20,19 @@ class StoreUserFCMTokenTask extends Task
     {
         try {
             if (array_key_exists('device_type', $data) && $data['device_type'] == 'ios') {
-                $FCMTokenData = [
+                $FCMTokenData = UserFCMToken::firstOrCreate([
                     'user_id' => $userId,
                     'apns_id' => $data['token']
-                ];
-
-                // Add the ios device token to dbs
-                $FCMTokenData = $this->userFcmToken->create($FCMTokenData);
+                ]);
             } else {
-                $FCMTokenData = [
+                $FCMTokenData = UserFCMToken::firstOrCreate([
                     'user_id' => $userId,
                     'android_fcm_token' => $data['token']
-                ];
-                // Add the android device token to dbs
-                $FCMTokenData = $this->userFcmToken->create($FCMTokenData);
+                ]);
             }
             return $FCMTokenData;
         } catch (Exception $exception) {
-            throw new CreateResourceFailedException('Failed to store new Token' . $exception->getMessage());
+            throw new CreateResourceFailedException('Failed to store new Token with error: ' . $exception->getMessage());
         }
     }
 }
