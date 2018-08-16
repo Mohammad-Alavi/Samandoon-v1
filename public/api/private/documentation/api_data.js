@@ -1582,6 +1582,30 @@ define({ "api": [
         "name": "Authenticated User"
       }
     ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "allowedValues": [
+              "\"android\"",
+              "\"ios\""
+            ],
+            "optional": false,
+            "field": "device_type",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "fcm_token",
+            "description": ""
+          }
+        ]
+      }
+    },
     "success": {
       "examples": [
         {
