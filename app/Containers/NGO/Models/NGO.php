@@ -14,6 +14,7 @@ use Overtrue\LaravelFollow\Traits\CanBeSubscribed;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 use Spatie\MediaLibrary\Media;
+use TeamTNT\TNTSearch\Indexer\TNTIndexer;
 
 /**
  * App\Containers\NGO\Models\Ngo
@@ -93,6 +94,8 @@ class Ngo extends Model implements HasMediaConversions
             'name' => $this->name,
             'national_number' => $this->national_number,
         ];
+
+        $array['nameNgrams'] = utf8_encode((new TNTIndexer)->buildTrigrams($this->name));
 
         // Customize array...
 
