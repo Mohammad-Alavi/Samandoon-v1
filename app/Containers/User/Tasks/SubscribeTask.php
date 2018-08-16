@@ -45,7 +45,7 @@ class SubscribeTask extends Task
             $data = $dataBuilder->build();
 
             $tokens = UserFCMToken::where('user_id', $target->user->id)->pluck('android_fcm_token')->toArray();
-            if (!emptyArray($tokens)) {
+            if (!empty($tokens)) {
                 $downstreamResponse = FCM::sendTo($tokens, $option, $notification, $data);
 
                 $downstreamResponse->numberSuccess();
