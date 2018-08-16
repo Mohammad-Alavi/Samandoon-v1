@@ -49,7 +49,8 @@ class LogoutRequest extends Request
     public function rules()
     {
         return [
-
+            'fcm_token' => 'required',
+            'device_type' => 'required|in:android,ios'
         ];
     }
 

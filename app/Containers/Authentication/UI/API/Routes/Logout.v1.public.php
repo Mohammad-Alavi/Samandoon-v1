@@ -8,6 +8,8 @@
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated User
  *
+ * @apiParam           {string="android", "ios"} device_type
+ * @apiParam           {string} fcm_token
  * @apiSuccessExample  {json}       Success-Response:
  * HTTP/1.1 202 Accepted
 {
