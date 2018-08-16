@@ -31,7 +31,7 @@ class SubscribeTask extends Task
             $target->user->notifyNow(new FollowedNotification($user), ['database']);
 
             $optionBuilder = new OptionsBuilder();
-            $optionBuilder->setTimeToLive(60*20);
+            $optionBuilder->setTimeToLive(60 * 20);
 
             $notificationBuilder = new PayloadNotificationBuilder('سمندون');
             $notificationBuilder->setBody('[' . $user->first_name . ']' . ' سمن شما را دنبال کرد')
@@ -45,23 +45,24 @@ class SubscribeTask extends Task
             $data = $dataBuilder->build();
 
             $tokens = UserFCMToken::where('user_id', $target->user->id)->pluck('android_fcm_token')->toArray();
-            $downstreamResponse = FCM::sendTo($tokens, $option, $notification, $data);
+            if (!emptyArray($tokens)) {
+                $downstreamResponse = FCM::sendTo($tokens, $option, $notification, $data);
 
-            $downstreamResponse->numberSuccess();
-            $downstreamResponse->numberFailure();
-            $downstreamResponse->numberModification();
+                $downstreamResponse->numberSuccess();
+                $downstreamResponse->numberFailure();
+                $downstreamResponse->numberModification();
 
-            //return Array - you must remove all this tokens in your database
-            $downstreamResponse->tokensToDelete();
+                //return Array - you must remove all this tokens in your database
+                $downstreamResponse->tokensToDelete();
 
-            //return Array (key : oldToken, value : new token - you must change the token in your database )
-            $downstreamResponse->tokensToModify();
+                //return Array (key : oldToken, value : new token - you must change the token in your database )
+                $downstreamResponse->tokensToModify();
 
-            //return Array - you should try to resend the message to the tokens in the array
-            $downstreamResponse->tokensToRetry();
+                //return Array - you should try to resend the message to the tokens in the array
+                $downstreamResponse->tokensToRetry();
 
-            // return Array (key:token, value:errror) - in production you should remove from your database the tokens
-
+                // return Array (key:token, value:errror) - in production you should remove from your database the tokens
+            }
             return new JsonResponse([
                 'followers_count' => $target->subscribers()->count(),
                 'is_following' => $user->hasSubscribed($target->id, Ngo::class)

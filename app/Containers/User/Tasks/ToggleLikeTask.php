@@ -29,7 +29,7 @@ class ToggleLikeTask extends Task
                     case 'Article':
                         $user->notifyNow(new LikedNotification($target), ['database']);
                         $optionBuilder = new OptionsBuilder();
-                        $optionBuilder->setTimeToLive(60*20);
+                        $optionBuilder->setTimeToLive(60 * 20);
 
                         $notificationBuilder = new PayloadNotificationBuilder('سمندون');
                         $notificationBuilder->setBody('[' . $user->first_name . ']' . ' نوشته شما را پسندید')
@@ -43,21 +43,23 @@ class ToggleLikeTask extends Task
                         $data = $dataBuilder->build();
 
                         $tokens = UserFCMToken::where('user_id', $target->ngo->user->id)->pluck('android_fcm_token')->toArray();
-                        $downstreamResponse = FCM::sendTo($tokens, $option, $notification, $data);
+//                        if (!emptyArray($tokens)) {
 
-                        $downstreamResponse->numberSuccess();
-                        $downstreamResponse->numberFailure();
-                        $downstreamResponse->numberModification();
+                            $downstreamResponse = FCM::sendTo($tokens, $option, $notification, $data);
 
-                        //return Array - you must remove all this tokens in your database
-                        $downstreamResponse->tokensToDelete();
+                            $downstreamResponse->numberSuccess();
+                            $downstreamResponse->numberFailure();
+                            $downstreamResponse->numberModification();
 
-                        //return Array (key : oldToken, value : new token - you must change the token in your database )
-                        $downstreamResponse->tokensToModify();
+                            //return Array - you must remove all this tokens in your database
+                            $downstreamResponse->tokensToDelete();
 
-                        //return Array - you should try to resend the message to the tokens in the array
-                        $downstreamResponse->tokensToRetry();
+                            //return Array (key : oldToken, value : new token - you must change the token in your database )
+                            $downstreamResponse->tokensToModify();
 
+                            //return Array - you should try to resend the message to the tokens in the array
+                            $downstreamResponse->tokensToRetry();
+//                        }
                         // return Array (key:token, value:errror) - in production you should remove from your database the tokens
                         break;
                 }
