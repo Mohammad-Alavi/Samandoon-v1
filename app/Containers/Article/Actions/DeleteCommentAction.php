@@ -17,15 +17,15 @@ class DeleteCommentAction extends Action
         $comment = $article->comments()->find($dataTransporter->comment_id);
         throw_if(empty($comment), NotFoundException::class, 'Comment not found');
 
-        if ($comment->commentable_type === 'App\Containers\Article\Models\Article') {
-            $article = Article::find($comment->commentable_id);
-        }
+//        if ($comment->commentable_type === 'App\Containers\Article\Models\Article') {
+//            $article = Article::find($comment->commentable_id);
+//        }
 
         throw_if(
         // True if user in not the creator of the comment
             \Auth::user()->id !== $comment->creator_id &&
             // True if user is not the article owner
-            \Auth::user()->ngo()->id !== $article->ngo->id, AccessDeniedHttpException::class, 'You don\'t have access to this resource');
+            \Auth::user()->ngo->id !== $article->ngo->id, AccessDeniedHttpException::class, 'You don\'t have access to this resource');
         return Apiato::call('Article@DeleteCommentTask', [$article, $dataTransporter->comment_id]);
     }
 }
