@@ -1238,16 +1238,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.4",
+            "version": "2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "8790f594151ca6a2010c6218e09d96df67173ad3"
+                "reference": "54859fabea8b3beecbb1a282888d5c990036b9e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/8790f594151ca6a2010c6218e09d96df67173ad3",
-                "reference": "8790f594151ca6a2010c6218e09d96df67173ad3",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/54859fabea8b3beecbb1a282888d5c990036b9e3",
+                "reference": "54859fabea8b3beecbb1a282888d5c990036b9e3",
                 "shasum": ""
             },
             "require": {
@@ -1291,7 +1291,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2018-04-10T10:11:19+00:00"
+            "time": "2018-08-16T20:49:45+00:00"
         },
         {
             "name": "enniel/laravel-fcm-notification-channel",
@@ -2756,16 +2756,16 @@
         },
         {
             "name": "laravel/socialite",
-            "version": "v3.0.12",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "b5f465847b1d637efa86bbfe2fc1c9d2bd12f60f"
+                "reference": "65f771ff4f266ebae23de1a3f18efd80a1da2f8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/b5f465847b1d637efa86bbfe2fc1c9d2bd12f60f",
-                "reference": "b5f465847b1d637efa86bbfe2fc1c9d2bd12f60f",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/65f771ff4f266ebae23de1a3f18efd80a1da2f8d",
+                "reference": "65f771ff4f266ebae23de1a3f18efd80a1da2f8d",
                 "shasum": ""
             },
             "require": {
@@ -2774,7 +2774,7 @@
                 "illuminate/http": "~5.4",
                 "illuminate/support": "~5.4",
                 "league/oauth1-client": "~1.0",
-                "php": ">=5.4.0"
+                "php": ">=5.6.4"
             },
             "require-dev": {
                 "mockery/mockery": "~0.9",
@@ -2810,11 +2810,12 @@
                 }
             ],
             "description": "Laravel wrapper around OAuth 1 & OAuth 2 libraries.",
+            "homepage": "https://laravel.com",
             "keywords": [
                 "laravel",
                 "oauth"
             ],
-            "time": "2018-06-01T15:06:47+00:00"
+            "time": "2018-08-16T12:51:21+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -4897,16 +4898,16 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "2.14.0",
+            "version": "2.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "5a40d8ba8b7af83ff149d075351616027a0b771f"
+                "reference": "40cd73d227da96fa31bb4905f1f37444dee6d74a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/5a40d8ba8b7af83ff149d075351616027a0b771f",
-                "reference": "5a40d8ba8b7af83ff149d075351616027a0b771f",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/40cd73d227da96fa31bb4905f1f37444dee6d74a",
+                "reference": "40cd73d227da96fa31bb4905f1f37444dee6d74a",
                 "shasum": ""
             },
             "require": {
@@ -4957,7 +4958,7 @@
                 "security",
                 "spatie"
             ],
-            "time": "2018-08-13T15:28:03+00:00"
+            "time": "2018-08-16T00:21:46+00:00"
         },
         {
             "name": "spatie/pdf-to-image",
@@ -6116,16 +6117,16 @@
         },
         {
             "name": "teamtnt/tntsearch",
-            "version": "v1.3.4",
+            "version": "v1.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/teamtnt/tntsearch.git",
-                "reference": "40c4395cf04e089b6f2fd4dd98d4b1d09de1ce6b"
+                "reference": "b1c07756aabb308595e2ba1d8108a6d6cae22b10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/teamtnt/tntsearch/zipball/40c4395cf04e089b6f2fd4dd98d4b1d09de1ce6b",
-                "reference": "40c4395cf04e089b6f2fd4dd98d4b1d09de1ce6b",
+                "url": "https://api.github.com/repos/teamtnt/tntsearch/zipball/b1c07756aabb308595e2ba1d8108a6d6cae22b10",
+                "reference": "b1c07756aabb308595e2ba1d8108a6d6cae22b10",
                 "shasum": ""
             },
             "require": {
@@ -6168,7 +6169,7 @@
                 "teamtnt",
                 "tntsearch"
             ],
-            "time": "2018-07-18T16:57:14+00:00"
+            "time": "2018-08-10T09:20:06+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
