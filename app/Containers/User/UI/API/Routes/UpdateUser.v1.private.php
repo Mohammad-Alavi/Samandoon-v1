@@ -8,7 +8,6 @@
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated User (Admin | Owner)
  *
- * @apiParam           {String}  email (optional)
  * @apiParam           {String}  password (optional)
  * @apiParam           {String}  first_name (optional)
  * @apiParam           {String}  last_name (optional)
