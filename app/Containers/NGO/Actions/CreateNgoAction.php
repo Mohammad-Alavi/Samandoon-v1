@@ -12,12 +12,14 @@ class CreateNgoAction extends Action
 {
     public function run(Request $request): Ngo
     {
-        $authenticated_user = $this->call('Authentication@GetAuthenticatedUserTask');
+        $authenticated_user = Apiato::call('Authentication@GetAuthenticatedUserTask');
         throw_if($authenticated_user->ngo->id, CreateResourceFailedException::class, 'User already have a NGO');
         throw_if(NGO::where('national_number', $request->national_id)->get()->isNotEmpty(), CreateResourceFailedException::class, 'This NGO is already registered');
         $ngoData = Apiato::call('NGO@FindNgoByNationalIdTask', [$request->national_id]);
+        $fixedNgoName = Apiato::call('NGO@ConvertNGONameFromArabicToPersianTask',[$ngoData['ResultList']['0']['Name']]);
         $fixedNgoData = [
-            'name' => $ngoData['ResultList']['0']['Name'],
+//            'name' => $ngoData['ResultList']['0']['Name'],
+            'name' => $fixedNgoName,
             'public_name' => $ngoData['ResultList']['0']['NationalCode'],
             'address' => $ngoData['ResultList']['0']['Address'],
             'status' => $ngoData['ResultList']['0']['ObjectStateTitle'],
