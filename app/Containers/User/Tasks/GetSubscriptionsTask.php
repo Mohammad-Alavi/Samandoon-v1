@@ -10,6 +10,6 @@ class GetSubscriptionsTask extends Task
 {
     public function run(User $user, $limit)
     {
-        return $user->subscriptions(Ngo::class)->paginate($limit ? $limit : 10);
+        return $user->subscriptions(Ngo::class)->latest()->paginate($limit ? $limit : 10);
     }
 }
