@@ -18,9 +18,17 @@ class GetUserFeedTask extends Task
         // get feed
         $ngoIdArray = [];
         $ngos = $user->subscriptions(Ngo::class)->get();
+
+        //if user have ngo then add his own ngo to feed list
+        if (!empty($user->ngo->id)) {
+            $ngoIdArray[] = $user->ngo->id;
+        }
+
         foreach ($ngos as $ngo) {
             $ngoIdArray[] = $ngo->id;
         }
+
+        dd($ngoIdArray);
 //            foreach ($ngo->articles()->orderBy('created_at', 'desc')->get() as $article) {
 //                array_push($articles, $article);
 //            }
