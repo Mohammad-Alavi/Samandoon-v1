@@ -28,7 +28,6 @@ class GetUserFeedTask extends Task
             $ngoIdArray[] = $ngo->id;
         }
 
-        dd($ngoIdArray);
 //            foreach ($ngo->articles()->orderBy('created_at', 'desc')->get() as $article) {
 //                array_push($articles, $article);
 //            }
