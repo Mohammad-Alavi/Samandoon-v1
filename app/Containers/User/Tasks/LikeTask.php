@@ -26,6 +26,9 @@ class LikeTask extends Task
                 $is_liked = true;
                 switch (class_basename($target)) {
                     case 'Article':
+                        if ($user->id == $target->ngo->user->id) {
+                            break;
+                        }
                         $user->notifyNow(new LikedNotification($target), ['database']);
                         $optionBuilder = new OptionsBuilder();
                         $optionBuilder->setTimeToLive(60 * 20);
@@ -44,22 +47,22 @@ class LikeTask extends Task
                         $tokens = UserFCMToken::where('user_id', $target->ngo->user->id)->pluck('android_fcm_token')->toArray();
 //                        if (!emptyArray($tokens)) {
 
-                            $downstreamResponse = FCM::sendTo($tokens, $option, $notification, $data);
+                        $downstreamResponse = FCM::sendTo($tokens, $option, $notification, $data);
 
-                            $downstreamResponse->numberSuccess();
-                            $downstreamResponse->numberFailure();
-                            $downstreamResponse->numberModification();
+                        $downstreamResponse->numberSuccess();
+                        $downstreamResponse->numberFailure();
+                        $downstreamResponse->numberModification();
 
-                            //return Array - you must remove all this tokens in your database
-                            $downstreamResponse->tokensToDelete();
+                        //return Array - you must remove all this tokens in your database
+                        $downstreamResponse->tokensToDelete();
 
-                            //return Array (key : oldToken, value : new token - you must change the token in your database )
-                            $downstreamResponse->tokensToModify();
+                        //return Array (key : oldToken, value : new token - you must change the token in your database )
+                        $downstreamResponse->tokensToModify();
 
-                            //return Array - you should try to resend the message to the tokens in the array
-                            $downstreamResponse->tokensToRetry();
+                        //return Array - you should try to resend the message to the tokens in the array
+                        $downstreamResponse->tokensToRetry();
 
-                            // return Array (key:token, value:errror) - in production you should remove from your database the tokens
+                        // return Array (key:token, value:errror) - in production you should remove from your database the tokens
 //                        }
                         break;
                 }
