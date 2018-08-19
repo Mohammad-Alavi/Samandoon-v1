@@ -51,7 +51,7 @@ class RegisterUserAction extends Action
 
         } catch (\Exception $exception) {
             DB::rollBack();
-            throw (new CreateResourceFailedException())->debug($exception);
+            throw new CreateResourceFailedException($exception->getMessage());
 
         } finally {
             DB::commit();
