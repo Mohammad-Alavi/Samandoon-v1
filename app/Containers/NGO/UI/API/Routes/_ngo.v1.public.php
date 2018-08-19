@@ -10,7 +10,8 @@ HTTP/1.1 200 OK
         "object": {
             "object": "NGO",
             "id": "kjeonp5eordqzvb8",
-            "name": "روستائي راشته",
+            "name": "انجمن محلی جهانشهر حاجی آباد سابق",
+            "public_name": "9yrj4on3qmvdgrao",
             "description": null,
             "subjects": [],
             "area_of_activity": null,

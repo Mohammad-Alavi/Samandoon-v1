@@ -7,6 +7,7 @@ use App\Containers\NGO\Models\Ngo;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
+use Vinkla\Hashids\Facades\Hashids;
 
 class CreateNgoAction extends Action
 {
@@ -20,7 +21,7 @@ class CreateNgoAction extends Action
         $fixedNgoData = [
 //            'name' => $ngoData['ResultList']['0']['Name'],
             'name' => $fixedNgoName,
-            'public_name' => $ngoData['ResultList']['0']['NationalCode'],
+            'public_name' => Hashids::encode($ngoData['ResultList']['0']['NationalCode'] . date('s')),
             'address' => $ngoData['ResultList']['0']['Address'],
             'status' => $ngoData['ResultList']['0']['ObjectStateTitle'],
             'zip_code' => $ngoData['ResultList']['0']['PostCode'],
