@@ -5,7 +5,7 @@ namespace App\Containers\Article\Models;
 use App\Containers\NGO\Models\Ngo;
 use App\Ship\Parents\Models\Model;
 use BrianFaust\Commentable\Traits\HasComments;
-use CyrildeWit\EloquentViewable\Viewable;
+use CyrildeWit\PageViewCounter\Traits\HasPageViewCounter;
 use Laravel\Scout\Searchable;
 use Overtrue\LaravelFollow\Traits\CanBeFavorited;
 use Overtrue\LaravelFollow\Traits\CanBeLiked;
@@ -27,13 +27,15 @@ use Spatie\MediaLibrary\Media;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Containers\User\Models\User[] $likers
  * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\MediaLibrary\Media[] $media
  * @property-read \App\Containers\NGO\Models\Ngo $ngo
- * @property-read \Illuminate\Database\Eloquent\Collection|\CyrildeWit\PageViewCounter\Models\PageView[] $views
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article whereNgoId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article whereText($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\CyrildeWit\EloquentViewable\View[] $views
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article orderByUniqueViewsCount($direction = 'desc')
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article orderByViewsCount($direction = 'desc')
  */
 class Article extends Model implements HasMediaConversions
 {
@@ -41,7 +43,7 @@ class Article extends Model implements HasMediaConversions
     use HasMediaTrait;
     use CanBeLiked, CanBeFavorited;
     use HasComments;
-    use Viewable;
+    use HasPageViewCounter;
 
     public $asYouType = true;
 

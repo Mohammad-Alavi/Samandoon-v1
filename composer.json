@@ -34,7 +34,7 @@
     "ext-tokenizer": "*",
     "barryvdh/laravel-snappy": "^0.4.1",
     "enniel/laravel-fcm-notification-channel": "1.*",
-    "cyrildewit/eloquent-viewable": "^2.1",
+    "cyrildewit/eloquent-viewable": "^1.0",
     "doctrine/dbal": "2.5.*",
     "faustbrian/laravel-commentable": "^3.1",
     "fideloper/proxy": "~3.3",

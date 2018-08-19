@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "896c691ec4b8ebd1cc9bbb0960f4e099",
+    "content-hash": "e6fbb826aa5a541daf334c1e8437a6ce",
     "packages": [
         {
             "name": "apiato/containers-installer",
@@ -558,55 +558,41 @@
         },
         {
             "name": "cyrildewit/eloquent-viewable",
-            "version": "v2.3.0",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cyrildewit/eloquent-viewable.git",
-                "reference": "640b8f45270554950cb770c3eb604b97a6197d35"
+                "reference": "ffe9527b54bdb6b0005ed5f3b0537fbe34997c9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cyrildewit/eloquent-viewable/zipball/640b8f45270554950cb770c3eb604b97a6197d35",
-                "reference": "640b8f45270554950cb770c3eb604b97a6197d35",
+                "url": "https://api.github.com/repos/cyrildewit/eloquent-viewable/zipball/ffe9527b54bdb6b0005ed5f3b0537fbe34997c9c",
+                "reference": "ffe9527b54bdb6b0005ed5f3b0537fbe34997c9c",
                 "shasum": ""
             },
             "require": {
-                "illuminate/bus": "5.5.*|5.6.*",
-                "illuminate/cache": "5.5.*|5.6.*",
-                "illuminate/contracts": "5.5.*|5.6.*",
-                "illuminate/cookie": "5.5.*|5.6.*",
-                "illuminate/database": "5.5.*|5.6.*",
-                "illuminate/http": "5.5.*|5.6.*",
-                "illuminate/queue": "5.5.*|5.6.*",
-                "illuminate/routing": "5.5.*|5.6.*",
-                "illuminate/support": "5.5.*|5.6.*",
-                "jaybizzle/crawler-detect": "^1.0",
-                "nesbot/carbon": "^1.22",
-                "php": "^7.0"
+                "nesbot/carbon": "^1.22"
             },
             "require-dev": {
-                "illuminate/config": "5.5.*|5.6.*",
-                "mockery/mockery": "^1.0",
-                "orchestra/database": "^3.5",
                 "orchestra/testbench": "^3.4",
-                "phpunit/phpunit": "^6.5"
+                "phpunit/phpunit": "~5.7.0"
             },
             "type": "library",
             "extra": {
                 "laravel": {
                     "providers": [
-                        "CyrildeWit\\EloquentViewable\\EloquentViewableServiceProvider"
+                        "CyrildeWit\\PageViewCounter\\PageViewCounterServiceProvider"
                     ]
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "CyrildeWit\\EloquentViewable\\": "src/"
+                    "CyrildeWit\\PageViewCounter\\": "src/PageViewCounter"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -616,20 +602,17 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Simple package that allows you to associate views with Eloquent models",
-            "homepage": "https://github.com/cyrildewit/eloquent-viewable",
+            "description": "Simple package for storing page views of Eloquent models into the database",
+            "homepage": "https://github.com/cyrildewit/laravel-page-view-counter",
             "keywords": [
-                "counter",
                 "cyrildewit",
-                "eloquent",
                 "hits",
                 "laravel",
-                "viewable",
-                "views",
-                "visitable",
+                "model",
+                "pageviews",
                 "visits"
             ],
-            "time": "2018-08-01T14:38:07+00:00"
+            "time": "2018-03-15T07:09:12+00:00"
         },
         {
             "name": "defuse/php-encryption",

@@ -170,7 +170,7 @@ return [
         Orangehill\Iseed\IseedServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         BrianFaust\Commentable\CommentableServiceProvider::class,
-        CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
+        CyrildeWit\PageViewCounter\PageViewCounterServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
         NotificationChannels\FCM\ServiceProvider::class,
 

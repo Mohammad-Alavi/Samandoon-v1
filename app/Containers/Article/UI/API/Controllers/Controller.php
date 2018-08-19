@@ -21,7 +21,6 @@ use App\Containers\Article\UI\API\Transformers\CommentTransformer;
 use App\Containers\Article\UI\API\Transformers\LikersTransformer;
 use App\Ship\Parents\Controllers\ApiController;
 use App\Ship\Transporters\DataTransporter;
-use CyrildeWit\EloquentViewable\Viewable;
 use Illuminate\Support\Carbon;
 
 class Controller extends ApiController
@@ -41,11 +40,10 @@ class Controller extends ApiController
 
     public function getArticle(GetArticleRequest $request)
     {
-        $article = new Article();
-        $article->addView();
+//        $article->addPageViewThatExpiresAt()addView();
         $article = Apiato::call('Article@GetArticleAction', [$request]);
         $article->msg = 'Article Found';
-//        $article->addViewWithExpiryDate(Carbon::now()->addHours(24));
+        $article->addPageViewThatExpiresAt(Carbon::now()->addHours(24));
         return $this->transform($article, ArticleTransformer::class);
     }
 
