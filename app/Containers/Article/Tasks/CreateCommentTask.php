@@ -30,42 +30,48 @@ class CreateCommentTask extends Task
             throw new NotFoundException('Parent id not found');
         } finally {
             DB::commit();
-            $article->ngo->user->notifyNow(new CommentedNotification(['user' => $user, 'comment' => $comment]), ['database']);
 
-            $optionBuilder = new OptionsBuilder();
-            $optionBuilder->setTimeToLive(60 * 20);
+            // send notification only when user is not the owner of the article
+            if ($user->id !== $article->ngo->user->id) {
 
-            $notificationBuilder = new PayloadNotificationBuilder('سمندون');
-            $notificationBuilder->setBody('[' . $user->first_name . ']' . ' نظر داد: ' . '"' . $comment->body . '"')
-                ->setSound('default');
+                $article->ngo->user->notifyNow(new CommentedNotification(['user' => $user, 'comment' => $comment]), ['database']);
 
-            $dataBuilder = new PayloadDataBuilder();
-            $dataBuilder->addData(['a_data' => 'my_data']);
+                $optionBuilder = new OptionsBuilder();
+                $optionBuilder->setTimeToLive(60 * 20);
 
-            $option = $optionBuilder->build();
-            $notification = $notificationBuilder->build();
-            $data = $dataBuilder->build();
+                $notificationBuilder = new PayloadNotificationBuilder('سمندون');
+                $notificationBuilder->setBody('[' . $user->first_name . ']' . ' نظر داد: ' . '"' . $comment->body . '"')
+                    ->setSound('default');
 
-            $tokens = UserFCMToken::where('user_id', $article->ngo->user->id)->pluck('android_fcm_token')->toArray();
-            if (!empty($tokens)) {
+                $dataBuilder = new PayloadDataBuilder();
+                $dataBuilder->addData(['a_data' => 'my_data']);
 
-                $downstreamResponse = FCM::sendTo($tokens, $option, $notification, $data);
+                $option = $optionBuilder->build();
+                $notification = $notificationBuilder->build();
+                $data = $dataBuilder->build();
 
-                $downstreamResponse->numberSuccess();
-                $downstreamResponse->numberFailure();
-                $downstreamResponse->numberModification();
+                $tokens = UserFCMToken::where('user_id', $article->ngo->user->id)->pluck('android_fcm_token')->toArray();
+                if (!empty($tokens)) {
 
-                //return Array - you must remove all this tokens in your database
-                $downstreamResponse->tokensToDelete();
+                    $downstreamResponse = FCM::sendTo($tokens, $option, $notification, $data);
 
-                //return Array (key : oldToken, value : new token - you must change the token in your database )
-                $downstreamResponse->tokensToModify();
+                    $downstreamResponse->numberSuccess();
+                    $downstreamResponse->numberFailure();
+                    $downstreamResponse->numberModification();
 
-                //return Array - you should try to resend the message to the tokens in the array
-                $downstreamResponse->tokensToRetry();
+                    //return Array - you must remove all this tokens in your database
+                    $downstreamResponse->tokensToDelete();
 
-                // return Array (key:token, value:errror) - in production you should remove from your database the tokens
+                    //return Array (key : oldToken, value : new token - you must change the token in your database )
+                    $downstreamResponse->tokensToModify();
+
+                    //return Array - you should try to resend the message to the tokens in the array
+                    $downstreamResponse->tokensToRetry();
+
+                    // return Array (key:token, value:errror) - in production you should remove from your database the tokens
+                }
             }
+            
             $data = [
                 'comment' => $comment,
                 'ngo' => $article->ngo
