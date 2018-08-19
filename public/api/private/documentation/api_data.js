@@ -2887,13 +2887,6 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "email",
-            "description": "<p>(optional)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
             "field": "password",
             "description": "<p>(optional)</p>"
           },
