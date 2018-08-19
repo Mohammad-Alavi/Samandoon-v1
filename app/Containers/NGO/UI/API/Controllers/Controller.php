@@ -10,6 +10,7 @@ use App\Containers\NGO\UI\API\Requests\FindNgoByNationalIdRequest;
 use App\Containers\NGO\UI\API\Requests\FindNgoByPublicNameRequest;
 use App\Containers\NGO\UI\API\Requests\GetAllVerificationRequestsRequest;
 use App\Containers\NGO\UI\API\Requests\GetKYCPhotosRequest;
+use App\Containers\NGO\UI\API\Requests\GetNgoByPublicNameRequest;
 use App\Containers\NGO\UI\API\Requests\GetNgoRequest;
 use App\Containers\NGO\UI\API\Requests\KYCNgoAdminVerificationRequest;
 use App\Containers\NGO\UI\API\Requests\KYCPhotoAdminVerificationRequest;
@@ -37,6 +38,13 @@ class Controller extends ApiController
     public function getNgo(GetNgoRequest $request)
     {
         $ngo = Apiato::call('NGO@GetNgoAction', [$request]);
+        $ngo->msg = 'Found NGO';
+        return $this->transform($ngo, NgoTransformer::class);
+    }
+
+    public function getNgoByPublicName(GetNgoByPublicNameRequest $request)
+    {
+        $ngo = Apiato::call('NGO@GetNgoByPublicNameAction', [new DataTransporter($request)]);
         $ngo->msg = 'Found NGO';
         return $this->transform($ngo, NgoTransformer::class);
     }
