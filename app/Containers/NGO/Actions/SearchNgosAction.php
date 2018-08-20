@@ -2,13 +2,23 @@
 
 namespace App\Containers\NGO\Actions;
 
+use Apiato\Core\Foundation\Facades\Apiato;
 use App\Ship\Parents\Actions\Action;
-use App\Ship\Transporters\DataTransporter;
+use App\Ship\Parents\Requests\Request;
 
 class SearchNgosAction extends Action
 {
-    public function run(DataTransporter $data)
+    public function run(Request $request)
     {
-        return $this->call('NGO@SearchNgosTask', [$data]);
+        $data = $request->sanitizeInput([
+            'q',
+            'area_of_activity',
+            'subject',
+            'city',
+            'province',
+        ]);
+
+        $result = Apiato::call('NGO@SearchNgosTask', [$data]);
+        return $result;
     }
 }

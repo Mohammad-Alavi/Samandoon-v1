@@ -91,7 +91,7 @@ class Controller extends ApiController
 
     public function searchNgos(SearchNgosRequest $request)
     {
-        $ngos = Apiato::call('NGO@SearchNgosAction', [new DataTransporter($request)]);
+        $ngos = Apiato::call('NGO@SearchNgosAction', [$request]);
         $ngos->msg = 'NGOs found';
         return $this->transform($ngos, NgoTransformer::class);
     }
