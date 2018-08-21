@@ -12,6 +12,7 @@
  *
  * @apiParam           {text}  [description]
  * @apiParam           {String="شهرستان,استان,فرااستان,ملی,بین المللی"}  [area_of_activity] max:255
+ * @apiParam           {String}  [public_name] min:5 | max:30 | unique in db | regex:/^[a-zA-Z](?:_?[a-zA-Z0-9]+)*$/
  * @apiParam           {String}  [city]
  * @apiParam           {String}  [province]
  * @apiParam           {text}  [address]

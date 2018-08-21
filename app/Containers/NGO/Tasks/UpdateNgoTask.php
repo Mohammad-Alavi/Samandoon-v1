@@ -49,7 +49,7 @@ class UpdateNgoTask extends Task
                         [
                             'ngo_id' => $ngo->id,
                             'phone_number' => $phone['phone_number'],
-                            'label' => $phone['label'],
+                            'label' => ConvertNGONameFromArabicToPersianTask::arabicToPersian($phone['label']),
                             'ngo_id' => $ngo->id
                         ]
                     );

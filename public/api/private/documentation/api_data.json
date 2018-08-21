@@ -1032,6 +1032,13 @@
             "group": "Parameter",
             "type": "String",
             "optional": true,
+            "field": "public_name",
+            "description": "<p>min:5 | max:30 | unique in db | regex:/^<a href=\"?:_?%5Ba-zA-Z0-9%5D+\">a-zA-Z</a>*$/</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
             "field": "city",
             "description": ""
           },
@@ -1322,7 +1329,7 @@
     "examples": [
       {
         "title": "Example usage:",
-        "content": "api.samandoon.ngo/v1/search/ngo?q=تست",
+        "content": "api.samandoon.ngo/v1/search/ngo?q=انجمن&area_of_activity=بین المللی&subjects=[5,2]&city=آبادان&province=خوزستان",
         "type": "url"
       }
     ],

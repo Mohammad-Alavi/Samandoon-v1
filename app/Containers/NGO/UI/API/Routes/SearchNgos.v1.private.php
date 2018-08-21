@@ -10,7 +10,7 @@
  * @apiVersion         1.0.0
  * @apiPermission      none
  * @apiExample         {url} Example usage:
- * api.samandoon.ngo/v1/search/ngo?q=تست
+ * api.samandoon.ngo/v1/search/ngo?q=انجمن&area_of_activity=بین المللی&subjects=[5,2]&city=آبادان&province=خوزستان
  * @apiUse             NGOSuccessSingleResponse
  */
 
