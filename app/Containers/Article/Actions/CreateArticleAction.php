@@ -3,6 +3,7 @@
 namespace App\Containers\Article\Actions;
 
 use App\Containers\Article\Models\Article;
+use App\Containers\NGO\Tasks\ConvertNGONameFromArabicToPersianTask;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
@@ -22,6 +23,10 @@ class CreateArticleAction extends Action
             'article_image',
             'ngo_id'
         ]);
+
+        if (array_key_exists('text', $sanitizedData)) {
+            $sanitizedData['text'] = ConvertNGONameFromArabicToPersianTask::arabicToPersian($sanitizedData['text']);
+        }
 
         return $this->call('Article@CreateArticleTask', [$sanitizedData]);
     }

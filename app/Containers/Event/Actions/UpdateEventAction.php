@@ -4,6 +4,7 @@ namespace App\Containers\Event\Actions;
 
 use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\Event\Models\Event;
+use App\Containers\NGO\Tasks\ConvertNGONameFromArabicToPersianTask;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
 use Carbon\Carbon;
@@ -38,6 +39,18 @@ class UpdateEventAction extends Action
             'event_image',
             'event_date',
         ]);
+
+        if (array_key_exists('title', $data)) {
+            $data['title'] = ConvertNGONameFromArabicToPersianTask::arabicToPersian($data['title']);
+        }
+
+        if (array_key_exists('description', $data)) {
+            $data['description'] = ConvertNGONameFromArabicToPersianTask::arabicToPersian($data['description']);
+        }
+
+        if (array_key_exists('address', $data)) {
+            $data['address'] = ConvertNGONameFromArabicToPersianTask::arabicToPersian($data['address']);
+        }
 
         return Apiato::call('Event@UpdateEventTask', [$request->id, $data]);
     }

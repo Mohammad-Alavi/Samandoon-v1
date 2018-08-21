@@ -4,6 +4,7 @@ namespace App\Containers\Article\Tasks;
 
 use App\Containers\Article\Models\Article;
 use App\Containers\FCM\Models\UserFCMToken;
+use App\Containers\NGO\Tasks\ConvertNGONameFromArabicToPersianTask;
 use App\Containers\User\Models\User;
 use App\Containers\User\Notifications\CommentedNotification;
 use App\Ship\Exceptions\NotFoundException;
@@ -23,7 +24,7 @@ class CreateCommentTask extends Task
             DB::beginTransaction();
             $comment = $article->comment([
                 'title' => null,
-                'body' => $commentBody,
+                'body' => ConvertNGONameFromArabicToPersianTask::arabicToPersian($commentBody),
             ], $user, $commentParent);
         } catch (\Exception $exception) {
             DB::rollBack();
@@ -71,7 +72,7 @@ class CreateCommentTask extends Task
                     // return Array (key:token, value:errror) - in production you should remove from your database the tokens
                 }
             }
-            
+
             $data = [
                 'comment' => $comment,
                 'ngo' => $article->ngo

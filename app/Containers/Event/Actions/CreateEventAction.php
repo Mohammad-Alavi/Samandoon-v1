@@ -3,6 +3,7 @@
 namespace App\Containers\Event\Actions;
 
 use App\Containers\Event\Models\Event;
+use App\Containers\NGO\Tasks\ConvertNGONameFromArabicToPersianTask;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Parents\Requests\Request;
@@ -37,6 +38,18 @@ class CreateEventAction extends Action
             'event_date',
             'ngo_id'
         ]);
+
+        if (array_key_exists('title', $data)) {
+            $data['title'] = ConvertNGONameFromArabicToPersianTask::arabicToPersian($data['title']);
+        }
+
+        if (array_key_exists('description', $data)) {
+            $data['description'] = ConvertNGONameFromArabicToPersianTask::arabicToPersian($data['description']);
+        }
+
+        if (array_key_exists('address', $data)) {
+            $data['address'] = ConvertNGONameFromArabicToPersianTask::arabicToPersian($data['address']);
+        }
 
         return $this->call('Event@CreateEventTask', [$data]);
     }
