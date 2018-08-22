@@ -16,9 +16,10 @@ class SearchNgosAction extends Action
             'subject',
             'city',
             'province',
+            'limit',
         ]);
 
-        $result = Apiato::call('NGO@SearchNgosTask', [$data]);
+        $result = Apiato::call('NGO@SearchNgosTask', [$data, $data->limit]);
         return $result;
     }
 }

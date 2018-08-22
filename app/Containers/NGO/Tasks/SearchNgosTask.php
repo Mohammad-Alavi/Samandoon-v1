@@ -7,7 +7,7 @@ use App\Ship\Parents\Tasks\Task;
 
 class SearchNgosTask extends Task
 {
-    public function run(array $request)
+    public function run(array $request, $limit = 15)
     {
         $whereFilter = array();
 
@@ -32,9 +32,9 @@ class SearchNgosTask extends Task
         }
 
         if (array_key_exists('q', $request) && $request['q'] != '') {
-            $result = Ngo::Search(ConvertNGONameFromArabicToPersianTask::arabicToPersian($request['q']))->constrain($filtered)->paginate();
+            $result = Ngo::Search(ConvertNGONameFromArabicToPersianTask::arabicToPersian($request['q']))->constrain($filtered)->paginate($limit);
         } else {
-            $result = $filtered->paginate();
+            $result = $filtered->paginate($limit);
         }
 
         return $result;
