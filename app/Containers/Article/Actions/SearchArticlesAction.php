@@ -16,9 +16,8 @@ class SearchArticlesAction extends Action
             'subject',
             'city',
             'province',
-            'limit',
         ]);
 
-        return Apiato::call('Article@SearchArticlesTask', [$sanitizedData, $sanitizedData->limit]);
+        return Apiato::call('Article@SearchArticlesTask', [$sanitizedData, $data->limit]);
     }
 }

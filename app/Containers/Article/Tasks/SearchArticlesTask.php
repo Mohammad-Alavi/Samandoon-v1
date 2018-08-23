@@ -10,7 +10,7 @@ use App\Ship\Transporters\DataTransporter;
 
 class SearchArticlesTask extends Task
 {
-    public function run(array $request, $limit = 15)
+    public function run(array $request, $limit = 10)
     {
         $whereFilter = array();
 
@@ -27,19 +27,25 @@ class SearchArticlesTask extends Task
             }
         }
 
-        $filtered = Ngo::where($whereFilter);
+        $ngos = Ngo::where($whereFilter);
         if (!empty($subjectsArray)) {
-            $filtered->whereHas('subjects', function ($query) use ($subjectsArray) {
+            $ngos->whereHas('subjects', function ($query) use ($subjectsArray) {
                 $query->whereIn('subject_id', $subjectsArray);
             });;
         }
 
-        $filtered = $filtered->articles();
+        $ngos = $ngos->get();
+        $ngoIdArray = [];
+        foreach ($ngos as $ngo) {
+            $ngoIdArray[] = $ngo->id;
+        }
+
+        $articles = Article::whereIn('ngo_id', $ngoIdArray);
 
         if (array_key_exists('q', $request) && $request['q'] != '') {
-            $result = Article::Search(ConvertNGONameFromArabicToPersianTask::arabicToPersian($request['q']))->constrain($filtered)->paginate($limit);
+            $result = Article::Search(ConvertNGONameFromArabicToPersianTask::arabicToPersian($request['q']))->constrain($articles)->paginate($limit);
         } else {
-            $result = $filtered->paginate($limit);
+            $result = $articles->paginate($limit);
         }
 
         return $result;

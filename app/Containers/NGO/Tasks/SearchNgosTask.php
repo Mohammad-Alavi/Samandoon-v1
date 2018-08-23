@@ -7,7 +7,7 @@ use App\Ship\Parents\Tasks\Task;
 
 class SearchNgosTask extends Task
 {
-    public function run(array $request, $limit = 15)
+    public function run(array $request, $limit = 10)
     {
         $whereFilter = array();
 
