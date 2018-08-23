@@ -14,6 +14,8 @@ class SearchEventsTask extends Task
     {
         $whereFilter = array();
         $subjectsArray = [];
+        $isFilteredByNgo = false;
+
         foreach ($request as $key => $value) {
             if ($key == 'area_of_activity') {
                 $whereFilter[] = [$key, '=', $value];
@@ -23,21 +25,23 @@ class SearchEventsTask extends Task
                 $subjectsArray = json_decode($value, true);
             }
         }
-
         // here we get filtered ngos
         $filteredNgos = [];
         if (!empty($subjectsArray) && !empty($whereFilter)) {
             $filteredNgos = Ngo::where($whereFilter)->whereHas('subjects', function ($query) use ($subjectsArray) {
                 $query->whereIn('subject_id', $subjectsArray);
             })->get();
+            $isFilteredByNgo = true;
         }
         if (!empty($subjectsArray) && empty($whereFilter)) {
             $filteredNgos = Ngo::whereHas('subjects', function ($query) use ($subjectsArray) {
                 $query->whereIn('subject_id', $subjectsArray);
             })->get();
+            $isFilteredByNgo = true;
         }
         if (empty($subjectsArray) && !empty($whereFilter)) {
             $filteredNgos = Ngo::where($whereFilter)->get();
+            $isFilteredByNgo = true;
         }
 
         $eventIdArray = [];
@@ -55,7 +59,14 @@ class SearchEventsTask extends Task
             }
         }
 
-        if (!empty($whereFilterEvent)) {
+        if (!empty($whereFilterEvent && $isFilteredByNgo)) {
+            $filteredEvent = Event::where($whereFilterEvent)->whereIn('id', $eventIdArray)->get();
+            foreach ($filteredEvent as $event) {
+                $eventIdArray[] = $event->id;
+            }
+        }
+
+        if (!empty($whereFilterEvent && !$isFilteredByNgo)) {
             $filteredEvent = Event::where($whereFilterEvent)->get();
             foreach ($filteredEvent as $event) {
                 $eventIdArray[] = $event->id;
