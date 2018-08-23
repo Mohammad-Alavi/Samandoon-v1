@@ -2,6 +2,7 @@
 
 namespace App\Containers\Event\Tasks;
 
+use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\Event\Models\Event;
 use App\Containers\NGO\Models\Ngo;
 use App\Containers\NGO\Tasks\ConvertNGONameFromArabicToPersianTask;
@@ -63,12 +64,13 @@ class SearchEventsTask extends Task
 
         $eventIdArray = array_unique($eventIdArray);
 
-        $filteredEvent = Event::whereIn('id', $eventIdArray);
-
+        $filteredEvent2 = Event::whereIn('id', $eventIdArray);
+        if ($filteredEvent2->get()->count() <= 0)
+            $filteredEvent2 = Event::orderBy('created_at', 'asc');
         if (array_key_exists('q', $request) && $request['q'] != '') {
-            $result = Event::Search(ConvertNGONameFromArabicToPersianTask::arabicToPersian($request['q']))->constrain($filteredEvent)->paginate($limit);
+            $result = Event::Search(ConvertNGONameFromArabicToPersianTask::arabicToPersian($request['q']))->constrain($filteredEvent2)->paginate($limit);
         } else {
-            $result = $filteredEvent->paginate($limit);
+            $result = $filteredEvent2->paginate($limit);
         }
 
         return $result;
