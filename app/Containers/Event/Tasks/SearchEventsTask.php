@@ -2,20 +2,19 @@
 
 namespace App\Containers\Event\Tasks;
 
-use Apiato\Core\Foundation\Facades\Apiato;
 use App\Containers\Event\Models\Event;
 use App\Containers\NGO\Models\Ngo;
 use App\Containers\NGO\Tasks\ConvertNGONameFromArabicToPersianTask;
 use App\Ship\Parents\Tasks\Task;
+use Illuminate\Database\Eloquent\Collection;
 
 class SearchEventsTask extends Task
 {
     public function run(array $request, $limit = 10)
     {
-        $whereFilter = array();
+        $whereFilter = [];
         $subjectsArray = [];
-        $isFilteredByNgo = false;
-
+        $result = Collection::class;
         foreach ($request as $key => $value) {
             if ($key == 'area_of_activity') {
                 $whereFilter[] = [$key, '=', $value];
@@ -31,24 +30,14 @@ class SearchEventsTask extends Task
             $filteredNgos = Ngo::where($whereFilter)->whereHas('subjects', function ($query) use ($subjectsArray) {
                 $query->whereIn('subject_id', $subjectsArray);
             })->get();
-            $isFilteredByNgo = true;
         }
         if (!empty($subjectsArray) && empty($whereFilter)) {
             $filteredNgos = Ngo::whereHas('subjects', function ($query) use ($subjectsArray) {
                 $query->whereIn('subject_id', $subjectsArray);
             })->get();
-            $isFilteredByNgo = true;
         }
         if (empty($subjectsArray) && !empty($whereFilter)) {
             $filteredNgos = Ngo::where($whereFilter)->get();
-            $isFilteredByNgo = true;
-        }
-
-        $eventIdArray = [];
-        foreach ($filteredNgos as $ngo) {
-            foreach ($ngo->events as $event) {
-                $eventIdArray[] = $event->id;
-            }
         }
 
         // get city and province for event
@@ -59,31 +48,59 @@ class SearchEventsTask extends Task
             }
         }
 
-        if (!empty($whereFilterEvent && $isFilteredByNgo)) {
-            $filteredEvent = Event::where($whereFilterEvent)->whereIn('id', $eventIdArray)->get();
-            foreach ($filteredEvent as $event) {
-                $eventIdArray[] = $event->id;
+        $eventIdArray = [];
+        // no filter
+        if (empty($filteredNgos) && empty($whereFilterEvent)) {
+            dd(10);
+            if (array_key_exists('q', $request) && $request['q'] != '') {
+                $this->$result = Event::Search(ConvertNGONameFromArabicToPersianTask::arabicToPersian($request['q']))->paginate($limit);
+            }
+            // return all events sorted
+            if (!array_key_exists('q', $request) || (array_key_exists('q', $request) && $request['q'] == '')) {
+                $this->$result = Event::orderBy('created_at', 'desc')->paginate($limit);
+            }
+        } // ngo filter
+        else if (!empty($filteredNgos) && empty($whereFilterEvent)) {
+            // get ID's of events of ngos
+            foreach ($filteredNgos as $ngo) {
+                foreach ($ngo->events as $event) {
+                    $eventIdArray[] = $event->id;
+                }
+            }
+            $filteredEvent = Event::whereIn('id', $eventIdArray);
+
+            if (array_key_exists('q', $request) && $request['q'] != '') {
+                $this->$result = Event::Search(ConvertNGONameFromArabicToPersianTask::arabicToPersian($request['q']))->constrain($filteredEvent)->paginate($limit);
+            }
+            if (!array_key_exists('q', $request) || (array_key_exists('q', $request) && $request['q'] == '')) {
+                $this->$result = $filteredEvent->orderBy('created_at', 'desc')->paginate($limit);
+            }
+        } // event filter
+        else if (empty($filteredNgos) && !empty($whereFilterEvent)) {
+            $filteredEvent = Event::where($whereFilterEvent);
+            if (array_key_exists('q', $request) && $request['q'] != '') {
+                $this->$result = Event::Search(ConvertNGONameFromArabicToPersianTask::arabicToPersian($request['q']))->constrain($filteredEvent)->paginate($limit);
+            }
+            if (!array_key_exists('q', $request) || (array_key_exists('q', $request) && $request['q'] == '')) {
+                $this->$result = $filteredEvent->orderBy('created_at', 'desc')->paginate($limit);;
+            }
+        } // ngo and event filter
+        else if (!empty($filteredNgos) && !empty($whereFilterEvent)) {
+            // get ID's of events of ngos
+            foreach ($filteredNgos as $ngo) {
+                foreach ($ngo->events as $event) {
+                    $eventIdArray[] = $event->id;
+                }
+            }
+            $filteredEvent = Event::whereIn('id', $eventIdArray);
+            $filteredEvent = $filteredEvent->where($whereFilterEvent);
+            if (array_key_exists('q', $request) && $request['q'] != '') {
+                $this->$result = Event::Search(ConvertNGONameFromArabicToPersianTask::arabicToPersian($request['q']))->constrain($filteredEvent)->paginate($limit);
+            }
+            if (!array_key_exists('q', $request) || (array_key_exists('q', $request) && $request['q'] == '')) {
+                $this->$result = $filteredEvent->orderBy('created_at', 'desc')->paginate($limit);
             }
         }
-
-        if (!empty($whereFilterEvent && !$isFilteredByNgo)) {
-            $filteredEvent = Event::where($whereFilterEvent)->get();
-            foreach ($filteredEvent as $event) {
-                $eventIdArray[] = $event->id;
-            }
-        }
-
-        $eventIdArray = array_unique($eventIdArray);
-
-        $filteredEvent2 = Event::whereIn('id', $eventIdArray);
-        if ($filteredEvent2->get()->count() <= 0)
-            $filteredEvent2 = Event::orderBy('created_at', 'asc');
-        if (array_key_exists('q', $request) && $request['q'] != '') {
-            $result = Event::Search(ConvertNGONameFromArabicToPersianTask::arabicToPersian($request['q']))->constrain($filteredEvent2)->paginate($limit);
-        } else {
-            $result = $filteredEvent2->paginate($limit);
-        }
-
-        return $result;
+        return $this->$result;
     }
 }
