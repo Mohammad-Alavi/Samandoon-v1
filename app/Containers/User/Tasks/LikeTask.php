@@ -29,7 +29,10 @@ class LikeTask extends Task
                         if ($user->id == $target->ngo->user->id) {
                             break;
                         }
-                        $user->notifyNow(new LikedNotification($target), ['database']);
+                        $target->ngo->user->notifyNow(new LikedNotification([
+                            'user' => $user,
+                            'article' => $target
+                        ]), ['database']);
                         $optionBuilder = new OptionsBuilder();
                         $optionBuilder->setTimeToLive(60 * 20);
 

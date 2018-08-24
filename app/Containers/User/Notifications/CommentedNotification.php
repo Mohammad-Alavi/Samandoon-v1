@@ -17,31 +17,18 @@ class CommentedNotification extends Notification
         $this->notification = $notification;
     }
 
-    public function toArray($notifiable)
-    {
-        return [
-            'subject' => 'سمندون',
-            'body' => "{$notifiable['user']} برای نوشته شما نظر جدید ثبت کرد",
-            'url' => $notifiable->link
-        ];
-    }
-
     public function via($notifiable)
     {
-        return ['fcm', 'database'];
+        return ['database'];
     }
 
-    public function toFCM($notifiable)
+    public function toDatabase($notifiable)
     {
-//        $optionBuilder = new OptionsBuilder();
-//        $optionBuilder->setTimeToLive(60*20);
-
-        return (new FCMMessage())
-            ->notification([
-                'title' => 'سمندون',
-                'body' => $this->notification['user']->first_name . ' نظر داد: ' . '"' . $this->notification['comment']->body . '"',
-//                'color' => '#664455',
-//                https://firebase.google.com/docs/cloud-messaging/http-server-ref?authuser=1
-            ]);
+        return [
+            'doer_id' => $this->notification['user']['id'],
+            'doer_name' => $this->notification['user']['first_name'],
+            'object_id' => $this->notification['comment']['commentable_id'],
+            'object_text' => $this->notification['comment']['body'],
+        ];
     }
 }

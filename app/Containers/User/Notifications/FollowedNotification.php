@@ -17,31 +17,18 @@ class FollowedNotification extends Notification
         $this->notification = $notification;
     }
 
-    public function toArray($notifiable)
-    {
-        return [
-            'subject' => 'سمندون',
-            'body' => "{$notifiable->first_name} سمن شما را دنبال کرد",
-            'url' => $notifiable->link
-        ];
-    }
-
     public function via($notifiable)
     {
-        return ['fcm', 'database'];
+        return ['database'];
     }
 
-    public function toFCM($notifiable)
+    public function toDatabase($notifiable)
     {
-//        $optionBuilder = new OptionsBuilder();
-//        $optionBuilder->setTimeToLive(60*20);
-
-        return (new FCMMessage())
-            ->notification([
-                'title' => 'سمندون',
-                'body' => $notifiable->first_name . ' سمن شما را دنبال کرد',
-//                'color' => '#664455',
-//                https://firebase.google.com/docs/cloud-messaging/http-server-ref?authuser=1
-            ]);
+        return [
+            'doer_id' => $this->notification->id,
+            'doer_name' => $this->notification->first_name,
+            'object_id' => $notifiable->ngo->id,
+            'object_text' => $notifiable->ngo->name,
+        ];
     }
 }

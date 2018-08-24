@@ -27,7 +27,10 @@ class ToggleLikeTask extends Task
             if ($is_liked = $user->hasLiked($target)) {
                 switch (class_basename($target)) {
                     case 'Article':
-                        $user->notifyNow(new LikedNotification($target), ['database']);
+                        $target->ngo->user->notifyNow(new LikedNotification([
+                            'user' => $user,
+                            'article' => $target
+                        ]), ['database']);
                         $optionBuilder = new OptionsBuilder();
                         $optionBuilder->setTimeToLive(60 * 20);
 
