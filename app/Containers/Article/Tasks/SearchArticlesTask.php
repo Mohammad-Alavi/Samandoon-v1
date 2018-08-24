@@ -45,7 +45,7 @@ class SearchArticlesTask extends Task
         if (array_key_exists('q', $request) && $request['q'] != '') {
             $result = Article::Search(ConvertNGONameFromArabicToPersianTask::arabicToPersian($request['q']))->constrain($articles)->paginate($limit);
         } else {
-            $result = $articles->paginate($limit);
+            $result = $articles->orderBy('created_at', 'desc')->paginate($limit);
         }
 
         return $result;

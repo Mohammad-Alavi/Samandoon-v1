@@ -34,7 +34,7 @@ class SearchNgosTask extends Task
         if (array_key_exists('q', $request) && $request['q'] != '') {
             $result = Ngo::Search(ConvertNGONameFromArabicToPersianTask::arabicToPersian($request['q']))->constrain($filtered)->paginate($limit);
         } else {
-            $result = $filtered->paginate($limit);
+            $result = $filtered->orderBy('created_at', 'desc')->paginate($limit);
         }
 
         return $result;
