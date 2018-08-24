@@ -7,6 +7,9 @@ use App\Ship\Parents\Providers\MainProvider;
 
 
 use Closure;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 use InvalidArgumentException;
 use Illuminate\Database\Query\Expression;
 use Illuminate\Database\Query\Builder as QueryBuilder;
@@ -76,5 +79,15 @@ class MainServiceProvider extends MainProvider
                 throw new InvalidArgumentException;
             }
         });
+
+        if (!Collection::hasMacro('paginate')) {
+            Collection::macro('paginate',
+                function ($perPage = 10, $page = null, $options = []) {
+                    $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+                    return (new LengthAwarePaginator(
+                        $this->forPage($page, $perPage), $this->count(), $perPage, $page, $options))
+                        ->withPath('');
+                });
+        }
     }
 }
