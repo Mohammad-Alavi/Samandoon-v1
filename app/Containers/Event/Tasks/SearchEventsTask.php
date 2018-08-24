@@ -51,7 +51,6 @@ class SearchEventsTask extends Task
         $eventIdArray = [];
         // no filter
         if (empty($filteredNgos) && empty($whereFilterEvent)) {
-            dd(10);
             if (array_key_exists('q', $request) && $request['q'] != '') {
                 $this->$result = Event::Search(ConvertNGONameFromArabicToPersianTask::arabicToPersian($request['q']))->paginate($limit);
             }
