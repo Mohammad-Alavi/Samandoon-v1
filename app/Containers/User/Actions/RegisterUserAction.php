@@ -44,10 +44,10 @@ class RegisterUserAction extends Action
                 $data->birth
             ]);
 
-    //            Mail::send(new UserRegisteredMail($user));
-    //            Notification::send($user, new UserRegisteredNotification($user));
-    //
-    //            App::make(Dispatcher::class)->dispatch(New UserRegisteredEvent($user));
+            Mail::send(new UserRegisteredMail($user));
+            Notification::send($user, new UserRegisteredNotification($user));
+
+            App::make(Dispatcher::class)->dispatch(New UserRegisteredEvent($user));
 
         } catch (\Exception $exception) {
             DB::rollBack();
