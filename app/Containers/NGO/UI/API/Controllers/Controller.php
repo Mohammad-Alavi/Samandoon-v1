@@ -17,6 +17,7 @@ use App\Containers\NGO\UI\API\Requests\KYCPhotoAdminVerificationRequest;
 use App\Containers\NGO\UI\API\Requests\KYCPhotoVerifyRequestRequest;
 use App\Containers\NGO\UI\API\Requests\KYCVerifyRequestRequest;
 use App\Containers\NGO\UI\API\Requests\ListAllNgosRequest;
+use App\Containers\NGO\UI\API\Requests\RequestNgoUpdateRequest;
 use App\Containers\NGO\UI\API\Requests\SearchNgosRequest;
 use App\Containers\NGO\UI\API\Requests\SendKYCPhotoRequest;
 use App\Containers\NGO\UI\API\Requests\UpdateNgoRequest;
@@ -139,6 +140,13 @@ class Controller extends ApiController
     {
         $ngo = Apiato::call('NGO@KYCNgoAdminVerificationAction', [new DataTransporter($request)]);
         $ngo->msg = 'Verification result has been submitted';
+        return $this->transform($ngo, NgoTransformer::class);
+    }
+
+    public function requestNgoUpdate(RequestNgoUpdateRequest $request)
+    {
+        $ngo = Apiato::call('NGO@RequestNgoUpdateAction', [new DataTransporter($request)]);
+        $ngo->msg = 'NGO data has been updated';
         return $this->transform($ngo, NgoTransformer::class);
     }
 }
