@@ -173,7 +173,7 @@ return [
         CyrildeWit\PageViewCounter\PageViewCounterServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
         NotificationChannels\FCM\ServiceProvider::class,
-//        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         /*
          * Application Service Providers...
          *
