@@ -58,7 +58,8 @@
     "mockery/mockery": "0.9.*",
     "phpunit/phpunit": "~6.0",
     "deployer/deployer": "^6.0",
-    "laravel/homestead": "^5.2"
+    "laravel/homestead": "^5.2",
+    "barryvdh/laravel-ide-helper": "2.4.*@dev"
   },
   "autoload": {
     "classmap": [
