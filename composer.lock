@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d46bae8febed8b509872da33f1465c12",
+    "content-hash": "e6fbb826aa5a541daf334c1e8437a6ce",
     "packages": [
         {
             "name": "apiato/containers-installer",
@@ -8563,8 +8563,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "orangehill/iseed": 20,
-        "barryvdh/laravel-ide-helper": 20
+        "orangehill/iseed": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
