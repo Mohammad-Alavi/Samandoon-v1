@@ -63,7 +63,7 @@ class SeedTestingData extends Seeder
                 'registration_unit' => $faker->randomElement(['واحد ثبت چهار', 'واحد ثبت دو', 'واحد ثبت سه', 'واحد ثبت یک']),
                 'user_id' => $user->id,
                 'description' => $faker->text(),
-                'area_of_activity' => $faker->randomElement(['شهرستان', 'استان', 'فرااستان و استان های هم جوار', 'کشوری']),
+                'area_of_activity' => $faker->randomElement(['شهرستان', 'استان', 'بین المللی', 'ملی', 'فرااستان']),
                 'city' => $faker->city,
                 'province' => $faker->city,
             ];
@@ -99,7 +99,7 @@ class SeedTestingData extends Seeder
                     'ngo_id' => $ngo->id,
                 ];
                 $article = Apiato::call('Article@CreateArticleTask', [$articleData]);
-                $article->addMedia(config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.ngo_logo'))->toMediaCollection('article_image');
+                $article->addMedia('/home/admin/domains/smndn.ir/shared/storage' . config('samandoon.default.ngo_logo'))->toMediaCollection('article_image');
                 $z++;
             }
         }
