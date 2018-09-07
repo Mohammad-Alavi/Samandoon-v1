@@ -3,6 +3,7 @@
 namespace App\Containers\Event\Models;
 
 use App\Containers\NGO\Models\NGO;
+use App\Scopes\ExcludeUnconfirmedNgo;
 use App\Ship\Parents\Models\Model;
 use Laravel\Scout\Searchable;
 use Overtrue\LaravelFollow\Traits\CanBeFavorited;
@@ -90,6 +91,13 @@ class Event extends Model implements HasMediaConversions
      * A resource key to be used by the the JSON API Serializer responses.
      */
     protected $resourceKey = 'events';
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new ExcludeUnconfirmedNgo);
+    }
 
     public function ngo(){
         return $this->belongsTo(NGO::class);

@@ -3,6 +3,7 @@
 namespace App\Containers\Article\Models;
 
 use App\Containers\NGO\Models\Ngo;
+use App\Scopes\ExcludeUnconfirmedNgo;
 use App\Ship\Parents\Models\Model;
 use BrianFaust\Commentable\Traits\HasComments;
 use CyrildeWit\PageViewCounter\Traits\HasPageViewCounter;
@@ -87,6 +88,13 @@ class Article extends Model implements HasMediaConversions
      * A resource key to be used by the the JSON API Serializer responses.
      */
     protected $resourceKey = 'articles';
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new ExcludeUnconfirmedNgo);
+    }
 
     public function registerMediaConversions(Media $media = null)
     {
