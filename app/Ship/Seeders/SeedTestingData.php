@@ -10,6 +10,7 @@ use \App\Containers\User\Models\User;
 use App\Ship\Parents\Seeders\Seeder;
 use Faker\Generator as Faker;
 use Illuminate\Support\Facades\Hash;
+use Vinkla\Hashids\Facades\Hashids;
 
 /**
  * Class SeedTestingData
@@ -45,17 +46,18 @@ class SeedTestingData extends Seeder
 
         $fakeNNumber = 1654915498;
         $fakeRNumber = 1654915498;
-        $ngoArray = [];
         // Generate Fake NGO's for Fake Users
+        $ngoArray = [];
         foreach ($userArray as $user) {
             $ngoData = [
                 'name' => $faker->company,
                 'address' => $faker->address,
                 'status' => $faker->randomElement(['فعال', 'غیر فعال']),
-                'confirmed' => $faker->boolean(),
+                'verification_status' => $faker->randomElement(['unverified', 'verified', 'in_progress', 'requested']),
                 'zip_code' => $faker->postcode,
                 'type' => $faker->randomElement(['نوع یک', 'نوع دو', 'نوع سه', 'نوع چهار']),
                 'national_number' => $fakeNNumber--,
+                'public_name' => Hashids::encode($fakeNNumber),
                 'registration_number' => $fakeRNumber++,
                 'registration_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
                 'registration_unit' => $faker->randomElement(['واحد ثبت چهار', 'واحد ثبت دو', 'واحد ثبت سه', 'واحد ثبت یک']),
@@ -68,7 +70,6 @@ class SeedTestingData extends Seeder
             array_push($ngoArray, Apiato::call('NGO@CreateNgoTask', [$ngoData, $user]));
         }
 
-        $eventArray = [];
         // Generate Fake Events for Fake NGO's
         foreach ($ngoArray as $ngo) {
             $y = 0;
@@ -88,16 +89,20 @@ class SeedTestingData extends Seeder
                 $y++;
             }
         }
-            //TODO
-//        foreach ($ngoArray as $ngo) {
-//            $z = 0;
-//            while ($z < 25) {
-//                $articleData = [
-//                    'text' => $faker->text(),
-//                    'ngo_id' => $ngo->id
-//                ];
-//            }
-//        }
+
+        // Generate Fake Events for Fake NGO's
+        foreach ($ngoArray as $ngo) {
+            $z = 0;
+            while ($z < 25) {
+                $articleData = [
+                    'text' => $faker->text(),
+                    'ngo_id' => $ngo->id,
+                ];
+                $article = Apiato::call('Article@CreateArticleTask', [$articleData]);
+                $article->addMedia(config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.ngo_logo'))->toMediaCollection('article_image');
+                $z++;
+            }
+        }
 //        factory(User::class, 50)->create()->each(function ($user) {
 //            $user->ngo()->save(factory(NGO::class)->make());
 ////                    ->each(function ($events){
