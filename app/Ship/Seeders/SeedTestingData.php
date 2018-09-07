@@ -89,7 +89,7 @@ class SeedTestingData extends Seeder
                     'ngo_id' => $ngo->id,
                 ];
                 $article = Apiato::call('Article@CreateArticleTask', [$articleData]);
-                $article->addMedia(storage_path('app/public/default_images/highnoon.jpg'))->toMediaCollection('article_image');
+                $article->addMedia(storage_path('app/public/default_images/highnoon.jpg'))->preservingOriginal()->toMediaCollection('article_image');
                 $z++;
             }
         }
