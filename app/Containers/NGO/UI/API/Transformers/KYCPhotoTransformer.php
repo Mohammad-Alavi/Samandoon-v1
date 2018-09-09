@@ -34,7 +34,7 @@ class KYCPhotoTransformer extends Transformer
             'msg' => $entity->msg,
             'id' => $entity->getHashedKey(),
 //            'file_name' => $entity->file_name,
-            'image' => config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $entity->ngo->getMedia($entity->label)->last()->getUrl()),
+            'image' => config('samandoon.storage_path') . str_replace(config('samandoon.storage_path_replace'), '', $entity->ngo->getMedia($entity->label)->last()->getUrl()),
             'label' => $entity->label,
             'status' => $entity->status,
             'text' => is_null($entity->text) ? '' : $entity->text,

@@ -44,17 +44,17 @@ class NgoTransformer extends Transformer
                 'verification_admin_id' => Hashids::encode($ngo->verification_admin_id),
                 'images' => [
                     'ngo_logo' => empty($ngo->getFirstMediaUrl('ngo_logo')) ?
-                        config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.ngo_logo') :
-                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_logo')),
+                        config('samandoon.storage_path') . config('samandoon.default.ngo_logo') :
+                        config('samandoon.storage_path') . str_replace(config('samandoon.storage_path_replace'), '', $ngo->getFirstMediaUrl('ngo_logo')),
                     'ngo_logo_thumb' => empty($ngo->getFirstMedia('ngo_logo')) ?
-                        config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.ngo_logo_thumb') :
-                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMedia('ngo_logo')->getUrl('logo_thumb')),
+                        config('samandoon.storage_path') . config('samandoon.default.ngo_logo_thumb') :
+                        config('samandoon.storage_path') . str_replace(config('samandoon.storage_path_replace'), '', $ngo->getFirstMedia('ngo_logo')->getUrl('logo_thumb')),
                     'ngo_banner' => empty($ngo->getFirstMediaUrl('ngo_banner')) ?
-                        config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.ngo_banner') :
-                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMediaUrl('ngo_banner')),
+                        config('samandoon.storage_path') . config('samandoon.default.ngo_banner') :
+                        config('samandoon.storage_path') . str_replace(config('samandoon.storage_path_replace'), '', $ngo->getFirstMediaUrl('ngo_banner')),
                     'ngo_banner_thumb' => empty($ngo->getFirstMedia('ngo_banner')) ?
-                        config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.ngo_banner_thumb') :
-                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $ngo->getFirstMedia('ngo_banner')->getUrl('banner_thumb'))
+                        config('samandoon.storage_path') . config('samandoon.default.ngo_banner_thumb') :
+                        config('samandoon.storage_path') . str_replace(config('samandoon.storage_path_replace'), '', $ngo->getFirstMedia('ngo_banner')->getUrl('banner_thumb'))
                 ],
                 'user_id' => $ngo->user ? $ngo->user->getHashedKey() : null,
                 'registration_specification' => [

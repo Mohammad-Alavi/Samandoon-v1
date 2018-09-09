@@ -29,9 +29,9 @@ class ArticleTransformer extends Transformer
                 'text' => $article->text,
                 'image' => [
                     'article_image' => empty($article->getFirstMediaUrl('article_image')) ? null :
-                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $article->getFirstMediaUrl('article_image')),
+                        config('samandoon.storage_path') . str_replace(config('samandoon.storage_path_replace'), '', $article->getFirstMediaUrl('article_image')),
                     'article_image_thumb' => empty($article->getFirstMediaUrl('article_image')) ? null :
-                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $article->getFirstMedia('article_image')->getUrl('thumb')),
+                        config('samandoon.storage_path') . str_replace(config('samandoon.storage_path_replace'), '', $article->getFirstMedia('article_image')->getUrl('thumb')),
                 ],
                 'ngo_id' => $article->ngo->getHashedKey(),
                 'created_at' => $article->created_at,
