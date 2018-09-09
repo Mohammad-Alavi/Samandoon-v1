@@ -2,9 +2,6 @@
 
 namespace App\Containers\NotificationCenter\UI\API\Transformers;
 
-use App\Containers\Article\Models\Article;
-use App\Containers\NGO\UI\API\Transformers\NgoTransformer;
-use App\Containers\User\Models\User;
 use Vinkla\Hashids\Facades\Hashids;
 
 class NotificationTransformer
@@ -17,10 +14,10 @@ class NotificationTransformer
             $response = [
                 'id' => $notification->id,
                 'type' => $notification->type,
-                'doer_id' => Hashids::encode($notification->data['doer_id']),
-                'doer_name' => $notification->data['doer_name'],
-                'object_id' => Hashids::encode($notification->data['object_id']),
-                'object_text' => $notification->data['object_text'],
+                'doer_id' => array_key_exists('doer_id', $notification->data) ? Hashids::encode($notification->data['doer_id']) : null,
+                'doer_name' => array_key_exists('doer_name', $notification->data) ? $notification->data['doer_name'] : null,
+                'object_id' => array_key_exists('object_id', $notification->data) ? Hashids::encode($notification->data['object_id']) : null,
+                'object_text' => array_key_exists('object_text', $notification->data) ? $notification->data['object_text'] : null,
                 'read_at' => $notification->read_at,
                 'created_at' => $notification->created_at,
                 'updated_at' => $notification->updated_at,

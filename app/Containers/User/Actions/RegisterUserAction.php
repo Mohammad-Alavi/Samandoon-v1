@@ -45,7 +45,7 @@ class RegisterUserAction extends Action
             ]);
 
             Mail::send(new UserRegisteredMail($user));
-            Notification::send($user, new UserRegisteredNotification($user));
+            Notification::send($user, new UserRegisteredNotification($user), ['database']);
 
             App::make(Dispatcher::class)->dispatch(New UserRegisteredEvent($user));
 

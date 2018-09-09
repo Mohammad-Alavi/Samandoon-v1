@@ -7,36 +7,37 @@ use App\Ship\Parents\Notifications\Notification;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class UserRegisteredNotification extends Notification implements ShouldQueue
+class UserRegisteredNotification extends Notification
 {
+    protected $notification;
 
-    use Queueable;
-
-    /**
-     * @var  \App\Containers\User\Models\User
-     */
-    protected $user;
-
-    /**
-     * UserRegisteredNotification constructor.
-     *
-     * @param \App\Containers\User\Models\User $user
-     */
-    public function __construct(User $user)
+    public function __construct($notification)
     {
-        $this->user = $user;
+        $this->notification = $notification;
     }
 
-    /**
-     * @param  mixed $notifiable
-     *
-     * @return array
-     */
-    public function toArray($notifiable)
+    public function via($notifiable)
+    {
+        return ['database'];
+    }
+
+    public function toDatabase($notifiable)
     {
         return [
-            // ... do you own customization
+            'doer_id' => $notifiable->id,
+            'doer_name' => $notifiable->first_name,
+            'object_id' => null,
+            'object_text' => null,
         ];
     }
 
+//    public function toArray($notifiable)
+//    {
+//        return [
+//            'doer_id' => $this->notification->id,
+//            'doer_name' => $this->notification->first_name,
+//            'object_id' => $notifiable->ngo->id,
+//            'object_text' => $notifiable->ngo->name,
+//        ];
+//    }
 }
