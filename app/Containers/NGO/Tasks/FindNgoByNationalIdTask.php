@@ -16,13 +16,13 @@ class FindNGOByNationalIdTask extends Task
         $ch = curl_init();
         //Tell cURL that it should only spend 10 seconds
         //trying to connect to the URL in question.
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15);
         //A given cURL operation should only take
         //10 seconds max.
-        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 15);
         curl_setopt($ch, CURLOPT_FAILONERROR, true);
-        curl_setopt($ch, CURLOPT_HEADER, true);    // we want headers
-        curl_setopt($ch, CURLOPT_NOBODY, true);    // we don't need body
+//        curl_setopt($ch, CURLOPT_HEADER, true);    // we want headers
+//        curl_setopt($ch, CURLOPT_NOBODY, true);    // we don't need body
         curl_setopt($ch, CURLOPT_URL, 'http://irsherkat.ssaa.ir/hndlr/GeneralHandler.ashx?Id=34');
         curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -32,10 +32,10 @@ class FindNGOByNationalIdTask extends Task
         $curlErrno = curl_errno($ch);
         curl_close($ch);
         $result = json_decode($output, true);
-            throw_if(empty($result['ResultList']['0']['NationalCode']), NotFoundException::class, 'NGO not found');
         if ($curlErrno) {
             throw new \Exception($curlError, $curlErrno);
         } else {
+            throw_if((is_null($result['ResultList']['0']['NationalCode'])), NotFoundException::class, 'NGO not found or network connection is slow');
             return $result;
         }
     }
