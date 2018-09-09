@@ -2,6 +2,7 @@
 
 namespace App\Containers\NGO\Tasks;
 
+use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Tasks\Task;
 
 class FindNGOByNationalIdTask extends Task
@@ -31,7 +32,7 @@ class FindNGOByNationalIdTask extends Task
         $curlErrno = curl_errno($ch);
         curl_close($ch);
         $result = json_decode($output, true);
-//        if (empty($result['ResultList']['0']['NationalCode'])) {
+            throw_if(empty($result['ResultList']['0']['NationalCode']), NotFoundException::class, 'NGO not found');
         if ($curlErrno) {
             throw new \Exception($curlError, $curlErrno);
         } else {
