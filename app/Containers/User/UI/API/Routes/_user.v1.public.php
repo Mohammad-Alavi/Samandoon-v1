@@ -18,6 +18,7 @@ HTTP/1.1 200 OK
                 "avatar_thumb": "http://api.samandoon.local/v1/storage/5/conversions/thumb.jpg"
             },
             "confirmed": false,
+            "is_admin": false,
             "gender": null,
             "birth": null,
             "province": null,

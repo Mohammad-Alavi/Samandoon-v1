@@ -55,6 +55,7 @@ class UserTransformer extends Transformer
                         config('samandoon.storage_path') . str_replace(config('samandoon.storage_path_replace'), '', $user->getFirstMedia('avatar')->getUrl('thumb')),
                 ],
                 'confirmed' => $user->confirmed,
+                'is_admin'  => !$user->is_client,
                 'gender' => $user->gender,
                 'birth' => $user->birth,
                 'ngo_id' => $user->ngo->id ? $user->ngo->getHashedKey() : null,
