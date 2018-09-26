@@ -41,13 +41,23 @@ class SettingsDefaultSettingsSeeder extends Seeder
         $settings->save();
 
         $settings = new Setting();
-        $settings->key = 'least_android_version';
-        $settings->value = 1000;
+        $settings->key = 'least_android_version_code';
+        $settings->value = 100;
         $settings->save();
 
         $settings = new Setting();
-        $settings->key = 'current_android_version';
+        $settings->key = 'least_android_version_name';
+        $settings->value = "14.21.36.100";
+        $settings->save();
+
+        $settings = new Setting();
+        $settings->key = 'current_android_version_code';
         $settings->value = 500;
+        $settings->save();
+
+        $settings = new Setting();
+        $settings->key = 'current_android_version_name';
+        $settings->value = "18.16.24.500";
         $settings->save();
 
         $settings = new Setting();
