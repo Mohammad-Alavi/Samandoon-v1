@@ -8,7 +8,7 @@
  * @apiDescription     Get All settings for the application
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated
+ * @apiPermission      none
  *
  * @apiSuccessExample  {json}  Success-Response:
  * HTTP/1.1 200 OK
@@ -34,7 +34,7 @@
 $router->get('settings', [
     'as' => 'api_settings_get_all_settings',
     'uses'  => 'Controller@getAllSettings',
-    'middleware' => [
-      'auth:api',
-    ],
+//    'middleware' => [
+//      'auth:api',
+//    ],
 ]);
