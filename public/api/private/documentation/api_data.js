@@ -2355,7 +2355,7 @@ define({ "api": [
     "version": "1.0.0",
     "permission": [
       {
-        "name": "Authenticated"
+        "name": "none"
       }
     ],
     "success": {
