@@ -2362,7 +2362,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"current_android_version\": 500,\n    \"current_ios_version\": 500,\n    \"in_maintance_mode_message\": \"برنامه نویسان مشغول کارند!\",\n    \"is_in_maintance_mode\": true,\n    \"is_login_allowed\": true,\n    \"is_new_article_allowed\": true,\n    \"is_new_event_allowed\": true,\n    \"is_ngo_creation_allowed\": true,\n    \"is_payment_allowed\": true,\n    \"is_registration_allowed\": true,\n    \"least_android_version\": 1000,\n    \"least_ios_version\": 1000,\n    \"update_android_url\": \"www.google.com\",\n    \"update_ios_url\": \"www.google.com\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"current_android_version_code\": 500,\n    \"current_android_version_name\": \"25.21.2.657\",\n    \"current_ios_version\": 500,\n    \"in_maintance_mode_message\": \"برنامه نویسان مشغول کارند!\",\n    \"is_in_maintance_mode\": true,\n    \"is_login_allowed\": true,\n    \"is_new_article_allowed\": true,\n    \"is_new_event_allowed\": true,\n    \"is_ngo_creation_allowed\": true,\n    \"is_payment_allowed\": true,\n    \"is_registration_allowed\": true,\n    \"least_android_version_code\": 1000,\n    \"least_android_version_name\": \"12.2.14.221\",\n    \"least_ios_version\": 1000,\n    \"update_android_url\": \"www.google.com\",\n    \"update_ios_url\": \"www.google.com\"\n}",
           "type": "json"
         }
       ]
