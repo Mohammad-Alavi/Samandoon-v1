@@ -27,7 +27,7 @@ class CreateArticleNotification extends Notification
             'doer_id' => $this->notification['ngo']['id'],
             'doer_name' => $this->notification['ngo']['name'],
             'object_id' => $this->notification['article']['id'],
-            'object_text' => $this->notification['article']['text'],
+            'object_text' => $this->notification['article']['title'],
         ];
     }
 }

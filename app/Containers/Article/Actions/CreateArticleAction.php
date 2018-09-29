@@ -19,6 +19,7 @@ class CreateArticleAction extends Action
         $data->ngo_id = $ngo->id;
 
         $sanitizedData = $data->sanitizeInput([
+            'title',
             'text',
             'article_image',
             'ngo_id'
@@ -26,6 +27,9 @@ class CreateArticleAction extends Action
 
         if (array_key_exists('text', $sanitizedData)) {
             $sanitizedData['text'] = ConvertNGONameFromArabicToPersianTask::arabicToPersian($sanitizedData['text']);
+        }
+        if (array_key_exists('title', $sanitizedData)) {
+            $sanitizedData['title'] = ConvertNGONameFromArabicToPersianTask::arabicToPersian($sanitizedData['title']);
         }
 
         return $this->call('Article@CreateArticleTask', [$sanitizedData]);

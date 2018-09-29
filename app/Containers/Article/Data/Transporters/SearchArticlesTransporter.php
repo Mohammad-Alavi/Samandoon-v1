@@ -14,6 +14,7 @@ class SearchArticlesTransporter extends Transporter
         'type' => 'object',
         'properties' => [
             // enter all properties here
+            'title',
             'text',
             'ngo_id'
             // allow for undefined properties

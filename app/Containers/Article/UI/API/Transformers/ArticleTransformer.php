@@ -26,6 +26,7 @@ class ArticleTransformer extends Transformer
             'object' => [
                 'object' => 'Article',
                 'id' => $article->getHashedKey(),
+                'title' => $article->title,
                 'text' => $article->text,
                 'image' => [
                     'article_image' => empty($article->getFirstMediaUrl('article_image')) ? null :

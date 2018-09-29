@@ -15,10 +15,14 @@ class UpdateArticleAction extends Action
         Apiato::call('Article@FindArticleByIdTask', [$request->id]);
 
         $sanitizedData = $request->sanitizeInput([
+            'title',
             'text',
             'article_image'
         ]);
 
+        if (array_key_exists('title', $sanitizedData)) {
+            $sanitizedData['title'] = ConvertNGONameFromArabicToPersianTask::arabicToPersian($sanitizedData['title']);
+        }
         if (array_key_exists('text', $sanitizedData)) {
             $sanitizedData['text'] = ConvertNGONameFromArabicToPersianTask::arabicToPersian($sanitizedData['text']);
         }
