@@ -10,6 +10,7 @@ HTTP/1.1 200 OK
         "object": {
         "object": "Article",
             "id": "3mjzyg5dp5a0vwp6",
+            "title": "Article title",
             "text": "Some random texts and description for nealy created Article",
             "image": {
                 "article_image": "http://api.samandoon.local/v1/storage/8/pepeWallpepeR.jpg",

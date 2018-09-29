@@ -46,8 +46,8 @@ class CommentTransformer
                 'last_name' => $creatorData->last_name,
                 'images' => [
                     'avatar_thumb' => empty($creatorData->getFirstMediaUrl('avatar')) ?
-                        config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.avatar_thumb') :
-                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $creatorData->getFirstMedia('avatar')->getUrl('thumb')),
+                        config('samandoon.storage_path') . config('samandoon.default.avatar_thumb') :
+                        config('samandoon.storage_path') . str_replace(config('samandoon.storage_path_replace'), '', $creatorData->getFirstMedia('avatar')->getUrl('thumb')),
                 ],
                 'ngo_data' => [
                     'ngo_id' => $creatorData->ngo->id ? $creatorData->ngo->getHashedKey() : null,

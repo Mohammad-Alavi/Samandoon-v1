@@ -34,7 +34,7 @@ class CreateNgoTask extends Task
             $authenticated_user->save();
         } catch (Exception $e) {
             DB::rollBack();
-            throw new CreateResourceFailedException('Failed to create new NGO.');
+            throw new CreateResourceFailedException($e->getMessage());
         } finally {
             DB::commit();
         }

@@ -3,6 +3,7 @@
 namespace App\Containers\Article\Models;
 
 use App\Containers\NGO\Models\Ngo;
+use App\Scopes\ExcludeUnconfirmedNgo;
 use App\Ship\Parents\Models\Model;
 use BrianFaust\Commentable\Traits\HasComments;
 use CyrildeWit\PageViewCounter\Traits\HasPageViewCounter;
@@ -36,6 +37,8 @@ use Spatie\MediaLibrary\Media;
  * @property-read \Illuminate\Database\Eloquent\Collection|\CyrildeWit\EloquentViewable\View[] $views
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article orderByUniqueViewsCount($direction = 'desc')
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article orderByViewsCount($direction = 'desc')
+ * @property string|null $title
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Containers\Article\Models\Article whereTitle($value)
  */
 class Article extends Model implements HasMediaConversions
 {
@@ -51,6 +54,7 @@ class Article extends Model implements HasMediaConversions
     {
         $array = [
             'id' => $this->id,
+            'title' => $this->title,
             'text' => $this->text,
         ];
 
@@ -62,6 +66,7 @@ class Article extends Model implements HasMediaConversions
     protected $appends = ['page_views'];
 
     protected $fillable = [
+        'title',
         'text',
         'ngo_id'
     ];
@@ -87,6 +92,13 @@ class Article extends Model implements HasMediaConversions
      * A resource key to be used by the the JSON API Serializer responses.
      */
     protected $resourceKey = 'articles';
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new ExcludeUnconfirmedNgo);
+    }
 
     public function registerMediaConversions(Media $media = null)
     {

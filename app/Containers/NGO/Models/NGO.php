@@ -5,6 +5,7 @@ namespace App\Containers\NGO\Models;
 use App\Containers\Article\Models\Article;
 use App\Containers\Event\Models\Event;
 use App\Containers\User\Models\User;
+use App\Scopes\ExcludeUnconfirmedNgo;
 use App\Ship\Parents\Models\Model;
 use Conner\Tagging\Taggable;
 use Illuminate\Support\Facades\DB;
@@ -132,6 +133,13 @@ class Ngo extends Model implements HasMediaConversions
         'created_at',
         'updated_at',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new ExcludeUnconfirmedNgo);
+    }
 
     public function user()
     {

@@ -48,13 +48,14 @@ class UserTransformer extends Transformer
                 'email' => $user->email,
                 'images' => [
                     'avatar' => empty($user->getFirstMediaUrl('avatar')) ?
-                        config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.avatar') :
-                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $user->getFirstMediaUrl('avatar')),
+                        config('samandoon.storage_path') . config('samandoon.default.avatar') :
+                        config('samandoon.storage_path') . str_replace(config('samandoon.storage_path_replace'), '', $user->getFirstMediaUrl('avatar')),
                     'avatar_thumb' => empty($user->getFirstMediaUrl('avatar')) ?
-                        config('samandoon.api_url') . '/v1/storage' . config('samandoon.default.avatar_thumb') :
-                        config('samandoon.api_url') . '/v1' . str_replace(str_replace('http://', '', config('app.url')), '', $user->getFirstMedia('avatar')->getUrl('thumb')),
+                        config('samandoon.storage_path') . config('samandoon.default.avatar_thumb') :
+                        config('samandoon.storage_path') . str_replace(config('samandoon.storage_path_replace'), '', $user->getFirstMedia('avatar')->getUrl('thumb')),
                 ],
                 'confirmed' => $user->confirmed,
+                'is_admin'  => !$user->is_client,
                 'gender' => $user->gender,
                 'birth' => $user->birth,
                 'ngo_id' => $user->ngo->id ? $user->ngo->getHashedKey() : null,

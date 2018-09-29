@@ -9,6 +9,7 @@ class ArticleRepository extends Repository
 
     protected $fieldSearchable = [
         'id' => '=',
+        'title' => '='
     ];
 
 }
