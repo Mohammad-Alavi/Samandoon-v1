@@ -32,7 +32,7 @@ class SettingsDefaultSettingsSeeder extends Seeder
 
         $settings = new Setting();
         $settings->key = 'is_in_maintance_mode';
-        $settings->value = 'true';
+        $settings->value = 'false';
         $settings->save();
 
         $settings = new Setting();
@@ -42,7 +42,7 @@ class SettingsDefaultSettingsSeeder extends Seeder
 
         $settings = new Setting();
         $settings->key = 'least_android_version_code';
-        $settings->value = 100;
+        $settings->value = 1;
         $settings->save();
 
         $settings = new Setting();
