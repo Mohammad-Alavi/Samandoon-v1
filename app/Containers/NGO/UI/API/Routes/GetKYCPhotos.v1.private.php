@@ -12,7 +12,7 @@
  * "invalid" = photo is checked by admins and has NOT been verified.
  *
  * @apiVersion         1.0.0
- * @apiPermission      Authenticated
+ * @apiPermission      Admin
  *
  * @apiUse             KYCSuccessSingleResponse
  */
