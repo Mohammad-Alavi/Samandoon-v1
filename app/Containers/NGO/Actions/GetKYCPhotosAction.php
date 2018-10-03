@@ -11,6 +11,7 @@ class GetKYCPhotosAction extends Action
     public function run(DataTransporter $transporter)
     {
         $ngo = Apiato::call('NGO@FindNgoByIdTask', [$transporter->ngo_id]);
+        Apiato::call('NGO@CheckHasAccessToNgoTask', [$ngo]);
 
         $kycPhotos = Apiato::call('NGO@GetKYCPhotosTask', [$ngo]);
         return $kycPhotos;
