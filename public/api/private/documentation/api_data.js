@@ -1191,7 +1191,7 @@ define({ "api": [
     "version": "1.0.0",
     "permission": [
       {
-        "name": "Admin"
+        "name": "Owner| Admin"
       }
     ],
     "filename": "app/Containers/NGO/UI/API/Routes/GetKYCPhotos.v1.private.php",
