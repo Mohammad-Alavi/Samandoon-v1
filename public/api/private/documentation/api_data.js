@@ -95,6 +95,13 @@ define({ "api": [
             "optional": false,
             "field": "judgment",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "text",
+            "optional": false,
+            "field": "text",
+            "description": ""
           }
         ]
       }

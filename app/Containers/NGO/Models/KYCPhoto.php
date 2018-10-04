@@ -35,7 +35,8 @@ class KYCPhoto extends Model
         'label',
         'status',
         'ngo_id',
-        'admin_id'
+        'admin_id',
+        'text'
     ];
 
     protected $attributes = [

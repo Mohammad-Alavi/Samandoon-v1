@@ -12,7 +12,7 @@ class KYCPhotoAdminVerificationAction extends Action
     public function run(DataTransporter $transporter)
     {
         $processing_admin = Auth::user();
-        $kycPhoto = Apiato::call('NGO@KYCPhotoAdminVerificationTask', [$transporter->photo_id, $transporter->judgment, $processing_admin]);
+        $kycPhoto = Apiato::call('NGO@KYCPhotoAdminVerificationTask', [$transporter->photo_id, $transporter->judgment, $transporter->text, $processing_admin]);
         return $kycPhoto;
     }
 }

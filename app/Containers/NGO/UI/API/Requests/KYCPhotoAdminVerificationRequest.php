@@ -55,7 +55,8 @@ class KYCPhotoAdminVerificationRequest extends Request
             'judgment' => 'required|in:' .
                 config('samandoon.kyc_photo_status.invalid') . ',' .
                 config('samandoon.kyc_photo_status.verified') . ',' .
-                config('samandoon.kyc_photo_status.sent')
+                config('samandoon.kyc_photo_status.sent'),
+            'text' => 'required'
         ];
     }
 

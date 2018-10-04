@@ -18,7 +18,7 @@ class KYCPhotoAdminVerificationTask extends Task
         $this->repository = $repository;
     }
 
-    public function run($id, $judgment, $processing_admin)
+    public function run($id, $judgment, $text, $processing_admin)
     {
         try {
             $kycPhoto = $this->repository->find($id);
@@ -31,7 +31,8 @@ class KYCPhotoAdminVerificationTask extends Task
 
             $kycPhotoUpdated = $this->repository->update([
                 'status' => $judgment,
-                'admin_id' => $processing_admin->id
+                'text' => $text,
+                'admin_id' => $processing_admin->id,
             ], $id);
         } catch (Exception $exception) {
             DB::rollBack();

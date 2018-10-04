@@ -11,6 +11,7 @@
  * @apiPermission      Authenticated | Admin
  *
  * @apiParam           {string="invalid", "verified", "sent"}  judgment
+ * @apiParam           {text} text
  * @apiUse             KYCSuccessSingleResponse
  */
 $router->put('ngo/kyc/photo/{photo_id}', [
