@@ -34,6 +34,10 @@ class SendKYCPhotoTask extends Task
                 ->usingFileName($KYCPhoto->file_name . '.' . $data->image->getClientOriginalExtension())
                 ->toMediaCollection($data->label);
 
+            // change ngo verification status to unverified
+            $ngo->verification_status = config('samandoon.ngo_verification_status.unverified');
+            $ngo->save();
+
         } catch (Exception $exception) {
             DB::rollBack();
             throw new CreateResourceFailedException($exception->getMessage());
