@@ -11,12 +11,11 @@
  * @apiPermission      Authenticated User / Owner
  *
  * @apiParam           {string} title max:255
- * @apiParam           {text} [description]
- * @apiParam           {image} [event_image]
+ * @apiParam           {image} event_image
  * @apiParam           {dateTime} event_date date_format:YmdHiT
  * @apiParam           {string} city
  * @apiParam           {string} province
- * @apiParam           {string} [address]
+ * @apiParam           {string} address
  * @apiParam           {numeric} [lat] latitude
  * @apiParam           {numeric} [long] longitude
  *

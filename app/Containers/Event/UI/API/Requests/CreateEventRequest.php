@@ -47,9 +47,9 @@ class CreateEventRequest extends Request
             'title' => 'required|max:255',
             'city' => 'required|exists:locations,name',
             'province' => 'required|exists:locations,name',
-            'address' => 'max:255',
+            'address' => 'max:255|required',
             'event_date'    =>  'required|date_format:YmdHiT',
-            'event_image'    =>  'image',
+            'event_image'    =>  'image|required',
             'lat'    =>  'numeric',
             'long'    =>  'numeric',
         ];
