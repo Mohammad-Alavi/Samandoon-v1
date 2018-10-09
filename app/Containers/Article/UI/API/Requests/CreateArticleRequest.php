@@ -46,7 +46,7 @@ class CreateArticleRequest extends Request
         return [
             'title' => 'required',
             'text' => 'required',
-            'article_image' => 'image'
+            'article_image' => 'image|required'
         ];
     }
 

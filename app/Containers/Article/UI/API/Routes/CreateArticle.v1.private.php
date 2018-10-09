@@ -10,8 +10,9 @@
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated
  *
+ * @apiParam           {title}  string (required)
  * @apiParam           {text}  text (required)
- * @apiParam           {image}  article_image (optional)
+ * @apiParam           {image}  article_image (required)
  *
  * @apiUse             ArticleSuccessSingleResponse
 */
