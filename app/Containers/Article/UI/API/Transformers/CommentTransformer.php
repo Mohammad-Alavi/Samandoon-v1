@@ -9,7 +9,7 @@ use Vinkla\Hashids\Facades\Hashids;
 
 class CommentTransformer
 {
-    private function responseCreator($comment, $creatorData, $ngo)
+    private function responseCreator($comment, User $creatorData, $ngo)
     {
 //
 //        $currentUser = auth('api')->user();
@@ -52,7 +52,9 @@ class CommentTransformer
                 'ngo_data' => [
                     'ngo_id' => $creatorData->ngo->id ? $creatorData->ngo->getHashedKey() : null,
                     'name' => $creatorData->ngo->id ? $creatorData->ngo->name : null,
-                    'confirmed' => $creatorData->ngo->id ? $creatorData->ngo->confirmed : null,
+                    'confirmed' => $creatorData->ngo->id ?
+                        $creatorData->ngo->verification_status !== config('samandoon.ngo_verification_status.verified') ? false : true
+                        : null,
                 ]
             ],
 //            'can_delete' => $can_delete,
