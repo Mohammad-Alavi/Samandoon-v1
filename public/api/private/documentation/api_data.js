@@ -136,6 +136,13 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
+            "type": "title",
+            "optional": false,
+            "field": "string",
+            "description": "<p>(required)</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "text",
             "optional": false,
             "field": "text",
@@ -146,7 +153,7 @@ define({ "api": [
             "type": "image",
             "optional": false,
             "field": "article_image",
-            "description": "<p>(optional)</p>"
+            "description": "<p>(required)</p>"
           }
         ]
       }
@@ -539,15 +546,8 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "text",
-            "optional": true,
-            "field": "description",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
             "type": "image",
-            "optional": true,
+            "optional": false,
             "field": "event_image",
             "description": ""
           },
@@ -575,7 +575,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "string",
-            "optional": true,
+            "optional": false,
             "field": "address",
             "description": ""
           },
