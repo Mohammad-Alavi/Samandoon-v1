@@ -11,7 +11,6 @@ HTTP/1.1 200 OK
             "object": "Event",
             "id": "oj64bp5zjl8ywzn0",
             "title": "پشم تست",
-            "description": "Some event description",
             "image": {
                 "event_image": "http://api.samandoon.local/v1/storage/7/pepeWallpepeR.jpg",
                 "event_image_thumb": "http://api.samandoon.local/v1/storage/7/conversions/thumb.jpg"
