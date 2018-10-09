@@ -30,7 +30,7 @@ class UpdateEventAction extends Action
 
         $data = $request->sanitizeInput([
             'title',
-            'description',
+//            'description',
             'city',
             'province',
             'address',

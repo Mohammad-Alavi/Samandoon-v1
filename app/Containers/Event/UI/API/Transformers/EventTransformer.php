@@ -30,7 +30,7 @@ class EventTransformer extends Transformer
                 'object' => 'Event',
                 'id' => $event->getHashedKey(),
                 'title' => $event->title,
-                'description' => $event->description,
+//                'description' => $event->description,
                 'image' => [
                     'event_image' => empty($event->getFirstMediaUrl('event_image')) ? null :
                         config('samandoon.storage_path') . str_replace(config('samandoon.storage_path_replace'), '', $event->getFirstMediaUrl('event_image')),
