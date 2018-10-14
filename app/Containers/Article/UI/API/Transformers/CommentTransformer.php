@@ -52,6 +52,7 @@ class CommentTransformer
                 'ngo_data' => [
                     'ngo_id' => $creatorData->ngo->id ? $creatorData->ngo->getHashedKey() : null,
                     'name' => $creatorData->ngo->id ? $creatorData->ngo->name : null,
+                    'public_name' => $creatorData->ngo->id ? $creatorData->ngo->public_name : null,
                     'confirmed' => $creatorData->ngo->id ?
                         $creatorData->ngo->verification_status !== config('samandoon.ngo_verification_status.verified') ? false : true
                         : null,
