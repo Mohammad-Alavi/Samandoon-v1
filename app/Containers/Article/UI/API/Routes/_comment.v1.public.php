@@ -24,6 +24,7 @@ HTTP/1.1 200 OK
                     "ngo_data": {
                         "ngo_id": "kjeonp5eordqzvb8",
                         "name": "روستائي راشته",
+                        "public_name": "hamta",
                         "confirmed": false
                     }
                 },
