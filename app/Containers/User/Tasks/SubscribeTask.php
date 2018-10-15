@@ -35,7 +35,7 @@ class SubscribeTask extends Task
 
             $notificationBuilder = new PayloadNotificationBuilder('سمندون');
             $notificationBuilder->setBody('[' . $user->first_name . ']' . ' سمن شما را دنبال کرد')
-                ->setSound('default')->setIcon('notification_icon_follow')->setColor('#2195f1');
+                ->setSound('default');
 
             $dataBuilder = new PayloadDataBuilder();
             $dataBuilder->addData(['a_data' => 'my_data']);

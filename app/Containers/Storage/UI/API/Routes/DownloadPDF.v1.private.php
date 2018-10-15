@@ -8,7 +8,7 @@
  * @apiDescription     Generate Timeline PDF and return as file to download
  *
  * @apiVersion         1.0.0
- * @apiPermission      none
+ * @apiPermission      Authenticated
  *
  */
 

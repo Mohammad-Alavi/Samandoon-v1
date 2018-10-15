@@ -36,7 +36,7 @@ class ToggleLikeTask extends Task
 
                         $notificationBuilder = new PayloadNotificationBuilder('سمندون');
                         $notificationBuilder->setBody('[' . $user->first_name . ']' . ' نوشته شما را پسندید')
-                            ->setSound('default')->setIcon('notification_icon_like')->setColor('#2195f1');
+                            ->setSound('default');
 
                         $dataBuilder = new PayloadDataBuilder();
                         $dataBuilder->addData(['a_data' => 'my_data']);
