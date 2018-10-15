@@ -48,7 +48,7 @@ class KYCNgoAdminVerificationTask extends Task
 
                 $notificationBuilder = new PayloadNotificationBuilder('سمندون');
                 $notificationBuilder->setBody('[' . $ngo->user->first_name . ']' . ' سمن شما تایید شد ')
-                    ->setSound('default');
+                    ->setSound('default')->setIcon('notification_icon_confirmation');
 
                 $dataBuilder = new PayloadDataBuilder();
                 $dataBuilder->addData(['a_data' => 'my_data']);

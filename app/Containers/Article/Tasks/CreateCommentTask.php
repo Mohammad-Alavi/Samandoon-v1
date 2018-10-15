@@ -42,7 +42,7 @@ class CreateCommentTask extends Task
 
                 $notificationBuilder = new PayloadNotificationBuilder('سمندون');
                 $notificationBuilder->setBody('[' . $user->first_name . ']' . ' نظر داد: ' . '"' . $comment->body . '"')
-                    ->setSound('default');
+                    ->setSound('default')->setIcon('notification_icon_comment');
 
                 $dataBuilder = new PayloadDataBuilder();
                 $dataBuilder->addData(['a_data' => 'my_data']);
