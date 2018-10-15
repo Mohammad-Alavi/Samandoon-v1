@@ -2638,7 +2638,7 @@
     "group": "Storage",
     "name": "downloadPDF",
     "type": "GET",
-    "url": "/v1/generate/pdf",
+    "url": "/v1/timeline/pdf",
     "title": "Generate Timeline PDF",
     "description": "<p>Generate Timeline PDF and return as file to download</p>",
     "version": "1.0.0",
