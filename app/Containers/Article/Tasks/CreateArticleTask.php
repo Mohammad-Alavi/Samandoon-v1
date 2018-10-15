@@ -55,7 +55,7 @@ class CreateArticleTask extends Task
 
             $notificationBuilder = new PayloadNotificationBuilder('سمندون');
             $notificationBuilder->setBody('سمن' . '"' . $article->ngo->name . '"' . ' یک نوشته جدید ارسال کرد ')
-                ->setSound('default')->setIcon('notification_icon_article');
+                ->setSound('default')->setIcon('notification_icon_article')->setColor('#2195f1');
 
             $dataBuilder = new PayloadDataBuilder();
             $dataBuilder->addData(['a_data' => 'my_data']);

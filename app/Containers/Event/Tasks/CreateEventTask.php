@@ -47,7 +47,7 @@ class CreateEventTask extends Task
 
             $notificationBuilder = new PayloadNotificationBuilder('سمندون');
             $notificationBuilder->setBody('سمن' . '"' . $event->ngo->name . '"' . ' یک رخداد جدید ارسال کرد ')
-                ->setSound('default')->setIcon('notification_icon_event');
+                ->setSound('default')->setIcon('notification_icon_event')->setColor('#2195f1');
 
             $dataBuilder = new PayloadDataBuilder();
             $dataBuilder->addData(['a_data' => 'my_data']);
