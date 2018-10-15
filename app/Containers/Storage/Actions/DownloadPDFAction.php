@@ -11,7 +11,7 @@ class DownloadPDFAction extends Action
 {
     public function run(Request $request)
     {
-        $ngo = Apiato::call('NGO@FindNgoByIdTask', [Auth::user()->ngo()->id]);
+        $ngo = Apiato::call('NGO@FindNgoByIdTask', [Auth::user()->ngo_id]);
         Apiato::call('NGO@CheckHasAccessToNgoTask', [$ngo]);
         $file = Apiato::call('Storage@DownloadPDFTask', [$request]);
         return $file;

@@ -9,10 +9,9 @@ use PDF;
 
 class DownloadPDFTask extends Task
 {
-    public function run($request)
+    public function run($ngo)
     {
 //        $ngo = User::find(2)->ngo()->first();
-        $ngo = Auth::user()->ngo();
         $pdf = PDF::loadView('ngo::timeline-pdf', ['ngo' => $ngo]);
         return $pdf;
     }
