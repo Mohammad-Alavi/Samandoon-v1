@@ -19,9 +19,11 @@ class ExcludeUnconfirmedNgo implements Scope
             });
         }
 
-        if (class_basename($model) == 'Ngo' )
-        {
-//            dd('ngo');
+        if (class_basename($model) == 'Ngo') {
+            $builder->where('verification_status', config('samandoon.ngo_verification_status.verified'))->orWhere(function ($query) {
+                $query->whereNotIn('verification_status', [config('samandoon.ngo_verification_status.verified')])
+                    ->Where('user_id', auth('api')->id());
+            });
         }
     }
 }
