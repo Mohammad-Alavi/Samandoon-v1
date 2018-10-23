@@ -29,6 +29,12 @@ class KYCNgoAdminVerificationTask extends Task
         try {
             DB::beginTransaction();
 
+            foreach ($ngo->kycPhotos() as $kycPhoto) {
+                trow_if(
+                    (!empty($kycPhoto->status) && $kycPhoto->status !== config('samandoon.kyc_photo_status.verified')),
+                    CreateResourceFailedException::class, 'All kyc photos should be verified before admin can verify ngo');
+            }
+
             $ngoUpdated = $this->repository->update([
                 'verification_status' => $judgment,
                 'verification_admin_id' => $processing_admin->id
