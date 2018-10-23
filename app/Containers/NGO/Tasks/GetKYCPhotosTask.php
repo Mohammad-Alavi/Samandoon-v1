@@ -7,7 +7,7 @@ use App\Ship\Parents\Tasks\Task;
 
 class GetKYCPhotosTask extends Task
 {
-    public function run($ngo) : KYCPhoto
+    public function run($ngo)
     {
         $kycPhotos1 = KYCPhoto::whereNgoId($ngo->id)->where(['label' => config('samandoon.kyc_photo_labels.identity_paper')])->latest()->limit(1)->get();
         $kycPhotos2 = KYCPhoto::whereNgoId($ngo->id)->where(['label' => config('samandoon.kyc_photo_labels.national_card_side_one')])->latest()->limit(1)->get();
