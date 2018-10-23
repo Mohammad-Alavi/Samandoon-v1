@@ -20,7 +20,7 @@ class FindNgoByIdTask extends Task
     public function run($id): Ngo
     {
         try {
-            $ngo = Ngo::withoutGlobalScope()->find($id);
+            $ngo = Ngo::withoutGlobalScopes()->find($id);
         } catch (Exception $exception) {
         }
         throw_if(empty($ngo->id), NotFoundException::class, 'NGO not found');
